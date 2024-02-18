@@ -1,0 +1,18 @@
+{
+  "typescript.tsdk": "node_modules\\typescript\\lib",
+  "typescript.enablePromptUseWorkspaceTsdk": true,
+  "cSpell.words": [
+    "commitlint",
+    "DDTHH",
+    "hookform",
+    "NEXTAUTH",
+    "noninteractive",
+    "progressbar",
+    "signin",
+    "spammy",
+    "supa",
+    "Toastify",
+    "typeahead"
+  ],
+  "scss.lint.unknownAtRules": "ignore",
+}

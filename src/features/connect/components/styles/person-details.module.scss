@@ -1,0 +1,44 @@
+.container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 46px 1fr;
+  gap: 12px;
+  padding: 0.75em 1em;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+
+  &:hover {
+    background-color: var(--clr-post-hover);
+  }
+
+  &:active {
+    background-color: var(--clr-quoted-post);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--clr-primary-disabled);
+    outline-offset: -2px;
+    background-color: var(--clr-post-hover);
+  }
+
+  &:focus-within {
+    background-color: var(--clr-post-hover);
+  }
+
+  .info {
+    .user_details {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .secondary {
+      padding-top: 4px;
+
+      .description {
+        font-size: var(--fs-milli);
+        color: var(--clr-secondary);
+      }
+    }
+  }
+}

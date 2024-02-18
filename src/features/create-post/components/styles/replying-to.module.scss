@@ -1,0 +1,21 @@
+.container {
+  color: var(--clr-tertiary);
+  font-size: var(--fs-milli);
+  word-wrap: break-word;
+  word-break: break-all;
+
+  .link {
+    color: var(--clr-primary);
+    cursor: pointer;
+
+    &:focus-visible,
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .username {
+    color: var(--clr-primary);
+    cursor: pointer;
+  }
+}

@@ -1,0 +1,21 @@
+.container {
+  position: relative;
+  border-bottom: 1px solid var(--clr-border);
+  padding: 4px 0 11px;
+
+  .createPost {
+    .replyingTo {
+      margin-left: 65px;
+    }
+  }
+}
+
+@keyframes slideDown {
+  0% {
+    height: 60px;
+  }
+
+  100% {
+    height: auto;
+  }
+}

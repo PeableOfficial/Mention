@@ -1,0 +1,33 @@
+@use "abstracts/media-query" as *;
+
+.container {
+  width: 300px;
+  background-color: var(--clr-background);
+  box-shadow: 0 0rem 10px -2px var(--clr-tertiary);
+  border-radius: 1rem;
+  padding: 0.8em 0;
+  overflow: hidden;
+
+  a {
+    font-size: var(--fs-milli);
+    font-weight: var(--fw-700);
+    display: block;
+    padding: 0.8em 1em;
+    cursor: pointer;
+    transition: background-color 0.1s ease-in-out;
+
+    &:hover {
+      background-color: var(--clr-trends-hover);
+    }
+
+    &:active {
+      background-color: var(--clr-trends-active);
+    }
+
+    &:focus-visible {
+      background-color: var(--clr-trends-hover);
+      outline: 2px solid var(--clr-primary-disabled);
+      outline-offset: -2px;
+    }
+  }
+}

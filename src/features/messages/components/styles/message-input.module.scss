@@ -1,0 +1,104 @@
+.container {
+  background-color: var(--clr-message-input-background);
+  border-radius: 15px;
+  padding: 4px;
+
+  .mediaPreview {
+    padding: 4px 11px;
+
+    .imageContainer {
+      position: relative;
+
+      img {
+        border-radius: 20px;
+        min-width: 140px;
+        height: 100%;
+        max-height: 140px;
+        object-fit: cover;
+      }
+
+      .close {
+        position: absolute;
+        top: 0.3rem;
+        left: 0.3rem;
+        z-index: 9999;
+        background-color: var(--clr-trends-background);
+        border-radius: 100vmax;
+
+        svg {
+          fill: var(--clr-light);
+        }
+      }
+    }
+  }
+
+  .inputContainer {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+
+    button {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: grid;
+      place-items: center;
+      transition: background-color 0.2s ease;
+
+      &:hover {
+        background-color: var(--clr-primary-background);
+      }
+
+      svg {
+        width: 19px;
+        height: 19px;
+        fill: var(--clr-primary);
+      }
+    }
+
+    .actions {
+      display: flex;
+      align-items: center;
+
+      .fileInput {
+        display: none;
+      }
+    }
+
+    .input {
+      input {
+        width: 100%;
+        padding: 4px 11px;
+        font-size: var(--fs-milli);
+
+        &::placeholder {
+          color: var(--clr-tertiary);
+        }
+      }
+    }
+
+    .send {
+      margin-left: auto;
+
+      button {
+        &:disabled {
+          opacity: 0.5;
+          cursor: default;
+
+          &:hover {
+            background-color: transparent;
+          }
+
+          &:active {
+            background-color: transparent;
+          }
+        }
+      }
+    }
+  }
+
+  .active {
+    grid-template-columns: 1fr auto;
+  }
+}

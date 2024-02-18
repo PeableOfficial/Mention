@@ -1,0 +1,439 @@
+@use "./colors" as *;
+
+// THEMES
+
+:root {
+  --clr-light: #fff;
+  --clr-light-hover: #f3f4f6;
+  --clr-light-active: #d2ebfc;
+
+  --clr-dark: #000;
+  --clr-dark-hover: #0e0f11;
+  --clr-dark-active: #061f30;
+
+  --clr-dim: #15202b;
+  --clr-dim-hover: #162d3f;
+  --clr-dim-active: #173952;
+
+  --clr-blue: #1d9bf0;
+  --clr-blue-hover: #1a8cd8;
+  --clr-blue-active: #177cc0;
+  --clr-yellow: #ffd400;
+  --clr-rose: #f91880;
+  --clr-violet: #7856ff;
+  --clr-orange: #ff7a00;
+  --clr-green: #00ba7c;
+  --clr-red: #f4212e;
+  --clr-red-hover: #dc1e29;
+  --clr-red-active: #c31a25;
+
+  --clr-modal-background: rgba(91, 112, 131, 0.4);
+  --clr-modal: rgb(32, 33, 38);
+  --clr-modal-opacity: rgba(32, 33, 38, 0.9);
+  --clr-modal-hover: rgb(49, 50, 56);
+  --clr-modal-active: rgb(66, 66, 71);
+
+  --clr-modal-actions-hover: rgb(57, 58, 64);
+  --clr-modal-actions-active: rgb(88, 90, 93);
+
+  --clr-action: rgba(8, 11, 14, 0.6);
+  --clr-action-hover: rgba(22, 25, 27, 0.6);
+  --clr-action-active: rgba(35, 37, 40, 0.7);
+
+  --clr-login-hover: #34a5f2;
+  --clr-login-active: #4aaff3;
+  --clr-login-border: #6cbef5;
+
+  --clr-signup-hover: #d7dbdc;
+  --clr-signup-active: #bfc2c3;
+
+  --clr-auth-button-hover: #e6e6e6;
+  --clr-auth-button-active: #cccccc;
+
+  // Default theme
+  --clr-background: #{$light-background};
+
+  --clr-primary: #{$light-primary};
+  --clr-primary-hover: #{$light-primary-hover};
+  --clr-primary-active: #{$light-primary-active};
+  --clr-primary-disabled: #{$light-primary-disabled};
+  --clr-primary-opacity: #{$light-primary-opacity};
+
+  --clr-secondary: #{$light-secondary};
+  --clr-secondary-hover: #{$light-secondary-hover};
+  --clr-secondary-active: #{$light-secondary-active};
+
+  --clr-tertiary: #{$light-tertiary};
+
+  --clr-nav-hover: #{$light-nav-hover};
+  --clr-nav-active: #{$light-nav-active};
+
+  --clr-trends-background: #{$light-trends-background};
+  --clr-trends-hover: #{$light-trends-hover};
+  --clr-trends-active: #{$light-trends-active};
+
+  --clr-connect-background: #{$light-connect-background};
+  --clr-connect-hover: #{$light-connect-hover};
+  --clr-connect-active: #{$light-connect-active};
+
+  --clr-connect-button-hover: #{$light-connect-button-hover};
+  --clr-connect-button-active: #{$light-connect-button-active};
+
+  --clr-options-hover: #{$light-options-hover};
+  --clr-options-active: #{$light-options-active};
+
+  --clr-post-hover: #{$light-post-hover};
+
+  --clr-comment-hover: #{$light-comment-hover};
+  --clr-comment-active: #{$light-comment-active};
+
+  --clr-heart-hover: #{$light-heart-hover};
+  --clr-heart-active: #{$light-heart-active};
+
+  --clr-repost-hover: #{$light-repost-hover};
+  --clr-repost-active: #{$light-repost-active};
+
+  --clr-search-background: #{$light-search-background};
+
+  --clr-logo: #{$light-logo};
+  --clr-logo-hover: #{$light-logo-hover};
+  --clr-logo-active: #{$light-logo-active};
+
+  --clr-border: #{$light-border};
+  --clr-auth-border: #{$light-auth-border};
+
+  --clr-signout-background: #{$light-signout-background};
+  --clr-signout-logout-hover: #{$light-signout-logout-hover};
+  --clr-signout-logout-active: #{$light-signout-logout-active};
+  --clr-signout-cancel-hover: #{$light-signout-cancel-hover};
+  --clr-signout-cancel-active: #{$light-signout-cancel-active};
+
+  --clr-message-background: #{$light-message-background};
+  --clr-conversation-actions-hover: #{$light-conversation-actions-hover};
+  --clr-conversation-actions-active: #{$light-conversation-actions-active};
+  --clr-conversation-delete-hover: #{$light-conversation-delete-hover};
+  --clr-conversation-delete-active: #{$light-conversation-delete-active};
+  --clr-message-input-background: #{$light-message-input-background};
+
+  // Dark theme
+  @media (prefers-color-scheme: dark) {
+    --clr-background: #{$dark-background};
+
+    --clr-primary: #{$dark-primary};
+    --clr-primary-hover: #{$dark-primary-hover};
+    --clr-primary-active: #{$dark-primary-active};
+    --clr-primary-disabled: #{$dark-primary-disabled};
+    --clr-primary-opacity: #{$dark-primary-opacity};
+
+    --clr-secondary: #{$dark-secondary};
+    --clr-secondary-hover: #{$dark-secondary-hover};
+    --clr-secondary-active: #{$dark-secondary-active};
+
+    --clr-tertiary: #{$dark-tertiary};
+
+    --clr-nav-hover: #{$dark-nav-hover};
+    --clr-nav-active: #{$dark-nav-active};
+
+    --clr-trends-background: #{$dark-trends-background};
+    --clr-trends-hover: #{$dark-trends-hover};
+    --clr-trends-active: #{$dark-trends-active};
+
+    --clr-connect-background: #{$dark-connect-background};
+    --clr-connect-hover: #{$dark-connect-hover};
+    --clr-connect-active: #{$dark-connect-active};
+
+    --clr-connect-button-hover: #{$dark-connect-button-hover};
+    --clr-connect-button-active: #{$dark-connect-button-active};
+
+    --clr-options-hover: #{$dark-options-hover};
+    --clr-options-active: #{$dark-options-active};
+
+    --clr-post-hover: #{$dark-post-hover};
+
+    --clr-comment-hover: #{$dark-comment-hover};
+    --clr-comment-active: #{$dark-comment-active};
+
+    --clr-heart-hover: #{$dark-heart-hover};
+    --clr-heart-active: #{$dark-heart-active};
+
+    --clr-repost-hover: #{$dark-repost-hover};
+    --clr-repost-active: #{$dark-repost-active};
+
+    --clr-search-background: #{$dark-search-background};
+
+    --clr-logo: #{$dark-logo};
+    --clr-logo-hover: #{$dark-logo-hover};
+    --clr-logo-active: #{$dark-logo-active};
+
+    --clr-border: #{$dark-border};
+    --clr-auth-border: #{$dark-auth-border};
+
+    --clr-signout-background: #{$dark-signout-background};
+    --clr-signout-logout-hover: #{$dark-signout-logout-hover};
+    --clr-signout-logout-active: #{$dark-signout-logout-active};
+    --clr-signout-cancel-hover: #{$dark-signout-cancel-hover};
+    --clr-signout-cancel-active: #{$dark-signout-cancel-active};
+
+    --clr-message-background: #{$dark-message-background};
+    --clr-conversation-actions-hover: #{$dark-conversation-actions-hover};
+    --clr-conversation-actions-active: #{$dark-conversation-actions-active};
+    --clr-conversation-delete-hover: #{$dark-conversation-delete-hover};
+    --clr-conversation-delete-active: #{$dark-conversation-delete-active};
+    --clr-message-input-background: #{$dark-message-input-background};
+  }
+
+  // Default color
+  --clr-primary: #{$blue-primary};
+  --clr-primary-hover: #{$blue-primary-hover};
+  --clr-primary-active: #{$blue-primary-active};
+  --clr-primary-disabled: #{$blue-primary-disabled};
+  --clr-primary-background: #{$blue-primary-background};
+}
+
+.theme-light {
+  --clr-background: #{$light-background};
+
+  --clr-primary: #{$light-primary};
+  --clr-primary-hover: #{$light-primary-hover};
+  --clr-primary-active: #{$light-primary-active};
+  --clr-primary-disabled: #{$light-primary-disabled};
+  --clr-primary-opacity: #{$light-primary-opacity};
+
+  --clr-secondary: #{$light-secondary};
+  --clr-secondary-hover: #{$light-secondary-hover};
+  --clr-secondary-active: #{$light-secondary-active};
+
+  --clr-tertiary: #{$light-tertiary};
+
+  --clr-nav-hover: #{$light-nav-hover};
+  --clr-nav-active: #{$light-nav-active};
+
+  --clr-trends-background: #{$light-trends-background};
+  --clr-trends-hover: #{$light-trends-hover};
+  --clr-trends-active: #{$light-trends-active};
+
+  --clr-connect-background: #{$light-connect-background};
+  --clr-connect-hover: #{$light-connect-hover};
+  --clr-connect-active: #{$light-connect-active};
+
+  --clr-connect-button-hover: #{$light-connect-button-hover};
+  --clr-connect-button-active: #{$light-connect-button-active};
+
+  --clr-options-hover: #{$light-options-hover};
+  --clr-options-active: #{$light-options-active};
+
+  --clr-post-hover: #{$light-post-hover};
+
+  --clr-comment-hover: #{$light-comment-hover};
+  --clr-comment-active: #{$light-comment-active};
+
+  --clr-heart-hover: #{$light-heart-hover};
+  --clr-heart-active: #{$light-heart-active};
+
+  --clr-repost-hover: #{$light-repost-hover};
+  --clr-repost-active: #{$light-repost-active};
+
+  --clr-search-background: #{$light-search-background};
+
+  --clr-logo: #{$light-logo};
+  --clr-logo-hover: #{$light-logo-hover};
+  --clr-logo-active: #{$light-logo-active};
+
+  --clr-border: #{$light-border};
+  --clr-auth-border: #{$light-auth-border};
+
+  --clr-signout-background: #{$light-signout-background};
+  --clr-signout-logout-hover: #{$light-signout-logout-hover};
+  --clr-signout-logout-active: #{$light-signout-logout-active};
+  --clr-signout-cancel-hover: #{$light-signout-cancel-hover};
+  --clr-signout-cancel-active: #{$light-signout-cancel-active};
+
+  --clr-message-background: #{$light-message-background};
+  --clr-conversation-actions-hover: #{$light-conversation-actions-hover};
+  --clr-conversation-actions-active: #{$light-conversation-actions-active};
+  --clr-conversation-delete-hover: #{$light-conversation-delete-hover};
+  --clr-conversation-delete-active: #{$light-conversation-delete-active};
+  --clr-message-input-background: #{$light-message-input-background};
+}
+
+.dark {
+  --clr-background: #{$dark-background};
+
+  --clr-primary: #{$dark-primary};
+  --clr-primary-hover: #{$dark-primary-hover};
+  --clr-primary-active: #{$dark-primary-active};
+  --clr-primary-disabled: #{$dark-primary-disabled};
+  --clr-primary-opacity: #{$dark-primary-opacity};
+
+  --clr-secondary: #{$dark-secondary};
+  --clr-secondary-hover: #{$dark-secondary-hover};
+  --clr-secondary-active: #{$dark-secondary-active};
+
+  --clr-tertiary: #{$dark-tertiary};
+
+  --clr-nav-hover: #{$dark-nav-hover};
+  --clr-nav-active: #{$dark-nav-active};
+
+  --clr-trends-background: #{$dark-trends-background};
+  --clr-trends-hover: #{$dark-trends-hover};
+  --clr-trends-active: #{$dark-trends-active};
+
+  --clr-connect-background: #{$dark-connect-background};
+  --clr-connect-hover: #{$dark-connect-hover};
+  --clr-connect-active: #{$dark-connect-active};
+
+  --clr-connect-button-hover: #{$dark-connect-button-hover};
+  --clr-connect-button-active: #{$dark-connect-button-active};
+
+  --clr-options-hover: #{$dark-options-hover};
+  --clr-options-active: #{$dark-options-active};
+
+  --clr-post-hover: #{$dark-post-hover};
+
+  --clr-comment-hover: #{$dark-comment-hover};
+  --clr-comment-active: #{$dark-comment-active};
+
+  --clr-heart-hover: #{$dark-heart-hover};
+  --clr-heart-active: #{$dark-heart-active};
+
+  --clr-repost-hover: #{$dark-repost-hover};
+  --clr-repost-active: #{$dark-repost-active};
+
+  --clr-search-background: #{$dark-search-background};
+
+  --clr-logo: #{$dark-logo};
+  --clr-logo-hover: #{$dark-logo-hover};
+  --clr-logo-active: #{$dark-logo-active};
+
+  --clr-border: #{$dark-border};
+  --clr-auth-border: #{$dark-auth-border};
+
+  --clr-signout-background: #{$dark-signout-background};
+  --clr-signout-logout-hover: #{$dark-signout-logout-hover};
+  --clr-signout-logout-active: #{$dark-signout-logout-active};
+  --clr-signout-cancel-hover: #{$dark-signout-cancel-hover};
+  --clr-signout-cancel-active: #{$dark-signout-cancel-active};
+
+  --clr-message-background: #{$dark-message-background};
+  --clr-conversation-actions-hover: #{$dark-conversation-actions-hover};
+  --clr-conversation-actions-active: #{$dark-conversation-actions-active};
+  --clr-conversation-delete-hover: #{$dark-conversation-delete-hover};
+  --clr-conversation-delete-active: #{$dark-conversation-delete-active};
+  --clr-message-input-background: #{$dark-message-input-background};
+}
+
+.theme-dim {
+  --clr-background: #{$dim-background};
+
+  --clr-primary: #{$dim-primary};
+  --clr-primary-hover: #{$dim-primary-hover};
+  --clr-primary-active: #{$dim-primary-active};
+  --clr-primary-disabled: #{$dim-primary-disabled};
+  --clr-primary-opacity: #{$dim-primary-opacity};
+
+  --clr-secondary: #{$dim-secondary};
+  --clr-secondary-hover: #{$dim-secondary-hover};
+  --clr-secondary-active: #{$dim-secondary-active};
+
+  --clr-tertiary: #{$dim-tertiary};
+
+  --clr-nav-hover: #{$dim-nav-hover};
+  --clr-nav-active: #{$dim-nav-active};
+
+  --clr-trends-background: #{$dim-trends-background};
+  --clr-trends-hover: #{$dim-trends-hover};
+  --clr-trends-active: #{$dim-trends-active};
+
+  --clr-connect-background: #{$dim-connect-background};
+  --clr-connect-hover: #{$dim-connect-hover};
+  --clr-connect-active: #{$dim-connect-active};
+
+  --clr-connect-button-hover: #{$dim-connect-button-hover};
+  --clr-connect-button-active: #{$dim-connect-button-active};
+
+  --clr-options-hover: #{$dim-options-hover};
+  --clr-options-active: #{$dim-options-active};
+
+  --clr-post-hover: #{$dim-post-hover};
+
+  --clr-comment-hover: #{$dim-comment-hover};
+  --clr-comment-active: #{$dim-comment-active};
+
+  --clr-heart-hover: #{$dim-heart-hover};
+  --clr-heart-active: #{$dim-heart-active};
+
+  --clr-repost-hover: #{$dim-repost-hover};
+  --clr-repost-active: #{$dim-repost-active};
+
+  --clr-search-background: #{$dim-search-background};
+
+  --clr-logo: #{$dim-logo};
+  --clr-logo-hover: #{$dim-logo-hover};
+  --clr-logo-active: #{$dim-logo-active};
+
+  --clr-border: #{$dim-border};
+  --clr-auth-border: #{$dim-auth-border};
+
+  --clr-signout-background: #{$dim-signout-background};
+  --clr-signout-logout-hover: #{$dim-signout-logout-hover};
+  --clr-signout-logout-active: #{$dim-signout-logout-active};
+  --clr-signout-cancel-hover: #{$dim-signout-cancel-hover};
+  --clr-signout-cancel-active: #{$dim-signout-cancel-active};
+
+  --clr-message-background: #{$dim-message-background};
+  --clr-conversation-actions-hover: #{$dim-conversation-actions-hover};
+  --clr-conversation-actions-active: #{$dim-conversation-actions-active};
+  --clr-conversation-delete-hover: #{$dim-conversation-delete-hover};
+  --clr-conversation-delete-active: #{$dim-conversation-delete-active};
+  --clr-message-input-background: #{$dim-message-input-background};
+}
+
+// PRIMARY COLORS
+
+.color-blue {
+  --clr-primary: #{$blue-primary};
+  --clr-primary-hover: #{$blue-primary-hover};
+  --clr-primary-active: #{$blue-primary-active};
+  --clr-primary-disabled: #{$blue-primary-disabled};
+  --clr-primary-background: #{$blue-primary-background};
+}
+
+.color-yellow {
+  --clr-primary: #{$yellow-primary};
+  --clr-primary-hover: #{$yellow-primary-hover};
+  --clr-primary-active: #{$yellow-primary-active};
+  --clr-primary-disabled: #{$yellow-primary-disabled};
+  --clr-primary-background: #{$yellow-primary-background};
+}
+
+.color-rose {
+  --clr-primary: #{$rose-primary};
+  --clr-primary-hover: #{$rose-primary-hover};
+  --clr-primary-active: #{$rose-primary-active};
+  --clr-primary-disabled: #{$rose-primary-disabled};
+  --clr-primary-background: #{$rose-primary-background};
+}
+
+.color-violet {
+  --clr-primary: #{$violet-primary};
+  --clr-primary-hover: #{$violet-primary-hover};
+  --clr-primary-active: #{$violet-primary-active};
+  --clr-primary-disabled: #{$violet-primary-disabled};
+  --clr-primary-background: #{$violet-primary-background};
+}
+
+.color-orange {
+  --clr-primary: #{$orange-primary};
+  --clr-primary-hover: #{$orange-primary-hover};
+  --clr-primary-active: #{$orange-primary-active};
+  --clr-primary-disabled: #{$orange-primary-disabled};
+  --clr-primary-background: #{$orange-primary-background};
+}
+
+.color-green {
+  --clr-primary: #{$green-primary};
+  --clr-primary-hover: #{$green-primary-hover};
+  --clr-primary-active: #{$green-primary-active};
+  --clr-primary-disabled: #{$green-primary-disabled};
+  --clr-primary-background: #{$green-primary-background};
+}

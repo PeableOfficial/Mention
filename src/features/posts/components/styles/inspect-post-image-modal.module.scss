@@ -1,0 +1,209 @@
+@use "./abstracts/media-query" as *;
+@use "./abstracts/tooltips" as *;
+
+.container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--clr-modal);
+  display: flex;
+
+  .loading,
+  .error {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    height: 100dvh;
+    display: grid;
+    place-items: center;
+
+    .close {
+      @include tooltip(bottom, 2px);
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      cursor: pointer;
+      padding: 0.5em;
+      justify-content: center;
+      border-radius: 100vmax;
+      background-color: var(--clr-modal);
+      transition: background-color 0.2s ease-in-out;
+      display: grid;
+      place-items: center;
+
+      &:hover {
+        background-color: var(--clr-modal-hover);
+      }
+
+      &:active {
+        background-color: var(--clr-modal-active);
+      }
+
+      &:focus-visible {
+        outline: 2px solid var(--clr-secondary);
+        background-color: var(--clr-modal-hover);
+      }
+
+      svg {
+        width: var(--fs-h2);
+        height: var(--fs-h2);
+        fill: var(--clr-secondary);
+      }
+    }
+  }
+
+  .images {
+    width: 100%;
+    position: relative;
+    display: grid;
+    grid-template-rows: 1fr 46px;
+
+    .close {
+      @include tooltip(bottom, 2px);
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      cursor: pointer;
+      padding: 0.5em;
+      justify-content: center;
+      border-radius: 100vmax;
+      background-color: var(--clr-modal);
+      transition: background-color 0.2s ease-in-out;
+      display: grid;
+      place-items: center;
+
+      &:hover {
+        background-color: var(--clr-modal-hover);
+      }
+
+      &:active {
+        background-color: var(--clr-modal-active);
+      }
+
+      &:focus-visible {
+        outline: 2px solid var(--clr-secondary);
+        background-color: var(--clr-modal-hover);
+      }
+
+      svg {
+        width: var(--fs-h2);
+        height: var(--fs-h2);
+        fill: var(--clr-secondary);
+      }
+    }
+
+    .toggleDetails {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      cursor: pointer;
+      padding: 0.5em;
+      justify-content: center;
+      border-radius: 100vmax;
+      background-color: var(--clr-modal);
+      transition: background-color 0.2s ease-in-out;
+      display: none;
+
+      &:hover {
+        background-color: var(--clr-modal-hover);
+      }
+
+      &:active {
+        background-color: var(--clr-modal-active);
+      }
+
+      &:focus-visible {
+        outline: 2px solid var(--clr-secondary);
+        background-color: var(--clr-modal-hover);
+      }
+
+      svg {
+        width: var(--fs-h2);
+        height: var(--fs-h2);
+        fill: var(--clr-secondary);
+      }
+
+      @include mq("medium") {
+        @include tooltip(bottom, 2px);
+        position: absolute;
+        display: grid;
+        place-items: center;
+      }
+    }
+
+    .imagesContainer {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .postActions {
+      padding-inline: 1rem;
+      svg {
+        fill: var(--clr-light);
+      }
+
+      span {
+        color: var(--clr-light);
+      }
+
+      --clr-comment-hover: var(--clr-modal-actions-hover);
+      --clr-comment-active: var(--clr-modal-actions-active);
+
+      --clr-heart-hover: var(--clr-modal-actions-hover);
+      --clr-heart-active: var(--clr-modal-actions-active);
+
+      --clr-repost-hover: var(--clr-modal-actions-hover);
+      --clr-repost-active: var(--clr-modal-actions-active);
+    }
+  }
+
+  .postDetails {
+    background-color: var(--clr-background);
+    width: 100%;
+    max-width: 350px;
+    overflow-y: auto;
+    display: none;
+
+    .postAuthor {
+      padding: 0.8rem 0.5rem 0 1rem;
+    }
+
+    .text {
+      white-space: pre-wrap;
+      padding: 0 1rem;
+    }
+
+    .postDate {
+      padding: 0 1rem;
+    }
+
+    .postStatistics {
+      padding: 0 1rem;
+    }
+
+    .postActions {
+      margin: 0 1rem;
+      border-bottom: 1px solid var(--clr-border);
+    }
+
+    @include mq("medium") {
+      display: block;
+    }
+
+    .createComment {
+      margin-top: 0.8rem;
+      border-bottom: 1px solid var(--clr-border);
+    }
+
+    .comments {
+      padding-bottom: calc(100vh - 6rem);
+    }
+  }
+
+  @include mq("medium") {
+    background-color: var(--clr-modal-opacity);
+  }
+}

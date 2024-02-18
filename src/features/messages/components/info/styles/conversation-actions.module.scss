@@ -1,0 +1,35 @@
+.container {
+  padding: 4px 0;
+  display: flex;
+  flex-direction: column;
+
+  button {
+    padding: 15px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 300;
+    color: var(--clr-primary);
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+
+    &:hover {
+      background-color: var(--clr-conversation-actions-hover);
+    }
+
+    &:active {
+      background-color: var(--clr-conversation-actions-active);
+    }
+  }
+
+  .leave {
+    color: var(--clr-red);
+
+    &:hover {
+      background-color: var(--clr-conversation-delete-hover);
+    }
+
+    &:active {
+      background-color: var(--clr-conversation-delete-active);
+    }
+  }
+}

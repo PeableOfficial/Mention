@@ -1,0 +1,182 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model VerificationToken {
+  identifier String
+  token      String   @unique
+  expires    DateTime
+
+  @@unique([identifier, token])
+}
+
+model Account {
+  id                 String  @id @default(cuid())
+  userId             String
+  type               String
+  provider           String
+  providerAccountId  String
+  refresh_token      String? @db.Text
+  access_token       String? @db.Text
+  oath_token         String? @db.Text
+  oauth_token_secret String?
+  expires_at         Int?
+  token_type         String?
+  scope              String?
+  id_token           String? @db.Text
+  session_state      String?
+  user               User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  expires      DateTime
+  userId       String
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+enum UserRole {
+  ADMIN
+  USER
+}
+
+model User {
+  id                 String         @id @default(cuid())
+  name               String
+  screen_name        String         @unique @default(cuid())
+  location           String?
+  url                String?
+  description        String?
+  protected          Boolean        @default(false)
+  verified           Boolean        @default(false)
+  email              String?        @unique
+  emailVerified      DateTime?
+  image              String?
+  password           String?
+  role               UserRole       @default(USER)
+  created_at         DateTime       @default(now())
+  followers_count    Int            @default(0)
+  friends_count      Int            @default(0)
+  favorites_count    Int            @default(0)
+  statuses_count     Int            @default(0)
+  profile_banner_url String?
+  profile_image_url  String?
+  accounts           Account[]
+  sessions           Session[]
+  posts             Post[]
+  likes              Like[]
+  followers          User[]         @relation(name: "Followers")
+  following          User[]         @relation(name: "Followers")
+  reposts           Repost[]
+  bookmarks          Bookmark[]
+  sent_messages      Message[]      @relation("receiver")
+  received_messages  Message[]      @relation("sender")
+  conversations      Conversation[]
+  pinned_post       Post?         @relation("pinned_post", fields: [pinned_post_id], references: [id])
+  pinned_post_id    String?
+}
+
+model Post {
+  id                      String     @id @default(cuid())
+  text                    String?
+  source                  String     @default("web")
+  in_reply_to_user_id     String?
+  in_reply_to_screen_name String?
+  is_quote_status         Boolean    @default(false)
+  quoted_status_id        String?
+  quote_count             Int        @default(0)
+  reply_count             Int        @default(0)
+  repost_count           Int        @default(0)
+  favorite_count          Int        @default(0)
+  possibly_sensitive      Boolean    @default(false)
+  lang                    String     @default("en")
+  created_at              DateTime   @default(now())
+  author                  User       @relation(fields: [author_id], references: [id], onDelete: Cascade)
+  author_id               String
+  media                   Media[]
+  likes                   Like[]
+  reposts                Repost[]
+  quotes                  Post[]    @relation("quoted_post")
+  quoted_post_id         String?
+  quoted_post            Post?     @relation("quoted_post", fields: [quoted_post_id], references: [id])
+  comments                Post[]    @relation("post-comment")
+  in_reply_to_status_id   String?
+  post_comment           Post?     @relation("post-comment", fields: [in_reply_to_status_id], references: [id])
+  bookmarks               Bookmark[]
+  pinned_by_users         User[]     @relation("pinned_post")
+}
+
+model Media {
+  id         String   @id @default(cuid())
+  media_url  String
+  media_type String
+  media_path String
+  post      Post?   @relation(fields: [post_id], references: [id], onDelete: Cascade)
+  post_id   String?
+  Message    Message? @relation(fields: [message_id], references: [id], onDelete: Cascade)
+  message_id String?
+}
+
+model Like {
+  id         String   @id @default(cuid())
+  post      Post    @relation(fields: [post_id], references: [id], onDelete: Cascade)
+  post_id   String
+  user       User     @relation(fields: [user_id], references: [id])
+  user_id    String
+  created_at DateTime @default(now())
+}
+
+model Repost {
+  id         String   @id @default(cuid())
+  post      Post    @relation(fields: [post_id], references: [id], onDelete: Cascade)
+  post_id   String
+  user       User     @relation(fields: [user_id], references: [id])
+  user_id    String
+  created_at DateTime @default(now())
+}
+
+model Bookmark {
+  id         String   @id @default(cuid())
+  post      Post    @relation(fields: [post_id], references: [id], onDelete: Cascade)
+  post_id   String
+  user       User     @relation(fields: [user_id], references: [id])
+  user_id    String
+  created_at DateTime @default(now())
+}
+
+model Hashtag {
+  id         String   @id @default(cuid())
+  text       String
+  hashtag    String   @unique
+  score      Int      @default(1)
+  created_at DateTime @default(now())
+}
+
+model Message {
+  id              String       @id @default(cuid())
+  text            String?
+  image           String?
+  created_at      DateTime     @default(now())
+  sender          User         @relation(name: "sender", fields: [sender_id], references: [id], onDelete: Cascade)
+  sender_id       String
+  receiver        User         @relation(name: "receiver", fields: [receiver_id], references: [id], onDelete: Cascade)
+  receiver_id     String
+  conversation    Conversation @relation(fields: [conversation_id], references: [id], onDelete: Cascade)
+  conversation_id String
+  media           Media[]
+}
+
+model Conversation {
+  id         String    @id @default(cuid())
+  users      User[]
+  messages   Message[]
+  created_at DateTime  @default(now())
+}

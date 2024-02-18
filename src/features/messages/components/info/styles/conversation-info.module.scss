@@ -1,0 +1,14 @@
+.container {
+  height: 100vh;
+  height: 100dvh;
+
+  .members {
+    border-bottom: 1px solid var(--clr-border);
+    padding-bottom: 4px;
+  }
+
+  .notifications {
+    border-bottom: 1px solid var(--clr-border);
+    padding: 4px 0;
+  }
+}

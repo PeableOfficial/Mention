@@ -1,0 +1,41 @@
+.container {
+  padding-bottom: calc(100vh - 8rem);
+
+  .people {
+    border-top: 1px solid var(--clr-border);
+    border-bottom: 1px solid var(--clr-border);
+
+    h1 {
+      padding: 0.8rem 1rem;
+      font-size: var(--fs-h2);
+      font-weight: var(--fw-700);
+    }
+
+    .viewAll {
+      padding: 1em;
+      width: 100%;
+      text-align: left;
+      border: none;
+      background: none;
+      cursor: pointer;
+      font-size: var(--fs-milli);
+      color: var(--clr-primary);
+      font-weight: 300;
+
+      &:hover {
+        background-color: var(--clr-post-hover);
+      }
+
+      &:focus-visible {
+        outline: 2px solid var(--clr-primary-disabled);
+        outline-offset: -2px;
+      }
+    }
+  }
+
+  .posts {
+    .postContainer {
+      border-bottom: 1px solid var(--clr-border);
+    }
+  }
+}

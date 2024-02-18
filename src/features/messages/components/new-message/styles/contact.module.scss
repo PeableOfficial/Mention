@@ -1,0 +1,80 @@
+.container {
+  padding: 11px 15px;
+  cursor: pointer;
+  width: 100%;
+  transition: background-color 0.2s ease-in-out;
+
+  &:hover {
+    background-color: var(--clr-post-hover);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--clr-primary-disabled);
+    outline-offset: -2px;
+    background-color: var(--clr-post-hover);
+  }
+
+  .following {
+    margin-left: 22px;
+    margin-bottom: 2px;
+    display: flex;
+    align-items: center;
+    gap: 11px;
+
+    .icon {
+      svg {
+        width: 15px;
+        height: 15px;
+        fill: var(--clr-tertiary);
+      }
+    }
+
+    .text {
+      font-size: var(--fs-nano);
+      font-weight: 700;
+      color: var(--clr-tertiary);
+    }
+  }
+
+  .user {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 11px;
+
+    .avatar {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      overflow: hidden;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    .info {
+      .name {
+        font-size: var(--fs-nano);
+        font-weight: 500;
+        color: var(--clr-secondary);
+      }
+
+      .username {
+        font-size: var(--fs-nano);
+        font-weight: 400;
+        color: var(--clr-tertiary);
+      }
+    }
+
+    .tick {
+      svg {
+        width: 17.5px;
+        height: 17.5px;
+        fill: var(--clr-primary);
+      }
+    }
+  }
+}

@@ -1,0 +1,30 @@
+.container {
+  .noPosts {
+    display: flex;
+    justify-content: center;
+    padding: 2rem;
+
+    div {
+      max-width: 340px;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+
+      h1 {
+        font-size: var(--fs-kilo);
+        font-weight: var(--fw-700);
+        color: var(--clr-secondary);
+        word-wrap: break-word;
+      }
+
+      p {
+        font-size: var(--fs-milli);
+        color: var(--clr-tertiary);
+      }
+    }
+  }
+
+  .postContainer {
+    border-bottom: 1px solid var(--clr-border);
+  }
+}

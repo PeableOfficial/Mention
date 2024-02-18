@@ -1,0 +1,13 @@
+.container {
+  height: 50px;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+
+  h1 {
+    font-size: var(--fs-h2);
+    font-weight: 500;
+    color: var(--clr-secondary);
+  }
+}

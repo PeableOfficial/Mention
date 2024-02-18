@@ -1,0 +1,61 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 6rem;
+
+  .postDetails {
+    padding: 1rem 1rem 0 1rem;
+
+    .user {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      margin-bottom: 1rem;
+    }
+
+    .replying {
+      margin-bottom: 0.6rem;
+      font-size: var(--fs-milli);
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+
+      .replyingTo {
+        color: var(--clr-tertiary);
+      }
+
+      .replyingToUsername {
+        color: var(--clr-primary);
+        cursor: pointer;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+
+    .post {
+      .text {
+        font-size: var(--fs-large);
+        white-space: pre-wrap;
+      }
+
+      .quotedPost {
+        border-radius: 15px;
+        cursor: pointer;
+
+        &:hover {
+          background-color: var(--clr-post-hover);
+        }
+      }
+    }
+
+    .postActions {
+      border-bottom: 1px solid var(--clr-border);
+    }
+  }
+
+  .createComment {
+    border-bottom: 1px solid var(--clr-border);
+  }
+}

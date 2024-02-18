@@ -1,0 +1,30 @@
+.container {
+  margin: 0 auto;
+  padding: 0.2em 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 600px;
+
+  span {
+    transition: background 0.1s ease-in;
+  }
+}
+
+.post {
+  justify-content: space-between;
+
+  svg {
+    width: var(--fs-h3);
+    height: var(--fs-h3);
+  }
+}
+
+.postDetails {
+  justify-content: space-around;
+
+  svg {
+    width: var(--fs-h1);
+    height: var(--fs-h1);
+  }
+}

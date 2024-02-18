@@ -1,0 +1,12 @@
+@use "./abstracts/media-query" as *;
+
+.container {
+  .createPost {
+    border-bottom: 1px solid var(--clr-border);
+    display: none;
+
+    @include mq("small") {
+      display: block;
+    }
+  }
+}

@@ -1,0 +1,34 @@
+.container {
+  padding: 1rem 0.2rem;
+  border-bottom: 1px solid var(--clr-border);
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+
+  .statistic {
+    font-size: var(--fs-micro);
+    color: var(--clr-secondary);
+
+    strong {
+      font-weight: var(--fw-700);
+    }
+
+    span {
+      color: var(--clr-tertiary);
+    }
+  }
+
+  button,
+  a {
+    cursor: pointer;
+
+    &:hover {
+      text-decoration: underline;
+    }
+
+    &:focus-visible {
+      text-decoration: underline;
+    }
+  }
+}

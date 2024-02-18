@@ -1,0 +1,54 @@
+@use "abstracts/media-query" as *;
+
+.container {
+  width: var(--logo-size);
+  height: var(--logo-size);
+  border-radius: 100vmax;
+  cursor: pointer;
+
+  div {
+    width: 100%;
+    height: 100%;
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--clr-primary-disabled);
+  }
+
+  @include mq("small") {
+    display: none;
+  }
+}
+
+.logo {
+  width: var(--logo-size);
+  height: var(--logo-size);
+  padding: 5px;
+  border-radius: 100vmax;
+  overflow: hidden;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+
+  &:hover {
+    background-color: var(--clr-logo-hover);
+  }
+
+  &:active {
+    background-color: var(--clr-logo-active);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--clr-primary-disabled);
+  }
+
+  @include mq("small") {
+    display: none;
+  }
+
+  svg {
+    width: 100%;
+    height: 100%;
+    fill: var(--clr-logo);
+  }
+}

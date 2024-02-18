@@ -1,0 +1,47 @@
+.container {
+  display: block;
+  margin-top: 11px;
+  border-radius: 1rem;
+  border: 1px solid var(--clr-border);
+  cursor: pointer;
+
+  &:focus-visible {
+    outline: 2px solid var(--clr-primary-disabled);
+  }
+
+  .userDetails {
+    padding: 11px 11px 4px;
+    display: grid;
+    grid-auto-flow: column;
+    align-items: center;
+    place-content: start;
+    gap: 2px;
+    margin-bottom: 4px;
+
+    .avatar {
+      margin-right: 4px;
+
+      > * {
+        width: var(--quoted-post-avatar-width);
+        height: var(--quoted-post-avatar-width);
+      }
+    }
+
+    .dot {
+      margin-inline: 0.1rem;
+      color: var(--clr-tertiary);
+    }
+  }
+
+  .text {
+    white-space: pre-wrap;
+    font-size: var(--fs-milli);
+    margin: 0 11px 11px;
+  }
+
+  .media {
+    overflow: hidden;
+    border-radius: 0 0 15px 15px;
+    margin-top: 11px;
+  }
+}

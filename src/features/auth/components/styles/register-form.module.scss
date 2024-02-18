@@ -1,0 +1,40 @@
+.container {
+  background-color: var(--clr-background);
+  border: 1px solid var(--clr-border);
+  border-radius: 1rem;
+  padding: 1em 0.8em;
+
+  .title {
+    font-size: var(--fs-h3);
+    font-weight: var(--fw-700);
+    margin-bottom: 0.5em;
+  }
+
+  .description {
+    font-size: var(--fs-nano);
+    color: var(--clr-tertiary);
+    margin-bottom: 0.8em;
+  }
+
+  .buttons {
+    display: grid;
+    padding: 0.8em 0;
+    gap: 0.8em;
+  }
+
+  .terms {
+    font-size: var(--fs-nano);
+    color: var(--clr-tertiary);
+    line-height: 1.5;
+
+    a {
+      color: var(--clr-blue);
+      cursor: pointer;
+
+      &:hover,
+      &:focus-visible {
+        text-decoration: underline;
+      }
+    }
+  }
+}

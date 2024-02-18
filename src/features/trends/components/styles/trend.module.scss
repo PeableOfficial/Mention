@@ -1,0 +1,47 @@
+.container {
+  padding: 0.2rem 0.6rem 0.2rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+
+  &:hover {
+    background-color: var(--clr-trends-hover);
+  }
+
+  &:active:not(:focus-within) {
+    background-color: var(--clr-trends-active);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--clr-primary-disabled);
+    background-color: var(--clr-trends-hover);
+    outline-offset: -2px;
+  }
+
+  .trend {
+    padding: 0.4rem 0;
+
+    .stats {
+      font-size: var(--fs-nano);
+      line-height: 1.7;
+      color: var(--clr-tertiary);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+
+      .dot {
+        display: block;
+        width: 2px;
+        height: 2px;
+        border-radius: 50%;
+        background-color: var(--clr-tertiary);
+      }
+    }
+
+    .title {
+      font-size: var(--fs-milli);
+      font-weight: var(--fw-500);
+      color: var(--clr-secondary);
+    }
+  }
+}

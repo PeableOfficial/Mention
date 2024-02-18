@@ -1,0 +1,117 @@
+@use "main.scss";
+@use "abstracts/media-query" as *;
+
+// Emoji Picker React Styles
+.EmojiPickerReact {
+  --epr-bg-color: var(--clr-background) !important;
+  --epr-text-color: var(--clr-secondary) !important;
+  --epr-picker-border-color: transparent !important;
+
+  // border radius
+  --epr-picker-border-radius: 1rem !important;
+
+  // search
+  --epr-header-padding: 0.4em !important;
+
+  --epr-search-input-bg-color: var(--clr-nav-hover) !important;
+  --epr-search-input-bg-color-active: var(--clr-nav-hover) !important;
+
+  --epr-search-input-border-radius: 100vmax !important;
+  --epr-search-border-color: var(--clr-primary-disabled) !important;
+
+  --epr-search-input-text-color: var(--clr-secondary) !important;
+  --epr-search-input-placeholder-color: var(--clr-tertiary) !important;
+
+  // category navigation
+  --epr-category-navigation-button-size: var(--fs-h1) !important;
+  --epr-category-label-bg-color: var(--clr-background) !important;
+
+  // emoji
+  --epr-emoji-size: var(--fs-h2) !important;
+  --epr-hover-bg-color: var(--clr-nav-hover) !important;
+  --epr-focus-bg-color: var(--clr-nav-active) !important;
+
+  // preview
+  --epr-preview-height: 70px !important;
+  --epr-preview-text-size: var(--fs-micro);
+  --epr-preview-text-color: var(--clr-primary-disabled);
+}
+
+*::-webkit-scrollbar {
+  width: 11px;
+}
+
+*::-webkit-scrollbar-track {
+  background-color: var(--clr-nav-hover);
+  border-radius: 1rem;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--clr-nav-active);
+  border-radius: 1rem;
+}
+
+body {
+  min-height: 100vh;
+  min-height: 100dvh;
+  background-color: var(--clr-background);
+  color: var(--clr-secondary);
+  overflow-y: scroll;
+  overflow-x: hidden;
+
+  .layout {
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr;
+
+    @include mq("small") {
+      grid-template-columns: min-content auto;
+
+      main {
+        border-left: 2px solid var(--clr-border);
+
+        > div {
+          padding-bottom: calc(100vh - 4rem);
+        }
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+    }
+
+    @include mq("medium") {
+      max-width: 700px;
+
+      main {
+        border-right: 2px solid var(--clr-border);
+      }
+    }
+
+    @include mq("large") {
+      grid-template-columns: min-content 600px 1fr;
+      max-width: 1100px;
+    }
+
+    @include mq("x-large") {
+      grid-template-columns: min-content 600px 1fr;
+    }
+
+    @include mq("xx-large") {
+      grid-template-columns: 275px 600px 1fr;
+      max-width: 1265px;
+    }
+  }
+}
+
+.visually-hidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}

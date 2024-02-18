@@ -1,0 +1,249 @@
+////////////////////////////////////////
+// LIGHT THEME
+////////////////////////////////////////
+
+$light-background: #ffffff;
+
+$light-primary: #1d9bf0;
+$light-primary-hover: #1a8cd8;
+$light-primary-active: #177cc0;
+$light-primary-disabled: #8ecdf8;
+$light-primary-opacity: rgba(29, 155, 240, 0.1);
+
+$light-secondary: #0f1419;
+$light-secondary-hover: #0a0d10;
+$light-secondary-active: #050607;
+
+$light-tertiary: #536471;
+
+$light-nav-hover: #e7e7e8;
+$light-nav-active: #cfd0d1;
+
+$light-trends-background: #f7f9f9;
+$light-trends-hover: #eff1f1;
+$light-trends-active: #e6e7e7;
+
+$light-connect-background: #f7f9f9;
+$light-connect-hover: #eff1f1;
+$light-connect-active: #ebf0f2;
+
+$light-connect-button-hover: #272c30;
+$light-connect-button-active: #3f4347;
+
+$light-options-hover: #e1eef6;
+$light-options-active: #d2ebfc;
+
+$light-post-hover: #f7f7f7;
+
+$light-comment-hover: #e1eef6;
+$light-comment-active: #d2ebfc;
+
+$light-heart-hover: #f7e0eb;
+$light-heart-active: #fed1e6;
+
+$light-repost-hover: #def1eb;
+$light-repost-active: #ccf1e5;
+
+$light-search-background: #eff3f4;
+
+$light-logo: var(--clr-primary);
+$light-logo-hover: #e8f5fd;
+$light-logo-active: #d2ebfc;
+
+$light-border: #eff3f4;
+$light-auth-border: #cfd9de;
+
+$light-signout-background: #999999;
+$light-signout-logout-hover: #272c30;
+$light-signout-logout-active: #3f4347;
+$light-signout-cancel-hover: #e7e7e8;
+$light-signout-cancel-active: #cfd0d1;
+
+$light-message-background: #eff3f4;
+$light-conversation-actions-hover: #e8f5fd;
+$light-conversation-actions-active: #d2ebfc;
+$light-conversation-delete-hover: #fee8ea;
+$light-conversation-delete-active: #fdd3d5;
+$light-message-input-background: #eff3f4;
+
+////////////////////////////////////////
+// DARK THEME
+////////////////////////////////////////
+
+$dark-background: #000000;
+
+$dark-primary: #1d9bf0;
+$dark-primary-hover: #1a8cd8;
+$dark-primary-active: #177cc0;
+$dark-primary-disabled: #8ecdf8;
+$dark-primary-opacity: rgba(29, 155, 240, 0.1);
+
+$dark-secondary: #e7e9ea;
+$dark-secondary-hover: #f0f1f1;
+$dark-secondary-active: #f7f8f8;
+
+$dark-tertiary: #71767b;
+
+$dark-nav-hover: #181818;
+$dark-nav-active: #2e2f2f;
+
+$dark-trends-background: #16181c;
+$dark-trends-hover: #1d1f23;
+$dark-trends-active: #26282c;
+
+$dark-connect-background: #16181c;
+$dark-connect-hover: #1d1f23;
+$dark-connect-active: #141618;
+
+$dark-connect-button-hover: #d7dbdc;
+$dark-connect-button-active: #bfc2c3;
+
+$dark-options-hover: #0a171f;
+$dark-options-active: #061f30;
+
+$dark-post-hover: #080808;
+
+$dark-comment-hover: #0a171f;
+$dark-comment-active: #061f30;
+
+$dark-heart-hover: #200914;
+$dark-heart-active: #32051a;
+
+$dark-repost-hover: #071a14;
+$dark-repost-active: #002519;
+
+$dark-search-background: #202327;
+
+$dark-logo: var(--clr-primary);
+$dark-logo-hover: #031018;
+$dark-logo-active: #061f30;
+
+$dark-border: #2f3336;
+$dark-auth-border: #333639;
+
+$dark-signout-background: #242d34;
+$dark-signout-logout-hover: #d7dbdc;
+$dark-signout-logout-active: #bfc2c3;
+$dark-signout-cancel-hover: #181919;
+$dark-signout-cancel-active: #303131;
+
+$dark-message-background: #2f3336;
+$dark-conversation-actions-hover: #031018;
+$dark-conversation-actions-active: #061f30;
+$dark-conversation-delete-hover: #190305;
+$dark-conversation-delete-active: #310709;
+$dark-message-input-background: #202327;
+
+////////////////////////////////////////
+// DIM THEME
+////////////////////////////////////////
+
+$dim-background: #15202b;
+
+$dim-primary: #1d9bf0;
+$dim-primary-hover: #1a8cd8;
+$dim-primary-active: #177cc0;
+$dim-primary-disabled: #8ecdf8;
+$dim-primary-opacity: rgba(29, 155, 240, 0.1);
+
+$dim-secondary: #f7f9f9;
+$dim-secondary-hover: #d7dbdc;
+$dim-secondary-active: #bfc2c3;
+
+$dim-tertiary: #808d9a;
+
+$dim-nav-hover: #2c3640;
+$dim-nav-active: #424c54;
+
+$dim-trends-background: #1e2732;
+$dim-trends-hover: #252e38;
+$dim-trends-active: #2e3640;
+
+$dim-connect-background: #1e2732;
+$dim-connect-hover: #252e38;
+$dim-connect-active: #17202a;
+
+$dim-connect-button-hover: #d7dbdc;
+$dim-connect-button-active: #bfc2c3;
+
+$dim-options-hover: #162d3f;
+$dim-options-active: #173952;
+
+$dim-post-hover: #1c2732;
+
+$dim-comment-hover: #1c3345;
+$dim-comment-active: #173952;
+
+$dim-heart-hover: #32253a;
+$dim-heart-active: #431f3c;
+
+$dim-repost-hover: #19363a;
+$dim-repost-active: #113f3b;
+
+$dim-search-background: #2c3640;
+
+$dim-logo: #ffffff;
+$dim-logo-hover: #162d3f;
+$dim-logo-active: #173952;
+
+$dim-border: #38444d;
+$dim-auth-border: #425364;
+
+$dim-signout-background: #31404e;
+$dim-signout-logout-hover: #d7dbdc;
+$dim-signout-logout-active: #bfc2c3;
+$dim-signout-cancel-hover: #2b3640;
+$dim-signout-cancel-active: #414b53;
+
+$dim-message-background: #3d5466;
+$dim-conversation-actions-hover: #162d3f;
+$dim-conversation-actions-active: #173952;
+$dim-conversation-delete-hover: #2c202c;
+$dim-conversation-delete-active: #42212b;
+$dim-message-input-background: #273340;
+
+////////////////////////////////////////
+// COLORS
+////////////////////////////////////////
+
+// blue
+$blue-primary: #1d9bf0;
+$blue-primary-hover: #1a8cd8;
+$blue-primary-active: #177cc0;
+$blue-primary-disabled: #8ecdf8;
+$blue-primary-background: #173952;
+
+// yellow
+$yellow-primary: #ffd400;
+$yellow-primary-hover: #e6bf00;
+$yellow-primary-active: #ccaa00;
+$yellow-primary-disabled: #897a16;
+$yellow-primary-background: #444422;
+
+// rose
+$rose-primary: #f91880;
+$rose-primary-hover: #e01673;
+$rose-primary-active: #c71366;
+$rose-primary-disabled: #861c55;
+$rose-primary-background: #431f3c;
+
+// purple
+$violet-primary: #7856ff;
+$violet-primary-hover: #6c4de6;
+$violet-primary-active: #6045cc;
+$violet-primary-disabled: #463b95;
+$violet-primary-background: #292a55;
+
+// orange
+$orange-primary: #ff7a00;
+$orange-primary-hover: #e66e00;
+$orange-primary-active: #cc6200;
+$orange-primary-disabled: #894d16;
+$orange-primary-background: #443222;
+
+// green
+$green-primary: #00ba7c;
+$green-primary-hover: #00a770;
+$green-primary-active: #009563;
+$green-primary-disabled: #0b6d53;
+$green-primary-background: #113f3b;

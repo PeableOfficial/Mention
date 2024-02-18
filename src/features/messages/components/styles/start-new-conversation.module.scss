@@ -1,0 +1,47 @@
+.container {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+
+  .content {
+    max-width: 320px;
+
+    h1 {
+      font-size: var(--fs-kilo);
+      font-weight: var(--fw-700);
+      margin-bottom: 8px;
+    }
+
+    p {
+      font-size: var(--fs-milli);
+      color: var(--clr-tertiary);
+      margin-bottom: 27px;
+    }
+
+    button {
+      font-size: var(--fs-base);
+      font-weight: var(--fw-700);
+      background-color: var(--clr-primary);
+      color: var(--clr-white);
+      height: 50px;
+      padding: 0 30px;
+      border-radius: 100vmax;
+      cursor: pointer;
+      transition: background-color 0.2s ease-in-out;
+
+      &:hover {
+        background-color: var(--clr-primary-hover);
+      }
+
+      &:active {
+        background-color: var(--clr-primary-active);
+      }
+
+      &:focus-visible {
+        outline: 2px solid var(--clr-primary-disabled);
+        background-color: var(--clr-primary-hover);
+      }
+    }
+  }
+}
