@@ -3,6 +3,7 @@
 import { LoadingSpinner } from "@/components/elements/loading-spinner";
 import { TryAgain } from "@/components/elements/try-again";
 import { InfinitePosts, usePosts } from "@/features/posts";
+import { IUser } from "@/features/profile";
 
 import styles from "./styles/profile-media.module.scss";
 

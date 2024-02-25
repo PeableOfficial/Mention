@@ -2,6 +2,7 @@ import { Metadata } from "next";
 
 import { Header, ProfileHeader } from "@/features/header";
 import {
+  IUser,
   getUsernameToId,
   Profile,
   ProfileMedia,
@@ -44,11 +45,14 @@ const ProfileMediaPage = async ({
   };
 }) => {
   const userId = await getUsernameToId({ username: params.user });
+  if (!userId) return null;
 
   const user = await getUserMetadata({
     user_id: userId,
     type: "media",
   });
+
+  if (!user) return null;
 
   return (
     <div>
@@ -61,7 +65,7 @@ const ProfileMediaPage = async ({
         />
       </Header>
       <Profile initialUser={user as any} />
-      <ProfileMedia user={user} />
+      <ProfileMedia user={user as unknown as IUser} />
     </div>
   );
 };

@@ -202,9 +202,7 @@ export const SearchResultsModal = ({
                         </EllipsisWrapper>
 
                         <EllipsisWrapper>
-                          <UserScreenName
-                            screenName={person?.screen_name}
-                          />
+                          <UserScreenName screenName={person?.screen_name} />
                         </EllipsisWrapper>
                       </span>
                     </span>

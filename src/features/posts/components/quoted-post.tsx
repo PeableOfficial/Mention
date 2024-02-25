@@ -34,13 +34,13 @@ export const QuotedPost = ({ post }: { post: IPost }) => {
       className={styles.container}
     >
       <div className={styles.userDetails}>
-        <UserModalWrapper userId={post?.author?.id}>
+        <UserModalWrapper userId={post?.author?.id} delay={500}>
           <div className={styles.avatar}>
             <Avatar userImage={post?.author?.profile_image_url} />
           </div>
         </UserModalWrapper>
 
-        <UserModalWrapper userId={post?.author?.id}>
+        <UserModalWrapper userId={post?.author?.id} delay={500}>
           <EllipsisWrapper>
             <UserName
               name={post?.author?.name}
@@ -49,7 +49,7 @@ export const QuotedPost = ({ post }: { post: IPost }) => {
           </EllipsisWrapper>
         </UserModalWrapper>
 
-        <UserModalWrapper userId={post?.author?.id}>
+        <UserModalWrapper userId={post?.author?.id} delay={500}>
           <EllipsisWrapper>
             <UserScreenName screenName={post?.author?.screen_name} />
           </EllipsisWrapper>

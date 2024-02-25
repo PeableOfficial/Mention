@@ -7,15 +7,16 @@ import { Menu, MenuItem } from "@/components/elements/menu";
 import { Modal } from "@/components/elements/modal";
 
 import { ContributeIcon } from "../../assets/contribute-icon";
-import { IPost } from "../../types";
 
 import styles from "./styles/actions.module.scss";
 
-export const ContributeButton = ({ post }: { post: IPost }) => {
+export const ContributeButton = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const buttonRef = useRef<HTMLButtonElement>(null);
-  const FairWalletToast = () => toast("FairWallet, feature still under development");
-  const PeablePayToast = () => toast("Peable Pay, feature still under development");
+  const FairWalletToast = () =>
+    toast("FairWallet, feature still under development");
+  const PeablePayToast = () =>
+    toast("Peable Pay, feature still under development");
 
   return (
     <div className={styles.container}>

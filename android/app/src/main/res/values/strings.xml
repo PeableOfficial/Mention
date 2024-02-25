@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Mention</string>
+    <string name="title_activity_main">Mention</string>
+    <string name="package_name">earth.mention.app</string>
+    <string name="custom_url_scheme">earth.mention.app</string>
+</resources>

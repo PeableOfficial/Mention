@@ -20,7 +20,8 @@ const nextConfig = {
   experimental: {
     scrollRestoration: true,
   },
-  output: process.env.BUILD_STANDALONE === "true" ? "standalone" : undefined,
+  /** output: process.env.BUILD_STANDALONE === "true" ? "standalone" : undefined, */
+  output: "standalone",
   sassOptions: {
     includePaths: [path.join(__dirname, "src/sass")],
   },

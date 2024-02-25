@@ -45,7 +45,7 @@ export const Post = ({ post, pinned }: { post: IPost; pinned?: boolean }) => {
       <div className={styles.postContainer}>
         <div className={styles.left}>
           <div className={styles.avatar}>
-            <UserModalWrapper userId={post?.author?.id}>
+            <UserModalWrapper userId={post?.author?.id} delay={500}>
               <LinkToProfile username={post?.author?.screen_name}>
                 <Avatar userImage={post?.author?.profile_image_url} />
               </LinkToProfile>
@@ -55,7 +55,7 @@ export const Post = ({ post, pinned }: { post: IPost; pinned?: boolean }) => {
 
         <div className={styles.content}>
           <div className={styles.user_details}>
-            <UserModalWrapper userId={post?.author?.id}>
+            <UserModalWrapper userId={post?.author?.id} delay={500}>
               <LinkToProfile username={post?.author?.screen_name}>
                 <EllipsisWrapper>
                   <UserName
@@ -68,7 +68,7 @@ export const Post = ({ post, pinned }: { post: IPost; pinned?: boolean }) => {
             </UserModalWrapper>
 
             <div className={styles.username_time}>
-              <UserModalWrapper userId={post?.author?.id}>
+              <UserModalWrapper userId={post?.author?.id} delay={500}>
                 <LinkToProfile
                   username={post?.author?.screen_name}
                   tabIndex={-1}

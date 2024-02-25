@@ -39,7 +39,7 @@ export const PersonDetails = ({ author }: { author: IUser }) => {
       className={styles.container}
     >
       <div className={styles.avatar}>
-        <UserModalWrapper userId={author?.id}>
+        <UserModalWrapper userId={author?.id} delay={500}>
           <Avatar userImage={author?.profile_image_url} />
         </UserModalWrapper>
       </div>
@@ -47,7 +47,7 @@ export const PersonDetails = ({ author }: { author: IUser }) => {
       <div className={styles.info}>
         <div className={styles.user_details}>
           <div className={styles.name}>
-            <UserModalWrapper userId={author?.id}>
+            <UserModalWrapper userId={author?.id} delay={500}>
               <LinkToProfile username={author?.screen_name}>
                 <EllipsisWrapper>
                   <UserName
@@ -59,7 +59,7 @@ export const PersonDetails = ({ author }: { author: IUser }) => {
               </LinkToProfile>
             </UserModalWrapper>
 
-            <UserModalWrapper userId={author?.id}>
+            <UserModalWrapper userId={author?.id} delay={500}>
               <EllipsisWrapper>
                 <UserScreenName screenName={author?.screen_name} />
               </EllipsisWrapper>

@@ -14,14 +14,14 @@ import styles from "./styles/post-author.module.scss";
 export const PostAuthor = ({ post }: { post: IPost }) => {
   return (
     <div className={styles.container}>
-      <UserModalWrapper userId={post?.author?.id}>
+      <UserModalWrapper userId={post?.author?.id} delay={500}>
         <LinkToProfile tabIndex={-1} username={post?.author?.screen_name}>
           <Avatar userImage={post?.author?.profile_image_url} />
         </LinkToProfile>
       </UserModalWrapper>
 
       <div className={styles.userInfo}>
-        <UserModalWrapper userId={post?.author?.id}>
+        <UserModalWrapper userId={post?.author?.id} delay={500}>
           <LinkToProfile username={post?.author?.screen_name}>
             <EllipsisWrapper>
               <UserName
@@ -33,7 +33,7 @@ export const PostAuthor = ({ post }: { post: IPost }) => {
           </LinkToProfile>
         </UserModalWrapper>
 
-        <UserModalWrapper userId={post?.author?.id}>
+        <UserModalWrapper userId={post?.author?.id} delay={500}>
           <LinkToProfile tabIndex={-1} username={post?.author?.screen_name}>
             <EllipsisWrapper>
               <UserScreenName screenName={post?.author?.screen_name} />

@@ -36,13 +36,13 @@ export const Person = ({ person }: { person: IUser }) => {
         onClick={() => router.push(`/${person?.id}`)}
       >
         <div className={styles.avatar}>
-          <UserModalWrapper userId={person?.id}>
+          <UserModalWrapper userId={person?.id} delay={500}>
             <Avatar userImage={person?.profile_image_url} />
           </UserModalWrapper>
         </div>
 
         <div className={styles.info}>
-          <UserModalWrapper userId={person?.id}>
+          <UserModalWrapper userId={person?.id} delay={500}>
             <LinkToProfile username={person?.screen_name}>
               <EllipsisWrapper>
                 <UserName
@@ -54,7 +54,7 @@ export const Person = ({ person }: { person: IUser }) => {
             </LinkToProfile>
           </UserModalWrapper>
 
-          <UserModalWrapper userId={person?.id}>
+          <UserModalWrapper userId={person?.id} delay={500}>
             <EllipsisWrapper>
               <UserScreenName screenName={person?.screen_name} />
             </EllipsisWrapper>

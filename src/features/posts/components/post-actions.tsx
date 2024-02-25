@@ -25,7 +25,7 @@ export const PostActions = ({
       <CommentButton post={post} showStats={showStats} />
       <RepostButton post={post} showStats={showStats} />
       <LikeButton post={post} smallIcons={false} showStats={showStats} />
-      <ContributeButton post={post} />
+      <ContributeButton />
       <ShareButton post={post} />
     </div>
   );
