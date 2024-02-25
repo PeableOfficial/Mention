@@ -49,6 +49,7 @@ export const EditProfileModal = ({
 
   const [profile, setProfile] = useState<IProfile>({
     name: user?.name || "",
+    screen_name: user?.screen_name || "",
     bio: user?.description || "",
     location: user?.location || "",
     website: user?.url || "",
@@ -209,6 +210,22 @@ export const EditProfileModal = ({
           maxLength={50}
           isError={profile?.name.length === 0}
           errorMessage="Name can't be blank"
+        />
+
+        <TextInput
+          id="screen_name"
+          name="screen_name"
+          onChange={(e) => {
+            setProfile((prev: IProfile) => ({
+              ...prev,
+              screen_name: e.target.value,
+            }));
+          }}
+          placeholder="Username"
+          value={profile.screen_name}
+          maxLength={50}
+          isError={profile?.screen_name.length === 0}
+          errorMessage="Username can't be blank"
         />
 
         <TextInput

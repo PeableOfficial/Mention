@@ -6,6 +6,13 @@ const supabaseUrl = SUPABASE_URL;
 const supabaseKey = SUPABASE_KEY;
 export const supabase = createClient(supabaseUrl, supabaseKey, {
   auth: {
-    persistSession: false,
+    autoRefreshToken: true,
+    persistSession: true,
+    detectSessionInUrl: false,
+  },
+  realtime: {
+    params: {
+      eventsPerSecond: 10,
+    },
   },
 });

@@ -44,6 +44,9 @@ export const UserModal = forwardRef<HTMLDivElement, { userId: string }>(
 
     return createPortal(
       <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.2 }}
         style={style}
         onClick={(e) => {
           e.stopPropagation();

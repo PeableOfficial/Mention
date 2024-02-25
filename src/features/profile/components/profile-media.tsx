@@ -1,5 +1,4 @@
 "use client";
-import { usePathname } from "next/navigation";
 
 import { LoadingSpinner } from "@/components/elements/loading-spinner";
 import { TryAgain } from "@/components/elements/try-again";
@@ -7,9 +6,8 @@ import { InfinitePosts, usePosts } from "@/features/posts";
 
 import styles from "./styles/profile-media.module.scss";
 
-export const ProfileMedia = () => {
-  const pathname = usePathname();
-  const id = pathname?.split("/")[1] as string;
+export const ProfileMedia = ({ user }: { user: IUser }) => {
+  const id = user.id;
 
   const {
     data: posts,

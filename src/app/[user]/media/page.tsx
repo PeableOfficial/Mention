@@ -1,7 +1,12 @@
 import { Metadata } from "next";
 
 import { Header, ProfileHeader } from "@/features/header";
-import { Profile, ProfileMedia, getUserMetadata } from "@/features/profile";
+import {
+  getUsernameToId,
+  Profile,
+  ProfileMedia,
+  getUserMetadata,
+} from "@/features/profile";
 
 export async function generateMetadata({
   params,
@@ -10,8 +15,11 @@ export async function generateMetadata({
     user: string;
   };
 }): Promise<Metadata> {
+  const userId = await getUsernameToId({ username: params.user });
+  if (!userId) return { title: "User not found" };
+
   const user = await getUserMetadata({
-    user_id: params.user,
+    user_id: userId,
     type: "media",
   });
 
@@ -21,9 +29,9 @@ export async function generateMetadata({
     };
 
   return {
-    title: `Media Posts by ${user?.name?.split(" ")[0]} (@${user?.email?.split(
-      "@",
-    )[0]})`,
+    title: `Media Posts by ${user?.name?.split(
+      " ",
+    )[0]} (@${user?.screen_name})`,
     description: user?.description,
   };
 }
@@ -35,8 +43,10 @@ const ProfileMediaPage = async ({
     user: string;
   };
 }) => {
+  const userId = await getUsernameToId({ username: params.user });
+
   const user = await getUserMetadata({
-    user_id: params.user,
+    user_id: userId,
     type: "media",
   });
 
@@ -51,7 +61,7 @@ const ProfileMediaPage = async ({
         />
       </Header>
       <Profile initialUser={user as any} />
-      <ProfileMedia />
+      <ProfileMedia user={user} />
     </div>
   );
 };

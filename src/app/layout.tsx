@@ -8,6 +8,7 @@ import { ToastContainer, Slide } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 import "./styles/layout.scss";
+import "./styles/tailwind.css";
 import { Toaster } from "@/components/ui/sonner";
 import { Aside } from "@/features/aside";
 import { AuthModalTrigger } from "@/features/auth";
@@ -77,6 +78,14 @@ export default async function RootLayout({
       lang="en"
     >
       <body suppressHydrationWarning={true}>
+        <a href="#home-timeline" className="sr-only">
+          Skip to home timeline
+        </a>
+
+        <a href="#trending" className="sr-only">
+          Skip to trending
+        </a>
+
         <NextAuthProvider>
           <ReactQueryProvider>
             <div className="layout">

@@ -28,8 +28,8 @@ export async function GET(
 
       select: {
         id: true,
-        name: true,
         screen_name: true,
+        name: true,
         email: true,
         profile_image_url: true,
         profile_banner_url: true,
@@ -60,6 +60,7 @@ export async function GET(
 export async function PUT(request: Request) {
   const {
     user_id,
+    screen_name,
     name,
     description,
     location,
@@ -68,6 +69,7 @@ export async function PUT(request: Request) {
     profile_image_url,
   } = (await request.json()) as {
     user_id: string;
+    screen_name: string;
     name: string;
     description: string;
     location: string;
@@ -79,6 +81,7 @@ export async function PUT(request: Request) {
   const userSchema = z
     .object({
       user_id: z.string().cuid(),
+      screen_name: z.string().min(1).max(30),
       name: z.string().min(1).max(50),
       description: z.string().max(160),
       location: z.string().max(30),
@@ -90,6 +93,7 @@ export async function PUT(request: Request) {
 
   const zod = userSchema.safeParse({
     user_id,
+    screen_name,
     name,
     description,
     location,
@@ -109,6 +113,7 @@ export async function PUT(request: Request) {
       },
       data: {
         name,
+        screen_name,
         description,
         location,
         url,

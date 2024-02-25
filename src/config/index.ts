@@ -13,4 +13,6 @@ export const MENTION_CLIENT_ID = process.env.MENTION_CLIENT_ID as string;
 export const MENTION_CLIENT_SECRET = process.env
   .MENTION_CLIENT_SECRET as string;
 
+export const SOCKET_URL = process.env.SOCKET_URL as string;
+
 export const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL as string;

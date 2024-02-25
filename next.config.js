@@ -20,14 +20,13 @@ const nextConfig = {
   experimental: {
     scrollRestoration: true,
   },
+  output: process.env.BUILD_STANDALONE === "true" ? "standalone" : undefined,
   sassOptions: {
     includePaths: [path.join(__dirname, "src/sass")],
   },
 };
 
-const { withAxiom } = require("next-axiom");
-
-module.exports = withAxiom(nextConfig);
+module.exports = nextConfig;
 
 // Configuration object tells the next-pwa plugin
 const withPWA = require("next-pwa")({
