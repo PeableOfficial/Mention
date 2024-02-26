@@ -1,7 +1,7 @@
 {
   "name": "mention",
   "description": "Mention is a social media app built with Next.js, Prisma, and Supabase",
-  "version": "1.8.0",
+  "version": "1.8.1",
   "private": true,
   "scripts": {
     "dev": "prisma generate && next dev",
@@ -23,7 +23,9 @@
     "e2e": "start-server-and-test start http://localhost:3000 cypress",
     "e2e:headless": "start-server-and-test start http://localhost:3000 cypress:headless",
     "prepare": "husky install",
-    "preinstall": "npx only-allow pnpm"
+    "preinstall": "npx only-allow pnpm",
+    "ionic:build": "npm run build",
+    "ionic:serve": "npm run start"
   },
   "dependencies": {
     "@capacitor/android": "^5.7.0",
