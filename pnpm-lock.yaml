@@ -95,6 +95,9 @@ dependencies:
   framer-motion:
     specifier: ^11.0.5
     version: 11.0.8(react-dom@18.2.0)(react@18.2.0)
+  husky:
+    specifier: ^9.0.11
+    version: 9.0.11
   ioredis:
     specifier: ^5.3.2
     version: 5.3.2
@@ -268,9 +271,6 @@ devDependencies:
   eslint-plugin-testing-library:
     specifier: ^6.2.0
     version: 6.2.0(eslint@8.57.0)(typescript@5.3.3)
-  husky:
-    specifier: ^8.0.3
-    version: 8.0.3
   jest:
     specifier: ^29.7.0
     version: 29.7.0(@types/node@20.11.19)(ts-node@10.9.2)
@@ -7978,11 +7978,11 @@ packages:
     engines: {node: '>=16.17.0'}
     dev: true
 
-  /husky@8.0.3:
-    resolution: {integrity: sha512-+dQSyqPh4x1hlO1swXBiNb2HzTDN1I2IGLQx1GrBuiqFJfoMrnZWwVmatvSiO+Iz8fBUnf+lekwNo4c2LlXItg==}
-    engines: {node: '>=14'}
+  /husky@9.0.11:
+    resolution: {integrity: sha512-AB6lFlbwwyIqMdHYhwPe+kjOC3Oc5P3nThEoW/AaO2BX3vJDjWPFxYLxokUZOo6RNX20He3AaT8sESs9NJcmEw==}
+    engines: {node: '>=18'}
     hasBin: true
-    dev: true
+    dev: false
 
   /iconv-lite@0.6.3:
     resolution: {integrity: sha512-4fCk79wshMdzMp2rH06qWrJE4iolqLhCUH+OiuIgU++RB0+94NlDL81atO7GX55uUKueo0txHNtvEyI6D7WdMw==}
