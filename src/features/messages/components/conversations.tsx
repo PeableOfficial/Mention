@@ -29,6 +29,7 @@ export const Conversations = () => {
     data: conversations,
     isLoading,
     isError,
+    isSuccess,
   } = useGetConversations(session?.user?.id);
 
   if (isLoading) return <LoadingSpinner />;
@@ -53,20 +54,21 @@ export const Conversations = () => {
             </div>
           ) : (
             <div className={styles.conversations}>
-              {conversations?.map((conversation) => {
-                return (
-                  <div className={styles.conversation} key={conversation.id}>
-                    <ConversationCard conversation={conversation} />
-                  </div>
-                );
-              })}
+              {isSuccess &&
+                conversations?.map((conversation) => {
+                  return (
+                    <div className={styles.conversation} key={conversation.id}>
+                      <ConversationCard conversation={conversation} />
+                    </div>
+                  );
+                })}
             </div>
           )}
         </>
       ) : (
         <StartNewConversation
           title={`Welcome to your inbox!`}
-          subtitle={`Drop a line, share Posts and more with private conversations between you and others on Mention. `}
+          subtitle={`Drop a line, share Posts and more with private conversations between you and others on Twitter. `}
           buttonText={`Write a message`}
         />
       )}

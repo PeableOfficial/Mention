@@ -16,7 +16,7 @@ export const Aside = () => {
   const pathname = usePathname();
 
   return (
-    <aside className={styles.container}>
+    <aside id="trending" aria-label="Trending" className={styles.container}>
       {session && (
         <>
           {pathname !== "/" &&

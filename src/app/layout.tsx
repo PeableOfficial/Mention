@@ -3,7 +3,6 @@ import type { Metadata } from "next";
 import type { Viewport } from "next";
 import { cookies } from "next/headers";
 import { AxiomWebVitals } from "next-axiom";
-import { ToastContainer, Slide } from "react-toastify";
 
 import "react-toastify/dist/ReactToastify.css";
 
@@ -17,11 +16,82 @@ import { MobileNavbar } from "@/features/navbar";
 import { Sidebar } from "@/features/sidebar";
 import { NextAuthProvider } from "@/utils/next-auth-provider";
 import { ReactQueryProvider } from "@/utils/react-query-provider";
+import { Command } from "./command";
 
 import { Hamburger } from "./hamburger";
 import { JoinMention } from "./join-mention";
-import styles from "./styles/toast.module.scss";
 import "./styles/layout.scss";
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+  viewportFit: "cover",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "white" },
+    { media: "(prefers-color-scheme: dark)", color: "black" },
+  ],
+};
+
+export default async function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  const nextCookies = cookies();
+  const theme = nextCookies.get("theme")?.value;
+  const color = nextCookies.get("color")?.value;
+  const fontSize = nextCookies.get("font-size")?.value;
+
+  return (
+    <html
+      {...(theme && { "data-theme": theme })}
+      {...(color && { "data-color": color })}
+      {...(fontSize && { "data-fontsize": fontSize })}
+      lang="en"
+    >
+      <body suppressHydrationWarning={true}>
+        <a href="#home-timeline" className="sr-only">
+          Skip to home timeline
+        </a>
+
+        <a href="#trending" className="sr-only">
+          Skip to trending
+        </a>
+
+        <NextAuthProvider>
+          <ReactQueryProvider>
+            <div className="layout">
+              <MobileNavbar />
+              <div className="fixed bottom-20 right-4 z-fixed sm:hidden">
+                <MobilePostButton />
+              </div>
+
+              <Sidebar />
+
+              <main aria-label="Home timeline" id="home-timeline">
+                {children}
+              </main>
+
+              <Aside />
+
+              <Toaster />
+
+              <Command />
+
+              <AuthModalTrigger />
+              <JoinMention />
+              <Hamburger />
+            </div>
+          </ReactQueryProvider>
+        </NextAuthProvider>
+        <Analytics />
+        <AxiomWebVitals />
+      </body>
+    </html>
+  );
+}
 
 export const metadata: Metadata = {
   title: {
@@ -47,79 +117,3 @@ export const metadata: Metadata = {
     { rel: "icon", url: "icons/icon-128x128.png" },
   ],
 };
-
-export const viewport: Viewport = {
-  width: "device-width",
-  initialScale: 1,
-  maximumScale: 1,
-  userScalable: false,
-  viewportFit: "cover",
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "white" },
-    { media: "(prefers-color-scheme: dark)", color: "black" },
-  ],
-};
-
-export default async function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
-  const nextCookies = cookies();
-  const theme = nextCookies.get("theme");
-  const color = nextCookies.get("color");
-  const fontSize = nextCookies.get("font-size");
-
-  return (
-    <html
-      className={`${theme?.value ?? ""} ${color?.value ?? ""} ${
-        fontSize?.value ?? ""
-      }`}
-      lang="en"
-    >
-      <body suppressHydrationWarning={true}>
-        <a href="#home-timeline" className="sr-only">
-          Skip to home timeline
-        </a>
-
-        <a href="#trending" className="sr-only">
-          Skip to trending
-        </a>
-
-        <NextAuthProvider>
-          <ReactQueryProvider>
-            <div className="layout">
-              <MobileNavbar />
-              <MobilePostButton />
-
-              <Sidebar />
-
-              <main>{children}</main>
-
-              <Aside />
-
-              <ToastContainer
-                position="bottom-center"
-                autoClose={2000}
-                hideProgressBar={true}
-                transition={Slide}
-                closeButton={false}
-                closeOnClick={true}
-                className={styles.container}
-                toastClassName={styles.toast}
-                role="alert"
-              />
-              <Toaster />
-
-              <AuthModalTrigger />
-              <JoinMention />
-              <Hamburger />
-            </div>
-          </ReactQueryProvider>
-        </NextAuthProvider>
-        <Analytics />
-        <AxiomWebVitals />
-      </body>
-    </html>
-  );
-}

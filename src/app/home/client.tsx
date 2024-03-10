@@ -1,6 +1,8 @@
 "use client";
+import { HamburgerButton } from "@/components/elements/hamburger-button";
+import { SortPosts } from "@/components/elements/sort-posts";
 import { CreatePost } from "@/features/create-post";
-import { Header, HomeHeader } from "@/features/header";
+import { Header } from "@/features/header";
 import { Posts } from "@/features/posts";
 
 import styles from "./styles/home.module.scss";
@@ -9,7 +11,11 @@ export const HomeClientPage = () => {
   return (
     <div className={styles.container}>
       <Header>
-        <HomeHeader />
+        <HamburgerButton />
+        <h2>Home</h2>
+        <div className="ml-auto">
+          <SortPosts />
+        </div>
       </Header>
 
       <div className={styles.createPost}>

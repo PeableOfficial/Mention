@@ -28,18 +28,18 @@ export const ConversationMember = ({
       onClick={() => router.push(`/${member?.id}`)}
       className={styles.container}
     >
-      <UserModalWrapper userId={member?.id} delay={500}>
+      <UserModalWrapper userId={member?.id}>
         <Avatar userImage={member?.profile_image_url} />
       </UserModalWrapper>
 
       <div className={styles.name}>
-        <UserModalWrapper userId={member?.id} delay={500}>
+        <UserModalWrapper userId={member?.id}>
           <EllipsisWrapper>
             <UserName name={member?.name} isVerified={member?.verified} />
           </EllipsisWrapper>
         </UserModalWrapper>
         <div className={styles.username}>
-          <UserModalWrapper userId={member?.id} delay={500}>
+          <UserModalWrapper userId={member?.id}>
             <EllipsisWrapper>
               <UserScreenName screenName={member?.screen_name} />
             </EllipsisWrapper>

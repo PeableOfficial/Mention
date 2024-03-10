@@ -4,13 +4,15 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { Header, ProHeader } from "@/features/header";
+import { HamburgerButton } from "@/components/elements/hamburger-button";
+import { Header } from "@/features/header";
 
 const ProPage = () => {
   return (
     <div>
       <Header>
-        <ProHeader />
+        <HamburgerButton />
+        <h1 title="Mention Pro" />
       </Header>
       <Accordion type="single" collapsible className="w-full px-4">
         <AccordionItem value="item-1">

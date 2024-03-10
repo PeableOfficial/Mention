@@ -2,10 +2,10 @@
   @apply m-auto justify-center flex flex-wrap w-full rounded-lg overflow-auto px-2 py-0.5;
 
   .stat {
-    @apply text-center p-2 items-center flex flex-col cursor-pointer w-auto rounded-full max-h-32 flex-grow m-0.5 min-w-28 select-none border-2 bg-lime-950 border-lime-100 outline-none transition hover:brightness-90 active:brightness-75 xs:static xs:translate-y-0;
+    @apply text-center p-2 items-center flex flex-col cursor-pointer w-auto rounded-full max-h-32 flex-grow m-0.5 min-w-28 select-none border-2 bg-primary-100/90 border-primary-300 outline-none transition hover:brightness-90 active:brightness-75 sm:static sm:translate-y-0;
 
     &.active {
-      @apply bg-lime-800;
+      @apply bg-primary-200;
     }
 
     .amount {

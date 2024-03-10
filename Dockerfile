@@ -1,18 +1,14 @@
-# syntax = docker/dockerfile:1
-
-# Adjust NODE_VERSION as desired
 ARG NODE_VERSION=20.10.0
+# base image
 FROM node:${NODE_VERSION}-slim as base
 
-LABEL fly_launch_runtime="Next.js/Prisma"
-
-# Next.js/Prisma app lives here
-WORKDIR /app
-
-# Set production environment
-ENV NODE_ENV="production"
+# Set output property to standalone for minimal image size
 ENV BUILD_STANDALONE="true"
 
+# Disable telemetry
+ENV NEXT_TELEMETRY_DISABLED="1"
+
+# Set environment variables needed for the build process
 ARG NEXT_PUBLIC_SUPABASE_URL
 ENV NEXT_PUBLIC_SUPABASE_URL=${NEXT_PUBLIC_SUPABASE_URL}
 
@@ -22,47 +18,50 @@ ENV NEXT_PUBLIC_SUPABASE_ANON_KEY=${NEXT_PUBLIC_SUPABASE_ANON_KEY}
 ARG NEXT_PUBLIC_SOCKET_URL
 ENV NEXT_PUBLIC_SOCKET_URL=${NEXT_PUBLIC_SOCKET_URL}
 
+# Install openssl for Prisma
+RUN apt-get update && apt-get install -y openssl
+
 # Install pnpm
 ARG PNPM_VERSION=8.15.1
 RUN npm install -g pnpm@$PNPM_VERSION
 
-
-# Throw-away build stage to reduce size of final image
-FROM base as build
-
-# Install packages needed to build node modules
-RUN apt-get update -qq && \
-    apt-get install --no-install-recommends -y build-essential node-gyp openssl pkg-config python-is-python3
+# Install dependencies
+FROM base as deps
+WORKDIR /app
 
 # Install node modules
-COPY --link package.json pnpm-lock.yaml ./
-RUN pnpm install --frozen-lockfile --prod=false
+COPY package.json pnpm-lock.yaml ./
+RUN pnpm install --frozen-lockfile
 
-# Generate Prisma Client
-COPY --link prisma .
-RUN npx prisma generate
+# Build the application
+FROM base as build
+WORKDIR /app
 
 # Copy application code
-COPY --link . .
+COPY src/ src/
+COPY public/ public/
+COPY prisma/schema.prisma prisma/
+COPY next.config.js postcss.config.js tailwind.config.js tsconfig.json reset.d.ts ./
+
+COPY --from=deps /app/node_modules ./node_modules
+COPY --from=deps /app/package.json ./package.json
+COPY --from=deps /app/pnpm-lock.yaml ./pnpm-lock.yaml
+
+# Generate Prisma Client
+RUN npx prisma generate
 
 # Build application
-RUN pnpm run build
+RUN pnpm build
 
-# Remove development dependencies
-RUN pnpm prune --prod
+# Production image
+FROM base as prod
+WORKDIR /app
 
+ENV NODE_ENV="production"
 
-# Final stage for app image
-FROM base
+COPY --from=build /app/public ./public
+COPY --from=build /app/.next/standalone ./
+COPY --from=build /app/.next/static ./.next/static
 
-# Install packages needed for deployment
-RUN apt-get update -qq && \
-    apt-get install --no-install-recommends -y openssl && \
-    rm -rf /var/lib/apt/lists /var/cache/apt/archives
-
-# Copy built application
-COPY --from=build /app /app
-
-# Start the server by default, this can be overwritten at runtime
 EXPOSE 3000
-CMD [ "pnpm", "run", "start" ]
+CMD [ "node", "server.js" ]

@@ -1,7 +1,7 @@
 import { CreateDate } from "@/components/elements/create-date";
 import { EllipsisWrapper } from "@/components/elements/ellipsis-wrapper";
-import { IPost } from "@/features/posts";
 import { Avatar, UserName, UserScreenName } from "@/features/profile";
+import { IPost } from "@/features/posts";
 
 import { CreatePostQuote } from "./create-post-quote";
 import { ReplyingTo } from "./replying-to";
@@ -25,7 +25,7 @@ export const CreatePostComment = ({ post }: { post: IPost | null }) => {
           </EllipsisWrapper>
 
           <EllipsisWrapper>
-            <UserScreenName screenName={post?.author?.screen_name} />
+            <UserScreenName screenName={post?.author?.email?.split("@")[0]} />
           </EllipsisWrapper>
 
           <span className={styles.dot}>·</span>
@@ -46,7 +46,7 @@ export const CreatePostComment = ({ post }: { post: IPost | null }) => {
         {post?.author?.email && (
           <div className={styles.replyingTo}>
             <ReplyingTo
-              screen_name={post?.author?.screen_name}
+              screen_name={post?.author?.email?.split("@")[0]}
               id={post?.author?.id}
             />
           </div>

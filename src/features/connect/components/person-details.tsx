@@ -30,11 +30,11 @@ export const PersonDetails = ({ author }: { author: IUser }) => {
       tabIndex={0}
       onKeyDown={(e) => {
         if (e.key === "Enter") {
-          router.push(`/${author?.id}`);
+          router.push(`/${author?.screen_name}`);
         }
       }}
       onClick={() => {
-        router.push(`/${author?.id}`);
+        router.push(`/${author?.screen_name}`);
       }}
       className={styles.container}
     >

@@ -6,6 +6,7 @@ import { prisma } from "@/lib/prisma";
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
   const id = searchParams.get("id") || undefined;
+  const limit = searchParams.get("limit") || undefined;
   const idSchema = z.string().cuid().optional();
 
   const zod = idSchema.safeParse(id);
@@ -36,6 +37,8 @@ export async function GET(request: Request) {
 
         followers: true,
       },
+
+      take: limit ? parseInt(limit) : undefined,
     });
 
     return NextResponse.json(users, { status: 200 });

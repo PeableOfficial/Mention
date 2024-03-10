@@ -3,7 +3,6 @@
 import { prisma } from "@/lib/prisma";
 
 export const getUsernameToId = async ({ username }: { username: string }) => {
-  //remove @ from username string
   username = username.replace("@", "");
 
   try {

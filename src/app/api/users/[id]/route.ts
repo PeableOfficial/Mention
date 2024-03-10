@@ -28,8 +28,8 @@ export async function GET(
 
       select: {
         id: true,
-        screen_name: true,
         name: true,
+        screen_name: true,
         email: true,
         profile_image_url: true,
         profile_banner_url: true,

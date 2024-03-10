@@ -6,13 +6,14 @@ import InstagramProvider from "next-auth/providers/instagram";
 import {
   GOOGLE_CLIENT_ID,
   GOOGLE_CLIENT_SECRET,
+  NEXTAUTH_SECRET,
   INSTAGRAM_CLIENT_ID,
   INSTAGRAM_CLIENT_SECRET,
 } from "@/config";
 import { prisma } from "@/lib/prisma";
 
 const authOptions: AuthOptions = {
-  secret: process.env.NEXTAUTH_SECRET,
+  secret: NEXTAUTH_SECRET,
 
   session: {
     strategy: "jwt",

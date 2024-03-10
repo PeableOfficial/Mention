@@ -1,7 +1,0 @@
-{
-  "name": "mention",
-  "integrations": {
-    "capacitor": {}
-  },
-  "type": "custom"
-}

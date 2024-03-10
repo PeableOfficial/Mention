@@ -68,10 +68,15 @@ body {
       grid-template-columns: min-content auto;
 
       main {
-        border-left: 2px solid var(--clr-border);
+        border-left: 1px solid var(--clr-border);
 
-        > div {
+        >div:not(.no-padding) {
           padding-bottom: calc(100vh - 4rem);
+        }
+
+        &:focus-visible {
+          outline: 2px solid var(--clr-secondary);
+          outline-offset: -2px;
         }
       }
 
@@ -85,7 +90,7 @@ body {
       max-width: 700px;
 
       main {
-        border-right: 2px solid var(--clr-border);
+        border-right: 1px solid var(--clr-border);
       }
     }
 

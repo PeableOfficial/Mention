@@ -6,7 +6,11 @@ export const EllipsisWrapper = ({
   children: React.ReactNode;
 }) => {
   return (
-    <div tabIndex={-1} aria-hidden={true} className={styles.container}>
+    <div
+      aria-hidden={true}
+      role="presentation"
+      className="grid grid-flow-col [&>*]:truncate"
+    >
       {children}
     </div>
   );

@@ -1,78 +1,145 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  darkMode: "class",
-  content: [
-    "./app/**/*.{js,ts,jsx,tsx,mdx}",
-    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/**/*.{js,ts,jsx,tsx,mdx}",
-  ],
-  prefix: "",
+  content: ["./src/**/*.{js,ts,jsx,tsx,mdx}"],
   theme: {
-    container: {
-      center: true,
-      padding: "2rem",
-      screens: {
-        "2xl": "1400px",
-      },
+    screens: {
+      sm: "500px",
+      md: "700px",
+      lg: "1020px",
+      xl: "1120px",
+      xxl: "1300px",
     },
+
     extend: {
-      screens: {
-        xs: "500px",
-      },
       colors: {
-        border: "hsl(var(--border))",
-        input: "hsl(var(--input))",
-        ring: "hsl(var(--ring))",
-        background: "hsl(var(--background))",
-        foreground: "hsl(var(--foreground))",
+        transparent: "transparent",
+
         primary: {
-          DEFAULT: "hsl(var(--primary))",
-          foreground: "hsl(var(--primary-foreground))",
+          100: "rgb(var(--tw-clr-primary-100) / <alpha-value>)",
+          200: "rgb(var(--tw-clr-primary-200) / <alpha-value>)",
+          300: "rgb(var(--tw-clr-primary-300) / <alpha-value>)",
         },
+
         secondary: {
-          DEFAULT: "hsl(var(--secondary))",
-          foreground: "hsl(var(--secondary-foreground))",
+          100: "rgb(var(--tw-clr-secondary-100) / <alpha-value>)",
+          200: "rgb(var(--tw-clr-secondary-200) / <alpha-value>)",
+          300: "rgb(var(--tw-clr-secondary-300) / <alpha-value>)",
         },
-        destructive: {
-          DEFAULT: "hsl(var(--destructive))",
-          foreground: "hsl(var(--destructive-foreground))",
+
+        tertiary: {
+          100: "rgb(var(--tw-clr-tertiary-100) / <alpha-value>)",
+          200: "rgb(var(--tw-clr-tertiary-200) / <alpha-value>)",
+          300: "rgb(var(--tw-clr-tertiary-300) / <alpha-value>)",
         },
-        muted: {
-          DEFAULT: "hsl(var(--muted))",
-          foreground: "hsl(var(--muted-foreground))",
+
+        neutral: {
+          100: "rgb(var(--tw-clr-neutral-100) / <alpha-value>)",
+          200: "rgb(var(--tw-clr-neutral-200) / <alpha-value>)",
+          300: "rgb(var(--tw-clr-neutral-300) / <alpha-value>)",
+          400: "rgb(var(--tw-clr-neutral-400) / <alpha-value>)",
+          500: "rgb(var(--tw-clr-neutral-500) / <alpha-value>)",
+          600: "rgb(var(--tw-clr-neutral-600) / <alpha-value>)",
         },
-        accent: {
-          DEFAULT: "hsl(var(--accent))",
-          foreground: "hsl(var(--accent-foreground))",
+
+        background: "rgb(var(--tw-clr-background) / <alpha-value>)",
+
+        dim: {
+          100: "rgb(var(--tw-clr-dim-100) / <alpha-value>)",
+          200: "rgb(var(--tw-clr-dim-200) / <alpha-value>)",
+          300: "rgb(var(--tw-clr-dim-300) / <alpha-value>)",
         },
-        popover: {
-          DEFAULT: "hsl(var(--popover))",
-          foreground: "hsl(var(--popover-foreground))",
+
+        blue: {
+          100: "rgb(var(--tw-clr-blue-100) / <alpha-value>)",
+          200: "rgb(var(--tw-clr-blue-200) / <alpha-value>)",
+          300: "rgb(var(--tw-clr-blue-300) / <alpha-value>)",
         },
-        card: {
-          DEFAULT: "hsl(var(--card))",
-          foreground: "hsl(var(--card-foreground))",
+
+        yellow: {
+          100: "rgb(var(--tw-clr-yellow-100) / <alpha-value>)",
+          200: "rgb(var(--tw-clr-yellow-200) / <alpha-value>)",
+          300: "rgb(var(--tw-clr-yellow-300) / <alpha-value>)",
+        },
+
+        rose: {
+          100: "rgb(var(--tw-clr-rose-100) / <alpha-value>)",
+          200: "rgb(var(--tw-clr-rose-200) / <alpha-value>)",
+          300: "rgb(var(--tw-clr-rose-300) / <alpha-value>)",
+        },
+
+        violet: {
+          100: "rgb(var(--tw-clr-violet-100) / <alpha-value>)",
+          200: "rgb(var(--tw-clr-violet-200) / <alpha-value>)",
+          300: "rgb(var(--tw-clr-violet-300) / <alpha-value>)",
+        },
+
+        orange: {
+          100: "rgb(var(--tw-clr-orange-100) / <alpha-value>)",
+          200: "rgb(var(--tw-clr-orange-200) / <alpha-value>)",
+          300: "rgb(var(--tw-clr-orange-300) / <alpha-value>)",
+        },
+
+        green: {
+          100: "rgb(var(--tw-clr-green-100) / <alpha-value>)",
+          200: "rgb(var(--tw-clr-green-200) / <alpha-value>)",
+          300: "rgb(var(--tw-clr-green-300) / <alpha-value>)",
+        },
+
+        red: {
+          100: "rgb(var(--tw-clr-red-100) / <alpha-value>)",
+          200: "rgb(var(--tw-clr-red-200) / <alpha-value>)",
+          300: "rgb(var(--tw-clr-red-300) / <alpha-value>)",
         },
       },
-      borderRadius: {
-        lg: "var(--radius)",
-        md: "calc(var(--radius) - 2px)",
-        sm: "calc(var(--radius) - 4px)",
+
+      fontSize: {
+        kilo: "var(--tw-fs-kilo)",
+        h1: "var(--tw-fs-h1)",
+        h2: "var(--tw-fs-h2)",
+        h3: "var(--tw-fs-h3)",
+
+        base: "var(--tw-fs-base)",
+
+        large: "var(--tw-fs-large)",
+        milli: "var(--tw-fs-milli)",
+        micro: "var(--tw-fs-micro)",
+        nano: "var(--tw-fs-nano)",
+        pico: "var(--tw-fs-pico)",
       },
-      keyframes: {
-        "accordion-down": {
-          from: { height: "0" },
-          to: { height: "var(--radix-accordion-content-height)" },
-        },
-        "accordion-up": {
-          from: { height: "var(--radix-accordion-content-height)" },
-          to: { height: "0" },
-        },
+
+      fontWeight: {
+        light: 300,
+        normal: 400,
+        medium: 500,
+        semibold: 600,
+        bold: 700,
+        extrabold: 800,
+        black: 900,
       },
-      animation: {
-        "accordion-down": "accordion-down 0.2s ease-out",
-        "accordion-up": "accordion-up 0.2s ease-out",
+
+      zIndex: {
+        dropdown: 1000,
+        sticky: 1020,
+        fixed: 1030,
+        backdrop: 1040,
+        modal: 1050,
+        popover: 1060,
+        tooltip: 1070,
+      },
+
+      spacing: {
+        kilo: "var(--tw-fs-kilo)",
+        h1: "var(--tw-fs-h1)",
+        h2: "var(--tw-fs-h2)",
+        h3: "var(--tw-fs-h3)",
+
+        base: "var(--tw-fs-base)",
+
+        large: "var(--tw-fs-large)",
+        milli: "var(--tw-fs-milli)",
+        micro: "var(--tw-fs-micro)",
+        nano: "var(--tw-fs-nano)",
+        pico: "var(--tw-fs-pico)",
       },
     },
   },

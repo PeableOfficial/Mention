@@ -75,7 +75,7 @@ describe("ThemePicker", () => {
     expect(darkTheme).not.toBeChecked();
 
     await userEvent.click(darkTheme);
-    expect(document.documentElement).toHaveClass("dark");
+    expect(document.documentElement).toHaveClass("theme-dark");
     expect(lightTheme).not.toBeChecked();
     expect(dimTheme).not.toBeChecked();
     expect(darkTheme).toBeChecked();

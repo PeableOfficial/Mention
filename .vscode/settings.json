@@ -1,12 +1,14 @@
 {
   "typescript.tsdk": "node_modules\\typescript\\lib",
   "typescript.enablePromptUseWorkspaceTsdk": true,
+  "files.associations": { "*.scss": "postcss" },
   "cSpell.words": [
     "commitlint",
     "DDTHH",
     "hookform",
     "NEXTAUTH",
     "noninteractive",
+    "paralleldrive",
     "progressbar",
     "signin",
     "spammy",
