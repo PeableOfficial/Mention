@@ -52,7 +52,7 @@ export const ConversationCard = ({
       className="group relative flex cursor-pointer gap-2 p-4 outline-offset-[-2px] transition-colors duration-200 ease-in-out hover:bg-neutral-300 focus-visible:bg-neutral-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary-100 active:bg-neutral-400 "
     >
       <div className="mt-2">
-        <LinkToProfile userId={user?.id} tabIndex={-1}>
+        <LinkToProfile username={user?.screen_name} tabIndex={-1}>
           <Avatar userImage={user?.profile_image_url} />
         </LinkToProfile>
       </div>
