@@ -5,8 +5,8 @@
   "private": true,
   "scripts": {
     "start": "next start",
-    "dev": "next dev",
     "build": "next build",
+    "dev": "next dev",
     "lint": "next lint",
     "lint:debug": "next lint --debug",
     "lint:fix": "next lint --fix",
@@ -18,10 +18,6 @@
     "test:ci": "jest --ci",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
-    "cypress": "cypress open",
-    "cypress:headless": "cypress run",
-    "e2e": "start-server-and-test start http://localhost:3000 cypress",
-    "e2e:headless": "start-server-and-test start http://localhost:3000 cypress:headless",
     "prepare": "husky install",
     "preinstall": "npx only-allow pnpm",
     "docker:prod": "docker compose up --build"
