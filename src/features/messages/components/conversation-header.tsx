@@ -10,12 +10,14 @@ import { InfoIcon } from "../assets/info-icon";
 export const ConversationHeader = ({
   user_id,
   user_name,
+  user_username,
   user_image,
   isVerified,
   inView,
 }: {
   user_id?: string | undefined;
   user_name?: string | undefined;
+  user_username?: string | undefined;
   user_image?: string | null | undefined;
   isVerified?: boolean | undefined;
   inView?: boolean;
@@ -43,7 +45,7 @@ export const ConversationHeader = ({
           <>
             {!inView && (
               <div className="rounded-full has-[:focus]:outline has-[:focus]:outline-2 has-[:focus]:outline-primary-100">
-                <LinkToProfile userId={user_id}>
+                <LinkToProfile username={user_username}>
                   <Avatar
                     userImage={user_image || ""}
                     className="w-[var(--tw-fs-kilo)]"
