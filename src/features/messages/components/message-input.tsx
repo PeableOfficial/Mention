@@ -148,9 +148,7 @@ export const MessageInput = ({
     <aside aria-label="Start a new message" className={styles.container}>
       <form onSubmit={onSubmit}>
         <div
-          className={`${styles.inputContainer} ${
-            chosenImage ? styles.row : styles.column
-          }`}
+          className={`${styles.inputContainer} ${chosenImage ? styles.row : styles.column}`}
         >
           {chosenImage ? (
             <div className={styles.mediaPreview}>
