@@ -3,6 +3,8 @@ export interface Post {
 }
 
 export interface IChosenImages {
+  width: any;
+  height: any;
   url: string | ArrayBuffer | null;
   id: number;
   file: File;
