@@ -129,7 +129,7 @@ const HamburgerLink = ({
   onclick,
 }: {
   title: string;
-  path: string;
+  path: string | undefined;
   icon: React.ReactNode;
   onclick: () => void;
 }) => {
