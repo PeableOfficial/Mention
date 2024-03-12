@@ -13,8 +13,16 @@ export const ProfileStats = ({
   pathname: string;
 }) => {
   const statsData = [
-    { title: "Posts", amount: "100", href: `/${user.screen_name}` },
-    { title: "Likes", amount: "2K", href: `/${user.screen_name}/likes` },
+    {
+      title: "Posts",
+      amount: user?._count?.posts || "0",
+      href: `/${user.screen_name}`,
+    },
+    {
+      title: "Likes",
+      amount: user?._count?.likes || "0",
+      href: `/${user.screen_name}/likes`,
+    },
     {
       title: "Followers",
       amount: user?._count?.followers || "0",
@@ -25,11 +33,19 @@ export const ProfileStats = ({
       amount: user?._count?.following || "0",
       href: `/${user.screen_name}/following`,
     },
-    { title: "Media", amount: "10", href: `/${user.screen_name}/media` },
-    { title: "Reposts", amount: "1K", href: `/${user.screen_name}/reposts` },
+    {
+      title: "Media",
+      amount: user?._count?.media || "0",
+      href: `/${user.screen_name}/media`,
+    },
+    {
+      title: "Reposts",
+      amount: user?._count?.reposts || "0",
+      href: `/${user.screen_name}/reposts`,
+    },
     {
       title: "Replies",
-      amount: "1K",
+      amount: user?._count?.replies || "0",
       href: `/${user.screen_name}/with-replies`,
     },
   ];

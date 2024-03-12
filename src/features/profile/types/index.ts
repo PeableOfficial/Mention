@@ -15,6 +15,9 @@ export interface IUser extends User {
     following?: number;
     posts?: number;
     likes?: number;
+    media?: number;
+    reposts?: number;
+    replies?: number;
   };
 }
 
