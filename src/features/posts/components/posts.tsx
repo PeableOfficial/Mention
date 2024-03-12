@@ -1,4 +1,5 @@
 "use client";
+import { useSession } from "next-auth/react";
 
 import { LoadingSpinner } from "@/components/elements/loading-spinner";
 import { TryAgain } from "@/components/elements/try-again";
@@ -8,6 +9,7 @@ import { usePosts } from "../hooks/use-posts";
 import { InfinitePosts } from "./infinite-posts";
 
 export const Posts = () => {
+  const { data: session } = useSession();
   const {
     data: posts,
     isLoading,
@@ -16,7 +18,11 @@ export const Posts = () => {
     isFetchingNextPage,
     fetchNextPage,
     hasNextPage,
-  } = usePosts({});
+  } = usePosts({
+    queryKey: ["default", session?.user?.id],
+    type: "default",
+    id: session?.user?.id,
+  });
 
   if (isLoading) {
     return <LoadingSpinner />;
