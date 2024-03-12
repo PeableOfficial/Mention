@@ -5,8 +5,8 @@
   "private": true,
   "scripts": {
     "start": "next start",
-    "dev": "prisma generate && next dev",
-    "build": "prisma generate && next build",
+    "build": "next build",
+    "dev": "next dev",
     "lint": "next lint",
     "lint:debug": "next lint --debug",
     "lint:fix": "next lint --fix",
