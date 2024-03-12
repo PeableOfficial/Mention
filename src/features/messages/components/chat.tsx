@@ -25,7 +25,7 @@ export const Chat = ({
   });
   const anchorRef = useRef<HTMLDivElement | null>(null);
 
-  const [scrolledToBottom, setScrolledToBottom] = useState(false);
+  const [scrolledToBottom, setScrolledToBottom] = useState(true);
   const [displayNewMessageToast, setDisplayNewMessageToast] = useState(false);
 
   const { data: session } = useSession();
@@ -36,13 +36,22 @@ export const Chat = ({
   useEffect(() => {
     if (inView) {
       setScrolledToBottom(true);
+      setDisplayNewMessageToast(false);
     } else {
       setScrolledToBottom(false);
     }
   }, [inView]);
 
+  const handleScroll = () => {
+    const element = anchorRef.current;
+    if (element) {
+      const isScrolledToBottom = element.scrollHeight - element.scrollTop === element.clientHeight;
+      setScrolledToBottom(isScrolledToBottom);
+    }
+  };
+
   useLayoutEffect(() => {
-    if (!scrolledToBottom) {
+    if (scrolledToBottom) {
       scrollIntoView({
         element: anchorRef.current,
         behavior: "instant",
@@ -56,6 +65,31 @@ export const Chat = ({
         setDisplayNewMessageToast(true);
     }
   }, [chat]);
+
+  useEffect(() => {
+    const element = anchorRef.current;
+    if (element) {
+      element.addEventListener('scroll', handleScroll);
+      return () => {
+        element.removeEventListener('scroll', handleScroll);
+      };
+    }
+  }, []);
+
+  useEffect(() => {
+    if (!isLoading && !isError) {
+      scrollIntoView({
+        element: anchorRef.current,
+        behavior: "smooth",
+      });
+    }
+  }, [isLoading, isError]);
+
+  useEffect(() => {
+    if (chat && chat.length > 0 && chat[chat.length - 1]?.sender_id === session?.user?.id) {
+      setScrolledToBottom(true);
+    }
+  }, [chat, session]);
 
   if (isLoading) return <LoadingSpinner />;
 
