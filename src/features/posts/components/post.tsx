@@ -35,7 +35,7 @@ export const Post = ({ post, pinned }: { post: IPost; pinned?: boolean }) => {
             key={i}
             onClick={(e) => e.stopPropagation()}
           >
-            <span className="text-blue-500 hover:underline">{part}</span>
+            <span className="text-[var(--clr-primary)] hover:underline">{part}</span>
           </Link>
         );
       }
