@@ -12,7 +12,7 @@ const ProPage = () => {
     <div>
       <Header>
         <HamburgerButton />
-        <h1 title="Mention Pro" />
+        <h1>Mention Pro</h1>
       </Header>
       <Accordion type="single" collapsible className="w-full px-4">
         <AccordionItem value="item-1">

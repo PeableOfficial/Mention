@@ -37,6 +37,8 @@ module.exports = {
     "react/react-in-jsx-scope": "off",
     "import/order": "off",
     "prettier/prettier": "off",
+    "react/prop-types": "off",
+    "tailwindcss/no-custom-classname": "off",
 
     // imports
     "import/no-unresolved": "error",
