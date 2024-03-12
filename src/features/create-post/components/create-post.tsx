@@ -2,6 +2,8 @@
 import { useSession } from "next-auth/react";
 import { useCallback, useLayoutEffect, useRef, useState } from "react";
 
+import { useUser } from "@/features/profile";
+
 import { GifIcon } from "@/assets/gif-icon";
 import { ImageIcon } from "@/assets/image-icon";
 import { LocationIcon } from "@/assets/location-icon";
@@ -41,6 +43,7 @@ export const CreatePost = ({
   inputId?: string;
 }) => {
   const { data: session } = useSession();
+  const { data: user } = useUser({ id: session?.user?.id });
 
   const [text, setText] = useState("");
   const [chosenImages, setChosenImages] = useState<IChosenImages[]>([]);
@@ -69,7 +72,7 @@ export const CreatePost = ({
     <div className={styles.container}>
       <div className={styles.left}>
         <div className={styles.avatar}>
-          <LinkToProfile userId={session?.user?.id}>
+          <LinkToProfile username={user?.screen_name}>
             <Avatar userImage={session?.user?.profile_image_url} />
           </LinkToProfile>
         </div>
