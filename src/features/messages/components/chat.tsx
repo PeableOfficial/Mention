@@ -127,7 +127,7 @@ export const Chat = ({
 
       {displayNewMessageToast && (
         <Button
-          className="shadow-lg absolute bottom-[5rem] left-[50%] translate-x-[-50%] bg-background px-3 py-2 text-milli font-bold text-primary-100 hover:bg-neutral-500 focus-visible:bg-neutral-500 focus-visible:outline-secondary-100/50 active:bg-neutral-600 inline-flex items-center text-sm"
+          className="shadow-lg absolute bottom-[5rem] left-[50%] translate-x-[-50%] bg-background px-3 py-2 text-[var(--fs-milli)] font-bold text-primary-100 hover:bg-neutral-500 focus-visible:bg-neutral-500 focus-visible:outline-secondary-100/50 active:bg-neutral-600 inline-flex items-center"
           onClick={() => {
             scrollIntoView({
               element: anchorRef.current,
