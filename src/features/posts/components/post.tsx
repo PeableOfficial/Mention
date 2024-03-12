@@ -24,7 +24,7 @@ import styles from "./styles/post.module.scss";
 export const Post = ({ post, pinned }: { post: IPost; pinned?: boolean }) => {
   const router = useRouter();
 
-  const renderHashtags = (content) => {
+  const renderHashtags = (content: string) => {
     const hashtagRegex = /(#\w+)/g;
     return content.split(hashtagRegex).map((part, i) => {
       if (part.match(hashtagRegex)) {
