@@ -117,7 +117,7 @@
     "jest-environment-jsdom": "^29.7.0",
     "lint-staged": "^15.2.2",
     "only-allow": "^1.2.1",
-    "prisma": "^5.7.0",
+    "prisma": "^5.9.1",
     "start-server-and-test": "^2.0.3",
     "ts-jest": "^29.1.1",
     "ts-node": "^10.9.2"

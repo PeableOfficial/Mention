@@ -5,7 +5,6 @@ import { useSession } from "next-auth/react";
 import { forwardRef } from "react";
 
 import { useTrackPosition } from "@/components/elements/modal";
-import { useUser } from "@/features/profile";
 
 import styles from "./styles/session-owner-modal.module.scss";
 
@@ -14,7 +13,6 @@ export const SessionOwnerModal = forwardRef<
   { onClose: () => void }
 >(({ onClose }, ref) => {
   const { data: session } = useSession();
-  const { data: user } = useUser({ id: session?.user?.id });
 
   const buttonBoundaries = useTrackPosition({
     buttonRef: ref as React.RefObject<HTMLButtonElement>,
@@ -51,7 +49,7 @@ export const SessionOwnerModal = forwardRef<
         Add an existing account
       </Link>
       <Link href={`/auth/signout`} role="menuitem" onClick={onClose}>
-        Log out from @{user?.screen_name}
+        Log out @{session?.user?.email.split("@")[0]}
       </Link>
     </motion.div>
   );

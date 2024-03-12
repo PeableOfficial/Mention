@@ -3,13 +3,14 @@ import { AnimatePresence } from "framer-motion";
 import { useSession } from "next-auth/react";
 import { useRef, useState } from "react";
 
+import { useUser } from "@/features/profile";
+
 import { DotIcon } from "@/assets/dot-icon";
 import { Button } from "@/components/elements/button";
 import { EllipsisWrapper } from "@/components/elements/ellipsis-wrapper";
 import { Modal } from "@/components/elements/modal";
 import { Tooltip } from "@/components/elements/tooltip";
 import { Avatar, UserName, UserScreenName } from "@/features/profile";
-import { useUser } from "@/features/profile";
 
 import { SessionOwnerModal } from "./session-owner-modal";
 

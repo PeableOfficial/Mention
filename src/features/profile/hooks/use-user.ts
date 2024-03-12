@@ -13,9 +13,14 @@ export const useUser = ({
   return useQuery<IUser>({
     queryKey: ["users", id],
     queryFn: async () => {
+      if (!id) {
+        // Return a default value or null when id is not provided
+        return null;
+      }
       return getUser(id);
     },
     refetchOnWindowFocus: false,
     initialData: initialData ?? undefined,
+    enabled: !!id, // Only run the query if the id is provided
   });
 };

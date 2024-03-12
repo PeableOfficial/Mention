@@ -7,7 +7,7 @@ import { ImageIcon } from "@/assets/image-icon";
 import { LocationIcon } from "@/assets/location-icon";
 import { Button } from "@/components/elements/button";
 import { Tooltip } from "@/components/elements/tooltip";
-import { Avatar, LinkToProfile, useUser } from "@/features/profile";
+import { Avatar, LinkToProfile } from "@/features/profile";
 import { IPost } from "@/features/posts";
 
 import { PollIcon } from "../assets/poll-icon";
@@ -41,7 +41,6 @@ export const CreatePost = ({
   inputId?: string;
 }) => {
   const { data: session } = useSession();
-  const { data: user } = useUser({ id: session?.user?.id });
 
   const [text, setText] = useState("");
   const [chosenImages, setChosenImages] = useState<IChosenImages[]>([]);
@@ -70,7 +69,7 @@ export const CreatePost = ({
     <div className={styles.container}>
       <div className={styles.left}>
         <div className={styles.avatar}>
-          <LinkToProfile username={user?.screen_name}>
+          <LinkToProfile userId={session?.user?.id}>
             <Avatar userImage={session?.user?.profile_image_url} />
           </LinkToProfile>
         </div>

@@ -40,7 +40,7 @@ export const HamburgerMenu = () => {
             onClick={() => {
               closeHamburger();
             }}
-            username={session?.user?.screen_name}
+            username={user?.screen_name}
             tabIndex={-1}
           >
             <Avatar userImage={session?.user?.profile_image_url} />
@@ -57,7 +57,7 @@ export const HamburgerMenu = () => {
         </div>
 
         <LinkToProfile
-          username={session?.user?.screen_name}
+          username={user?.screen_name}
           onClick={() => {
             closeHamburger();
           }}
@@ -76,7 +76,7 @@ export const HamburgerMenu = () => {
           }}
           tabIndex={-1}
         >
-          <UserScreenName screenName={session?.user?.screen_name} />
+          <UserScreenName screenName={user?.screen_name} />
         </LinkToProfile>
 
         {user && (
@@ -84,14 +84,14 @@ export const HamburgerMenu = () => {
             <FollowsLink
               stats={user?.following?.length}
               text="Following"
-              link={`/${session?.user?.id}/following`}
+              link={`/${user?.screen_name}/following`}
               onClick={() => closeHamburger()}
             />
 
             <FollowsLink
               stats={user?.followers?.length}
               text="Followers"
-              link={`/${session?.user?.id}/followers`}
+              link={`/${user?.screen_name}/followers`}
               onClick={() => closeHamburger()}
             />
           </div>
@@ -101,7 +101,7 @@ export const HamburgerMenu = () => {
       <nav>
         <HamburgerLink
           title="Profile"
-          path={session?.user?.id}
+          path={user?.screen_name}
           icon={<User />}
           onclick={() => closeHamburger()}
         />
