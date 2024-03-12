@@ -88,6 +88,7 @@ export default async function RootLayout({
           </ReactQueryProvider>
         </NextAuthProvider>
         <Analytics />
+        <SpeedInsights/>
         <AxiomWebVitals />
       </body>
     </html>
