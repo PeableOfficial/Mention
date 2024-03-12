@@ -17,6 +17,13 @@ export const getPostMetadata = async ({ post_id }: { post_id: string }) => {
 
         media: true,
 
+        quoted_post: {
+          include: {
+            author: true,
+            media: true,
+          },
+        },
+
         author: {
           select: {
             id: true,

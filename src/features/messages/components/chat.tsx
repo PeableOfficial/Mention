@@ -45,7 +45,8 @@ export const Chat = ({
   const handleScroll = () => {
     const element = anchorRef.current;
     if (element) {
-      const isScrolledToBottom = element.scrollHeight - element.scrollTop === element.clientHeight;
+      const isScrolledToBottom =
+        element.scrollHeight - element.scrollTop === element.clientHeight;
       setScrolledToBottom(isScrolledToBottom);
     }
   };
@@ -64,7 +65,7 @@ export const Chat = ({
       )
         setDisplayNewMessageToast(true);
     }
-  }, [chat]);
+  }, [chat, scrolledToBottom, session?.user?.id]);
 
   useEffect(() => {
     const element = anchorRef.current;
@@ -86,7 +87,11 @@ export const Chat = ({
   }, [isLoading, isError]);
 
   useEffect(() => {
-    if (chat && chat.length > 0 && chat[chat.length - 1]?.sender_id === session?.user?.id) {
+    if (
+      chat &&
+      chat.length > 0 &&
+      chat[chat.length - 1]?.sender_id === session?.user?.id
+    ) {
       setScrolledToBottom(true);
     }
   }, [chat, session]);
@@ -119,7 +124,7 @@ export const Chat = ({
               behavior: "smooth",
             });
           }}
-          className="shadow-lg absolute bottom-[5rem] right-[1.6rem] bg-background fill-primary-100 px-3 py-2 hover:bg-neutral-500 focus-visible:bg-neutral-500 focus-visible:outline-secondary-100/50 active:bg-neutral-600 inline-flex items-center text-sm"
+          className="absolute bottom-[5rem] right-[1.6rem] inline-flex items-center bg-background fill-primary-100 px-3 py-2 text-sm shadow-lg hover:bg-neutral-500 focus-visible:bg-neutral-500 focus-visible:outline-secondary-100/50 active:bg-neutral-600"
         >
           <ArrowDownIcon />
         </Button>
@@ -127,7 +132,7 @@ export const Chat = ({
 
       {displayNewMessageToast && (
         <Button
-          className="shadow-lg absolute bottom-[5rem] left-[50%] translate-x-[-50%] bg-background px-3 py-2 text-[var(--fs-milli)] font-bold text-primary-100 hover:bg-neutral-500 focus-visible:bg-neutral-500 focus-visible:outline-secondary-100/50 active:bg-neutral-600 inline-flex items-center"
+          className="absolute bottom-[5rem] left-[50%] inline-flex translate-x-[-50%] items-center bg-background px-3 py-2 font-bold text-[var(--fs-milli)] text-primary-100 shadow-lg hover:bg-neutral-500 focus-visible:bg-neutral-500 focus-visible:outline-secondary-100/50 active:bg-neutral-600"
           onClick={() => {
             scrollIntoView({
               element: anchorRef.current,

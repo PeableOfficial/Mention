@@ -53,6 +53,13 @@ export async function GET(
           },
         },
 
+        quoted_post: {
+          include: {
+            author: true,
+            media: true,
+          },
+        },
+
         reposts: {
           select: {
             user_id: true,

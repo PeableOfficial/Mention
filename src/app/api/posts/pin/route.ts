@@ -28,6 +28,12 @@ export async function GET(request: Request) {
           likes: true,
           reposts: true,
           comments: true,
+          quoted_post: {
+            include: {
+              author: true,
+              media: true,
+            },
+          },
         },
       });
 
