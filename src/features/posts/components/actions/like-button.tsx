@@ -27,7 +27,7 @@ export const LikeButton = ({
     (like) => like.user_id === session?.user?.id,
   );
 
-  const totalLikes = post?.likes?.length;
+  const totalLikes = post?.likes?.length || 0;
 
   const [{ currentLikes }, setCurrentStats] = useState({
     currentLikes: totalLikes,
@@ -41,7 +41,7 @@ export const LikeButton = ({
 
   const likeMove = useMemo(
     () => (totalLikes > currentLikes ? -25 : 25),
-    [totalLikes]
+    [totalLikes],
   );
 
   const setJoinMentionData = useJoinMention((state) => state.setData);
