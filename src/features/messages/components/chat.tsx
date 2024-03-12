@@ -69,9 +69,9 @@ export const Chat = ({
   useEffect(() => {
     const element = anchorRef.current;
     if (element) {
-      element.addEventListener('scroll', handleScroll);
+      element.addEventListener("scroll", handleScroll);
       return () => {
-        element.removeEventListener('scroll', handleScroll);
+        element.removeEventListener("scroll", handleScroll);
       };
     }
   }, []);
@@ -119,7 +119,7 @@ export const Chat = ({
               behavior: "smooth",
             });
           }}
-          className="shadow-main absolute bottom-[5rem] right-[1.6rem] bg-background fill-primary-100 px-[1em] py-[0.5em] hover:bg-neutral-500 focus-visible:bg-neutral-500 focus-visible:outline-secondary-100/50 active:bg-neutral-600"
+          className="shadow-lg absolute bottom-[5rem] right-[1.6rem] bg-background fill-primary-100 px-3 py-2 hover:bg-neutral-500 focus-visible:bg-neutral-500 focus-visible:outline-secondary-100/50 active:bg-neutral-600 inline-flex items-center text-sm"
         >
           <ArrowDownIcon />
         </Button>
@@ -127,7 +127,7 @@ export const Chat = ({
 
       {displayNewMessageToast && (
         <Button
-          className="shadow-main absolute bottom-[5rem] left-[50%] translate-x-[-50%] bg-background px-[1em] py-[0.5em] text-milli font-bold text-primary-100 hover:bg-neutral-500 focus-visible:bg-neutral-500 focus-visible:outline-secondary-100/50 active:bg-neutral-600"
+          className="shadow-lg absolute bottom-[5rem] left-[50%] translate-x-[-50%] bg-background px-3 py-2 text-milli font-bold text-primary-100 hover:bg-neutral-500 focus-visible:bg-neutral-500 focus-visible:outline-secondary-100/50 active:bg-neutral-600 inline-flex items-center text-sm"
           onClick={() => {
             scrollIntoView({
               element: anchorRef.current,

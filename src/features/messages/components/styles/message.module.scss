@@ -1,38 +1,27 @@
 .container {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  padding-bottom: 23px;
+  @apply flex flex-col items-start pb-[23px] select-none;
 
   .media {
-    position: relative;
-    overflow: hidden;
-    max-width: 80%;
-    margin-bottom: 4px;
+    .container {
+      @apply relative overflow-hidden max-w-80 mb-4;
+    }
 
     img {
-      border-radius: 1rem;
-      height: auto;
-      object-fit: contain;
+      @apply rounded h-auto object-contain;
     }
   }
 
   .text {
     direction: ltr;
-    background-color: var(--clr-message-background);
     border-radius: 20px 20px 20px 4px;
-    padding: 0.85em 1em;
     font-size: var(--fs-milli);
+    @apply px-3 py-2 bg-[var(--clr-message-background)];
   }
 
   .info {
     margin-top: 6px;
     direction: ltr;
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    color: var(--clr-tertiary);
-    font-size: var(--fs-nano);
+    @apply flex items-center gap-5 text-[var(--clr-tertiary)] text-xs;
   }
 
   .failedActions {
@@ -64,11 +53,8 @@
   direction: rtl;
 
   .text {
-    background-color: var(--clr-primary);
     border-radius: 1.2rem 1.2rem 0.2rem 1.2rem;
-    color: var(--clr-light);
-    cursor: pointer;
-    transition: background-color 0.2s ease-in-out;
+    @apply text-white cursor-pointer transition duration-200 ease-in-out bg-[var(--clr-primary)];
 
     &:hover {
       background-color: var(--clr-primary-hover);
