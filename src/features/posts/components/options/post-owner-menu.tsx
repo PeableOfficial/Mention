@@ -1,4 +1,5 @@
 import { useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
 
 import { CommentIcon } from "@/assets/comment-icon";
 import { PinIcon } from "@/assets/pin-icon";
@@ -25,6 +26,7 @@ export const PostOwnerMenu = ({
   const { data: session } = useSession();
   const { data: user } = useUser({ id: session?.user?.id });
   const pinMutation = usePinPost();
+  const router = useRouter();
 
   return (
     <>
@@ -86,17 +88,10 @@ export const PostOwnerMenu = ({
       <MenuItem
         onClick={() => {
           setIsMenuOpen(false);
+          router.push("/pro");
         }}
       >
-        <CommentIcon /> Change who can reply
-      </MenuItem>
-
-      <MenuItem
-        onClick={() => {
-          setIsMenuOpen(false);
-        }}
-      >
-        <EditIcon /> Edit with Premium
+        <EditIcon /> Edit with Pro
       </MenuItem>
     </>
   );

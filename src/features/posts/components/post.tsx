@@ -1,4 +1,5 @@
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 import { PinIcon } from "@/assets/pin-icon";
 import { CreateDate } from "@/components/elements/create-date";
@@ -22,6 +23,25 @@ import styles from "./styles/post.module.scss";
 
 export const Post = ({ post, pinned }: { post: IPost; pinned?: boolean }) => {
   const router = useRouter();
+
+  const renderHashtags = (content) => {
+    const hashtagRegex = /(#\w+)/g;
+    return content.split(hashtagRegex).map((part, i) => {
+      if (part.match(hashtagRegex)) {
+        const hashtag = part.slice(1);
+        return (
+          <Link
+            href={`/search?query=${hashtag}`}
+            key={i}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <span className="text-blue-500 hover:underline">{part}</span>
+          </Link>
+        );
+      }
+      return part;
+    });
+  };
 
   return (
     <div
@@ -102,7 +122,7 @@ export const Post = ({ post, pinned }: { post: IPost; pinned?: boolean }) => {
           <div className={styles.post}>
             {post?.text && (
               <div className={styles.text}>
-                <p>{decodeURIComponent(post?.text)}</p>
+                <p>{renderHashtags(decodeURIComponent(post?.text))}</p>
               </div>
             )}
             {post?.media?.length > 0 && (
