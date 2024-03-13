@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 
-import { Header, ProfileHeader } from "@/features/header";
+import { ProfileHeader } from "@/features/header";
 import {
   IUser,
   getUsernameToId,
@@ -56,14 +56,12 @@ const ProfileMediaPage = async ({
 
   return (
     <div>
-      <Header>
-        <ProfileHeader
+      <ProfileHeader
           heading={user?.name}
           stats={`${user?._count?.posts} ${
             user?._count?.posts === 1 ? "Photo & video" : "Photos & videos"
           }`}
         />
-      </Header>
       <Profile initialUser={user as any} />
       <ProfileMedia user={user as unknown as IUser} />
     </div>

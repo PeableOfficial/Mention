@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 
 import { UserNotFound } from "@/components/elements/user-not-found";
-import { Header, ProfileHeader } from "@/features/header";
+import { ProfileHeader } from "@/features/header";
 import {
   getUsernameToId,
   Following,
@@ -21,9 +21,7 @@ const FollowingPage = async ({
   if (!userId)
     return (
       <>
-        <Header>
-          <ProfileHeader heading="Profile" stats="" />
-        </Header>
+        <ProfileHeader heading="Profile" stats="" />
         <UserNotFound />
       </>
     );
@@ -35,18 +33,14 @@ const FollowingPage = async ({
   if (!user)
     return (
       <>
-        <Header>
-          <ProfileHeader heading="Profile" stats="" />
-        </Header>
+        <ProfileHeader heading="Profile" stats="" />
         <UserNotFound />
       </>
     );
 
   return (
     <div>
-      <Header>
-        <ProfileHeader heading={user?.name} stats={`@${user?.username}`} />
-      </Header>
+      <ProfileHeader heading={user?.name} stats={`@${user?.username}`} />
       <FollowsNavigation />
       <Following id={user?.id} />
     </div>
@@ -72,9 +66,9 @@ export async function generateMetadata({
     };
 
   return {
-    title: `People followed by ${user?.name?.split(
-      " ",
-    )[0]} (@${user?.username})`,
+    title: `People followed by ${
+      user?.name?.split(" ")[0]
+    } (@${user?.username})`,
     description: user?.description,
   };
 }

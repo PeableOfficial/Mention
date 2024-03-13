@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 
-import { Header, ProfileHeader } from "@/features/header";
+import { ProfileHeader } from "@/features/header";
 import {
   getUsernameToId,
   Profile,
@@ -55,14 +55,12 @@ const ProfilePostsPage = async ({
 
   return (
     <div>
-      <Header>
-        <ProfileHeader
-          heading={user?.name}
-          stats={`${user?._count?.posts} ${
-            user?._count?.posts === 1 ? "post" : "posts"
-          }`}
-        />
-      </Header>
+      <ProfileHeader
+        heading={user?.name}
+        stats={`${user?._count?.posts} ${
+          user?._count?.posts === 1 ? "post" : "posts"
+        }`}
+      />
       <Profile initialUser={user as any} />
       <ProfilePosts id={userId} />
     </div>

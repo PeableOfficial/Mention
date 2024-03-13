@@ -5,8 +5,6 @@ import type { Viewport } from "next";
 import { cookies } from "next/headers";
 import { AxiomWebVitals } from "next-axiom";
 
-import "react-toastify/dist/ReactToastify.css";
-
 import "./styles/layout.scss";
 import "./styles/tailwind.css";
 import { Toaster } from "@/components/ui/sonner";

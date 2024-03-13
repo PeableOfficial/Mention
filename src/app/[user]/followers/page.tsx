@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 
 import { UserNotFound } from "@/components/elements/user-not-found";
-import { Header, ProfileHeader } from "@/features/header";
+import { ProfileHeader } from "@/features/header";
 import {
   getUsernameToId,
   Followers,
@@ -21,9 +21,7 @@ const FollowersPage = async ({
   if (!userId)
     return (
       <>
-        <Header>
-          <ProfileHeader heading="Profile" stats="" />
-        </Header>
+        <ProfileHeader heading="Profile" stats="" />
         <UserNotFound />
       </>
     );
@@ -35,18 +33,14 @@ const FollowersPage = async ({
   if (!user)
     return (
       <>
-        <Header>
-          <ProfileHeader heading="Profile" stats="" />
-        </Header>
+        <ProfileHeader heading="Profile" stats="" />
         <UserNotFound />
       </>
     );
 
   return (
     <div>
-      <Header>
-        <ProfileHeader heading={user?.name} stats={`@${user?.username}`} />
-      </Header>
+      <ProfileHeader heading={user?.name} stats={`@${user?.username}`} />
       <FollowsNavigation />
       <Followers id={user?.id} />
     </div>

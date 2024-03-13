@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 
-import { Header, ProfileHeader } from "@/features/header";
+import { ProfileHeader } from "@/features/header";
 import {
   getUsernameToId,
   Profile,
@@ -50,9 +50,7 @@ const ProfileLikesPage = async ({
   if (!userId)
     return (
       <>
-        <Header>
-          <ProfileHeader heading="Profile" stats="" />
-        </Header>
+        <ProfileHeader heading="Profile" stats="" />
       </>
     );
   const user = await getUserMetadata({
@@ -62,14 +60,12 @@ const ProfileLikesPage = async ({
 
   return (
     <div>
-      <Header>
-        <ProfileHeader
+      <ProfileHeader
           heading={user?.name}
           stats={`${user?._count?.likes} ${
             user?._count?.likes === 1 ? "like" : "likes"
           }`}
         />
-      </Header>
       <Profile initialUser={user as any} />
       {user?.id && <ProfileLikes id={user.id} />}
     </div>

@@ -4,10 +4,10 @@
 "use client";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { usePathname, useRouter } from "next/navigation";
 import { useSession } from "next-auth/react";
 import { forwardRef } from "react";
 import { createPortal } from "react-dom";
+import Link from "next/link";
 
 import { FollowButton } from "@/components/elements/follow-button";
 import { LoadingSpinner } from "@/components/elements/loading-spinner";
@@ -17,12 +17,8 @@ import { TryAgain } from "@/components/elements/try-again";
 import { useUser } from "../hooks/use-user";
 import { following } from "../utils/following";
 
-import styles from "./styles/user-modal.module.scss";
-
 export const UserModal = forwardRef<HTMLDivElement, { userId: string }>(
   ({ userId }, ref) => {
-    const router = useRouter();
-    const pathname = usePathname();
     const { data: session } = useSession();
     const { data: user, isPending, isError } = useUser({ id: userId });
     const buttonBoundaries = useTrackPosition({
@@ -35,23 +31,37 @@ export const UserModal = forwardRef<HTMLDivElement, { userId: string }>(
       session_owner_id: session?.user?.id,
     });
 
+    const stats = [
+      {
+        id: "followers",
+        label: "Followers",
+        stat: user?.followers?.length || 0,
+      },
+      {
+        id: "following",
+        label: "Following",
+        stat: user?.following?.length || 0,
+      },
+    ];
+
     const style: React.CSSProperties = {
       position: "fixed",
       top: buttonBoundaries?.top,
       left: buttonBoundaries?.left,
       transform: `translate(-50%, calc(${buttonBoundaries?.height}px + 10px))`,
+      boxShadow: "0 0 10px -2px var(--clr-tertiary)",
     };
 
     return createPortal(
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 0.2 }}
+        transition={{ duration: 0.1 }}
         style={style}
         onClick={(e) => {
           e.stopPropagation();
         }}
-        className={styles.container}
+        className="z-[var(--z-index-popover)] w-72 rounded-2xl bg-[var(--clr-background)] group-hover:visible group-hover:opacity-100 group-hover:delay-500"
       >
         {isPending ? (
           <LoadingSpinner />
@@ -60,52 +70,71 @@ export const UserModal = forwardRef<HTMLDivElement, { userId: string }>(
         ) : (
           <>
             {" "}
-            <div className={styles.hero}>
-              <div className={styles.avatar}>
-                <Image
-                  src={user?.profile_image_url || "/avatar.svg"}
-                  alt={user?.name}
-                  width={60}
-                  height={60}
-                />
-              </div>
-
-              <div className={styles.follow}>
-                <FollowButton
-                  user_id={user?.id}
-                  session_owner_id={session?.user?.id}
-                  isFollowing={isFollowing}
-                  username={user?.username}
-                />
-              </div>
-            </div>
-            <div className={styles.userDetails}>
-              <h2 className={styles.name}>{user?.name}</h2>
-              <span className={styles.username}>@{user?.username}</span>
-
-              {user?.description && (
-                <p className={styles.description}>{user?.description}</p>
-              )}
-
-              <div className={styles.stats}>
-                <button
-                  onClick={() => router.push(`${pathname}/following`)}
-                  className={styles.stat}
-                >
-                  <span className={styles.number}>
-                    {user?.following?.length || 0}
-                  </span>
-                  <span className={styles.text}>Following</span>
-                </button>
-                <button
-                  onClick={() => router.push(`${pathname}/followers`)}
-                  className={styles.stat}
-                >
-                  <span className={styles.number}>
-                    {user?.followers?.length || 0}
-                  </span>
-                  <span className={styles.text}>Followers</span>
-                </button>
+            <div className="relative self-start">
+              <div
+                className="rounded-2xl group-hover:visible 
+                   group-hover:opacity-100 group-hover:delay-500"
+              >
+                <div className="flex flex-col gap-3 p-4">
+                  <div className="flex flex-col gap-2">
+                    <div className="-mx-4 -mt-4">
+                      <Image
+                        className="h-16 w-full rounded-t-2xl object-cover"
+                        src={user?.profile_image_url || "/avatar.svg"}
+                        alt={user?.name}
+                        width={150}
+                        height={60}
+                      />
+                    </div>
+                    <div className="flex justify-between">
+                      <div className="mb-10">
+                        <Image
+                          className="bg-main-background absolute -translate-y-1/2 rounded-full border-[0.25rem] border-[var(--clr-background)]  hover:brightness-100 [&:hover>figure>span]:brightness-75
+                             [&>figure>span]:[transition:200ms]"
+                          src={user?.profile_image_url || "/avatar.svg"}
+                          alt={user?.name}
+                          width={74}
+                          height={74}
+                        />
+                      </div>
+                      {session?.user?.id !== user?.id && (
+                        <FollowButton
+                          user_id={user?.id}
+                          session_owner_id={session?.user?.id}
+                          isFollowing={isFollowing}
+                          username={user?.username}
+                        />
+                      )}
+                    </div>
+                    <div>
+                      <h2 className="custom-underline -mb-1 flex items-center gap-1 truncate text-lg font-bold">
+                        {user?.name}
+                      </h2>
+                      <div className="text-light-secondary dark:text-dark-secondary flex items-center gap-1">
+                        <span className="text-light-secondary dark:text-dark-secondary flex items-center gap-1">
+                          @{user?.username}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  {user?.description && <p className="">{user?.description}</p>}
+                  <div className="text-secondary flex gap-4">
+                    {stats.map(({ id, label, stat }) => (
+                      <Link href={`/${user?.username}/${label}`} key={id}>
+                        <div
+                          className="hover-animation hover:border-b-light-primary focus-visible:border-b-light-primary dark:hover:border-b-dark-primary dark:focus-visible:border-b-dark-primary flex h-4 
+                             items-center gap-1 border-b
+                             border-b-transparent outline-none"
+                        >
+                          <p className="font-bold">{stat}</p>
+                          <p className="text-light-secondary dark:text-dark-secondary">
+                            {label}
+                          </p>
+                        </div>
+                      </Link>
+                    ))}
+                  </div>
+                </div>
               </div>
             </div>
           </>

@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 
-import { Header, ProfileHeader } from "@/features/header";
+import { ProfileHeader } from "@/features/header";
 import {
   getUsernameToId,
   Profile,
@@ -31,9 +31,9 @@ export async function generateMetadata({
     };
 
   return {
-    title: `Posts with replies by ${user?.name?.split(
-      " ",
-    )[0]} (@${user?.username})`,
+    title: `Posts with replies by ${
+      user?.name?.split(" ")[0]
+    } (@${user?.username})`,
     description: user?.description,
   };
 }
@@ -56,14 +56,12 @@ const ProfilePostsWithRepliesPage = async ({
 
   return (
     <div>
-      <Header>
-        <ProfileHeader
-          heading={user?.name}
-          stats={`${user?._count?.posts} ${
-            user?._count?.posts === 1 ? "post" : "posts"
-          }`}
-        />
-      </Header>
+      <ProfileHeader
+        heading={user?.name}
+        stats={`${user?._count?.posts} ${
+          user?._count?.posts === 1 ? "post" : "posts"
+        }`}
+      />
       <Profile initialUser={user as any} />
       {user?.id && <ProfilePostsAndReplies id={user.id} />}
     </div>
