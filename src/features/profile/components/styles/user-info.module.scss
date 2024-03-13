@@ -101,7 +101,7 @@ $avatar-top: calc(-1 * #{$avatar-size} / 2 - #{$avatar-border});
 
         .options,
         .message,
-        .notifications {
+        .activity {
           border-radius: 50%;
           padding: 0.4em;
           display: grid;

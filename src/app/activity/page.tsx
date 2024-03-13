@@ -8,9 +8,9 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Switch } from "@/components/ui/switch";
-import { Header, NotificationsHeader } from "@/features/header";
+import { Header, ActivityHeader } from "@/features/header";
 
-const notificationsArray = [
+const activityArray = [
   {
     title: "Your call has been confirmed.",
     description: "1 hour ago",
@@ -25,31 +25,31 @@ const notificationsArray = [
   },
 ];
 
-const Notifications = () => {
+const Activity = () => {
   return (
     <div>
       <Header>
-        <NotificationsHeader />
+        <ActivityHeader />
       </Header>
       <Card className="w-100 b-0 mx-2 p-1">
         <CardHeader>
-          <CardTitle>Notifications</CardTitle>
+          <CardTitle>Activity</CardTitle>
           <CardDescription>You have 3 unread messages.</CardDescription>
         </CardHeader>
         <CardContent className="grid gap-4">
           <div className=" flex items-center space-x-4 rounded-md border p-4">
             <div className="flex-1 space-y-1">
               <p className="text-sm font-medium leading-none">
-                Push Notifications
+                Push Activity
               </p>
               <p className="text-muted-foreground text-sm">
-                Send notifications to device.
+                Send activity to device.
               </p>
             </div>
             <Switch />
           </div>
           <div>
-            {notificationsArray.map((notification, index) => (
+            {activityArray.map((notification, index) => (
               <div
                 key={index}
                 className="mb-4 grid grid-cols-[25px_1fr] items-start pb-4 last:mb-0 last:pb-0"
@@ -75,8 +75,8 @@ const Notifications = () => {
   );
 };
 
-export default Notifications;
+export default Activity;
 
 export const metadata = {
-  title: "Notifications",
+  title: "Activity",
 };

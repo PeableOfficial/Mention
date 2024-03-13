@@ -8,20 +8,20 @@ import { Tooltip } from "@/components/elements/tooltip";
 
 import { Header } from "./header";
 
-export const NotificationsHeader = () => {
+export const ActivityHeader = () => {
   const router = useRouter();
 
   return (
     <Header>
       <HamburgerButton />
-      <h2>Notifications</h2>
+      <h2>Activity</h2>
 
       <div className="ml-auto">
         <Tooltip text="Settings">
           <Button
             role="link"
             onClick={() => {
-              router.push(`/settings/notifications`);
+              router.push(`/settings/activity`);
             }}
             aria-label="Settings"
             className="hover:bg-neutral-500/80 focus-visible:bg-neutral-500 focus-visible:outline-secondary-100  active:bg-neutral-600"

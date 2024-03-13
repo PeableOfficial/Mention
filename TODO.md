@@ -1,7 +1,7 @@
 # TODO: New Features for Integration in Mention
 
 ## Real-Time Enhancements
-- [ ] Implement real-time updates for posts, likes, notifications, and chat functionalities to enable immediate interaction and engagement among users.
+- [ ] Implement real-time updates for posts, likes, activity, and chat functionalities to enable immediate interaction and engagement among users.
 - [ ] Develop live streaming capabilities for users to broadcast and interact with audiences in real-time.
 
 ## Language and Automation

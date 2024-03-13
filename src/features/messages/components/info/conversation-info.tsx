@@ -11,7 +11,7 @@ import { useGetConversation } from "../../hooks/use-get-conversation";
 import { ConversationActions } from "./conversation-actions";
 import { ConversationInfoHeader } from "./conversation-info-header";
 import { ConversationMember } from "./conversation-member";
-import { ConversationNotifications } from "./conversation-notifications";
+import { ConversationActivity } from "./conversation-activity";
 import styles from "./styles/conversation-info.module.scss";
 
 export const ConversationInfo = () => {
@@ -65,8 +65,8 @@ export const ConversationInfo = () => {
           })}
       </div>
 
-      <div className={styles.notifications}>
-        <ConversationNotifications member={member} />
+      <div className={styles.activity}>
+        <ConversationActivity member={member} />
       </div>
 
       <div className={styles.actions}>

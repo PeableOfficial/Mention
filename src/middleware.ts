@@ -32,7 +32,7 @@ export async function middleware(req: NextRequest) {
     req.nextUrl.pathname === "/" ||
     req.nextUrl.pathname.startsWith("/auth") ||
     req.nextUrl.pathname.startsWith("/home") ||
-    req.nextUrl.pathname.startsWith("/notifications") ||
+    req.nextUrl.pathname.startsWith("/activity") ||
     req.nextUrl.pathname.startsWith("/messages") ||
     req.nextUrl.pathname.startsWith("/bookmarks")
   ) {
@@ -45,7 +45,7 @@ export async function middleware(req: NextRequest) {
     if (!isAuthenticated) {
       if (
         req.nextUrl.pathname.startsWith("/home") ||
-        req.nextUrl.pathname.startsWith("/notifications") ||
+        req.nextUrl.pathname.startsWith("/activity") ||
         req.nextUrl.pathname.startsWith("/messages") ||
         req.nextUrl.pathname.startsWith("/bookmarks") ||
         url.pathname === "/auth/signout"

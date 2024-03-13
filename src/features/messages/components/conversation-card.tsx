@@ -20,7 +20,7 @@ import {
   UserUsername,
 } from "@/features/profile";
 
-import { SnoozeNotificationsIcon } from "../assets/snooze-notifications-icon";
+import { SnoozeActivityIcon } from "../assets/snooze-activity-icon";
 import { useDeleteConversation } from "../hooks/use-delete-conversation";
 import { IConversation } from "../types";
 
@@ -105,7 +105,7 @@ export const ConversationCard = ({
                     </MenuItem>
 
                     <MenuItem onClick={() => setIsModalOpen(false)}>
-                      <SnoozeNotificationsIcon /> Snooze conversation
+                      <SnoozeActivityIcon /> Snooze conversation
                     </MenuItem>
 
                     <MenuItem onClick={() => setIsModalOpen(false)}>

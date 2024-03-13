@@ -5,7 +5,7 @@ import { useUser } from "@/features/profile";
 
 import { Tooltip } from "@/components/elements/tooltip";
 
-import { BellActive, Bell } from "../assets/bell-icon";
+import { ActivityActive, Activity } from "../assets/activity-icon";
 import { Bookmark, BookmarkActive } from "../assets/bookmark-icon";
 import { Envelope, EnvelopeActive } from "../assets/envelope-icon";
 import { Gear, GearActive } from "../assets/gear-icon";
@@ -51,13 +51,13 @@ export const Navbar = () => {
       </Tooltip>
 
       {session && (
-        <Tooltip text="Notifications" maxWidth={1300}>
+        <Tooltip text="Activity" maxWidth={1300}>
           <NavItem
-            href={`/notifications`}
-            icon={pathname === `/notifications` ? <BellActive /> : <Bell />}
-            text={t("navbar.notifications.text")}
-            aria-label={t("navbar.notifications.label")}
-            isActive={pathname === `/notifications`}
+            href={`/activity`}
+            icon={pathname === `/activity` ? <ActivityActive /> : <Activity />}
+            text={t("navbar.activity.text")}
+            aria-label={t("navbar.activity.label")}
+            isActive={pathname === `/activity`}
           />
         </Tooltip>
       )}

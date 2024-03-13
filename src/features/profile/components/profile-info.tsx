@@ -7,7 +7,7 @@ import { useState } from "react";
 import { DotIcon } from "@/assets/dot-icon";
 import { LocationIcon } from "@/assets/location-icon";
 import { MessageIcon } from "@/assets/message-icon";
-import { ReceiveNotificationsIcon } from "@/assets/notifications-icon";
+import { ReceiveActivityIcon } from "@/assets/activity-icon";
 import { EllipsisWrapper } from "@/components/elements/ellipsis-wrapper";
 import { FollowButton } from "@/components/elements/follow-button";
 import { Modal } from "@/components/elements/modal";
@@ -119,11 +119,11 @@ export const ProfileInfo = ({ user }: { user: IUser; id: string }) => {
               )}
               {session && (
                 <button
-                  aria-label="Turn on Post notifications"
+                  aria-label="Turn on Post activity"
                   data-title="Notify"
-                  className={styles.notifications}
+                  className={styles.activity}
                 >
-                  <ReceiveNotificationsIcon />
+                  <ReceiveActivityIcon />
                 </button>
               )}
 

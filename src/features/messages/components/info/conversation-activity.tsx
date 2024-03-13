@@ -6,9 +6,9 @@ import { Menu, MenuItem } from "@/components/elements/menu";
 import { Modal } from "@/components/elements/modal";
 import { IUser } from "@/features/profile";
 
-import styles from "./styles/conversation-notifications.module.scss";
+import styles from "./styles/conversation-activity.module.scss";
 
-export const ConversationNotifications = ({
+export const ConversationActivity = ({
   member,
 }: {
   member: IUser | undefined;
@@ -19,9 +19,9 @@ export const ConversationNotifications = ({
 
   return (
     <div className={styles.container}>
-      <h1>Notifications</h1>
+      <h1>Activity</h1>
       <div className={styles.checkboxContainer}>
-        <span>Snooze notifications from {member?.name}</span>
+        <span>Snooze activity from {member?.name}</span>
         <div className={styles.checkbox}>
           <div className={styles.checkbox}>
             <input

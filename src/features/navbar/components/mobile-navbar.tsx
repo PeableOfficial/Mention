@@ -3,7 +3,7 @@ import { usePathname } from "next/navigation";
 
 import { Tooltip } from "@/components/elements/tooltip";
 
-import { BellActive, Bell } from "../assets/bell-icon";
+import { ActivityActive, Activity } from "../assets/activity-icon";
 import { Envelope, EnvelopeActive } from "../assets/envelope-icon";
 import { HomeActive, Home } from "../assets/home-icon";
 import { Search, SearchActive } from "../assets/search-icon";
@@ -40,13 +40,13 @@ export const MobileNavbar = () => {
         />
       </Tooltip>
 
-      <Tooltip text="Notifications" maxWidth={1300}>
+      <Tooltip text="Activity" maxWidth={1300}>
         <NavItem
-          href={`/notifications`}
-          icon={pathname === `/notifications` ? <BellActive /> : <Bell />}
-          text="Notifications"
-          aria-label="Notifications"
-          isActive={pathname === `/notifications`}
+          href={`/activity`}
+          icon={pathname === `/activity` ? <ActivityActive /> : <Activity />}
+          text="Activity"
+          aria-label="Activity"
+          isActive={pathname === `/activity`}
         />
       </Tooltip>
 

@@ -1,4 +1,4 @@
-export const ReceiveNotificationsIcon = () => {
+export const ReceiveActivityIcon = () => {
   return (
     <svg viewBox="0 0 24 24" aria-hidden="true">
       <g>
@@ -8,7 +8,7 @@ export const ReceiveNotificationsIcon = () => {
   );
 };
 
-export const ReceivingNotificationsIcon = () => {
+export const ReceivingActivityIcon = () => {
   return (
     <svg viewBox="0 0 24 24" aria-hidden="true">
       <g>

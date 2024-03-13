@@ -32,9 +32,9 @@
             "text": "Explore",
             "label": "Search and Explore"
         },
-        "notifications": {
-            "text": "Notifications",
-            "label": "Notifications"
+        "activity": {
+            "text": "Activity",
+            "label": "Activity"
         },
         "messages": {
             "text": "Messages",
