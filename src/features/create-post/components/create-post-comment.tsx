@@ -46,7 +46,7 @@ export const CreatePostComment = ({ post }: { post: IPost | null }) => {
         {post?.author?.email && (
           <div className={styles.replyingTo}>
             <ReplyingTo
-              username={post?.author?.email?.split("@")[0]}
+              username={post?.author?.username}
               id={post?.author?.id}
             />
           </div>
