@@ -11,13 +11,16 @@ export const useUsers = ({
   queryKey: string[];
   limit?: number;
 }) => {
-  const { data: session } = useSession();
+  const { data: session, status } = useSession();
 
   return useQuery<IUser[]>({
-    // eslint-disable-next-line @tanstack/query/exhaustive-deps
     queryKey,
     queryFn: async () => {
+      if (status === "loading") {
+        return [];
+      }
       return getUsers({ id: session?.user?.id, limit });
     },
+    enabled: status !== "loading",
   });
 };

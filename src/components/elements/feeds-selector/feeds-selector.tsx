@@ -2,14 +2,14 @@
 import { AnimatePresence } from "framer-motion";
 import { useRef, useState } from "react";
 
-import ViewDayTwoToneIcon from '@mui/icons-material/ViewDayTwoTone';
+import AutoAwesomeTwoToneIcon from '@mui/icons-material/AutoAwesomeTwoTone';
 import { Menu, MenuItem } from "@/components/elements/menu";
 import { Modal } from "@/components/elements/modal";
 
 import { Button } from "../button";
 import { Tooltip } from "../tooltip";
 
-export const SortPosts = () => {
+export const FeedSelector = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const buttonRef = useRef<HTMLButtonElement>(null);
 
@@ -24,7 +24,7 @@ export const SortPosts = () => {
           onClick={() => setIsModalOpen(true)}
           className="hover:bg-neutral-500 focus-visible:bg-neutral-500 focus-visible:outline-secondary-100 active:bg-neutral-600"
         >
-          <ViewDayTwoToneIcon />
+          <AutoAwesomeTwoToneIcon />
         </Button>
       </Tooltip>
 
@@ -32,10 +32,9 @@ export const SortPosts = () => {
         {isModalOpen && (
           <Modal onClose={() => setIsModalOpen(false)} background="none">
             <Menu onClose={() => setIsModalOpen(false)} ref={buttonRef}>
-              <MenuItem onClick={() => setIsModalOpen(false)}>Default</MenuItem>
-              <MenuItem onClick={() => setIsModalOpen(false)}>By date</MenuItem>
+              <MenuItem onClick={() => setIsModalOpen(false)}>For you</MenuItem>
               <MenuItem onClick={() => setIsModalOpen(false)}>
-                By popularity
+                Following
               </MenuItem>
             </Menu>
           </Modal>
