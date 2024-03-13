@@ -10,7 +10,7 @@ import {
   LinkToProfile,
   UserModalWrapper,
   UserName,
-  UserScreenName,
+  UserUsername,
 } from "@/features/profile";
 
 import { IPost } from "../types";
@@ -66,7 +66,7 @@ export const Post = ({ post, pinned }: { post: IPost; pinned?: boolean }) => {
         <div className={styles.left}>
           <div className={styles.avatar}>
             <UserModalWrapper userId={post?.author?.id} delay={500}>
-              <LinkToProfile username={post?.author?.screen_name}>
+              <LinkToProfile username={post?.author?.username}>
                 <Avatar userImage={post?.author?.profile_image_url} />
               </LinkToProfile>
             </UserModalWrapper>
@@ -76,7 +76,7 @@ export const Post = ({ post, pinned }: { post: IPost; pinned?: boolean }) => {
         <div className={styles.content}>
           <div className={styles.user_details}>
             <UserModalWrapper userId={post?.author?.id} delay={500}>
-              <LinkToProfile username={post?.author?.screen_name}>
+              <LinkToProfile username={post?.author?.username}>
                 <EllipsisWrapper>
                   <UserName
                     name={post?.author?.name}
@@ -90,11 +90,11 @@ export const Post = ({ post, pinned }: { post: IPost; pinned?: boolean }) => {
             <div className={styles.username_time}>
               <UserModalWrapper userId={post?.author?.id} delay={500}>
                 <LinkToProfile
-                  username={post?.author?.screen_name}
+                  username={post?.author?.username}
                   tabIndex={-1}
                 >
                   <EllipsisWrapper>
-                    <UserScreenName screenName={post?.author?.screen_name} />
+                    <UserUsername username={post?.author?.username} />
                   </EllipsisWrapper>
                 </LinkToProfile>
               </UserModalWrapper>
@@ -114,7 +114,7 @@ export const Post = ({ post, pinned }: { post: IPost; pinned?: boolean }) => {
           {post?.in_reply_to_status_id && (
             <div className={styles.replyingTo}>
               <ReplyingTo
-                screen_name={post?.in_reply_to_screen_name}
+                username={post?.in_reply_to_username}
                 id={post?.author?.id}
               />
             </div>

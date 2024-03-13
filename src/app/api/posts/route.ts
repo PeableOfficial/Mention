@@ -63,7 +63,7 @@ export async function GET(request: Request) {
           author_id: id,
           NOT: {
             in_reply_to_status_id: null,
-            in_reply_to_screen_name: null,
+            in_reply_to_username: null,
             in_reply_to_user_id: null,
           },
         }),
@@ -151,7 +151,7 @@ export async function POST(request: Request) {
     post: {
       text: string;
       author_id: string;
-      in_reply_to_screen_name?: string;
+      in_reply_to_username?: string;
       in_reply_to_status_id?: string;
       quoted_post_id?: string;
     };
@@ -163,7 +163,7 @@ export async function POST(request: Request) {
     .object({
       text: z.string(),
       author_id: z.string().cuid(),
-      in_reply_to_screen_name: z.string().optional(),
+      in_reply_to_username: z.string().optional(),
       in_reply_to_status_id: z.string().cuid().optional(),
       quoted_post_id: z.string().cuid().optional(),
     })

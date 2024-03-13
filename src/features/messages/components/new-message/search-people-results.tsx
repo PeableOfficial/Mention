@@ -34,7 +34,7 @@ export const SearchPeopleResults = ({
         ?.filter((person) => {
           return (
             person?.name?.toLowerCase().includes(searchQuery.toLowerCase()) ||
-            person?.screen_name
+            person?.username
               ?.toLowerCase()
               .includes(searchQuery.toLowerCase())
           );

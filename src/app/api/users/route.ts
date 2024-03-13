@@ -30,7 +30,7 @@ export async function GET(request: Request) {
       select: {
         id: true,
         name: true,
-        screen_name: true,
+        username: true,
         email: true,
         profile_image_url: true,
         following: true,

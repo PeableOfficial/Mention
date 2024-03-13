@@ -6,7 +6,7 @@ export const getUsernameToId = async ({ username }: { username: string }) => {
   try {
     const userData = await prisma.user.findUnique({
       where: {
-        screen_name: username,
+        username: username,
       },
       select: {
         id: true,

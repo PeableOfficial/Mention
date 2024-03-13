@@ -9,7 +9,7 @@ import {
   IUser,
   UserModalWrapper,
   UserName,
-  UserScreenName,
+  UserUsername,
 } from "@/features/profile";
 
 import styles from "./styles/conversation-member.module.scss";
@@ -41,7 +41,7 @@ export const ConversationMember = ({
         <div className={styles.username}>
           <UserModalWrapper userId={member?.id} delay={500}>
             <EllipsisWrapper>
-              <UserScreenName screenName={member?.screen_name} />
+              <UserUsername username={member?.username} />
             </EllipsisWrapper>
           </UserModalWrapper>
           {sessionOwner?.followers?.some(
@@ -52,7 +52,7 @@ export const ConversationMember = ({
       <FollowButton
         user_id={member?.id}
         session_owner_id={sessionOwner?.id}
-        username={member?.screen_name}
+        username={member?.username}
         isFollowing={member?.followers?.some(
           (follower) => follower.id === sessionOwner?.id,
         )}

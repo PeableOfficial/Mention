@@ -43,7 +43,7 @@ export async function GET(request: Request) {
                 name: true,
                 email: true,
                 profile_image_url: true,
-                screen_name: true,
+                username: true,
               },
             },
 

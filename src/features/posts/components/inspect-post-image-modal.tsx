@@ -170,7 +170,7 @@ export const InspectPostImageModal = ({
                 </div>
 
                 <CreatePostWrapper
-                  in_reply_to_screen_name={post?.author?.screen_name}
+                  in_reply_to_username={post?.author?.username}
                   in_reply_to_status_id={post?.id}
                   isInspectModal={true}
                 />

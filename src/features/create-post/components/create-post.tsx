@@ -27,7 +27,7 @@ import { TextProgressBar } from "./text-progress-bar";
 
 export const CreatePost = ({
   quoted_post,
-  in_reply_to_screen_name,
+  in_reply_to_username,
   in_reply_to_status_id,
   placeholder = "What's happening?",
   isInspectModal = false,
@@ -35,7 +35,7 @@ export const CreatePost = ({
   inputId = "post-text",
 }: {
   quoted_post?: IPost | null;
-  in_reply_to_screen_name?: string | null;
+  in_reply_to_username?: string | null;
   in_reply_to_status_id?: string | null;
   placeholder?: string | null;
   isInspectModal?: boolean;
@@ -72,7 +72,7 @@ export const CreatePost = ({
     <div className={styles.container}>
       <div className={styles.left}>
         <div className={styles.avatar}>
-          <LinkToProfile username={user?.screen_name}>
+          <LinkToProfile username={user?.username}>
             <Avatar userImage={session?.user?.profile_image_url} />
           </LinkToProfile>
         </div>
@@ -219,7 +219,7 @@ export const CreatePost = ({
                   text: text.trim(),
                   userId: session?.user?.id,
                   files: chosenImages.map((img) => img.file),
-                  in_reply_to_screen_name,
+                  in_reply_to_username,
                   in_reply_to_status_id,
                   quoted_post_id: quoted_post ? quoted_post.id : null,
                 })

@@ -10,7 +10,7 @@ import { Button } from "@/components/elements/button";
 import { EllipsisWrapper } from "@/components/elements/ellipsis-wrapper";
 import { Modal } from "@/components/elements/modal";
 import { Tooltip } from "@/components/elements/tooltip";
-import { Avatar, UserName, UserScreenName } from "@/features/profile";
+import { Avatar, UserName, UserUsername } from "@/features/profile";
 
 import { SessionOwnerModal } from "./session-owner-modal";
 
@@ -43,7 +43,7 @@ export const SessionOwnerButton = () => {
             />
 
             <EllipsisWrapper>
-              <UserScreenName screenName={user?.screen_name} />
+              <UserUsername username={user?.username} />
             </EllipsisWrapper>
           </div>
           <div className="hidden fill-secondary-100 xxl:inline [&>svg]:size-h2">

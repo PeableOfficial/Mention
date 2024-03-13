@@ -6,7 +6,7 @@ import {
   Avatar,
   UserModalWrapper,
   UserName,
-  UserScreenName,
+  UserUsername,
 } from "@/features/profile";
 
 import { IPost } from "../types";
@@ -51,7 +51,7 @@ export const QuotedPost = ({ post }: { post: IPost }) => {
 
         <UserModalWrapper userId={post?.author?.id} delay={500}>
           <EllipsisWrapper>
-            <UserScreenName screenName={post?.author?.screen_name} />
+            <UserUsername username={post?.author?.username} />
           </EllipsisWrapper>
         </UserModalWrapper>
         <span className={styles.dot}>·</span>

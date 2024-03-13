@@ -4,7 +4,7 @@ import React, { useCallback, useEffect, useState } from "react";
 import { EllipsisWrapper } from "@/components/elements/ellipsis-wrapper";
 import { ProgressBar } from "@/components/elements/progress-bar";
 import { TryAgain } from "@/components/elements/try-again";
-import { Avatar, UserName, UserScreenName } from "@/features/profile";
+import { Avatar, UserName, UserUsername } from "@/features/profile";
 
 import { SearchIcon } from "../assets/search-icon";
 import { useSearch } from "../hooks/use-search";
@@ -188,7 +188,7 @@ export const SearchResultsModal = ({
                     selected={
                       currentIndex === index + 1 + (data?.hashtags?.length ?? 0)
                     }
-                    href={`/${person?.screen_name}`}
+                    href={`/${person?.username}`}
                     handleSearch={handleSearch}
                   >
                     <span className={styles.person}>
@@ -202,7 +202,7 @@ export const SearchResultsModal = ({
                         </EllipsisWrapper>
 
                         <EllipsisWrapper>
-                          <UserScreenName screenName={person?.screen_name} />
+                          <UserUsername username={person?.username} />
                         </EllipsisWrapper>
                       </span>
                     </span>

@@ -23,7 +23,7 @@ export interface IUser extends User {
 
 export interface IProfile {
   name: string;
-  screen_name: string;
+  username: string;
   bio: string | undefined;
   location: string | undefined;
   website: string | undefined;

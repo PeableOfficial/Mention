@@ -10,7 +10,7 @@ import {
   LinkToProfile,
   UserModalWrapper,
   UserName,
-  UserScreenName,
+  UserUsername,
 } from "@/features/profile";
 
 import styles from "./styles/person-details.module.scss";
@@ -30,11 +30,11 @@ export const PersonDetails = ({ author }: { author: IUser }) => {
       tabIndex={0}
       onKeyDown={(e) => {
         if (e.key === "Enter") {
-          router.push(`/${author?.screen_name}`);
+          router.push(`/${author?.username}`);
         }
       }}
       onClick={() => {
-        router.push(`/${author?.screen_name}`);
+        router.push(`/${author?.username}`);
       }}
       className={styles.container}
     >
@@ -48,7 +48,7 @@ export const PersonDetails = ({ author }: { author: IUser }) => {
         <div className={styles.user_details}>
           <div className={styles.name}>
             <UserModalWrapper userId={author?.id} delay={500}>
-              <LinkToProfile username={author?.screen_name}>
+              <LinkToProfile username={author?.username}>
                 <EllipsisWrapper>
                   <UserName
                     name={author?.name}
@@ -61,7 +61,7 @@ export const PersonDetails = ({ author }: { author: IUser }) => {
 
             <UserModalWrapper userId={author?.id} delay={500}>
               <EllipsisWrapper>
-                <UserScreenName screenName={author?.screen_name} />
+                <UserUsername username={author?.username} />
               </EllipsisWrapper>
             </UserModalWrapper>
           </div>
@@ -70,7 +70,7 @@ export const PersonDetails = ({ author }: { author: IUser }) => {
             user_id={author?.id}
             session_owner_id={session?.user?.id}
             isFollowing={isFollowing}
-            username={author?.screen_name}
+            username={author?.username}
           />
         </div>
 

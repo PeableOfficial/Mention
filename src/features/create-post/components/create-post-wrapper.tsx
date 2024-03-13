@@ -9,11 +9,11 @@ import { ReplyingTo } from "./replying-to";
 import styles from "./styles/create-post-wrapper.module.scss";
 
 export const CreatePostWrapper = ({
-  in_reply_to_screen_name,
+  in_reply_to_username,
   in_reply_to_status_id,
   isInspectModal = false,
 }: {
-  in_reply_to_screen_name: string | undefined;
+  in_reply_to_username: string | undefined;
   in_reply_to_status_id: string | null;
   isInspectModal?: boolean;
 }) => {
@@ -34,14 +34,14 @@ export const CreatePostWrapper = ({
         <div
           className={`${styles.createPost} ${isPlaceholder ? "" : styles.show}`}
         >
-          {in_reply_to_screen_name && (
+          {in_reply_to_username && (
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.2 }}
               className={styles.replyingTo}
             >
-              <ReplyingTo screen_name={in_reply_to_screen_name} />
+              <ReplyingTo username={in_reply_to_username} />
             </motion.div>
           )}
           <motion.div
@@ -50,7 +50,7 @@ export const CreatePostWrapper = ({
             transition={{ duration: 0.2 }}
           >
             <CreatePost
-              in_reply_to_screen_name={in_reply_to_screen_name}
+              in_reply_to_username={in_reply_to_username}
               in_reply_to_status_id={in_reply_to_status_id}
               placeholder={`Post your reply!`}
               isInspectModal={isInspectModal}

@@ -53,7 +53,7 @@ export const ProfilePostsAndReplies = ({ id }: { id: string }) => {
           ) : (
             <div>
               <h1>
-                @{user?.screen_name} hasn&apos;t posted anything yet.
+                @{user?.username} hasn&apos;t posted anything yet.
               </h1>
               <p>When they do, it&apos;ll show up here.</p>
             </div>

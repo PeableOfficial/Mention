@@ -46,7 +46,7 @@ model Session {
 model User {
   id                 String         @id @default(cuid())
   name               String
-  screen_name        String         @unique @default(cuid())
+  username           String         @unique @default(cuid())
   location           String?
   url                String?
   description        String?
@@ -70,13 +70,13 @@ model User {
   likes              Like[]
   sent_messages      Message[]      @relation("receiver")
   received_messages  Message[]      @relation("sender")
-  reposts           Repost[]
+  reposts            Repost[]
   sessions           Session[]
-  posts             Post[]
-  pinned_post       Post?         @relation("pinned_post", fields: [pinned_post_id], references: [id])
+  posts              Post[]
+  pinned_post        Post?          @relation("pinned_post", fields: [pinned_post_id], references: [id])
   conversations      Conversation[] @relation("ConversationToUser")
-  followers             User[]         @relation("Followers")
-  following             User[]         @relation("Followers")
+  followers          User[]         @relation("Followers")
+  following          User[]         @relation("Followers")
 }
 
 model Post {
@@ -84,7 +84,7 @@ model Post {
   text                    String?
   source                  String     @default("web")
   in_reply_to_user_id     String?
-  in_reply_to_screen_name String?
+  in_reply_to_username String?
   is_quote_status         Boolean    @default(false)
   quoted_status_id        String?
   quote_count             Int        @default(0)

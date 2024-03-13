@@ -39,7 +39,7 @@ CREATE TABLE "Session" (
 CREATE TABLE "User" (
     "id" TEXT NOT NULL,
     "name" TEXT NOT NULL,
-    "screen_name" TEXT NOT NULL,
+    "username" TEXT NOT NULL,
     "location" TEXT,
     "url" TEXT,
     "description" TEXT,
@@ -77,7 +77,7 @@ CREATE TABLE "Post" (
     "text" TEXT,
     "source" TEXT NOT NULL DEFAULT 'web',
     "in_reply_to_user_id" TEXT,
-    "in_reply_to_screen_name" TEXT,
+    "in_reply_to_username" TEXT,
     "is_quote_status" BOOLEAN NOT NULL DEFAULT false,
     "quoted_status_id" TEXT,
     "quote_count" INTEGER NOT NULL DEFAULT 0,
@@ -188,7 +188,7 @@ CREATE UNIQUE INDEX "Account_provider_providerAccountId_key" ON "Account"("provi
 CREATE UNIQUE INDEX "Session_sessionToken_key" ON "Session"("sessionToken");
 
 -- CreateIndex
-CREATE UNIQUE INDEX "User_screen_name_key" ON "User"("screen_name");
+CREATE UNIQUE INDEX "User_username_key" ON "User"("username");
 
 -- CreateIndex
 CREATE UNIQUE INDEX "User_email_key" ON "User"("email");

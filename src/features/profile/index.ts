@@ -10,7 +10,7 @@ export * from "./components/profile-stats";
 export * from "./components/avatar";
 export * from "./components/link-to-profile";
 export * from "./components/user-name";
-export * from "./components/user-screen-name";
+export * from "./components/user-username";
 export * from "./components/user-modal-wrapper";
 export * from "./components/user-join-date";
 export * from "./components/followers";

@@ -35,7 +35,7 @@ export const PostVisitorMenu = ({
             setIsMenuOpen(false);
           }}
         >
-          <UnfollowIcon /> Unfollow @{post?.author?.screen_name}
+          <UnfollowIcon /> Unfollow @{post?.author?.username}
         </MenuItem>
       )}
 
@@ -45,7 +45,7 @@ export const PostVisitorMenu = ({
             setIsMenuOpen(false);
           }}
         >
-          <MuteIcon /> Mute @{post?.author?.screen_name}
+          <MuteIcon /> Mute @{post?.author?.username}
         </MenuItem>
       )}
 
@@ -55,7 +55,7 @@ export const PostVisitorMenu = ({
             setIsMenuOpen(false);
           }}
         >
-          <BlockIcon /> Block @{post?.author?.screen_name}
+          <BlockIcon /> Block @{post?.author?.username}
         </MenuItem>
       )}
 

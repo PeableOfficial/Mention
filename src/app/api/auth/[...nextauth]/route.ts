@@ -35,7 +35,7 @@ const authOptions: AuthOptions = {
         session.user.name = token?.name;
         session.user.email = token?.email;
         session.user.role = token?.role;
-        session.user.username = token?.screen_name;
+        session.user.username = token?.username;
         session.user.profile_image_url = token?.profile_image_url;
       }
       return session;
@@ -56,7 +56,7 @@ const authOptions: AuthOptions = {
         name: dbUser.name,
         email: dbUser.email,
         role: dbUser.role,
-        username: dbUser.screen_name,
+        username: dbUser.username,
         profile_image_url: dbUser.profile_image_url,
       };
     },

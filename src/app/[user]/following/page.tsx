@@ -45,7 +45,7 @@ const FollowingPage = async ({
   return (
     <div>
       <Header>
-        <ProfileHeader heading={user?.name} stats={`@${user?.screen_name}`} />
+        <ProfileHeader heading={user?.name} stats={`@${user?.username}`} />
       </Header>
       <FollowsNavigation />
       <Following id={user?.id} />
@@ -74,7 +74,7 @@ export async function generateMetadata({
   return {
     title: `People followed by ${user?.name?.split(
       " ",
-    )[0]} (@${user?.screen_name})`,
+    )[0]} (@${user?.username})`,
     description: user?.description,
   };
 }

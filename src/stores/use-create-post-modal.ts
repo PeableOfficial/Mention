@@ -5,7 +5,7 @@ import { IPost } from "@/features/posts";
 interface IData {
   parent_post: IPost | null;
   quoted_post: IPost | null;
-  in_reply_to_screen_name: string | null;
+  in_reply_to_username: string | null;
   in_reply_to_status_id: string | null;
   placeholder: string | null;
 }
@@ -27,7 +27,7 @@ export const useCreatePostModal = create<IModal>((set) => ({
       data: {
         parent_post: null,
         quoted_post: null,
-        in_reply_to_screen_name: null,
+        in_reply_to_username: null,
         in_reply_to_status_id: null,
         placeholder: `What's happening?`,
       },
@@ -37,7 +37,7 @@ export const useCreatePostModal = create<IModal>((set) => ({
   data: {
     parent_post: null,
     quoted_post: null,
-    in_reply_to_screen_name: null,
+    in_reply_to_username: null,
     in_reply_to_status_id: null,
     placeholder: `What's happening?`,
   },

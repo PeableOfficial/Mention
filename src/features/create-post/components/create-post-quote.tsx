@@ -1,6 +1,6 @@
 import { CreateDate } from "@/components/elements/create-date";
 import { EllipsisWrapper } from "@/components/elements/ellipsis-wrapper";
-import { Avatar, UserName, UserScreenName } from "@/features/profile";
+import { Avatar, UserName, UserUsername } from "@/features/profile";
 import { PostMedia } from "@/features/posts";
 import { IPost } from "@/features/posts";
 
@@ -22,7 +22,7 @@ export const CreatePostQuote = ({ post }: { post: IPost }) => {
         </EllipsisWrapper>
 
         <EllipsisWrapper>
-          <UserScreenName screenName={post?.author?.email?.split("@")[0]} />
+          <UserUsername username={post?.author?.email?.split("@")[0]} />
         </EllipsisWrapper>
 
         <span className={styles.dot}>·</span>

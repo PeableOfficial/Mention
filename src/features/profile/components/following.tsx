@@ -31,7 +31,7 @@ export const Following = ({ id }: { id: string }) => {
     <div>
       {follows?.length === 0 ? (
         <NoFollowers
-          title={`@${user?.screen_name} isn’t following anyone`}
+          title={`@${user?.username} isn’t following anyone`}
           subtitle="Once they follow accounts, they’ll show up here."
         />
       ) : (

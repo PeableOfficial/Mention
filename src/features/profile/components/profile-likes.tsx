@@ -52,7 +52,7 @@ export const ProfileLikes = ({ id }: { id: string }) => {
           ) : (
             <div>
               <h1>
-                @{user?.screen_name} hasn&apos;t liked any posts
+                @{user?.username} hasn&apos;t liked any posts
               </h1>
               <p>
                 <span>When they do, those Posts will show up here.</span>

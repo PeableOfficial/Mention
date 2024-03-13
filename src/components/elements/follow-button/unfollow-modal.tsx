@@ -18,7 +18,7 @@ export const UnfollowModal = ({
   return (
     <ConfirmationModal
       heading={`Unfollow @${username}?`}
-      paragraph={`Their Posts will no longer show up in your home timeline. You can still view their profile, unless their Posts are protected.`}
+      paragraph={`@${username} posts will no longer show up in your home timeline. You can still view their profile, unless their posts are protected.`}
       confirmButtonText="Unfollow"
       confirmButtonClick={() => {
         mutation.mutate({

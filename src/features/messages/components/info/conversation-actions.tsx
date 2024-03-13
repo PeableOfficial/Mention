@@ -15,8 +15,8 @@ export const ConversationActions = ({
 
   return (
     <div className={styles.container}>
-      <button className={styles.block}>Block @{member?.screen_name}</button>
-      <button className={styles.report}>Report @{member?.screen_name}</button>
+      <button className={styles.block}>Block @{member?.username}</button>
+      <button className={styles.report}>Report @{member?.username}</button>
       <button
         onClick={() =>
           mutation.mutate({

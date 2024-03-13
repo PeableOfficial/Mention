@@ -31,7 +31,7 @@ export const Followers = ({ id }: { id: string }) => {
     <div>
       {followers?.length === 0 ? (
         <NoFollowers
-          title={`@${user?.screen_name} still doesn’t have any followers`}
+          title={`@${user?.username} still doesn’t have any followers`}
           subtitle="When someone follows this account, they'll show up here. Posting
             and interacting with others helps boost followers."
         />

@@ -8,7 +8,7 @@ import {
   FollowsLink,
   LinkToProfile,
   UserName,
-  UserScreenName,
+  UserUsername,
   useUser,
 } from "@/features/profile";
 import { useHamburger } from "@/stores/use-hamburger";
@@ -40,7 +40,7 @@ export const HamburgerMenu = () => {
             onClick={() => {
               closeHamburger();
             }}
-            username={user?.screen_name}
+            username={user?.username}
             tabIndex={-1}
           >
             <Avatar userImage={session?.user?.profile_image_url} />
@@ -57,7 +57,7 @@ export const HamburgerMenu = () => {
         </div>
 
         <LinkToProfile
-          username={user?.screen_name}
+          username={user?.username}
           onClick={() => {
             closeHamburger();
           }}
@@ -70,13 +70,13 @@ export const HamburgerMenu = () => {
         </LinkToProfile>
 
         <LinkToProfile
-          username={session?.user?.screen_name}
+          username={session?.user?.username}
           onClick={() => {
             closeHamburger();
           }}
           tabIndex={-1}
         >
-          <UserScreenName screenName={user?.screen_name} />
+          <UserUsername username={user?.username} />
         </LinkToProfile>
 
         {user && (
@@ -84,14 +84,14 @@ export const HamburgerMenu = () => {
             <FollowsLink
               stats={user?.following?.length}
               text="Following"
-              link={`/${user?.screen_name}/following`}
+              link={`/${user?.username}/following`}
               onClick={() => closeHamburger()}
             />
 
             <FollowsLink
               stats={user?.followers?.length}
               text="Followers"
-              link={`/${user?.screen_name}/followers`}
+              link={`/${user?.username}/followers`}
               onClick={() => closeHamburger()}
             />
           </div>
@@ -101,7 +101,7 @@ export const HamburgerMenu = () => {
       <nav>
         <HamburgerLink
           title="Profile"
-          path={user?.screen_name}
+          path={user?.username}
           icon={<User />}
           onclick={() => closeHamburger()}
         />

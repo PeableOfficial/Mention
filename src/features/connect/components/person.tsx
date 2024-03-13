@@ -10,7 +10,7 @@ import {
   LinkToProfile,
   UserModalWrapper,
   UserName,
-  UserScreenName,
+  UserUsername,
 } from "@/features/profile";
 
 import styles from "./styles/person.module.scss";
@@ -43,7 +43,7 @@ export const Person = ({ person }: { person: IUser }) => {
 
         <div className={styles.info}>
           <UserModalWrapper userId={person?.id} delay={500}>
-            <LinkToProfile username={person?.screen_name}>
+            <LinkToProfile username={person?.username}>
               <EllipsisWrapper>
                 <UserName
                   name={person?.name}
@@ -56,7 +56,7 @@ export const Person = ({ person }: { person: IUser }) => {
 
           <UserModalWrapper userId={person?.id} delay={500}>
             <EllipsisWrapper>
-              <UserScreenName screenName={person?.screen_name} />
+              <UserUsername username={person?.username} />
             </EllipsisWrapper>
           </UserModalWrapper>
         </div>
@@ -67,7 +67,7 @@ export const Person = ({ person }: { person: IUser }) => {
           user_id={person?.id}
           session_owner_id={session?.user?.id}
           isFollowing={isFollowing}
-          username={person?.screen_name}
+          username={person?.username}
         />
       </div>
     </div>

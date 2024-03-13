@@ -44,7 +44,7 @@ export const CreatePostModal = () => {
 
         <CreatePost
           quoted_post={data.quoted_post}
-          in_reply_to_screen_name={data.in_reply_to_screen_name}
+          in_reply_to_username={data.in_reply_to_username}
           in_reply_to_status_id={data.in_reply_to_status_id}
           placeholder={data.placeholder}
           container="modal"

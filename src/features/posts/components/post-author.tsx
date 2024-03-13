@@ -6,7 +6,7 @@ import {
   LinkToProfile,
   UserModalWrapper,
   UserName,
-  UserScreenName,
+  UserUsername,
 } from "@/features/profile";
 
 import styles from "./styles/post-author.module.scss";
@@ -15,14 +15,14 @@ export const PostAuthor = ({ post }: { post: IPost }) => {
   return (
     <div className={styles.container}>
       <UserModalWrapper userId={post?.author?.id} delay={500}>
-        <LinkToProfile tabIndex={-1} username={post?.author?.screen_name}>
+        <LinkToProfile tabIndex={-1} username={post?.author?.username}>
           <Avatar userImage={post?.author?.profile_image_url} />
         </LinkToProfile>
       </UserModalWrapper>
 
       <div className={styles.userInfo}>
         <UserModalWrapper userId={post?.author?.id} delay={500}>
-          <LinkToProfile username={post?.author?.screen_name}>
+          <LinkToProfile username={post?.author?.username}>
             <EllipsisWrapper>
               <UserName
                 name={post?.author?.name}
@@ -34,9 +34,9 @@ export const PostAuthor = ({ post }: { post: IPost }) => {
         </UserModalWrapper>
 
         <UserModalWrapper userId={post?.author?.id} delay={500}>
-          <LinkToProfile tabIndex={-1} username={post?.author?.screen_name}>
+          <LinkToProfile tabIndex={-1} username={post?.author?.username}>
             <EllipsisWrapper>
-              <UserScreenName screenName={post?.author?.screen_name} />
+              <UserUsername username={post?.author?.username} />
             </EllipsisWrapper>
           </LinkToProfile>
         </UserModalWrapper>

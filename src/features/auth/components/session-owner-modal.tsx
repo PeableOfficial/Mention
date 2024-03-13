@@ -51,7 +51,7 @@ export const SessionOwnerModal = forwardRef<
         Add an existing account
       </Link>
       <Link href={`/auth/signout`} role="menuitem" onClick={onClose}>
-        Log out @{user?.screen_name}
+        Log out @{user?.username}
       </Link>
     </motion.div>
   );

@@ -93,7 +93,7 @@ export const RepostButton = ({
               <MenuItem
                 onClick={() => {
                   setData({
-                    in_reply_to_screen_name: null,
+                    in_reply_to_username: null,
                     in_reply_to_status_id: null,
                     parent_post: null,
                     quoted_post: post,

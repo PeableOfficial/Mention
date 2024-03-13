@@ -30,7 +30,7 @@ export const getPostMetadata = async ({ post_id }: { post_id: string }) => {
             name: true,
             email: true,
             profile_image_url: true,
-            screen_name: true,
+            username: true,
           },
         },
 

@@ -66,7 +66,7 @@ export const ProfileMedia = ({ user }: { user: IUser }) => {
                 width={500}
                 height={500}
               />
-              <h1>@{user?.screen_name} hasn&apos;t posted media</h1>
+              <h1>@{user?.username} hasn&apos;t posted media</h1>
               <p>Once they do, those Posts will show up here.</p>
             </div>
           )}

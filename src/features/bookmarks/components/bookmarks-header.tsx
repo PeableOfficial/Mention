@@ -11,7 +11,7 @@ import { Menu, MenuItem } from "@/components/elements/menu";
 import { ConfirmationModal, Modal } from "@/components/elements/modal";
 import { Tooltip } from "@/components/elements/tooltip";
 import { Header } from "@/features/header";
-import { UserScreenName } from "@/features/profile";
+import { UserUsername } from "@/features/profile";
 
 import { useDeleteAllBookmarks } from "../hooks/use-delete-all-bookmarks";
 
@@ -50,7 +50,7 @@ export const BookmarksHeader = ({
         <h2 className="text-h2 font-bold text-secondary-100">Bookmarks</h2>
         {username && (
           <EllipsisWrapper>
-            <UserScreenName screenName={username} />
+            <UserUsername username={username} />
           </EllipsisWrapper>
         )}
       </div>

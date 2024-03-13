@@ -31,7 +31,7 @@ export async function generateMetadata({
     };
 
   return {
-    title: `${user?.name?.split(" ")[0]} (@${user?.screen_name})`,
+    title: `${user?.name?.split(" ")[0]} (@${user?.username})`,
     description: user?.description,
   };
 }

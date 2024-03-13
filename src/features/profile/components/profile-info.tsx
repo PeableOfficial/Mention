@@ -131,7 +131,7 @@ export const ProfileInfo = ({ user }: { user: IUser; id: string }) => {
                 user_id={user?.id}
                 session_owner_id={session?.user?.id}
                 isFollowing={isFollowing}
-                username={user?.screen_name}
+                username={user?.username}
               />
             </div>
           )}
@@ -144,7 +144,7 @@ export const ProfileInfo = ({ user }: { user: IUser; id: string }) => {
             </EllipsisWrapper>
 
             <EllipsisWrapper>
-              <span>@{user?.screen_name}</span>
+              <span>@{user?.username}</span>
             </EllipsisWrapper>
           </div>
 

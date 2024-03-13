@@ -39,7 +39,7 @@ export const Contact = ({
         </div>
         <div className={styles.info}>
           <p className={styles.name}>{user?.name}</p>
-          <span className={styles.username}>@{user?.screen_name}</span>
+          <span className={styles.username}>@{user?.username}</span>
         </div>
         {receiverId === user?.id && (
           <div className={styles.tick}>

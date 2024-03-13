@@ -87,11 +87,11 @@ export const Navbar = () => {
       {session && (
         <Tooltip text="Profile" maxWidth={1300}>
           <NavItem
-            href={`/${user?.screen_name}`}
-            icon={path === `${user?.screen_name}` ? <UserActive /> : <User />}
+            href={`/${user?.username}`}
+            icon={path === `${user?.username}` ? <UserActive /> : <User />}
             text="Profile"
             aria-label="Profile"
-            isActive={path === `${user?.screen_name}`}
+            isActive={path === `${user?.username}`}
           />
         </Tooltip>
       )}

@@ -22,14 +22,14 @@ export const useCreatePost = ({
       text,
       userId,
       files,
-      in_reply_to_screen_name,
+      in_reply_to_username,
       in_reply_to_status_id,
       quoted_post_id,
     }: {
       text: string;
       userId: string;
       files: File[];
-      in_reply_to_screen_name?: string | null;
+      in_reply_to_username?: string | null;
       in_reply_to_status_id?: string | null;
       quoted_post_id?: string | null;
     }) => {
@@ -37,7 +37,7 @@ export const useCreatePost = ({
         text,
         userId,
         files,
-        in_reply_to_screen_name,
+        in_reply_to_username,
         in_reply_to_status_id,
         quoted_post_id,
       });

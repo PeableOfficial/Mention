@@ -75,13 +75,13 @@ export const UserModal = forwardRef<HTMLDivElement, { userId: string }>(
                   user_id={user?.id}
                   session_owner_id={session?.user?.id}
                   isFollowing={isFollowing}
-                  username={user?.screen_name}
+                  username={user?.username}
                 />
               </div>
             </div>
             <div className={styles.userDetails}>
               <h2 className={styles.name}>{user?.name}</h2>
-              <span className={styles.username}>@{user?.screen_name}</span>
+              <span className={styles.username}>@{user?.username}</span>
 
               {user?.description && (
                 <p className={styles.description}>{user?.description}</p>

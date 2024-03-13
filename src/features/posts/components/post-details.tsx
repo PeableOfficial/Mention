@@ -45,7 +45,7 @@ export const PostDetails = ({
         <PostAuthor post={post} />
         {post?.in_reply_to_status_id && (
           <ReplyingTo
-            screen_name={post?.in_reply_to_screen_name}
+            username={post?.in_reply_to_username}
             id={post?.author?.id}
           />
         )}
@@ -79,7 +79,7 @@ export const PostDetails = ({
         </div>
       </div>
       <CreatePostWrapper
-        in_reply_to_screen_name={post?.author?.screen_name}
+        in_reply_to_username={post?.author?.username}
         in_reply_to_status_id={post?.id}
       />
       <Comments postId={post?.id} />

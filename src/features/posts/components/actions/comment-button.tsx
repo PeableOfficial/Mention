@@ -42,7 +42,7 @@ export const CommentButton = ({
           setData({
             quoted_post: null,
             parent_post: post,
-            in_reply_to_screen_name: post?.author?.screen_name ?? null,
+            in_reply_to_username: post?.author?.username ?? null,
             in_reply_to_status_id: post?.id,
             placeholder: `Post your reply`,
           });

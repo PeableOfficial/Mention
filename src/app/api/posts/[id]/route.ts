@@ -49,7 +49,7 @@ export async function GET(
             name: true,
             email: true,
             profile_image_url: true,
-            screen_name: true,
+            username: true,
           },
         },
 

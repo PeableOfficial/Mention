@@ -31,7 +31,7 @@ export const Bookmarks = () => {
       <>
         <BookmarksHeader
           hasBookmarks={false}
-          username={session?.user?.screen_name}
+          username={session?.user?.username}
           userId={session?.user?.id}
         />
         <LoadingSpinner />
@@ -44,7 +44,7 @@ export const Bookmarks = () => {
       <>
         <BookmarksHeader
           hasBookmarks={false}
-          username={session?.user?.screen_name}
+          username={session?.user?.username}
           userId={session?.user?.id}
         />
         <TryAgain />
@@ -58,7 +58,7 @@ export const Bookmarks = () => {
         hasBookmarks={
           bookmarks ? bookmarks?.pages[0]?.posts?.length > 0 : false
         }
-        username={session?.user?.screen_name}
+        username={session?.user?.username}
         userId={session?.user?.id}
       />
 

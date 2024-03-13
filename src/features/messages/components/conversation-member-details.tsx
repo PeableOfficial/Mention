@@ -6,7 +6,7 @@ import {
   IUser,
   UserJoinDate,
   UserName,
-  UserScreenName,
+  UserUsername,
 } from "@/features/profile";
 import { cn } from "@/utils/cn";
 
@@ -30,7 +30,7 @@ export const ConversationMemberDetails = ({
       />
       <UserName name={user?.name} isVerified={user?.verified} hover={true} />
       <EllipsisWrapper>
-        <UserScreenName screenName={user?.email?.split("@")[0]} />
+        <UserUsername username={user?.email?.split("@")[0]} />
       </EllipsisWrapper>
       {user?.description && (
         <div className="my-[1em] text-base">

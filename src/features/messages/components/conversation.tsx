@@ -57,7 +57,7 @@ export const Conversation = () => {
       <ConversationHeader
         user_id={conversationMember?.id}
         user_name={conversationMember?.name}
-        user_username={conversationMember?.screen_name}
+        user_username={conversationMember?.username}
         user_image={conversationMember?.profile_image_url}
         isVerified={conversationMember?.verified}
         inView={inView}

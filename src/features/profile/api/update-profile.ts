@@ -19,6 +19,7 @@ export const updateProfile = async (profile: IProfile, userId: string) => {
     const { data } = await axios.put(`/api/users/${userId}`, {
       user_id: userId,
       name: profile?.name,
+      username: profile?.username,
       description: profile?.bio,
       location: profile?.location,
       url: profile?.website,

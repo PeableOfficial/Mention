@@ -32,7 +32,7 @@ export async function generateMetadata({
   return {
     title: `Media Posts by ${user?.name?.split(
       " ",
-    )[0]} (@${user?.screen_name})`,
+    )[0]} (@${user?.username})`,
     description: user?.description,
   };
 }

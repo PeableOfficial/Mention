@@ -3,10 +3,10 @@ import Link from "next/link";
 import styles from "./styles/replying-to.module.scss";
 
 export const ReplyingTo = ({
-  screen_name,
+  username,
   id,
 }: {
-  screen_name: string | null;
+  username: string | null;
   id?: string | null;
 }) => {
   return (
@@ -18,10 +18,10 @@ export const ReplyingTo = ({
           onClick={(e) => e.stopPropagation()}
           href={`/${id}`}
         >
-          @{screen_name}
+          @{username}
         </Link>
       ) : (
-        <span className={styles.username}>@{screen_name}</span>
+        <span className={styles.username}>@{username}</span>
       )}
     </div>
   );
