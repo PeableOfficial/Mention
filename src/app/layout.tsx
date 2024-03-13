@@ -1,3 +1,4 @@
+import LocaleProvider from "./LocaleProvider";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Metadata } from "next";
@@ -51,43 +52,45 @@ export default async function RootLayout({
       lang="en"
     >
       <body suppressHydrationWarning={true}>
-        <a href="#home-timeline" className="sr-only">
-          Skip to home timeline
-        </a>
+        <LocaleProvider>
+          <a href="#home-timeline" className="sr-only">
+            Skip to home timeline
+          </a>
 
-        <a href="#trending" className="sr-only">
-          Skip to trending
-        </a>
+          <a href="#trending" className="sr-only">
+            Skip to trending
+          </a>
 
-        <NextAuthProvider>
-          <ReactQueryProvider>
-            <div className="layout">
-              <MobileNavbar />
-              <div className="fixed bottom-20 right-4 z-fixed sm:hidden">
-                <MobilePostButton />
+          <NextAuthProvider>
+            <ReactQueryProvider>
+              <div className="layout">
+                <MobileNavbar />
+                <div className="fixed bottom-20 right-4 z-fixed sm:hidden">
+                  <MobilePostButton />
+                </div>
+
+                <Sidebar />
+
+                <main aria-label="Home timeline" id="home-timeline">
+                  {children}
+                </main>
+
+                <Aside />
+
+                <Toaster />
+
+                <Command />
+
+                <AuthModalTrigger />
+                <JoinMention />
+                <Hamburger />
               </div>
-
-              <Sidebar />
-
-              <main aria-label="Home timeline" id="home-timeline">
-                {children}
-              </main>
-
-              <Aside />
-
-              <Toaster />
-
-              <Command />
-
-              <AuthModalTrigger />
-              <JoinMention />
-              <Hamburger />
-            </div>
-          </ReactQueryProvider>
-        </NextAuthProvider>
-        <Analytics />
-        <SpeedInsights />
-        <AxiomWebVitals />
+            </ReactQueryProvider>
+          </NextAuthProvider>
+          <Analytics />
+          <SpeedInsights />
+          <AxiomWebVitals />
+        </LocaleProvider>
       </body>
     </html>
   );

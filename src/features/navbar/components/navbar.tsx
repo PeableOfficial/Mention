@@ -12,10 +12,12 @@ import { Gear, GearActive } from "../assets/gear-icon";
 import { Hashtag, HashtagActive } from "../assets/hashtag-icon";
 import { HomeActive, Home } from "../assets/home-icon";
 import { User, UserActive } from "../assets/user-icon";
+import { useLocale } from "@/app/LocaleContext";
 
 import NavItem from "./navbar-item";
 
 export const Navbar = () => {
+  const { t } = useLocale();
   const pathname = usePathname();
   const path = pathname?.split("/")[1];
   const { data: session } = useSession();
@@ -31,8 +33,8 @@ export const Navbar = () => {
           <NavItem
             href={`/home`}
             icon={pathname === `/home` ? <HomeActive /> : <Home />}
-            text="Home"
-            aria-label="Home"
+            text={t("navbar.home.text")}
+            aria-label={t("navbar.home.label")}
             isActive={pathname === `/home`}
           />
         </Tooltip>
@@ -42,8 +44,8 @@ export const Navbar = () => {
         <NavItem
           href={`/explore`}
           icon={pathname === `/explore` ? <HashtagActive /> : <Hashtag />}
-          text="Explore"
-          aria-label="Search and Explore"
+          text={t("navbar.explore.text")}
+          aria-label={t("navbar.explore.label")}
           isActive={pathname === `/explore`}
         />
       </Tooltip>
@@ -53,8 +55,8 @@ export const Navbar = () => {
           <NavItem
             href={`/notifications`}
             icon={pathname === `/notifications` ? <BellActive /> : <Bell />}
-            text="Notifications"
-            aria-label="Notifications"
+            text={t("navbar.notifications.text")}
+            aria-label={t("navbar.notifications.label")}
             isActive={pathname === `/notifications`}
           />
         </Tooltip>
@@ -65,8 +67,8 @@ export const Navbar = () => {
           <NavItem
             href={`/messages`}
             icon={pathname === `/messages` ? <EnvelopeActive /> : <Envelope />}
-            text="Messages"
-            aria-label="Direct Messages"
+            text={t("navbar.messages.text")}
+            aria-label={t("navbar.messages.label")}
             isActive={pathname === `/messages`}
           />
         </Tooltip>
@@ -77,8 +79,8 @@ export const Navbar = () => {
           <NavItem
             href={`/bookmarks`}
             icon={pathname === `/bookmarks` ? <BookmarkActive /> : <Bookmark />}
-            text="Bookmarks"
-            aria-label="Bookmarks"
+            text={t("navbar.bookmarks.text")}
+            aria-label={t("navbar.bookmarks.label")}
             isActive={pathname === `/bookmarks`}
           />
         </Tooltip>
@@ -89,8 +91,8 @@ export const Navbar = () => {
           <NavItem
             href={`/${user?.username}`}
             icon={path === `${user?.username}` ? <UserActive /> : <User />}
-            text="Profile"
-            aria-label="Profile"
+            text={t("navbar.profile.text")}
+            aria-label={t("navbar.profile.label")}
             isActive={path === `${user?.username}`}
           />
         </Tooltip>

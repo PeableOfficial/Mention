@@ -4,11 +4,13 @@ import Link from "next/link";
 import { LoadingSpinner } from "@/components/elements/loading-spinner";
 import { TryAgain } from "@/components/elements/try-again";
 import { useUsers } from "@/features/profile";
+import { useLocale } from "@/app/LocaleContext";
 
 import { Person } from "./person";
 import styles from "./styles/connect.module.scss";
 
 export const Connect = () => {
+  const { t } = useLocale();
   const {
     data: people = [],
     isLoading,
@@ -30,7 +32,7 @@ export const Connect = () => {
         </div>
       ) : (
         <>
-          <h2>Who to follow</h2>
+          <h2>{t("pages.connect.widget.title")}</h2>
           <div className={styles.people}>
             {people.map((person) => {
               return <Person key={person.id} person={person} />;

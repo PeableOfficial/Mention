@@ -1,0 +1,72 @@
+{
+    "common": {
+        "close": "Close",
+        "save": "Save",
+        "cancel": "Cancel",
+        "delete": "Delete",
+        "edit": "Edit",
+        "post": "Post",
+        "add": "Add",
+        "search": "Search",
+        "loading": "Loading",
+        "noData": "No data found",
+        "yes": "Yes",
+        "no": "No",
+        "confirm": "Confirm",
+        "error": "Error",
+        "warning": "Warning",
+        "info": "Info",
+        "success": "Success",
+        "ok": "OK",
+        "back": "Back",
+        "next": "Next",
+        "previous": "Previous",
+        "submit": "Submit"
+    },
+    "navbar": {
+        "home": {
+            "text": "Home",
+            "label": "Home page"
+        },
+        "explore": {
+            "text": "Explore",
+            "label": "Search and Explore"
+        },
+        "notifications": {
+            "text": "Notifications",
+            "label": "Notifications"
+        },
+        "messages": {
+            "text": "Messages",
+            "label": "Messages"
+        },
+        "bookmarks": {
+            "text": "Bookmarks",
+            "label": "Bookmarks"
+        },
+        "profile": {
+            "text": "Profile",
+            "label": "Profile"
+        },
+        "settings": {
+            "text": "Settings",
+            "label": "Settings"
+        }
+    },
+    "pages": {
+        "home": {
+            "title": "Home",
+            "description": "Welcome to the home page"
+        },
+        "explore": {
+            "title": "Explore",
+            "description": "Search and explore"
+        },
+        "connect": {
+            "title": "Connect",
+            "widget": {
+                "title": "Who to follow"
+            }
+        }
+    }
+}

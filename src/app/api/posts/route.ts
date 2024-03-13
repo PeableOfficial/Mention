@@ -16,7 +16,7 @@ export async function GET(request: Request) {
   const cursor = cursorQuery ? { id: cursorQuery } : undefined;
 
   try {
-    let followingUserIds;
+    let followingUserIds: string[] | undefined;
     if (id) {
       followingUserIds = await prisma.user
         .findUnique({
@@ -84,9 +84,9 @@ export async function GET(request: Request) {
         }),
 
         ...(type === "default" && {
-          author_id: {
-            in: followingUserIds,
-          },
+          author_id: followingUserIds
+            ? { in: [...followingUserIds, id] }
+            : { in: [id] },
         }),
       },
 

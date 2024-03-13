@@ -1,0 +1,62 @@
+{
+    "common": {
+        "close": "Cerrar",
+        "save": "Guardar",
+        "cancel": "Cancelar",
+        "delete": "Eliminar",
+        "edit": "Editar",
+        "post": "Publicar",
+        "add": "Agregar",
+        "search": "Buscar",
+        "loading": "Cargando",
+        "noData": "No se encontraron datos",
+        "yes": "Sí",
+        "no": "No",
+        "confirm": "Confirmar",
+        "error": "Error",
+        "warning": "Advertencia",
+        "info": "Información",
+        "success": "Éxito",
+        "ok": "Aceptar",
+        "back": "Atrás",
+        "next": "Siguiente",
+        "previous": "Anterior",
+        "submit": "Enviar"
+    },
+    "navbar": {
+        "home": {
+            "text": "Inicio",
+            "label": "Home page"
+        },
+        "explore": {
+            "text": "Explorar",
+            "label": "Buscar y explorar"
+        },
+        "notifications": {
+            "text": "Notificaciones",
+            "label": "Notificaciones"
+        },
+        "messages": {
+            "text": "Mensajes",
+            "label": "Mensajes"
+        },
+        "bookmarks": {
+            "text": "Marcadores",
+            "label": "Marcadores"
+        },
+        "profile": {
+            "text": "Perfil",
+            "label": "Perfil"
+        },
+        "settings": {
+            "text": "Configuración",
+            "label": "Configuración"
+        }
+    },
+    "pages": {
+        "home": {
+            "title": "Inicio",
+            "description": "Bienvenido a la página de inicio"
+        }
+    }
+}
