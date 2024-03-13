@@ -16,18 +16,20 @@ export async function GET(request: Request) {
   const cursor = cursorQuery ? { id: cursorQuery } : undefined;
 
   try {
-    let followingUserIds: string[] | undefined;
+    let followingUserIds: string[] = [];
     if (id) {
       followingUserIds = await prisma.user
         .findUnique({
           where: { id: id },
           select: { following: { select: { id: true } } },
         })
-        .then((user) =>
-          user?.following.map((followingUser) => followingUser.id),
+        .then(
+          (user) =>
+            user?.following.map((followingUser) => followingUser.id) || [],
         );
-    } else {
-      followingUserIds = [];
+    }
+    if (id) {
+      followingUserIds.push(id);
     }
 
     const posts = await prisma.post.findMany({
@@ -84,9 +86,9 @@ export async function GET(request: Request) {
         }),
 
         ...(type === "default" && {
-          author_id: followingUserIds
-            ? { in: [...followingUserIds, id] }
-            : { in: [id] },
+          author_id: {
+            in: followingUserIds,
+          },
         }),
       },
 
