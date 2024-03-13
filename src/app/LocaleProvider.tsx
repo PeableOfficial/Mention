@@ -5,7 +5,7 @@ import en from "../locales/en-US.json";
 import es from "../locales/es-ES.json";
 
 interface LocaleMessages {
-  [key: string]: string | { [key: string]: string };
+  [key: string]: string | LocaleMessages;
 }
 
 const locales: LocaleMessages = {
