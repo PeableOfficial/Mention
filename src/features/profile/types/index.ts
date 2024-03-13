@@ -4,7 +4,7 @@ import { IPost } from "@/features/posts";
 import { IBookmark } from "@/features/posts";
 
 export interface IUser extends User {
-  username: string | undefined;
+  username: string;
   posts: IPost[];
   followers: User[];
   following: User[];
@@ -16,9 +16,6 @@ export interface IUser extends User {
     following?: number;
     posts?: number;
     likes?: number;
-    media?: number;
-    reposts?: number;
-    replies?: number;
   };
 }
 

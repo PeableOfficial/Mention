@@ -30,9 +30,7 @@ export async function generateMetadata({
     };
 
   return {
-    title: `Media Posts by ${user?.name?.split(
-      " ",
-    )[0]} (@${user?.username})`,
+    title: `Media Posts by ${user?.name?.split(" ")[0]} (@${user?.username})`,
     description: user?.description,
   };
 }
@@ -57,11 +55,11 @@ const ProfileMediaPage = async ({
   return (
     <div>
       <ProfileHeader
-          heading={user?.name}
-          stats={`${user?._count?.posts} ${
-            user?._count?.posts === 1 ? "Photo & video" : "Photos & videos"
-          }`}
-        />
+        heading={user?.name}
+        stats={`${user?._count?.posts} ${
+          user?._count?.posts === 1 ? "Photo & video" : "Photos & videos"
+        }`}
+      />
       <Profile initialUser={user as any} />
       <ProfileMedia user={user as unknown as IUser} />
     </div>
