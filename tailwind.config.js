@@ -93,18 +93,18 @@ module.exports = {
       },
 
       fontSize: {
-        kilo: "var(--tw-fs-kilo)",
-        h1: "var(--tw-fs-h1)",
-        h2: "var(--tw-fs-h2)",
-        h3: "var(--tw-fs-h3)",
+        kilo: "var(--fs-kilo)",
+        h1: "var(--fs-h1)",
+        h2: "var(--fs-h2)",
+        h3: "var(--fs-h3)",
 
-        base: "var(--tw-fs-base)",
+        base: "var(--fs-base)",
 
-        large: "var(--tw-fs-large)",
-        milli: "var(--tw-fs-milli)",
-        micro: "var(--tw-fs-micro)",
-        nano: "var(--tw-fs-nano)",
-        pico: "var(--tw-fs-pico)",
+        large: "var(--fs-large)",
+        milli: "var(--fs-milli)",
+        micro: "var(--fs-micro)",
+        nano: "var(--fs-nano)",
+        pico: "var(--fs-pico)",
       },
 
       fontWeight: {
@@ -128,18 +128,18 @@ module.exports = {
       },
 
       spacing: {
-        kilo: "var(--tw-fs-kilo)",
-        h1: "var(--tw-fs-h1)",
-        h2: "var(--tw-fs-h2)",
-        h3: "var(--tw-fs-h3)",
+        kilo: "var(--fs-kilo)",
+        h1: "var(--fs-h1)",
+        h2: "var(--fs-h2)",
+        h3: "var(--fs-h3)",
 
-        base: "var(--tw-fs-base)",
+        base: "var(--fs-base)",
 
-        large: "var(--tw-fs-large)",
-        milli: "var(--tw-fs-milli)",
-        micro: "var(--tw-fs-micro)",
-        nano: "var(--tw-fs-nano)",
-        pico: "var(--tw-fs-pico)",
+        large: "var(--fs-large)",
+        milli: "var(--fs-milli)",
+        micro: "var(--fs-micro)",
+        nano: "var(--fs-nano)",
+        pico: "var(--fs-pico)",
       },
     },
   },

@@ -4,7 +4,6 @@ import { IPost } from "@/features/posts";
 import { IBookmark } from "@/features/posts";
 
 export interface IUser extends User {
-  username: string;
   posts: IPost[];
   followers: User[];
   following: User[];

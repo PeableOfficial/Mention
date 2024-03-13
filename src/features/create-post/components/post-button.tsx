@@ -34,10 +34,10 @@ export const PostButton = () => {
           }}
           className="w-full bg-primary-100 p-[0.9em] hover:bg-primary-200 focus-visible:outline-secondary-100 active:bg-primary-300"
         >
-          <span className="fill-white-100 xxl:hidden [&>svg]:size-h1">
+          <span className="fill-white xxl:hidden [&>svg]:size-h1">
             <PenIcon />
           </span>
-          <span className="text-white-100 hidden text-base font-bold xxl:inline">
+          <span className="text-white hidden text-base font-bold xxl:inline">
             Post
           </span>
         </Button>

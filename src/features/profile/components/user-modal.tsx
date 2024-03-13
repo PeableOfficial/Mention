@@ -78,13 +78,17 @@ export const UserModal = forwardRef<HTMLDivElement, { userId: string }>(
                 <div className="flex flex-col gap-3 p-4">
                   <div className="flex flex-col gap-2">
                     <div className="-mx-4 -mt-4">
-                      <Image
-                        className="h-16 w-full rounded-t-2xl object-cover"
-                        src={user?.profile_image_url || "/avatar.svg"}
-                        alt={user?.name}
-                        width={150}
-                        height={60}
-                      />
+                      <div className="h-16 w-full overflow-hidden rounded-t-2xl bg-primary-100/10">
+                        {user?.profile_banner_url && (
+                          <Image
+                            className="size-full object-cover"
+                            src={user?.profile_banner_url || ""}
+                            alt="banner"
+                            width={150}
+                            height={60}
+                          />
+                        )}
+                      </div>
                     </div>
                     <div className="flex justify-between">
                       <div className="mb-10">
@@ -107,24 +111,26 @@ export const UserModal = forwardRef<HTMLDivElement, { userId: string }>(
                       )}
                     </div>
                     <div>
-                      <h2 className="custom-underline -mb-1 flex items-center gap-1 truncate text-lg font-bold">
+                      <h2 className="custom-underline -mb-1 flex items-center gap-1 truncate text-large font-bold">
                         {user?.name}
                       </h2>
                       <div className="text-light-secondary dark:text-dark-secondary flex items-center gap-1">
-                        <span className="text-light-secondary dark:text-dark-secondary flex items-center gap-1">
+                        <span className="text-light-secondary dark:text-dark-secondary flex items-center gap-1 text-milli">
                           @{user?.username}
                         </span>
                       </div>
                     </div>
                   </div>
-                  {user?.description && <p className="">{user?.description}</p>}
+                  {user?.description && (
+                    <p className="text-milli">{user?.description}</p>
+                  )}
                   <div className="text-secondary flex gap-4">
                     {stats.map(({ id, label, stat }) => (
                       <Link href={`/${user?.username}/${label}`} key={id}>
                         <div
-                          className="hover-animation hover:border-b-light-primary focus-visible:border-b-light-primary dark:hover:border-b-dark-primary dark:focus-visible:border-b-dark-primary flex h-4 
-                             items-center gap-1 border-b
-                             border-b-transparent outline-none"
+                          className="hover-animation hover:border-b-light-primary focus-visible:border-b-light-primary dark:hover:border-b-dark-primary dark:focus-visible:border-b-dark-primary flex h-4 items-center 
+                             gap-1 border-b border-b-transparent
+                             text-milli outline-none"
                         >
                           <p className="font-bold">{stat}</p>
                           <p className="text-light-secondary dark:text-dark-secondary">

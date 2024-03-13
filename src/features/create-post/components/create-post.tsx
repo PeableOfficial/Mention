@@ -228,7 +228,7 @@ export const CreatePost = ({
                 (text.length === 0 || text.length > 280) &&
                 chosenImages.length === 0
               }
-              className="bg-primary-100 px-[1em] py-[0.45em] text-milli font-bold hover:bg-primary-200 focus-visible:bg-primary-200 focus-visible:outline-secondary-100 active:bg-primary-300"
+              className="bg-primary-100 px-[1em] py-[0.45em] text-milli font-bold text-white hover:bg-primary-200 focus-visible:bg-primary-200 focus-visible:outline-secondary-100 active:bg-primary-300"
             >
               Post
             </Button>
