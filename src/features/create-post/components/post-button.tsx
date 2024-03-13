@@ -37,7 +37,7 @@ export const PostButton = () => {
           <span className="fill-white xxl:hidden [&>svg]:size-h1">
             <PenIcon />
           </span>
-          <span className="text-white hidden text-base font-bold xxl:inline">
+          <span className="hidden text-base font-bold text-white xxl:inline">
             Post
           </span>
         </Button>
