@@ -152,7 +152,7 @@ const TooltipContent = ({
       style={styles}
       ref={tooltipRef}
       className={cn(
-        "pointer-events-none z-tooltip overflow-hidden text-ellipsis text-nowrap rounded-sm bg-tertiary-200/90 p-[0.3em] text-[calc(var(--tw-fs-nano)-1px)] leading-none text-white-100",
+        "hidden md:block pointer-events-none z-tooltip overflow-hidden text-ellipsis text-nowrap rounded-sm bg-tertiary-200/90 p-[0.3em] text-[calc(var(--tw-fs-nano)-1px)] leading-none text-white-100",
       )}
     >
       {text}

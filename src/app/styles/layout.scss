@@ -65,12 +65,15 @@ body {
     display: grid;
     grid-template-columns: 1fr;
 
+    main {
+      @apply xl:m-4 xl:rounded-3xl bg-[var(--clr-background)];
+      min-height: calc(100dvh - 2rem);
+    }
+
     @include mq("small") {
       grid-template-columns: min-content auto;
 
       main {
-        @apply xl:m-4 xl:rounded-3xl bg-white;
-
         &:focus-visible {
           outline: 2px solid var(--clr-secondary);
           outline-offset: -2px;
