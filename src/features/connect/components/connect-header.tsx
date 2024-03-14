@@ -1,12 +1,13 @@
 "use client";
 import { useRouter } from "next/navigation";
-
+import { useLocale } from "@/app/LocaleContext";
 import { BackArrowIcon } from "@/assets/back-arrow-icon";
 import { Button } from "@/components/elements/button";
 import { Tooltip } from "@/components/elements/tooltip";
 import { Header } from "@/features/header";
 
 export const ConnectHeader = () => {
+  const { t } = useLocale();
   const router = useRouter();
 
   return (
@@ -22,7 +23,7 @@ export const ConnectHeader = () => {
           <BackArrowIcon />
         </Button>
       </Tooltip>
-      <h2>Connect</h2>
+      <h2> {t("pages.connect.title")}</h2>
     </Header>
   );
 };

@@ -4,9 +4,7 @@ import { SearchResults } from "@/features/search";
 const SearchPage = () => {
   return (
     <div>
-      <Header>
-        <ExploreHeader />
-      </Header>
+      <ExploreHeader />
       <SearchResults />
     </div>
   );

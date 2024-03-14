@@ -64,6 +64,7 @@
         },
         "connect": {
             "title": "Connect",
+            "suggestedPeople": "Suggested for you",
             "widget": {
                 "title": "Who to follow"
             }

@@ -3,8 +3,10 @@ import { LoadingSpinner } from "@/components/elements/loading-spinner";
 import { TryAgain } from "@/components/elements/try-again";
 import { ConnectHeader, PersonDetails } from "@/features/connect";
 import { useUsers } from "@/features/profile";
+import { useLocale } from "@/app/LocaleContext";
 
 export const ConnectClientPage = () => {
+  const { t } = useLocale();
   const {
     data: people = [],
     isLoading,
@@ -40,7 +42,7 @@ export const ConnectClientPage = () => {
     >
       <ConnectHeader />
       <h2 className="px-4 py-3 text-h2 font-bold text-secondary-100">
-        Suggested for you
+        {t("pages.connect.suggestedPeople")}
       </h2>
       {people.length > 0 &&
         people?.map((person) => {
