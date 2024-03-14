@@ -28,9 +28,9 @@
     --tw-clr-rose-200: 239 14 118; /* #e01673 */
     --tw-clr-rose-300: 129 04 108; /* #c71366 */
 
-    --tw-clr-violet-100: 120 86 255; /* #7856ff */
-    --tw-clr-violet-200: 110 76 245; /* #6c4de6 */
-    --tw-clr-violet-300: 100 66 235; /* #6045cc */
+    --tw-clr-purple-100: 120 86 255; /* #7856ff */
+    --tw-clr-purple-200: 110 76 245; /* #6c4de6 */
+    --tw-clr-purple-300: 100 66 235; /* #6045cc */
 
     --tw-clr-orange-100: 255 122 0; /* #ff7a00 */
     --tw-clr-orange-200: 245 112 0; /* #e66e00 */
@@ -43,6 +43,10 @@
     --tw-clr-red-100: 244 33 46; /* #f4212e */
     --tw-clr-red-200: 234 23 36; /* #dc1e29 */
     --tw-clr-red-300: 224 26 26; /* #c31a25 */
+
+    --tw-clr-lime-100: 0 186 124; /* #00ba7c */
+    --tw-clr-lime-200: 0 176 114; /* #00a770 */
+    --tw-clr-lime-300: 0 166 104; /* #009563 */
 
     /* DEFAULT COLOR */
     --tw-clr-primary-100: var(--tw-clr-blue-100);
@@ -184,10 +188,10 @@
     --tw-clr-primary-300: var(--tw-clr-rose-300);
   }
 
-  [data-color="violet"] {
-    --tw-clr-primary-100: var(--tw-clr-violet-100);
-    --tw-clr-primary-200: var(--tw-clr-violet-200);
-    --tw-clr-primary-300: var(--tw-clr-violet-300);
+  [data-color="purple"] {
+    --tw-clr-primary-100: var(--tw-clr-purple-100);
+    --tw-clr-primary-200: var(--tw-clr-purple-200);
+    --tw-clr-primary-300: var(--tw-clr-purple-300);
   }
 
   [data-color="orange"] {
@@ -200,6 +204,12 @@
     --tw-clr-primary-100: var(--tw-clr-green-100);
     --tw-clr-primary-200: var(--tw-clr-green-200);
     --tw-clr-primary-300: var(--tw-clr-green-300);
+  }
+
+  [data-color="lime"] {
+    --tw-clr-primary-100: var(--tw-clr-lime-100);
+    --tw-clr-primary-200: var(--tw-clr-lime-200);
+    --tw-clr-primary-300: var(--tw-clr-lime-300);
   }
 
   /* FONT SIZES */

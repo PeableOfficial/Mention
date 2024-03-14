@@ -20,9 +20,10 @@
   --clr-blue-active: #177cc0;
   --clr-yellow: #ffd400;
   --clr-rose: #f91880;
-  --clr-violet: #7856ff;
+  --clr-purple: #7856ff;
   --clr-orange: #ff7a00;
   --clr-green: #00ba7c;
+  --clr-lime: #536500;
   --clr-red: #f4212e;
   --clr-red-hover: #dc1e29;
   --clr-red-active: #c31a25;
@@ -414,12 +415,12 @@ html[data-theme="dim"] {
   --clr-primary-background: #{$rose-primary-background};
 }
 
-[data-color="violet"] {
-  --clr-primary: #{$violet-primary};
-  --clr-primary-hover: #{$violet-primary-hover};
-  --clr-primary-active: #{$violet-primary-active};
-  --clr-primary-disabled: #{$violet-primary-disabled};
-  --clr-primary-background: #{$violet-primary-background};
+[data-color="purple"] {
+  --clr-primary: #{$purple-primary};
+  --clr-primary-hover: #{$purple-primary-hover};
+  --clr-primary-active: #{$purple-primary-active};
+  --clr-primary-disabled: #{$purple-primary-disabled};
+  --clr-primary-background: #{$purple-primary-background};
 }
 
 [data-color="orange"] {
@@ -436,4 +437,12 @@ html[data-theme="dim"] {
   --clr-primary-active: #{$green-primary-active};
   --clr-primary-disabled: #{$green-primary-disabled};
   --clr-primary-background: #{$green-primary-background};
+}
+
+[data-color="lime"] {
+  --clr-primary: #{$lime-primary};
+  --clr-primary-hover: #{$lime-primary-hover};
+  --clr-primary-active: #{$lime-primary-active};
+  --clr-primary-disabled: #{$lime-primary-disabled};
+  --clr-primary-background: #{$lime-primary-background};
 }

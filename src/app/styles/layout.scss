@@ -70,7 +70,7 @@ body {
       main {
         border-left: 1px solid var(--clr-border);
 
-        >div:not(.no-padding) {
+        > div:not(.no-padding) {
           padding-bottom: calc(100vh - 4rem);
         }
 

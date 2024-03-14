@@ -34,6 +34,7 @@ export async function GET(
         profile_image_url: true,
         profile_banner_url: true,
 
+        color: true,
         created_at: true,
         description: true,
         location: true,

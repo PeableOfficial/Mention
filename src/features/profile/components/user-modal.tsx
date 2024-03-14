@@ -70,7 +70,7 @@ export const UserModal = forwardRef<HTMLDivElement, { userId: string }>(
         ) : (
           <>
             {" "}
-            <div className="relative self-start">
+            <div className="relative self-start" data-color={user?.color}>
               <div
                 className="rounded-2xl group-hover:visible 
                    group-hover:opacity-100 group-hover:delay-500"

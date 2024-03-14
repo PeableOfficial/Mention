@@ -46,8 +46,8 @@ describe("ColorPicker", () => {
     await userEvent.click(screen.getByTestId("color-rose"));
     expect(screen.getByTestId("color-rose")).toBeChecked();
 
-    await userEvent.click(screen.getByTestId("color-violet"));
-    expect(screen.getByTestId("color-violet")).toBeChecked();
+    await userEvent.click(screen.getByTestId("color-purple"));
+    expect(screen.getByTestId("color-purple")).toBeChecked();
 
     await userEvent.click(screen.getByTestId("color-orange"));
     expect(screen.getByTestId("color-orange")).toBeChecked();
@@ -68,9 +68,9 @@ describe("ColorPicker", () => {
     expect(screen.getByTestId("color-rose")).toBeChecked();
 
     await userEvent.type(screen.getByTestId("color-rose"), "{arrowdown}");
-    expect(screen.getByTestId("color-violet")).toBeChecked();
+    expect(screen.getByTestId("color-purple")).toBeChecked();
 
-    await userEvent.type(screen.getByTestId("color-violet"), "{arrowdown}");
+    await userEvent.type(screen.getByTestId("color-purple"), "{arrowdown}");
     expect(screen.getByTestId("color-orange")).toBeChecked();
 
     await userEvent.type(screen.getByTestId("color-orange"), "{arrowdown}");

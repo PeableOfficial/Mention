@@ -67,10 +67,10 @@ module.exports = {
           300: "rgb(var(--tw-clr-rose-300) / <alpha-value>)",
         },
 
-        violet: {
-          100: "rgb(var(--tw-clr-violet-100) / <alpha-value>)",
-          200: "rgb(var(--tw-clr-violet-200) / <alpha-value>)",
-          300: "rgb(var(--tw-clr-violet-300) / <alpha-value>)",
+        purple: {
+          100: "rgb(var(--tw-clr-purple-100) / <alpha-value>)",
+          200: "rgb(var(--tw-clr-purple-200) / <alpha-value>)",
+          300: "rgb(var(--tw-clr-purple-300) / <alpha-value>)",
         },
 
         orange: {
@@ -89,6 +89,12 @@ module.exports = {
           100: "rgb(var(--tw-clr-red-100) / <alpha-value>)",
           200: "rgb(var(--tw-clr-red-200) / <alpha-value>)",
           300: "rgb(var(--tw-clr-red-300) / <alpha-value>)",
+        },
+
+        lime: {
+          100: "rgb(var(--tw-clr-lime-100) / <alpha-value>)",
+          200: "rgb(var(--tw-clr-lime-200) / <alpha-value>)",
+          300: "rgb(var(--tw-clr-lime-300) / <alpha-value>)",
         },
       },
 

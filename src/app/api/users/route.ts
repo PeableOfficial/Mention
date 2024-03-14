@@ -36,6 +36,7 @@ export async function GET(request: Request) {
         following: true,
 
         followers: true,
+        color: true,
       },
 
       take: limit ? parseInt(limit) : undefined,

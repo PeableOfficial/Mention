@@ -4,7 +4,14 @@ import { useEffect, useState } from "react";
 
 import Color from "./color";
 
-type ColorType = "blue" | "yellow" | "rose" | "violet" | "orange" | "green";
+type ColorType =
+  | "blue"
+  | "yellow"
+  | "rose"
+  | "purple"
+  | "orange"
+  | "green"
+  | "lime";
 
 export const ColorPicker = () => {
   const [mounted, setMounted] = useState(false);
@@ -22,9 +29,10 @@ export const ColorPicker = () => {
     color === "blue" ||
       color === "yellow" ||
       color === "rose" ||
-      color === "violet" ||
+      color === "purple" ||
       color === "orange" ||
-      color === "green"
+      color === "green" ||
+      color === "lime"
       ? color
       : "blue",
   );
@@ -86,13 +94,13 @@ export const ColorPicker = () => {
         />
 
         <Color
-          value="violet"
-          checked={currentColor === "violet"}
-          aria-checked={currentColor === "violet"}
-          tabIndex={currentColor === "violet" ? 0 : -1}
+          value="purple"
+          checked={currentColor === "purple"}
+          aria-checked={currentColor === "purple"}
+          tabIndex={currentColor === "purple" ? 0 : -1}
           onChange={handleColorChange}
-          aria-label="Violet"
-          className="bg-violet-100"
+          aria-label="Purple"
+          className="bg-purple-100"
         />
 
         <Color
@@ -113,6 +121,16 @@ export const ColorPicker = () => {
           onChange={handleColorChange}
           aria-label="Green"
           className="bg-green-100"
+        />
+
+        <Color
+          value="lime"
+          checked={currentColor === "lime"}
+          aria-checked={currentColor === "lime"}
+          tabIndex={currentColor === "lime" ? 0 : -1}
+          onChange={handleColorChange}
+          aria-label="Lime"
+          className="bg-lime-100"
         />
       </div>
     </section>
