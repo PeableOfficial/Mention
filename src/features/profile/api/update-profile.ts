@@ -22,6 +22,7 @@ export const updateProfile = async (profile: IProfile, userId: string) => {
       username: profile?.username,
       description: profile?.bio,
       location: profile?.location,
+      color: profile?.color,
       url: profile?.website,
       profile_banner_url: bannerUrl ? bannerUrl : profile?.banner?.url,
       profile_image_url: avatarUrl ? avatarUrl : profile?.avatar?.url,

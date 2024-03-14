@@ -52,6 +52,7 @@ export const EditProfileModal = ({
     name: user?.name || "",
     username: user?.username || "",
     bio: user?.description || "",
+    color: user?.color || "",
     location: user?.location || "",
     website: user?.url || "",
     banner: {
