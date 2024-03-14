@@ -1,6 +1,6 @@
 export const UserActive = () => {
   return (
-    <svg className="svgIcon" viewBox="0 0 24 24" aria-hidden="true" role="img">
+    <svg className="svgIcon" viewBox="0 0 26 26" aria-hidden="true" role="img">
       <circle
         cx="13"
         cy="7.25"
@@ -19,7 +19,7 @@ export const UserActive = () => {
 
 export const User = () => {
   return (
-    <svg className="svgIcon" viewBox="0 0 24 24" aria-hidden="true" role="img">
+    <svg className="svgIcon" viewBox="0 0 26 26" aria-hidden="true" role="img">
       <circle
         cx="13"
         cy="7.25"
