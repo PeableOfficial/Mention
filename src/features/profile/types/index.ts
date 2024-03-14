@@ -19,6 +19,7 @@ export interface IUser extends User {
     reposts?: number;
     replies?: number;
   };
+  color?: string;
 }
 
 export interface IProfile {
@@ -27,6 +28,7 @@ export interface IProfile {
   bio: string | undefined;
   location: string | undefined;
   website: string | undefined;
+  color: string | undefined;
   banner: {
     url: string | undefined;
     file: File | undefined;
