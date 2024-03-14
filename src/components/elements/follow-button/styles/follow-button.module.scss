@@ -7,7 +7,7 @@
   .following {
     width: calc(var(--fs-kilo) * 3);
     color: var(--clr-secondary);
-    @apply bg-primary-100/10 text-[var(--clr-primary)];
+    @apply bg-primary-100/10 text-primary-100;
 
     &:hover {
       color: var(--clr-red);
