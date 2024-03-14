@@ -20,7 +20,7 @@ export const FeedbackClientPage = () => {
   const router = useRouter();
   const [feedback, setFeedback] = useState("");
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     try {
       // Send the feedback to the server
@@ -37,7 +37,7 @@ export const FeedbackClientPage = () => {
     }
   };
 
-  const handleChange = (event) => {
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setFeedback(event.target.value);
   };
 
