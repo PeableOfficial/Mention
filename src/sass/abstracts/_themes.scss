@@ -27,9 +27,9 @@
   --clr-red-hover: #dc1e29;
   --clr-red-active: #c31a25;
 
-  --clr-modal-background: rgba(0, 0, 0, 0.4);
+  --clr-modal-background: rgba(91, 112, 131, 0.4);
   --clr-modal: rgb(32, 33, 38);
-  --clr-modal-opacity: rgba(0, 0, 0, 0.9);
+  --clr-modal-opacity: rgba(32, 33, 38, 0.9);
   --clr-modal-hover: rgb(49, 50, 56);
   --clr-modal-active: rgb(66, 66, 71);
 
@@ -82,7 +82,7 @@
   --clr-options-hover: #{$light-options-hover};
   --clr-options-active: #{$light-options-active};
 
-  --clr-post-hover: #{$light-post-hover};
+  --clr-tweet-hover: #{$light-tweet-hover};
 
   --clr-comment-hover: #{$light-comment-hover};
   --clr-comment-active: #{$light-comment-active};
@@ -90,8 +90,8 @@
   --clr-heart-hover: #{$light-heart-hover};
   --clr-heart-active: #{$light-heart-active};
 
-  --clr-repost-hover: #{$light-repost-hover};
-  --clr-repost-active: #{$light-repost-active};
+  --clr-retweet-hover: #{$light-retweet-hover};
+  --clr-retweet-active: #{$light-retweet-active};
 
   --clr-search-background: #{$light-search-background};
 
@@ -148,7 +148,7 @@
     --clr-options-hover: #{$dark-options-hover};
     --clr-options-active: #{$dark-options-active};
 
-    --clr-post-hover: #{$dark-post-hover};
+    --clr-tweet-hover: #{$dark-tweet-hover};
 
     --clr-comment-hover: #{$dark-comment-hover};
     --clr-comment-active: #{$dark-comment-active};
@@ -156,8 +156,8 @@
     --clr-heart-hover: #{$dark-heart-hover};
     --clr-heart-active: #{$dark-heart-active};
 
-    --clr-repost-hover: #{$dark-repost-hover};
-    --clr-repost-active: #{$dark-repost-active};
+    --clr-retweet-hover: #{$dark-retweet-hover};
+    --clr-retweet-active: #{$dark-retweet-active};
 
     --clr-search-background: #{$dark-search-background};
 
@@ -222,7 +222,7 @@ html[data-theme="default"] {
   --clr-options-hover: #{$light-options-hover};
   --clr-options-active: #{$light-options-active};
 
-  --clr-post-hover: #{$light-post-hover};
+  --clr-tweet-hover: #{$light-tweet-hover};
 
   --clr-comment-hover: #{$light-comment-hover};
   --clr-comment-active: #{$light-comment-active};
@@ -230,8 +230,8 @@ html[data-theme="default"] {
   --clr-heart-hover: #{$light-heart-hover};
   --clr-heart-active: #{$light-heart-active};
 
-  --clr-repost-hover: #{$light-repost-hover};
-  --clr-repost-active: #{$light-repost-active};
+  --clr-retweet-hover: #{$light-retweet-hover};
+  --clr-retweet-active: #{$light-retweet-active};
 
   --clr-search-background: #{$light-search-background};
 
@@ -288,7 +288,7 @@ html[data-theme="dark"] {
   --clr-options-hover: #{$dark-options-hover};
   --clr-options-active: #{$dark-options-active};
 
-  --clr-post-hover: #{$dark-post-hover};
+  --clr-tweet-hover: #{$dark-tweet-hover};
 
   --clr-comment-hover: #{$dark-comment-hover};
   --clr-comment-active: #{$dark-comment-active};
@@ -296,8 +296,8 @@ html[data-theme="dark"] {
   --clr-heart-hover: #{$dark-heart-hover};
   --clr-heart-active: #{$dark-heart-active};
 
-  --clr-repost-hover: #{$dark-repost-hover};
-  --clr-repost-active: #{$dark-repost-active};
+  --clr-retweet-hover: #{$dark-retweet-hover};
+  --clr-retweet-active: #{$dark-retweet-active};
 
   --clr-search-background: #{$dark-search-background};
 
@@ -354,7 +354,7 @@ html[data-theme="dim"] {
   --clr-options-hover: #{$dim-options-hover};
   --clr-options-active: #{$dim-options-active};
 
-  --clr-post-hover: #{$dim-post-hover};
+  --clr-tweet-hover: #{$dim-tweet-hover};
 
   --clr-comment-hover: #{$dim-comment-hover};
   --clr-comment-active: #{$dim-comment-active};
@@ -362,8 +362,8 @@ html[data-theme="dim"] {
   --clr-heart-hover: #{$dim-heart-hover};
   --clr-heart-active: #{$dim-heart-active};
 
-  --clr-repost-hover: #{$dim-repost-hover};
-  --clr-repost-active: #{$dim-repost-active};
+  --clr-retweet-hover: #{$dim-retweet-hover};
+  --clr-retweet-active: #{$dim-retweet-active};
 
   --clr-search-background: #{$dim-search-background};
 
@@ -390,7 +390,7 @@ html[data-theme="dim"] {
 
 // PRIMARY COLORS
 
-html[data-color="blue"] {
+[data-color="blue"] {
   --clr-primary: #{$blue-primary};
   --clr-primary-hover: #{$blue-primary-hover};
   --clr-primary-active: #{$blue-primary-active};
@@ -398,7 +398,7 @@ html[data-color="blue"] {
   --clr-primary-background: #{$blue-primary-background};
 }
 
-html[data-color="yellow"] {
+[data-color="yellow"] {
   --clr-primary: #{$yellow-primary};
   --clr-primary-hover: #{$yellow-primary-hover};
   --clr-primary-active: #{$yellow-primary-active};
@@ -406,7 +406,7 @@ html[data-color="yellow"] {
   --clr-primary-background: #{$yellow-primary-background};
 }
 
-html[data-color="rose"] {
+[data-color="rose"] {
   --clr-primary: #{$rose-primary};
   --clr-primary-hover: #{$rose-primary-hover};
   --clr-primary-active: #{$rose-primary-active};
@@ -414,7 +414,7 @@ html[data-color="rose"] {
   --clr-primary-background: #{$rose-primary-background};
 }
 
-html[data-color="violet"] {
+[data-color="violet"] {
   --clr-primary: #{$violet-primary};
   --clr-primary-hover: #{$violet-primary-hover};
   --clr-primary-active: #{$violet-primary-active};
@@ -422,7 +422,7 @@ html[data-color="violet"] {
   --clr-primary-background: #{$violet-primary-background};
 }
 
-html[data-color="orange"] {
+[data-color="orange"] {
   --clr-primary: #{$orange-primary};
   --clr-primary-hover: #{$orange-primary-hover};
   --clr-primary-active: #{$orange-primary-active};
@@ -430,7 +430,7 @@ html[data-color="orange"] {
   --clr-primary-background: #{$orange-primary-background};
 }
 
-html[data-color="green"] {
+[data-color="green"] {
   --clr-primary: #{$green-primary};
   --clr-primary-hover: #{$green-primary-hover};
   --clr-primary-active: #{$green-primary-active};

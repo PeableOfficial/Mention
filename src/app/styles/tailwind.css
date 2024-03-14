@@ -166,37 +166,37 @@
 
   /* COLORS */
 
-  html[data-color="blue"] {
+  [data-color="blue"] {
     --tw-clr-primary-100: var(--tw-clr-blue-100);
     --tw-clr-primary-200: var(--tw-clr-blue-200);
     --tw-clr-primary-300: var(--tw-clr-blue-300);
   }
 
-  html[data-color="yellow"] {
+  [data-color="yellow"] {
     --tw-clr-primary-100: var(--tw-clr-yellow-100);
     --tw-clr-primary-200: var(--tw-clr-yellow-200);
     --tw-clr-primary-300: var(--tw-clr-yellow-300);
   }
 
-  html[data-color="rose"] {
+  [data-color="rose"] {
     --tw-clr-primary-100: var(--tw-clr-rose-100);
     --tw-clr-primary-200: var(--tw-clr-rose-200);
     --tw-clr-primary-300: var(--tw-clr-rose-300);
   }
 
-  html[data-color="violet"] {
+  [data-color="violet"] {
     --tw-clr-primary-100: var(--tw-clr-violet-100);
     --tw-clr-primary-200: var(--tw-clr-violet-200);
     --tw-clr-primary-300: var(--tw-clr-violet-300);
   }
 
-  html[data-color="orange"] {
+  [data-color="orange"] {
     --tw-clr-primary-100: var(--tw-clr-orange-100);
     --tw-clr-primary-200: var(--tw-clr-orange-200);
     --tw-clr-primary-300: var(--tw-clr-orange-300);
   }
 
-  html[data-color="green"] {
+  [data-color="green"] {
     --tw-clr-primary-100: var(--tw-clr-green-100);
     --tw-clr-primary-200: var(--tw-clr-green-200);
     --tw-clr-primary-300: var(--tw-clr-green-300);
