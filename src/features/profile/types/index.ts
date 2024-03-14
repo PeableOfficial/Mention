@@ -19,7 +19,6 @@ export interface IUser extends User {
     reposts?: number;
     replies?: number;
   };
-  color?: string;
 }
 
 export interface IProfile {
