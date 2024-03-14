@@ -40,7 +40,7 @@ const FollowersPage = async ({
 
   return (
     <div>
-      <ProfileHeader heading={user?.name} stats={`@${user?.username}`} />
+      <ProfileHeader userId={user?.id} stats={`@${user?.username}`} />
       <FollowsNavigation />
       <Followers id={user?.id} />
     </div>

@@ -49,7 +49,7 @@ export const ConversationCard = ({
       onKeyDown={(e) => {
         if (e.key === "Enter") router?.push(`/messages/${conversation?.id}`);
       }}
-      className="group relative flex cursor-pointer gap-2 p-4 outline-offset-[-2px] transition-colors duration-200 ease-in-out hover:bg-neutral-300 focus-visible:bg-neutral-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary-100 active:bg-neutral-400 "
+      className="group relative flex cursor-pointer gap-2 p-2 outline-offset-[-2px] transition-colors duration-200 ease-in-out hover:bg-neutral-300 focus-visible:bg-neutral-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary-100 active:bg-neutral-400 "
     >
       <div className="mt-2">
         <LinkToProfile username={user?.username} tabIndex={-1}>
@@ -62,7 +62,7 @@ export const ConversationCard = ({
             <UserName name={user?.name} isVerified={user?.verified} />
 
             <EllipsisWrapper>
-              <UserUsername username={user?.email?.split("@")[0]} />
+              <UserUsername username={user?.username} />
             </EllipsisWrapper>
             <span className="text-tertiary-100">·</span>
             <CreateDate

@@ -2,6 +2,7 @@
 import { AnimatePresence } from "framer-motion";
 import { useSession } from "next-auth/react";
 import { useState } from "react";
+import { useLocale } from "@/app/LocaleContext";
 
 import { Modal } from "@/components/elements/modal";
 import { useJoinMention } from "@/features/auth";
@@ -21,6 +22,7 @@ export const FollowButton = ({
   session_owner_id: string;
   isFollowing?: boolean;
 }) => {
+  const { t } = useLocale();
   const { data: session } = useSession();
 
   const setJoinMentionData = useJoinMention((state) => state.setData);
@@ -62,14 +64,20 @@ export const FollowButton = ({
           handleFollow(e);
         }}
         onMouseEnter={(e) => {
-          e.currentTarget.textContent = isFollowing ? "Unfollow" : "Follow";
+          e.currentTarget.textContent = isFollowing
+            ? t("common.buttons.unfollow")
+            : t("common.buttons.follow");
         }}
         onMouseLeave={(e) => {
-          e.currentTarget.textContent = isFollowing ? "Following" : "Follow";
+          e.currentTarget.textContent = isFollowing
+            ? t("common.buttons.unfollow")
+            : t("common.buttons.follow");
         }}
         className={isFollowing ? styles.following : styles.follow}
       >
-        {isFollowing ? "Following" : "Follow"}
+        {isFollowing
+          ? t("common.buttons.unfollow")
+          : t("common.buttons.follow")}
       </button>
 
       <AnimatePresence>

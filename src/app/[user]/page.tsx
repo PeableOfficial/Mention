@@ -56,6 +56,7 @@ const ProfilePostsPage = async ({
   return (
     <div>
       <ProfileHeader
+        userId={user?.id}
         heading={user?.name}
         stats={`${user?._count?.posts} ${
           user?._count?.posts === 1 ? "post" : "posts"

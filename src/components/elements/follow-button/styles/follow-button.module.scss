@@ -1,29 +1,21 @@
 .container {
   button {
-    padding: 0.6em 1em;
-    border-radius: 100vmax;
-    font-size: var(--fs-micro);
-    font-weight: var(--fw-700);
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     transition: all 0.1s ease-in-out;
+    @apply bg-primary-100 text-white text-[length:var(--fs-micro)] font-[number:var(--fw-700)] cursor-pointer flex items-center justify-center px-[1em] py-[0.6em] rounded-full;
   }
 
   .following {
     width: calc(var(--fs-kilo) * 3);
     color: var(--clr-secondary);
-    border: 1px solid var(--clr-tertiary);
+    @apply bg-primary-100/10 text-[var(--clr-primary)];
 
     &:hover {
       color: var(--clr-red);
-      border: 1px solid var(--clr-red);
-      background-color: var(--clr-background-hover);
+      @apply bg-red-700/10;
     }
 
-    &:active {
-      background-color: var(--clr-background-active);
+    &:hover:active {
+      @apply bg-red-300/20;
     }
 
     &:focus-visible {
@@ -32,20 +24,19 @@
   }
 
   .follow {
-    background-color: var(--clr-secondary);
-    color: var(--clr-background);
+    @apply bg-primary-100;
 
     &:hover {
-      background-color: var(--clr-secondary-hover);
+      @apply bg-primary-200;
     }
 
     &:active {
-      background-color: var(--clr-secondary-active);
+      @apply bg-primary-300;
     }
 
     &:focus-visible {
       outline: 2px solid var(--clr-secondary);
-      background-color: var(--clr-secondary-hover);
+      @apply bg-primary-200;
     }
   }
 }

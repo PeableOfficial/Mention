@@ -17,11 +17,11 @@ export const ConversationMemberDetails = ({
 }) => {
   return (
     <Link
-      href={`/${user?.id}`}
+      href={`/${user?.username}`}
       className={cn(
-        "mx-[1em] mt-[2px] grid cursor-pointer place-items-center rounded-sm border-b-[1px] border-neutral-600 p-[1em] text-center",
+        "mx-[1em] mt-[2px] grid cursor-pointer place-items-center rounded-3xl p-[1em] text-center",
         "transition-colors duration-200 ease-in-out",
-        "hover:bg-neutral-200 focus-visible:bg-neutral-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-secondary-100",
+        "hover:bg-primary-100/5 focus-visible:bg-primary-100/5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-secondary-100",
       )}
     >
       <Avatar
@@ -44,9 +44,11 @@ export const ConversationMemberDetails = ({
         <span>{user?.followers?.length ?? 0} Followers</span>
       </div>
 
-      <p className="mb-[4rem] text-nano text-tertiary-100">
-        Not followed by anyone you&apos;re following
-      </p>
+      {false && (
+        <p className="mb-[1rem] text-nano text-tertiary-100">
+          Not followed by anyone you&apos;re following
+        </p>
+      )}
     </Link>
   );
 };

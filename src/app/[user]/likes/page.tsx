@@ -32,9 +32,7 @@ export async function generateMetadata({
     };
 
   return {
-    title: `Posts liked by ${user?.name?.split(
-      " ",
-    )[0]} (@${user?.username})`,
+    title: `Posts liked by ${user?.name?.split(" ")[0]} (@${user?.username})`,
     description: user?.description,
   };
 }
@@ -61,11 +59,11 @@ const ProfileLikesPage = async ({
   return (
     <div>
       <ProfileHeader
-          heading={user?.name}
-          stats={`${user?._count?.likes} ${
-            user?._count?.likes === 1 ? "like" : "likes"
-          }`}
-        />
+        userId={user?.id}
+        stats={`${user?._count?.likes} ${
+          user?._count?.likes === 1 ? "like" : "likes"
+        }`}
+      />
       <Profile initialUser={user as any} />
       {user?.id && <ProfileLikes id={user.id} />}
     </div>

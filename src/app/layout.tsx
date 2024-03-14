@@ -104,6 +104,9 @@ export const metadata: Metadata = {
   },
   description:
     "We believe in the potential of people when they can come together.",
+  openGraph: {
+    images: ["https://mention.earth/MentionBanner.png"],
+  },
   generator: "Next.js",
   manifest: "/manifest.json",
   keywords: ["socialnetwork", "socialmedia", "social", "people"],

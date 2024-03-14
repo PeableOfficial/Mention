@@ -1,73 +1,77 @@
 {
-    "common": {
-        "close": "Close",
-        "save": "Save",
-        "cancel": "Cancel",
-        "delete": "Delete",
-        "edit": "Edit",
-        "post": "Post",
-        "add": "Add",
-        "search": "Search",
-        "loading": "Loading",
-        "noData": "No data found",
-        "yes": "Yes",
-        "no": "No",
-        "confirm": "Confirm",
-        "error": "Error",
-        "warning": "Warning",
-        "info": "Info",
-        "success": "Success",
-        "ok": "OK",
-        "back": "Back",
-        "next": "Next",
-        "previous": "Previous",
-        "submit": "Submit"
-    },
-    "navbar": {
-        "home": {
-            "text": "Home",
-            "label": "Home page"
-        },
-        "explore": {
-            "text": "Explore",
-            "label": "Search and Explore"
-        },
-        "activity": {
-            "text": "Activity",
-            "label": "Activity"
-        },
-        "messages": {
-            "text": "Messages",
-            "label": "Messages"
-        },
-        "bookmarks": {
-            "text": "Bookmarks",
-            "label": "Bookmarks"
-        },
-        "profile": {
-            "text": "Profile",
-            "label": "Profile"
-        },
-        "settings": {
-            "text": "Settings",
-            "label": "Settings"
-        }
-    },
-    "pages": {
-        "home": {
-            "title": "Home",
-            "description": "Welcome to the home page"
-        },
-        "explore": {
-            "title": "Explore",
-            "description": "Search and explore"
-        },
-        "connect": {
-            "title": "Connect",
-            "suggestedPeople": "Suggested for you",
-            "widget": {
-                "title": "Who to follow"
-            }
-        }
+  "common": {
+    "close": "Close",
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "post": "Post",
+    "add": "Add",
+    "search": "Search",
+    "loading": "Loading",
+    "noData": "No data found",
+    "yes": "Yes",
+    "no": "No",
+    "confirm": "Confirm",
+    "error": "Error",
+    "warning": "Warning",
+    "info": "Info",
+    "success": "Success",
+    "ok": "OK",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous",
+    "submit": "Submit",
+    "buttons": {
+      "follow": "Follow",
+      "unfollow": "Unfollow"
     }
+  },
+  "navbar": {
+    "home": {
+      "text": "Home",
+      "label": "Home page"
+    },
+    "explore": {
+      "text": "Explore",
+      "label": "Search and Explore"
+    },
+    "activity": {
+      "text": "Activity",
+      "label": "Activity"
+    },
+    "messages": {
+      "text": "Messages",
+      "label": "Messages"
+    },
+    "bookmarks": {
+      "text": "Bookmarks",
+      "label": "Bookmarks"
+    },
+    "profile": {
+      "text": "Profile",
+      "label": "Profile"
+    },
+    "settings": {
+      "text": "Settings",
+      "label": "Settings"
+    }
+  },
+  "pages": {
+    "home": {
+      "title": "Home",
+      "description": "Welcome to the home page"
+    },
+    "explore": {
+      "title": "Explore",
+      "description": "Search and explore"
+    },
+    "connect": {
+      "title": "Connect",
+      "suggestedPeople": "Suggested for you",
+      "widget": {
+        "title": "Who to follow"
+      }
+    }
+  }
 }

@@ -77,6 +77,7 @@ model User {
   conversations      Conversation[] @relation("ConversationToUser")
   followers          User[]         @relation("Followers")
   following          User[]         @relation("Followers")
+  feedbacks          Feedback[]
 }
 
 model Post {
@@ -174,6 +175,14 @@ model Conversation {
   created_at DateTime  @default(now())
   messages   Message[]
   users      User[]    @relation("ConversationToUser")
+}
+
+model Feedback {
+  id         String   @id @default(cuid())
+  message    String
+  createdAt  DateTime @default(now())
+  user       User     @relation(fields: [userId], references: [id])
+  userId     String
 }
 
 enum UserRole {

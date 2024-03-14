@@ -68,7 +68,7 @@ export const Conversations = () => {
       ) : (
         <StartNewConversation
           title={`Welcome to your inbox!`}
-          subtitle={`Drop a line, share Posts and more with private conversations between you and others on Twitter. `}
+          subtitle={`Drop a line, share Posts and more with private conversations between you and others on Mention. `}
           buttonText={`Write a message`}
         />
       )}
