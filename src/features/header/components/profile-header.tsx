@@ -14,8 +14,8 @@ export const ProfileHeader = ({
   heading,
   stats,
 }: {
-  userId: string | undefined;
-  heading: string | undefined;
+  userId?: string | undefined;
+  heading?: string | undefined;
   stats: string | undefined;
 }) => {
   const router = useRouter();
