@@ -37,7 +37,7 @@ export const FeedbackClientPage = () => {
     }
   };
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
     setFeedback(event.target.value);
   };
 
