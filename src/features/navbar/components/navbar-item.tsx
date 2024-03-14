@@ -22,7 +22,7 @@ const NavItem = ({ href, icon, text, isActive, ...props }: INavItem) => {
       <div
         className={cn(
           "flex items-center justify-center rounded-full p-[0.4em]",
-          "group-hover:bg-neutral-500",
+          "group-hover:bg-primary-100/20",
           "outline-offset-2 group-focus-visible:bg-neutral-500 group-focus-visible:outline group-focus-visible:outline-2 group-focus-visible:outline-secondary-100",
           "group-active:bg-neutral-600",
           "transition-colors duration-200 ease-in-out",

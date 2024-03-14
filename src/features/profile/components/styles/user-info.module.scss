@@ -10,9 +10,8 @@ $avatar-top: calc(-1 * #{$avatar-size} / 2 - #{$avatar-border});
   @apply p-2;
 
   .banner {
-    @apply rounded-3xl;
+    @apply rounded-3xl bg-primary-100/40;
     aspect-ratio: 3/1;
-    background-color: var(--clr-auth-border);
 
     .bannerButton {
       position: relative;

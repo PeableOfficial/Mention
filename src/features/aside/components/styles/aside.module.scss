@@ -4,7 +4,7 @@
   display: none;
   position: sticky;
   top: 0;
-  @apply py-4 pl-4;
+  @apply p-4 pl-0;
   height: 100vh;
   height: 100dvh;
   overflow-y: auto;
@@ -40,12 +40,12 @@
 
   .trends {
     margin-top: 11px;
-    background-color: var(--clr-trends-background);
+    background-color: var(--clr-background);
     border-radius: 1rem;
   }
 
   .connect {
-    background-color: var(--clr-connect-background);
+    background-color: var(--clr-background);
     border-radius: 1rem;
   }
 
