@@ -9,7 +9,7 @@ export const NoResults = ({ query }: { query: string | undefined }) => {
       <div className={styles.content}>
         <div className={styles.image}>
           <Image
-            src={`/no-results.png`}
+            src={`/empty_search_results.svg`}
             alt="no results"
             width={320}
             height={160}

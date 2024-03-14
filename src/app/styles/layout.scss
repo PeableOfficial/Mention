@@ -69,11 +69,7 @@ body {
       grid-template-columns: min-content auto;
 
       main {
-        border-left: 1px solid var(--clr-border);
-
-        > div:not(.no-padding) {
-          padding-bottom: calc(100vh - 4rem);
-        }
+        @apply xl:m-4 xl:rounded-3xl bg-white;
 
         &:focus-visible {
           outline: 2px solid var(--clr-secondary);

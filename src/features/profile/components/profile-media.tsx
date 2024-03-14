@@ -47,7 +47,7 @@ export const ProfileMedia = ({ user }: { user: IUser }) => {
           {session?.user?.id === id ? (
             <div>
               <Image
-                src="/media-placeholder.png"
+                src="/empty_files.svg"
                 alt=""
                 height={500}
                 width={500}
@@ -61,7 +61,7 @@ export const ProfileMedia = ({ user }: { user: IUser }) => {
           ) : (
             <div>
               <Image
-                src="/media-placeholder.png"
+                src="/empty_files.svg"
                 alt=""
                 width={500}
                 height={500}

@@ -13,8 +13,8 @@ export const NoFollowers = ({
     <div className={styles.container}>
       <div className={styles.content}>
         <Image
-          src={`/no-followers.png`}
-          alt={`no followers`}
+          src={`/empty_unread_messages.svg`}
+          alt={`No followers`}
           width={1000}
           height={1000}
         />

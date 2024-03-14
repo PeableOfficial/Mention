@@ -54,7 +54,7 @@ const ProfilePostsPage = async ({
   if (!user) return <NotFound />;
 
   return (
-    <div data-color={user?.color}>
+    <div>
       <ProfileHeader
         userId={user?.id}
         heading={user?.name}
