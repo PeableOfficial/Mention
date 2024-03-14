@@ -2,6 +2,7 @@
 import { AnimatePresence } from "framer-motion";
 import { useSession } from "next-auth/react";
 import { useState } from "react";
+import { useLocale } from "@/app/LocaleContext";
 
 import { LoadingSpinner } from "@/components/elements/loading-spinner";
 import { Modal } from "@/components/elements/modal";
@@ -19,6 +20,7 @@ import styles from "./styles/conversations.module.scss";
 
 export const Conversations = () => {
   const { data: session } = useSession();
+  const { t } = useLocale();
   const [searchTerm, setSearchTerm] = useState("");
   const [isSearching, setIsSearching] = useState(false);
 
@@ -55,21 +57,24 @@ export const Conversations = () => {
           ) : (
             <div className={styles.conversations}>
               {isSuccess &&
-                conversations?.map((conversation) => {
-                  return (
-                    <div className={styles.conversation} key={conversation.id}>
-                      <ConversationCard conversation={conversation} />
-                    </div>
-                  );
-                })}
+              Array.isArray(conversations) &&
+              conversations.length > 0 ? (
+                conversations.map((conversation) => (
+                  <div className={styles.conversation} key={conversation.id}>
+                    <ConversationCard conversation={conversation} />
+                  </div>
+                ))
+              ) : (
+                <LoadingSpinner />
+              )}
             </div>
           )}
         </>
       ) : (
         <StartNewConversation
-          title={`Welcome to your inbox!`}
-          subtitle={`Drop a line, share Posts and more with private conversations between you and others on Mention. `}
-          buttonText={`Write a message`}
+          title={t("pages.chat.startNewConversation.title")}
+          subtitle={t("pages.chat.startNewConversation.description")}
+          buttonText={t("pages.chat.startNewConversation.buttonText")}
         />
       )}
 

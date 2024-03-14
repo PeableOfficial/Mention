@@ -6,12 +6,10 @@ import { useRef, useState } from "react";
 import { BackArrowIcon } from "@/assets/back-arrow-icon";
 import { DotIcon } from "@/assets/dot-icon";
 import { Button } from "@/components/elements/button";
-import { EllipsisWrapper } from "@/components/elements/ellipsis-wrapper";
 import { Menu, MenuItem } from "@/components/elements/menu";
 import { ConfirmationModal, Modal } from "@/components/elements/modal";
 import { Tooltip } from "@/components/elements/tooltip";
 import { Header } from "@/features/header";
-import { UserUsername } from "@/features/profile";
 
 import { useDeleteAllBookmarks } from "../hooks/use-delete-all-bookmarks";
 

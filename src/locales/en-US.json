@@ -1,5 +1,6 @@
 {
   "common": {
+    "send": "Send",
     "close": "Close",
     "save": "Save",
     "cancel": "Cancel",
@@ -17,11 +18,11 @@
     "warning": "Warning",
     "info": "Info",
     "success": "Success",
-    "ok": "OK",
     "back": "Back",
     "next": "Next",
     "previous": "Previous",
     "submit": "Submit",
+    "settings": "Settings",
     "buttons": {
       "follow": "Follow",
       "unfollow": "Unfollow"
@@ -71,6 +72,36 @@
       "suggestedPeople": "Suggested for you",
       "widget": {
         "title": "Who to follow"
+      }
+    },
+    "chat": {
+      "title": "Chat",
+      "search": "Search for people and conversations",
+      "newChat": "New chat",
+      "startNewConversation": {
+        "title": "Start a new conversation",
+        "description": "Search for people and start a new conversation",
+        "buttonText": "Start new conversation"
+      }
+    },
+    "feedback": {
+      "title": "Feedback",
+      "faq": {
+        "title": "Frequently Asked Questions",
+        "items": {
+          "question1": {
+            "title": "How can we improve?",
+            "answer": "We appreciate your feedback! Please let us know how we can improve Mention."
+          },
+          "question2": {
+            "title": "Any bugs or issues?",
+            "answer": "If you encounter any bugs or issues, please provide detailed information so that we can investigate and fix them."
+          },
+          "question3": {
+            "title": "Feature requests",
+            "answer": "Have any feature requests? Let us know what new features you would like to see in Mention."
+          }
+        }
       }
     }
   }

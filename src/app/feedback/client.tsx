@@ -55,35 +55,38 @@ export const FeedbackClientPage = () => {
             <BackArrowIcon />
           </Button>
         </Tooltip>
-        <h2>Feedback</h2>
+        <h2>{t("pages.feedback.title")}</h2>
       </Header>
       <div className="container mx-auto px-4">
         <Accordion type="single" collapsible className="w-full">
           <AccordionItem value="item-1">
-            <AccordionTrigger>How can we improve?</AccordionTrigger>
+            <AccordionTrigger>
+              {t("pages.feedback.faq.items.question1.title")}
+            </AccordionTrigger>
             <AccordionContent>
-              We appreciate your feedback! Please let us know how we can improve
-              Mention.
+              {t("pages.feedback.faq.items.question1.answer")}
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="item-2">
-            <AccordionTrigger>Any bugs or issues?</AccordionTrigger>
+            <AccordionTrigger>
+              {t("pages.feedback.faq.items.question2.title")}
+            </AccordionTrigger>
             <AccordionContent>
-              If you encounter any bugs or issues, please provide detailed
-              information so that we can investigate and fix them.
+              {t("pages.feedback.faq.items.question2.answer")}
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="item-3">
-            <AccordionTrigger>Feature requests</AccordionTrigger>
+            <AccordionTrigger>
+              {t("pages.feedback.faq.items.question3.title")}
+            </AccordionTrigger>
             <AccordionContent>
-              Have any feature requests? Let us know what new features you would
-              like to see in Mention.
+              {t("pages.feedback.faq.items.question3.answer")}
             </AccordionContent>
           </AccordionItem>
         </Accordion>
         <form onSubmit={handleSubmit} className="mt-4">
           <label className="mb-2 block">
-            Feedback:
+            {t("pages.feedback.title")}:
             <textarea
               value={feedback}
               onChange={handleChange}
@@ -91,9 +94,7 @@ export const FeedbackClientPage = () => {
               rows={4}
             />
           </label>
-          <Button type="submit" className="bg-primary-100 text-white">
-            Submit
-          </Button>
+          <Button type="submit" className="bg-primary-100 text-white">{t("common.send")}</Button>
         </form>
       </div>
     </div>

@@ -15,6 +15,8 @@ import { ConversationHeader } from "./conversation-header";
 import { ConversationMemberDetails } from "./conversation-member-details";
 import { MessageInput } from "./message-input";
 
+import styles from "./styles/conversation.module.scss";
+
 export const Conversation = () => {
   const { data: session } = useSession();
   const { ref, inView } = useInView();
@@ -53,7 +55,7 @@ export const Conversation = () => {
     );
 
   return (
-    <div className="relative grid h-[100svh] grid-rows-[auto,1fr,auto] overflow-hidden">
+    <div className={styles.container}>
       <ConversationHeader
         user_id={conversationMember?.id}
         user_name={conversationMember?.name}

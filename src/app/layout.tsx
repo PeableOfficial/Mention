@@ -36,10 +36,8 @@ export const viewport: Viewport = {
 
 export default async function RootLayout({
   children,
-  subChildren,
 }: {
-    children: React.ReactNode;
-    subChildren?: React.ReactNode;
+  children: React.ReactNode;
 }) {
   const nextCookies = cookies();
   const theme = nextCookies.get("theme")?.value;
@@ -77,7 +75,7 @@ export default async function RootLayout({
                   {children}
                 </main>
 
-                {subChildren ? <Sidebar /> : <Aside />}
+                <Aside />
 
                 <Toaster />
 
