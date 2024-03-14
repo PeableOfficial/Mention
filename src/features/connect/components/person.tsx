@@ -30,10 +30,10 @@ export const Person = ({ person }: { person: IUser }) => {
         className={styles.person}
         onKeyDown={(e) => {
           if (e.key === "Enter") {
-            router.push(`/${person?.id}`);
+            router.push(`/${person?.username}`);
           }
         }}
-        onClick={() => router.push(`/${person?.id}`)}
+        onClick={() => router.push(`/${person?.username}`)}
       >
         <div className={styles.avatar}>
           <UserModalWrapper userId={person?.id} delay={500}>

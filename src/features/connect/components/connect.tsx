@@ -21,7 +21,10 @@ export const Connect = () => {
   });
 
   return (
-    <section aria-label="Who to follow" className={styles.container}>
+    <section
+      aria-label={t("pages.connect.widget.title")}
+      className={styles.container}
+    >
       {isLoading ? (
         <div className={styles.loading}>
           <LoadingSpinner />
