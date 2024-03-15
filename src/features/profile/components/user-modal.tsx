@@ -2,12 +2,11 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 "use client";
-import { motion } from "framer-motion";
 import Image from "next/image";
 import { useSession } from "next-auth/react";
 import { forwardRef } from "react";
-import { createPortal } from "react-dom";
 import Link from "next/link";
+import { EllipsisWrapper } from "@/components/elements/ellipsis-wrapper";
 
 import { FollowButton } from "@/components/elements/follow-button";
 import { LoadingSpinner } from "@/components/elements/loading-spinner";
@@ -99,7 +98,9 @@ export const UserModal = forwardRef<HTMLDivElement, { userId: string }>(
                     </div>
                   </div>
                   {user?.description && (
-                    <p className="text-milli">{user?.description}</p>
+                    <p className="text-milli text-pretty">
+                      {user?.description}
+                    </p>
                   )}
                   <div className="text-secondary flex gap-4">
                     {stats.map(({ id, label, stat }) => (
