@@ -22,7 +22,7 @@ export const CreatePostQuote = ({ post }: { post: IPost }) => {
         </EllipsisWrapper>
 
         <EllipsisWrapper>
-          <UserUsername username={post?.author?.email?.split("@")[0]} />
+          <UserUsername username={post?.author?.username} />
         </EllipsisWrapper>
 
         <span className={styles.dot}>·</span>
@@ -34,9 +34,9 @@ export const CreatePostQuote = ({ post }: { post: IPost }) => {
           <p className={styles.text}>
             {decodeURIComponent(post?.text)}{" "}
             {post?.quoted_post && (
-              <span>{`mention.com/${post.author?.email?.split(
-                "@",
-              )[0]}/s...`}</span>
+              <span>{`mention.com/${
+                post.author?.email?.split("@")[0]
+              }/s...`}</span>
             )}
           </p>
         )}

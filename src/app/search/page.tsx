@@ -1,4 +1,4 @@
-import { ExploreHeader, Header } from "@/features/header";
+import { ExploreHeader } from "@/features/header";
 import { SearchResults } from "@/features/search";
 
 const SearchPage = () => {

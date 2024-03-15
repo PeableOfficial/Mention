@@ -25,7 +25,7 @@ export const CreatePostComment = ({ post }: { post: IPost | null }) => {
           </EllipsisWrapper>
 
           <EllipsisWrapper>
-            <UserUsername username={post?.author?.email?.split("@")[0]} />
+            <UserUsername username={post?.author?.username} />
           </EllipsisWrapper>
 
           <span className={styles.dot}>·</span>

@@ -26,7 +26,7 @@ export const SessionOwnerButton = () => {
 
   return (
     <>
-      <Tooltip text="Accounts" maxWidth={1300} className="mb-3 w-full">
+      <Tooltip text="Accounts" maxWidth={1300} className="mb-4 w-full">
         <Button
           aria-label="Account menu"
           onClick={openModal}

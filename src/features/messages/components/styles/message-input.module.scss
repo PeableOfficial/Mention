@@ -2,14 +2,11 @@
   background-color: var(--clr-background);
   border-top: 1px solid var(--clr-border);
   padding: 0.4rem 0.8rem;
+  @apply sm:rounded-b-3xl;
 
   form {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    align-items: center;
     background-color: var(--clr-message-input-background);
-    border-radius: 1rem;
-    padding: 0.4rem;
+    @apply sm:rounded-3xl p-1 grid grid-cols-[1fr_auto] items-center;
 
     .inputContainer {
       display: flex;

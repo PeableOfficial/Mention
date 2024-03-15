@@ -1,0 +1,14 @@
+@use "abstracts/media-query" as *;
+
+.container {
+  height: 100dvh;
+  height: 100dvh;
+  @apply relative grid grid-rows-[auto,1fr,auto] overflow-hidden;
+}
+
+@include mq("small") {
+  .container {
+    height: calc(100vh - 2rem);
+    height: calc(100dvh - 2rem);
+  }
+}

@@ -6,12 +6,10 @@ import { useRef, useState } from "react";
 import { BackArrowIcon } from "@/assets/back-arrow-icon";
 import { DotIcon } from "@/assets/dot-icon";
 import { Button } from "@/components/elements/button";
-import { EllipsisWrapper } from "@/components/elements/ellipsis-wrapper";
 import { Menu, MenuItem } from "@/components/elements/menu";
 import { ConfirmationModal, Modal } from "@/components/elements/modal";
 import { Tooltip } from "@/components/elements/tooltip";
 import { Header } from "@/features/header";
-import { UserUsername } from "@/features/profile";
 
 import { useDeleteAllBookmarks } from "../hooks/use-delete-all-bookmarks";
 
@@ -34,13 +32,13 @@ export const BookmarksHeader = ({
 
   return (
     <Header>
-      <Tooltip text="Back">
+      <Tooltip text="Back" className="sm:hidden">
         <Button
           onClick={() => {
             router.back();
           }}
           aria-label="Back"
-          className="hover:bg-neutral-500 focus-visible:bg-neutral-500 focus-visible:outline-secondary-100 active:bg-neutral-600 sm:hidden"
+          className="hover:bg-neutral-500 focus-visible:bg-neutral-500 focus-visible:outline-secondary-100 active:bg-neutral-600"
         >
           <BackArrowIcon />
         </Button>
@@ -48,11 +46,6 @@ export const BookmarksHeader = ({
 
       <div>
         <h2 className="text-h2 font-bold text-secondary-100">Bookmarks</h2>
-        {username && (
-          <EllipsisWrapper>
-            <UserUsername username={username} />
-          </EllipsisWrapper>
-        )}
       </div>
 
       {hasBookmarks && (

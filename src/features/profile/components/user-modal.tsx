@@ -2,16 +2,14 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 "use client";
-import { motion } from "framer-motion";
 import Image from "next/image";
 import { useSession } from "next-auth/react";
 import { forwardRef } from "react";
-import { createPortal } from "react-dom";
 import Link from "next/link";
+import { EllipsisWrapper } from "@/components/elements/ellipsis-wrapper";
 
 import { FollowButton } from "@/components/elements/follow-button";
 import { LoadingSpinner } from "@/components/elements/loading-spinner";
-import { useTrackPosition } from "@/components/elements/modal";
 import { TryAgain } from "@/components/elements/try-again";
 
 import { useUser } from "../hooks/use-user";
@@ -21,10 +19,6 @@ export const UserModal = forwardRef<HTMLDivElement, { userId: string }>(
   ({ userId }, ref) => {
     const { data: session } = useSession();
     const { data: user, isPending, isError } = useUser({ id: userId });
-    const buttonBoundaries = useTrackPosition({
-      buttonRef: ref as React.RefObject<HTMLButtonElement>,
-      trackScroll: true,
-    });
 
     const isFollowing = following({
       user,
@@ -44,25 +38,8 @@ export const UserModal = forwardRef<HTMLDivElement, { userId: string }>(
       },
     ];
 
-    const style: React.CSSProperties = {
-      position: "fixed",
-      top: buttonBoundaries?.top,
-      left: buttonBoundaries?.left,
-      transform: `translate(-50%, calc(${buttonBoundaries?.height}px + 10px))`,
-      boxShadow: "0 0 10px -2px var(--clr-tertiary)",
-    };
-
-    return createPortal(
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.1 }}
-        style={style}
-        onClick={(e) => {
-          e.stopPropagation();
-        }}
-        className="z-[var(--z-index-popover)] w-72 rounded-2xl bg-[var(--clr-background)] group-hover:visible group-hover:opacity-100 group-hover:delay-500"
-      >
+    return (
+      <div>
         {isPending ? (
           <LoadingSpinner />
         ) : isError ? (
@@ -93,7 +70,7 @@ export const UserModal = forwardRef<HTMLDivElement, { userId: string }>(
                     <div className="flex justify-between">
                       <div className="mb-10">
                         <Image
-                          className="bg-main-background absolute size-[74px] -translate-y-1/2 rounded-full border-[0.25rem] border-[var(--clr-background)] hover:brightness-100  [&:hover>figure>span]:brightness-75 [&>figure>span]:[transition:200ms]"
+                          className="bg-main-background object-cover absolute size-[74px] -translate-y-1/2 rounded-full border-[0.25rem] border-[var(--clr-background)] hover:brightness-100  [&:hover>figure>span]:brightness-75 [&>figure>span]:[transition:200ms]"
                           src={user?.profile_image_url || "/avatar.svg"}
                           alt={user?.name}
                           width={74}
@@ -121,11 +98,13 @@ export const UserModal = forwardRef<HTMLDivElement, { userId: string }>(
                     </div>
                   </div>
                   {user?.description && (
-                    <p className="text-milli">{user?.description}</p>
+                    <p className="text-milli text-pretty">
+                      {user?.description}
+                    </p>
                   )}
                   <div className="text-secondary flex gap-4">
                     {stats.map(({ id, label, stat }) => (
-                      <Link href={`/${user?.username}/${label}`} key={id}>
+                      <Link href={`/@${user?.username}/${label}`} key={id}>
                         <div
                           className="hover-animation hover:border-b-light-primary focus-visible:border-b-light-primary dark:hover:border-b-dark-primary dark:focus-visible:border-b-dark-primary flex h-4 items-center 
                              gap-1 border-b border-b-transparent
@@ -144,8 +123,7 @@ export const UserModal = forwardRef<HTMLDivElement, { userId: string }>(
             </div>
           </>
         )}
-      </motion.div>,
-      document.body,
+      </div>
     );
   },
 );

@@ -84,14 +84,14 @@ export const HamburgerMenu = () => {
             <FollowsLink
               stats={user?.following?.length}
               text="Following"
-              link={`/${user?.username}/following`}
+              link={`/@${user?.username}/following`}
               onClick={() => closeHamburger()}
             />
 
             <FollowsLink
               stats={user?.followers?.length}
               text="Followers"
-              link={`/${user?.username}/followers`}
+              link={`/@${user?.username}/followers`}
               onClick={() => closeHamburger()}
             />
           </div>

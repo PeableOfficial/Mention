@@ -1,6 +1,6 @@
 .container {
-  height: 100vh;
-  height: 100dvh;
+  height: calc(100vh - 2rem);
+  height: calc(100dvh - 2rem);
   display: grid;
   grid-template-rows: auto 1fr;
 }

@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import { profileParamsProcess } from "@/features/profile/utils/profile-params-process";
 
 import { UserNotFound } from "@/components/elements/user-not-found";
 import { ProfileHeader } from "@/features/header";
@@ -16,7 +17,11 @@ const FollowingPage = async ({
     user: string;
   };
 }) => {
-  const userId = await getUsernameToId({ username: params.user });
+  const paramUsername = await profileParamsProcess({
+    params: params.user,
+    currentFolder: "following",
+  });
+  const userId = await getUsernameToId({ username: paramUsername });
 
   if (!userId)
     return (
@@ -56,8 +61,19 @@ export async function generateMetadata({
     user: string;
   };
 }): Promise<Metadata> {
+  const paramUsername = await profileParamsProcess({
+    params: params.user,
+    currentFolder: "following",
+  });
+  const userId = await getUsernameToId({ username: paramUsername });
+
+  if (!userId)
+    return {
+      title: "User not found",
+    };
+
   const user = await getUserMetadata({
-    user_id: params.user,
+    user_id: userId,
   });
 
   if (!user)

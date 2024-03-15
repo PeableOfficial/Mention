@@ -17,7 +17,7 @@ export const ConversationMemberDetails = ({
 }) => {
   return (
     <Link
-      href={`/${user?.username}`}
+      href={`/@${user?.username}`}
       className={cn(
         "mx-[1em] mt-[2px] grid cursor-pointer place-items-center rounded-3xl p-[1em] text-center",
         "transition-colors duration-200 ease-in-out",
@@ -30,7 +30,7 @@ export const ConversationMemberDetails = ({
       />
       <UserName name={user?.name} isVerified={user?.verified} hover={true} />
       <EllipsisWrapper>
-        <UserUsername username={user?.email?.split("@")[0]} />
+        <UserUsername username={user?.username} />
       </EllipsisWrapper>
       {user?.description && (
         <div className="my-[1em] text-base">

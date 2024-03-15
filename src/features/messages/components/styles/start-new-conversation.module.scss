@@ -22,25 +22,24 @@
     button {
       font-size: var(--fs-base);
       font-weight: var(--fw-700);
-      background-color: var(--clr-primary);
       color: var(--clr-white);
-      height: 50px;
-      padding: 0 30px;
       border-radius: 100vmax;
       cursor: pointer;
       transition: background-color 0.2s ease-in-out;
 
+      @apply bg-primary-100/20 px-4 py-2;
+
       &:hover {
-        background-color: var(--clr-primary-hover);
+        @apply bg-primary-100/40;
       }
 
       &:active {
-        background-color: var(--clr-primary-active);
+        @apply bg-primary-100/50;
       }
 
       &:focus-visible {
         outline: 2px solid var(--clr-primary-disabled);
-        background-color: var(--clr-primary-hover);
+        @apply bg-primary-100/40;
       }
     }
   }

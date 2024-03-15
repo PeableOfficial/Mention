@@ -4,7 +4,7 @@
   display: none;
   position: sticky;
   top: 0;
-  padding: 0 1.8rem 0 1.8rem;
+  @apply p-4 pl-0;
   height: 100vh;
   height: 100dvh;
   overflow-y: auto;
@@ -16,8 +16,8 @@
   padding-bottom: 6rem;
 
   &:focus-visible {
-      outline: 2px solid var(--clr-secondary);
-    }
+    outline: 2px solid var(--clr-secondary);
+  }
 
   &::-webkit-scrollbar {
     /* WebKit */
@@ -26,7 +26,6 @@
   }
 
   .search {
-    background-color: var(--clr-background);
     position: sticky;
     top: 0;
     padding: 5px 0;
@@ -41,12 +40,12 @@
 
   .trends {
     margin-top: 11px;
-    background-color: var(--clr-trends-background);
+    background-color: var(--clr-background);
     border-radius: 1rem;
   }
 
   .connect {
-    background-color: var(--clr-connect-background);
+    background-color: var(--clr-background);
     border-radius: 1rem;
   }
 

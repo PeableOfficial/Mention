@@ -16,7 +16,7 @@ export const ReplyingTo = ({
         <Link
           className={styles.link}
           onClick={(e) => e.stopPropagation()}
-          href={`/${username}`}
+          href={`/@${username}`}
         >
           @{username}
         </Link>

@@ -8,7 +8,7 @@ export const NoBookmarks = () => {
       <div className={styles.content}>
         <div className={styles.image}>
           <Image
-            src="/no-bookmarks.png"
+            src="/empty_pinned_messages.svg"
             alt="No bookmarks"
             width={500}
             height={500}

@@ -1,6 +1,6 @@
 .container {
   .settings {
-    padding: 2rem;
+    @apply p-4;
 
     .heading {
       text-align: center;
