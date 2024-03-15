@@ -30,7 +30,7 @@ export const ConversationMemberDetails = ({
       />
       <UserName name={user?.name} isVerified={user?.verified} hover={true} />
       <EllipsisWrapper>
-        <UserUsername username={user?.email?.split("@")[0]} />
+        <UserUsername username={user?.username} />
       </EllipsisWrapper>
       {user?.description && (
         <div className="my-[1em] text-base">

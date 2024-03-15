@@ -23,7 +23,7 @@ export const LinkToProfile = ({
       }}
       className={styles.container}
       tabIndex={tabIndex}
-      href={`/${username}`}
+      href={`/@${username}`}
     >
       {children}
     </Link>
