@@ -1,9 +1,11 @@
 /* eslint-disable jsx-a11y/mouse-events-have-key-events */
 "use client";
-import { AnimatePresence } from "framer-motion";
-import { useRef, useState, useEffect } from "react";
+import {
+  HoverCard,
+  HoverCardContent,
+  HoverCardTrigger,
+} from "@/components/ui/hover-card";
 
-import styles from "./styles/user-modal-wrapper.module.scss";
 import { UserModal } from "./user-modal";
 
 export const UserModalWrapper = ({
@@ -15,48 +17,15 @@ export const UserModalWrapper = ({
   userId: string;
   delay: number;
 }) => {
-  const [isHovering, setIsHovering] = useState(false);
-  const [timer, setTimer] = useState(0);
-  const ref = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    let interval: any;
-
-    if (isHovering && timer <= delay) {
-      interval = setInterval(() => {
-        setTimer((timer) => timer + 500);
-      }, 500);
-    } else {
-      if (timer >= 0)
-        interval = setInterval(() => {
-          setTimer((timer) => {
-            if (timer <= 0) {
-              clearInterval(interval);
-            }
-            return timer - 500;
-          });
-        }, 500);
-    }
-
-    return () => clearInterval(interval);
-  }, [isHovering, timer, delay]);
-
   return (
-    <div className={styles.container}>
-      <div
-        ref={ref}
-        className={`${styles.childrenWrapper} ${
-          isHovering ? styles.hovered : ""
-        }`}
-        onMouseEnter={() => setIsHovering(true)}
-        onMouseLeave={() => setIsHovering(false)}
+    <HoverCard>
+      <HoverCardTrigger>{children}</HoverCardTrigger>
+      <HoverCardContent
+        collisionPadding={15}
+        className="z-[var(--z-index-popover)] shadow-[0_0_10px_-2px_var(--clr-tertiary)] p-0 w-72 border-0 rounded-2xl bg-[var(--clr-background)] group-hover:visible group-hover:opacity-100 group-hover:delay-500"
       >
-        {children}
-      </div>
-
-      <AnimatePresence>
-        {isHovering && <UserModal ref={ref} userId={userId} />}
-      </AnimatePresence>
-    </div>
+        <UserModal userId={userId} />
+      </HoverCardContent>
+    </HoverCard>
   );
 };

@@ -11,7 +11,6 @@ import Link from "next/link";
 
 import { FollowButton } from "@/components/elements/follow-button";
 import { LoadingSpinner } from "@/components/elements/loading-spinner";
-import { useTrackPosition } from "@/components/elements/modal";
 import { TryAgain } from "@/components/elements/try-again";
 
 import { useUser } from "../hooks/use-user";
@@ -21,10 +20,6 @@ export const UserModal = forwardRef<HTMLDivElement, { userId: string }>(
   ({ userId }, ref) => {
     const { data: session } = useSession();
     const { data: user, isPending, isError } = useUser({ id: userId });
-    const buttonBoundaries = useTrackPosition({
-      buttonRef: ref as React.RefObject<HTMLButtonElement>,
-      trackScroll: true,
-    });
 
     const isFollowing = following({
       user,
@@ -44,25 +39,8 @@ export const UserModal = forwardRef<HTMLDivElement, { userId: string }>(
       },
     ];
 
-    const style: React.CSSProperties = {
-      position: "fixed",
-      top: buttonBoundaries?.top,
-      left: buttonBoundaries?.left,
-      transform: `translate(-50%, calc(${buttonBoundaries?.height}px + 10px))`,
-      boxShadow: "0 0 10px -2px var(--clr-tertiary)",
-    };
-
-    return createPortal(
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.1 }}
-        style={style}
-        onClick={(e) => {
-          e.stopPropagation();
-        }}
-        className="z-[var(--z-index-popover)] w-72 rounded-2xl bg-[var(--clr-background)] group-hover:visible group-hover:opacity-100 group-hover:delay-500"
-      >
+    return (
+      <div>
         {isPending ? (
           <LoadingSpinner />
         ) : isError ? (
@@ -144,8 +122,7 @@ export const UserModal = forwardRef<HTMLDivElement, { userId: string }>(
             </div>
           </>
         )}
-      </motion.div>,
-      document.body,
+      </div>
     );
   },
 );
