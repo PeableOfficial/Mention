@@ -1,8 +1,6 @@
 import { prisma } from "@/lib/prisma";
 
 export const getUsernameToId = async ({ username }: { username: string }) => {
-  username = username.replace("@", "");
-
   try {
     const userData = await prisma.user.findUnique({
       where: {

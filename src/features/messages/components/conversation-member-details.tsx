@@ -17,7 +17,7 @@ export const ConversationMemberDetails = ({
 }) => {
   return (
     <Link
-      href={`/${user?.username}`}
+      href={`/@${user?.username}`}
       className={cn(
         "mx-[1em] mt-[2px] grid cursor-pointer place-items-center rounded-3xl p-[1em] text-center",
         "transition-colors duration-200 ease-in-out",

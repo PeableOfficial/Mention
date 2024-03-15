@@ -16,37 +16,37 @@ export const ProfileStats = ({
     {
       title: "Posts",
       amount: user?._count?.posts || "0",
-      href: `/${user.username}`,
+      href: `/@${user?.username}`,
     },
     {
       title: "Likes",
       amount: user?._count?.likes || "0",
-      href: `/${user.username}/likes`,
+      href: `/@${user?.username}/likes`,
     },
     {
       title: "Followers",
       amount: user?._count?.followers || "0",
-      href: `/${user.username}/followers`,
+      href: `/@${user?.username}/followers`,
     },
     {
       title: "Following",
       amount: user?._count?.following || "0",
-      href: `/${user.username}/following`,
+      href: `/@${user?.username}/following`,
     },
     {
       title: "Media",
       amount: user?._count?.media || "0",
-      href: `/${user.username}/media`,
+      href: `/@${user?.username}/media`,
     },
     {
       title: "Reposts",
       amount: user?._count?.reposts || "0",
-      href: `/${user.username}/reposts`,
+      href: `/@${user?.username}/reposts`,
     },
     {
       title: "Replies",
       amount: user?._count?.replies || "0",
-      href: `/${user.username}/with-replies`,
+      href: `/@${user?.username}/with-replies`,
     },
   ];
 

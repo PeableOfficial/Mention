@@ -125,7 +125,7 @@ export const UserModal = forwardRef<HTMLDivElement, { userId: string }>(
                   )}
                   <div className="text-secondary flex gap-4">
                     {stats.map(({ id, label, stat }) => (
-                      <Link href={`/${user?.username}/${label}`} key={id}>
+                      <Link href={`/@${user?.username}/${label}`} key={id}>
                         <div
                           className="hover-animation hover:border-b-light-primary focus-visible:border-b-light-primary dark:hover:border-b-dark-primary dark:focus-visible:border-b-dark-primary flex h-4 items-center 
                              gap-1 border-b border-b-transparent
