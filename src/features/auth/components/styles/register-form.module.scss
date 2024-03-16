@@ -25,15 +25,14 @@
   .terms {
     font-size: var(--fs-nano);
     color: var(--clr-tertiary);
-    line-height: 1.5;
+    @apply leading-normal;
 
     a {
-      color: var(--clr-blue);
-      cursor: pointer;
+      @apply text-primary-100 cursor-pointer;
 
       &:hover,
       &:focus-visible {
-        text-decoration: underline;
+        @apply underline;
       }
     }
   }

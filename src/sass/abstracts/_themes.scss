@@ -23,7 +23,6 @@
   --clr-purple: #7856ff;
   --clr-orange: #ff7a00;
   --clr-green: #00ba7c;
-  --clr-lime: #536500;
   --clr-red: #f4212e;
   --clr-red-hover: #dc1e29;
   --clr-red-active: #c31a25;
@@ -391,7 +390,7 @@ html[data-theme="dim"] {
 
 // PRIMARY COLORS
 
-[data-color="blue"] {
+html[data-color="blue"] {
   --clr-primary: #{$blue-primary};
   --clr-primary-hover: #{$blue-primary-hover};
   --clr-primary-active: #{$blue-primary-active};
@@ -399,7 +398,7 @@ html[data-theme="dim"] {
   --clr-primary-background: #{$blue-primary-background};
 }
 
-[data-color="yellow"] {
+html[data-color="yellow"] {
   --clr-primary: #{$yellow-primary};
   --clr-primary-hover: #{$yellow-primary-hover};
   --clr-primary-active: #{$yellow-primary-active};
@@ -407,7 +406,7 @@ html[data-theme="dim"] {
   --clr-primary-background: #{$yellow-primary-background};
 }
 
-[data-color="rose"] {
+html[data-color="rose"] {
   --clr-primary: #{$rose-primary};
   --clr-primary-hover: #{$rose-primary-hover};
   --clr-primary-active: #{$rose-primary-active};
@@ -415,7 +414,7 @@ html[data-theme="dim"] {
   --clr-primary-background: #{$rose-primary-background};
 }
 
-[data-color="purple"] {
+html[data-color="purple"] {
   --clr-primary: #{$purple-primary};
   --clr-primary-hover: #{$purple-primary-hover};
   --clr-primary-active: #{$purple-primary-active};
@@ -423,7 +422,7 @@ html[data-theme="dim"] {
   --clr-primary-background: #{$purple-primary-background};
 }
 
-[data-color="orange"] {
+html[data-color="orange"] {
   --clr-primary: #{$orange-primary};
   --clr-primary-hover: #{$orange-primary-hover};
   --clr-primary-active: #{$orange-primary-active};
@@ -431,18 +430,10 @@ html[data-theme="dim"] {
   --clr-primary-background: #{$orange-primary-background};
 }
 
-[data-color="green"] {
+html[data-color="green"] {
   --clr-primary: #{$green-primary};
   --clr-primary-hover: #{$green-primary-hover};
   --clr-primary-active: #{$green-primary-active};
   --clr-primary-disabled: #{$green-primary-disabled};
   --clr-primary-background: #{$green-primary-background};
-}
-
-[data-color="lime"] {
-  --clr-primary: #{$lime-primary};
-  --clr-primary-hover: #{$lime-primary-hover};
-  --clr-primary-active: #{$lime-primary-active};
-  --clr-primary-disabled: #{$lime-primary-disabled};
-  --clr-primary-background: #{$lime-primary-background};
 }
