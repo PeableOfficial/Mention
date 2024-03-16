@@ -24,6 +24,7 @@ export const Chat = ({
     threshold: 0,
   });
   const anchorRef = useRef<HTMLDivElement | null>(null);
+  let currentNumberOfMessages = 0;
 
   const [scrolledToBottom, setScrolledToBottom] = useState(true);
   const [displayNewMessageToast, setDisplayNewMessageToast] = useState(false);
@@ -89,9 +90,10 @@ export const Chat = ({
   useEffect(() => {
     if (
       chat &&
-      chat.length > 0 &&
+      chat.length > currentNumberOfMessages &&
       chat[chat.length - 1]?.sender_id === session?.user?.id
     ) {
+      currentNumberOfMessages = chat.length;
       setScrolledToBottom(true);
     }
   }, [chat, session]);

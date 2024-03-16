@@ -32,13 +32,13 @@ export const BookmarksHeader = ({
 
   return (
     <Header>
-      <Tooltip text="Back" className="sm:hidden">
+      <Tooltip text="Back">
         <Button
           onClick={() => {
             router.back();
           }}
           aria-label="Back"
-          className="hover:bg-neutral-500 focus-visible:bg-neutral-500 focus-visible:outline-secondary-100 active:bg-neutral-600"
+          className="sm:hidden hover:bg-neutral-500 focus-visible:bg-neutral-500 focus-visible:outline-secondary-100 active:bg-neutral-600"
         >
           <BackArrowIcon />
         </Button>
