@@ -94,7 +94,9 @@ export const FeedbackClientPage = () => {
               rows={4}
             />
           </label>
-          <Button type="submit" className="bg-primary-100 text-white">{t("common.send")}</Button>
+          <Button type="submit" className="bg-primary-100 text-white">
+            {t("common.send")}
+          </Button>
         </form>
       </div>
     </div>

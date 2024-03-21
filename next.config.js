@@ -3,6 +3,14 @@
 const path = require("path");
 
 const nextConfig = {
+  async rewrites() {
+    return [
+      {
+        source: "/.well-known/webfinger",
+        destination: "/api/.well-known/webfinger",
+      },
+    ];
+  },
   images: {
     remotePatterns: [
       {

@@ -160,7 +160,7 @@ export const MessageInput = ({
                         setChosenImage(null);
                       }}
                       aria-label="Remove media"
-                      className="bg-black-300/80 outline-tertiary-100 backdrop-blur-sm hover:bg-black-200/80 active:bg-black-100/80"
+                      className="bg-black-300/80 hover:bg-black-200/80 active:bg-black-100/80 outline-tertiary-100 backdrop-blur-sm"
                     >
                       <CloseIcon />
                     </Button>
