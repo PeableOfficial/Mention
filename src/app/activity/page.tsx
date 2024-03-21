@@ -1,76 +1,59 @@
 import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { Switch } from "@/components/ui/switch";
 import { Header, ActivityHeader } from "@/features/header";
+import { HamburgerButton } from "@/components/elements/hamburger-button";
+import { Avatar } from "@/features/profile";
 
 const activityArray = [
   {
     title: "Your call has been confirmed.",
     description: "1 hour ago",
+    avatar:
+      "https://grtqfohpifovervglcrg.supabase.co/storage/v1/object/public/avatars/414876655_3680318035531765_3288461531498532784_n.jpg", // Add avatar property
   },
   {
     title: "You have a new message!",
     description: "1 hour ago",
+    avatar:
+      "https://grtqfohpifovervglcrg.supabase.co/storage/v1/object/public/avatars/414876655_3680318035531765_3288461531498532784_n.jpg", // Add avatar property
   },
   {
     title: "Your subscription is expiring soon!",
     description: "2 hours ago",
+    avatar:
+      "https://grtqfohpifovervglcrg.supabase.co/storage/v1/object/public/avatars/414876655_3680318035531765_3288461531498532784_n.jpg", // Add avatar property
   },
 ];
 
 const Activity = () => {
+  const unreadCount = activityArray.length;
+
   return (
     <div>
-      <Header>
-        <ActivityHeader />
-      </Header>
-      <Card className="w-100 b-0 mx-2 p-1">
-        <CardHeader>
-          <CardTitle>Activity</CardTitle>
-          <CardDescription>You have 3 unread messages.</CardDescription>
-        </CardHeader>
-        <CardContent className="grid gap-4">
-          <div className=" flex items-center space-x-4 rounded-md border p-4">
-            <div className="flex-1 space-y-1">
-              <p className="text-sm font-medium leading-none">
-                Push Activity
-              </p>
-              <p className="text-muted-foreground text-sm">
-                Send activity to device.
-              </p>
-            </div>
-            <Switch />
-          </div>
-          <div>
-            {activityArray.map((notification, index) => (
-              <div
-                key={index}
-                className="mb-4 grid grid-cols-[25px_1fr] items-start pb-4 last:mb-0 last:pb-0"
-              >
-                <span className="flex size-2 translate-y-1 rounded-full bg-sky-500" />
-                <div className="space-y-1">
-                  <p className="text-sm font-medium leading-none">
-                    {notification.title}
-                  </p>
-                  <p className="text-muted-foreground text-sm">
-                    {notification.description}
-                  </p>
-                </div>
+      <ActivityHeader />
+      <p className="p-4 text-center">You have {unreadCount} unread messages.</p>
+      <div className="mx-2 w-full border-0 p-1">
+        <div className="grid gap-4">
+          {activityArray.map((notification, index) => (
+            <div
+              key={index}
+              className="mb-4 grid grid-cols-[calc(var(--tw-fs-kilo)+9px+.5rem)_1fr] items-start pb-4 last:mb-0 last:pb-0"
+            >
+              <Avatar userImage={notification.avatar} />
+              <div className="space-y-1">
+                <p className="text-sm font-medium leading-none">
+                  {notification.title}
+                </p>
+                <p className="text-muted-foreground text-sm">
+                  {notification.description}
+                </p>
               </div>
-            ))}
-          </div>
-        </CardContent>
-        <CardFooter>
+            </div>
+          ))}
+        </div>
+        <div className="mt-4">
           <Button className="w-full">Mark all as read</Button>
-        </CardFooter>
-      </Card>
+        </div>
+      </div>
     </div>
   );
 };
