@@ -9,6 +9,9 @@ import { Header } from "@/features/header";
 import { Avatar } from "@/features/profile";
 import { ThemePicker } from "@/features/themes";
 
+import { useLocale } from "@/app/LocaleContext";
+import LanguageSwitcher from "@/app/LanguageSwitcher";
+
 import styles from "./styles/settings.module.scss";
 
 const Settings = () => {
@@ -55,6 +58,7 @@ const Settings = () => {
         <FontSizeCustomization />
         <ColorPicker />
         <ThemePicker />
+        <LanguageSwitcher />
       </div>
     </div>
   );

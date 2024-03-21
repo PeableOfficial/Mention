@@ -21,7 +21,7 @@ export const Posts = () => {
     fetchNextPage,
     hasNextPage,
   } = usePosts({
-    queryKey: ["default", session?.user?.id],
+    queryKey: ["posts", session?.user?.id],
     type: "default",
     id: session?.user?.id,
   });

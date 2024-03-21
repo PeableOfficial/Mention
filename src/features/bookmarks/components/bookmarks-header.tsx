@@ -38,7 +38,7 @@ export const BookmarksHeader = ({
             router.back();
           }}
           aria-label="Back"
-          className="sm:hidden hover:bg-neutral-500 focus-visible:bg-neutral-500 focus-visible:outline-secondary-100 active:bg-neutral-600"
+          className="hover:bg-neutral-500 focus-visible:bg-neutral-500 focus-visible:outline-secondary-100 active:bg-neutral-600 sm:hidden"
         >
           <BackArrowIcon />
         </Button>

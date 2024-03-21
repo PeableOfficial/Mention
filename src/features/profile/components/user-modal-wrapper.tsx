@@ -22,7 +22,7 @@ export const UserModalWrapper = ({
       <HoverCardTrigger>{children}</HoverCardTrigger>
       <HoverCardContent
         collisionPadding={15}
-        className="shadow-[0_0_10px_-2px_var(--clr-tertiary)] p-0 w-72 border-0 rounded-2xl bg-[var(--clr-background)] group-hover:visible group-hover:opacity-100 group-hover:delay-500"
+        className="w-72 rounded-2xl border-0 bg-[var(--clr-background)] p-0 shadow-[0_0_10px_-2px_var(--clr-tertiary)] group-hover:visible group-hover:opacity-100 group-hover:delay-500"
       >
         <UserModal userId={userId} />
       </HoverCardContent>

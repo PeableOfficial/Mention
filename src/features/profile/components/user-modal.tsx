@@ -70,7 +70,7 @@ export const UserModal = forwardRef<HTMLDivElement, { userId: string }>(
                     <div className="flex justify-between">
                       <div className="mb-10">
                         <Image
-                          className="bg-main-background object-cover absolute size-[74px] -translate-y-1/2 rounded-full border-[0.25rem] border-[var(--clr-background)] hover:brightness-100  [&:hover>figure>span]:brightness-75 [&>figure>span]:[transition:200ms]"
+                          className="bg-main-background absolute size-[74px] -translate-y-1/2 rounded-full border-[0.25rem] border-[var(--clr-background)] object-cover hover:brightness-100  [&:hover>figure>span]:brightness-75 [&>figure>span]:[transition:200ms]"
                           src={user?.profile_image_url || "/avatar.svg"}
                           alt={user?.name}
                           width={74}
@@ -98,7 +98,7 @@ export const UserModal = forwardRef<HTMLDivElement, { userId: string }>(
                     </div>
                   </div>
                   {user?.description && (
-                    <p className="text-milli text-pretty">
+                    <p className="text-pretty text-milli">
                       {user?.description}
                     </p>
                   )}
