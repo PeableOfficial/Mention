@@ -44,7 +44,7 @@ export const ConnectClientPage = () => {
       <h2 className="px-4 py-3 text-h2 font-bold text-secondary-100">
         {t("pages.connect.suggestedPeople")}
       </h2>
-      {people.length > 0 &&
+      {Array.isArray(people) &&
         people?.map((person) => {
           return (
             <div key={person.id}>

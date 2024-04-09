@@ -37,9 +37,10 @@ export const Connect = () => {
         <>
           <h2>{t("pages.connect.widget.title")}</h2>
           <div className={styles.people}>
-            {people.map((person) => {
-              return <Person key={person.id} person={person} />;
-            })}
+            {Array.isArray(people) &&
+              people.map((person) => {
+                return <Person key={person.id} person={person} />;
+              })}
           </div>
 
           <Link className={styles.showMore} href={`/people`}>
