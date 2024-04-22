@@ -3,6 +3,14 @@ import { z } from "zod";
 
 import { prisma } from "@/lib/prisma";
 
+interface User {
+  id: string;
+  name: string;
+  username: string;
+  email: string;
+  [key: string]: any; // for any other properties that might be present
+}
+
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
   const id = searchParams.get("id") || undefined;
@@ -48,7 +56,7 @@ export async function GET(request: Request) {
           },
         );
         const data = await response.text();
-        const parsedData = JSON.parse(data) || {};
+        const parsedData: User = JSON.parse(data) as User;
         const { id: fetchedId, name, username, email } = parsedData;
 
         // Merge the fetched data with the existing user data
