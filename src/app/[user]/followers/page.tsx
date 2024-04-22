@@ -47,7 +47,7 @@ const FollowersPage = async ({
     <div>
       <ProfileHeader userId={user?.id} stats={`@${user?.username}`} />
       <FollowsNavigation />
-      <Followers id={user?.id} />
+      <Followers id={user?.id as string} />
     </div>
   );
 };
