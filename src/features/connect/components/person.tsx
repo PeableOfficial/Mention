@@ -21,7 +21,7 @@ export const Person = ({ person }: { person: IUser }) => {
 
   const isFollowing = following({
     user: person,
-    session_owner_id: session?.user?.id,
+    session_owner_id: session?.user?.id as string,
   });
 
   return (
@@ -65,7 +65,7 @@ export const Person = ({ person }: { person: IUser }) => {
       <div className={styles.follow}>
         <FollowButton
           user_id={person?.id}
-          session_owner_id={session?.user?.id}
+          session_owner_id={session?.user?.id as string}
           isFollowing={isFollowing}
           username={person?.username}
         />
