@@ -3,6 +3,14 @@ import { z } from "zod";
 
 import { prisma } from "@/lib/prisma";
 
+interface User {
+  id: string;
+  name: string;
+  username: string;
+  email: string;
+  [key: string]: any; // for any other properties that might be present
+}
+
 export async function GET(
   request: Request,
   context: {
@@ -25,7 +33,8 @@ export async function GET(
       credentials: "include",
     });
     const data = await response.text();
-    const parsedData = JSON.parse(data) || {};
+
+    const parsedData: User = JSON.parse(data) as User;
     const { id: fetchedId, name, username, email } = parsedData;
     const user = await prisma.user.findUnique({
       where: {
