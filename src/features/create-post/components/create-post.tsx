@@ -1,5 +1,5 @@
 "use client";
-import { useSession } from "next-auth/react";
+import { usePeableSession } from "@peable/services";
 import { useCallback, useLayoutEffect, useRef, useState } from "react";
 
 import { useUser } from "@/features/profile";
@@ -42,7 +42,7 @@ export const CreatePost = ({
   container?: "post" | "modal" | "comment";
   inputId?: string;
 }) => {
-  const { data: session } = useSession();
+  const { session } = usePeableSession();
   const { data: user } = useUser({ id: session?.user?.id });
 
   const [text, setText] = useState("");

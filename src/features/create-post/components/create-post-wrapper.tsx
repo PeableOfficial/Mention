@@ -1,6 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
-import { useSession } from "next-auth/react";
+import { usePeableSession } from "@peable/services";
 import { useState } from "react";
 
 import { CreatePost } from "./create-post";
@@ -17,7 +17,7 @@ export const CreatePostWrapper = ({
   in_reply_to_status_id: string | null;
   isInspectModal?: boolean;
 }) => {
-  const { data: session } = useSession();
+  const { session } = usePeableSession();
 
   const [isPlaceholder, setIsPlaceholder] = useState<boolean>(true);
 

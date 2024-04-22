@@ -3,7 +3,7 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 "use client";
 import Image from "next/image";
-import { useSession } from "next-auth/react";
+import { usePeableSession } from "@peable/services";
 import { forwardRef } from "react";
 import Link from "next/link";
 import { EllipsisWrapper } from "@/components/elements/ellipsis-wrapper";
@@ -17,7 +17,7 @@ import { following } from "../utils/following";
 
 export const UserModal = forwardRef<HTMLDivElement, { userId: string }>(
   ({ userId }, ref) => {
-    const { data: session } = useSession();
+    const { session } = usePeableSession();
     const { data: user, isPending, isError } = useUser({ id: userId });
 
     const isFollowing = following({

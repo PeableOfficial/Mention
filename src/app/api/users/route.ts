@@ -29,12 +29,8 @@ export async function GET(request: Request) {
 
       select: {
         id: true,
-        name: true,
-        username: true,
-        email: true,
         profile_image_url: true,
         following: true,
-
         followers: true,
         color: true,
       },
@@ -42,7 +38,25 @@ export async function GET(request: Request) {
       take: limit ? parseInt(limit) : undefined,
     });
 
-    return NextResponse.json(users, { status: 200 });
+    // Fetch additional data for each user
+    const usersWithAdditionalData = await Promise.all(
+      users.map(async (user) => {
+        const response = await fetch(
+          `http://localhost:3001/api/users/${user.id}`,
+          {
+            credentials: "include",
+          },
+        );
+        const data = await response.text();
+        const parsedData = JSON.parse(data) || {};
+        const { id: fetchedId, name, username, email } = parsedData;
+
+        // Merge the fetched data with the existing user data
+        return { ...user, id: fetchedId, name, username, email };
+      }),
+    );
+
+    return NextResponse.json(usersWithAdditionalData, { status: 200 });
   } catch (error: any) {
     return NextResponse.json(error.message, { status: 500 });
   }

@@ -1,4 +1,4 @@
-import { useSession } from "next-auth/react";
+import { usePeableSession } from "@peable/services";
 
 import { useGetConversations } from "../hooks/use-get-conversations";
 
@@ -10,7 +10,7 @@ export const SearchConversationResults = ({
 }: {
   searchTerm: string;
 }) => {
-  const { data: session } = useSession();
+  const { session } = usePeableSession();
 
   const {
     data: conversations,

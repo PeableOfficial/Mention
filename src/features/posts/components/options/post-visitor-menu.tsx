@@ -1,4 +1,4 @@
-import { useSession } from "next-auth/react";
+import { usePeableSession } from "@peable/services";
 
 import { ReportIcon } from "@/assets/report-icon";
 import { SadFaceIcon } from "@/assets/sad-face-icon";
@@ -17,7 +17,7 @@ export const PostVisitorMenu = ({
   post: IPost;
   setIsMenuOpen: (value: boolean) => void;
 }) => {
-  const { data: session } = useSession();
+  const { session } = usePeableSession();
 
   return (
     <>

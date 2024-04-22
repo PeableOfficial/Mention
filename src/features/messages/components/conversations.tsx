@@ -1,6 +1,6 @@
 "use client";
 import { AnimatePresence } from "framer-motion";
-import { useSession } from "next-auth/react";
+import { usePeableSession } from "@peable/services";
 import { useState } from "react";
 import { useLocale } from "@/app/LocaleContext";
 
@@ -19,7 +19,7 @@ import { StartNewConversation } from "./start-new-conversation";
 import styles from "./styles/conversations.module.scss";
 
 export const Conversations = () => {
-  const { data: session } = useSession();
+  const { session } = usePeableSession();
   const { t } = useLocale();
   const [searchTerm, setSearchTerm] = useState("");
   const [isSearching, setIsSearching] = useState(false);

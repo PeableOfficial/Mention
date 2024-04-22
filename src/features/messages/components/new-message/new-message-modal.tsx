@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { useSession } from "next-auth/react";
+import { usePeableSession } from "@peable/services";
 import { useState } from "react";
 
 import { useCreateConversation } from "../../hooks/use-create-conversation";
@@ -16,7 +16,7 @@ export const NewMessageModal = () => {
   const [receiverId, setReceiverId] = useState<string | null>(null);
 
   const closeModal = useNewMessageStore((state) => state.closeModal);
-  const { data: session } = useSession();
+  const { session } = usePeableSession();
   const mutation = useCreateConversation();
 
   return (

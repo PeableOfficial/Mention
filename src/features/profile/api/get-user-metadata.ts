@@ -10,6 +10,12 @@ export const getUserMetadata = async ({
   type?: string;
 }) => {
   try {
+    const response = await fetch(`http://localhost:3001/api/users/${user_id}`, {
+      credentials: "include",
+    });
+    const data = await response.text();
+    const parsedData = JSON.parse(data) || {};
+    const { id: fetchedId, name, username, email } = parsedData;
     const user = await prisma.user.findUnique({
       where: {
         id: user_id,
@@ -52,7 +58,13 @@ export const getUserMetadata = async ({
       },
     });
 
-    return user;
+    return {
+      ...user,
+      fetchedId,
+      name,
+      username,
+      email,
+    };
   } catch (error) {
     console.error(error);
     return null;

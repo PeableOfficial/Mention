@@ -1,6 +1,6 @@
 "use client";
 import { AnimatePresence } from "framer-motion";
-import { useSession } from "next-auth/react";
+import { usePeableSession } from "@peable/services";
 import { useRef, useState } from "react";
 
 import { RepostIcon } from "@/assets/repost-icon";
@@ -22,7 +22,7 @@ export const RepostButton = ({
   post: IPost;
   showStats: boolean;
 }) => {
-  const { data: session } = useSession();
+  const { session } = usePeableSession();
   const hasReposted = post?.reposts?.some(
     (repost) => repost?.user_id === session?.user?.id,
   );

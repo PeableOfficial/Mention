@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { useSession } from "next-auth/react";
+import { usePeableSession } from "@peable/services";
 
 import { MentionLogo } from "@/assets/mention-logo";
 import { Avatar } from "@/features/profile";
@@ -9,7 +9,7 @@ import { useHamburger } from "@/stores/use-hamburger";
 import styles from "./styles/hamburger-button.module.scss";
 
 export const HamburgerButton = () => {
-  const { data: session } = useSession();
+  const { session } = usePeableSession();
 
   const openHamburger = useHamburger((state) => state.openHamburger);
   const isHamburgerOpen = useHamburger((state) => state.isHamburgerOpen);

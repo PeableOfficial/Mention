@@ -1,5 +1,5 @@
 import { useRouter } from "next/navigation";
-import { useSession } from "next-auth/react";
+import { usePeableSession } from "@peable/services";
 
 import { EllipsisWrapper } from "@/components/elements/ellipsis-wrapper";
 import { FollowButton } from "@/components/elements/follow-button";
@@ -16,7 +16,7 @@ import {
 import styles from "./styles/person-details.module.scss";
 
 export const PersonDetails = ({ author }: { author: IUser }) => {
-  const { data: session } = useSession();
+  const { session } = usePeableSession();
   const router = useRouter();
 
   const isFollowing = following({
