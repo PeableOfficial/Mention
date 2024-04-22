@@ -40,7 +40,7 @@ export const ChangeUsername = () => {
               htmlFor="username"
             >
               <input
-                defaultValue={session?.user?.username}
+                defaultValue={session?.user?.username || ""}
                 {...register("username")}
                 placeholder="Username"
               />
