@@ -24,7 +24,7 @@ export const PersonDetails = ({ author }: { author: IUser }) => {
 
   const isFollowing = following({
     user: author,
-    session_owner_id: session?.user?.id,
+    session_owner_id: session?.user?.id as string,
   });
 
   return (

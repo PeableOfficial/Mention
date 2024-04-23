@@ -37,7 +37,7 @@ export const ProfileInfo = ({ user }: { user: IUser; id: string }) => {
 
   const isFollowing = following({
     user: user,
-    session_owner_id: session?.user?.id,
+    session_owner_id: session?.user?.id as string,
   });
 
   return (
