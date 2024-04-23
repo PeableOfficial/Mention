@@ -61,7 +61,7 @@ export const ConversationInfo = () => {
             return (
               <ConversationMember
                 member={member}
-                sessionOwner={sessionOwner || session?.user}
+                sessionOwner={sessionOwner || (session?.user as any)}
                 key={member?.id}
               />
             );
