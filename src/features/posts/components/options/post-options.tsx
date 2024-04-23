@@ -1,5 +1,6 @@
 "use client";
 import { AnimatePresence } from "framer-motion";
+import { PEABLE_SERVICES_URL } from "@/config";
 import { usePeableSession } from "@peable/services";
 import { useRef, useState } from "react";
 
@@ -15,7 +16,9 @@ import { PostVisitorMenu } from "./post-visitor-menu";
 import styles from "./styles/post-options.module.scss";
 
 export const PostOptions = ({ post }: { post: IPost }) => {
-  const { session } = usePeableSession();
+  const { session } = usePeableSession({
+    SERVICES_URL: PEABLE_SERVICES_URL,
+  });
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
   const buttonRef = useRef<HTMLButtonElement>(null);

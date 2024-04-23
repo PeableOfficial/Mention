@@ -1,5 +1,6 @@
 "use client";
 import { AnimatePresence } from "framer-motion";
+import { PEABLE_SERVICES_URL } from "@/config";
 import { usePeableSession } from "@peable/services";
 import { useState } from "react";
 import { useLocale } from "@/app/LocaleContext";
@@ -23,8 +24,10 @@ export const FollowButton = ({
   isFollowing?: boolean;
 }) => {
   const { t } = useLocale();
-  const { session } = usePeableSession();
 
+  const { session } = usePeableSession({
+    SERVICES_URL: PEABLE_SERVICES_URL,
+  });
   const setJoinMentionData = useJoinMention((state) => state.setData);
 
   const [isModalOpen, setIsModalOpen] = useState(false);

@@ -1,3 +1,4 @@
+import { PEABLE_SERVICES_URL } from "@/config";
 import { usePeableSession } from "@peable/services";
 
 import { ReportIcon } from "@/assets/report-icon";
@@ -17,7 +18,9 @@ export const PostVisitorMenu = ({
   post: IPost;
   setIsMenuOpen: (value: boolean) => void;
 }) => {
-  const { session } = usePeableSession();
+  const { session } = usePeableSession({
+    SERVICES_URL: PEABLE_SERVICES_URL,
+  });
 
   return (
     <>

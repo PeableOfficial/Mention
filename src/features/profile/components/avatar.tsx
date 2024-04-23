@@ -20,7 +20,7 @@ export const Avatar = ({ userImage, className, ...props }: IAvatar) => {
     >
       <Image
         {...props}
-        src={userImage || `/avatar.svg`}
+        src={userImage || `/user_placeholder.png`}
         alt="profile picture"
         fill={true}
         className="block size-full object-cover"

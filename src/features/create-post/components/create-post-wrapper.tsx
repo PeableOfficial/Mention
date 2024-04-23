@@ -1,5 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
+import { PEABLE_SERVICES_URL } from "@/config";
 import { usePeableSession } from "@peable/services";
 import { useState } from "react";
 
@@ -17,7 +18,9 @@ export const CreatePostWrapper = ({
   in_reply_to_status_id: string | null;
   isInspectModal?: boolean;
 }) => {
-  const { session } = usePeableSession();
+  const { session } = usePeableSession({
+    SERVICES_URL: PEABLE_SERVICES_URL,
+  });
 
   const [isPlaceholder, setIsPlaceholder] = useState<boolean>(true);
 

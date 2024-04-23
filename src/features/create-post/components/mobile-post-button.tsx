@@ -1,5 +1,6 @@
 "use client";
 import { usePathname } from "next/navigation";
+import { PEABLE_SERVICES_URL } from "@/config";
 import { usePeableSession } from "@peable/services";
 
 import { Button } from "@/components/elements/button";
@@ -9,7 +10,9 @@ import { useCreatePostModal } from "@/stores/use-create-post-modal";
 import { PenIcon } from "../assets/pen-icon";
 
 export const MobilePostButton = () => {
-  const { session } = usePeableSession();
+  const { session } = usePeableSession({
+    SERVICES_URL: PEABLE_SERVICES_URL,
+  });
   const openModal = useCreatePostModal((state) => state.openModal);
   const pathname = usePathname();
   const path = pathname.split("/")[1];

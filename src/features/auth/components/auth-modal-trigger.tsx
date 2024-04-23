@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import { PEABLE_SERVICES_URL } from "@/config";
 import { usePeableSession } from "@peable/services";
 
 import { LoadingScreen } from "@/components/elements/loading-screen";
@@ -7,7 +8,9 @@ import { LoadingScreen } from "@/components/elements/loading-screen";
 import styles from "./styles/auth-modal-trigger.module.scss";
 
 export const AuthModalTrigger = () => {
-  const { session, status } = usePeableSession();
+  const { session, status } = usePeableSession({
+    SERVICES_URL: PEABLE_SERVICES_URL,
+  });
 
   if (status === "loading") return <LoadingScreen />;
 

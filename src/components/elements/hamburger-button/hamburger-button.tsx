@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import { PEABLE_SERVICES_URL } from "@/config";
 import { usePeableSession } from "@peable/services";
 
 import { MentionLogo } from "@/assets/mention-logo";
@@ -9,7 +10,9 @@ import { useHamburger } from "@/stores/use-hamburger";
 import styles from "./styles/hamburger-button.module.scss";
 
 export const HamburgerButton = () => {
-  const { session } = usePeableSession();
+  const { session } = usePeableSession({
+    SERVICES_URL: PEABLE_SERVICES_URL,
+  });
 
   const openHamburger = useHamburger((state) => state.openHamburger);
   const isHamburgerOpen = useHamburger((state) => state.isHamburgerOpen);

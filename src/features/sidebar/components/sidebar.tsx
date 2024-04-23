@@ -1,4 +1,5 @@
 "use client";
+import { PEABLE_SERVICES_URL } from "@/config";
 import { usePeableSession } from "@peable/services";
 
 import { SessionOwnerButton } from "@/features/auth";
@@ -9,7 +10,9 @@ import { Logo } from "./logo";
 import styles from "./styles/sidebar.module.scss";
 
 export const Sidebar = () => {
-  const { session } = usePeableSession();
+  const { session } = usePeableSession({
+    SERVICES_URL: PEABLE_SERVICES_URL,
+  });
 
   return (
     <header className={styles.container}>

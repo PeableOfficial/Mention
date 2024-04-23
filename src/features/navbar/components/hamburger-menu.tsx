@@ -1,6 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { PEABLE_SERVICES_URL } from "@/config";
 import { usePeableSession } from "@peable/services";
 
 import {
@@ -23,7 +24,9 @@ import styles from "./styles/hamburger-menu.module.scss";
 export const HamburgerMenu = () => {
   const closeHamburger = useHamburger((state) => state.closeHamburger);
 
-  const { session } = usePeableSession();
+  const { session } = usePeableSession({
+    SERVICES_URL: PEABLE_SERVICES_URL,
+  });
   const { data: user } = useUser({ id: session?.user?.id });
 
   return (

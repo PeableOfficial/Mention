@@ -1,3 +1,4 @@
+import { PEABLE_SERVICES_URL } from "@/config";
 import { usePeableSession } from "@peable/services";
 
 import { useGetConversations } from "../hooks/use-get-conversations";
@@ -10,7 +11,9 @@ export const SearchConversationResults = ({
 }: {
   searchTerm: string;
 }) => {
-  const { session } = usePeableSession();
+  const { session } = usePeableSession({
+    SERVICES_URL: PEABLE_SERVICES_URL,
+  });
 
   const {
     data: conversations,

@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { PEABLE_SERVICES_URL } from "@/config";
 import { usePeableSession } from "@peable/services";
 import { useState } from "react";
 
@@ -16,7 +17,9 @@ export const NewMessageModal = () => {
   const [receiverId, setReceiverId] = useState<string | null>(null);
 
   const closeModal = useNewMessageStore((state) => state.closeModal);
-  const { session } = usePeableSession();
+  const { session } = usePeableSession({
+    SERVICES_URL: PEABLE_SERVICES_URL,
+  });
   const mutation = useCreateConversation();
 
   return (

@@ -1,6 +1,7 @@
 "use client";
 
 import { usePathname } from "next/navigation";
+import { PEABLE_SERVICES_URL } from "@/config";
 import { usePeableSession } from "@peable/services";
 
 import { RegisterForm } from "@/features/auth";
@@ -12,7 +13,9 @@ import { Trends } from "@/features/trends";
 import styles from "./styles/aside.module.scss";
 
 export const Aside = () => {
-  const { session } = usePeableSession();
+  const { session } = usePeableSession({
+    SERVICES_URL: PEABLE_SERVICES_URL,
+  });
   const pathname = usePathname();
 
   return (

@@ -1,5 +1,6 @@
 "use client";
 import { AnimatePresence } from "framer-motion";
+import { PEABLE_SERVICES_URL } from "@/config";
 import { usePeableSession } from "@peable/services";
 
 import { Button } from "@/components/elements/button";
@@ -12,7 +13,9 @@ import { PenIcon } from "../assets/pen-icon";
 import { CreatePostModal } from "./create-post-modal";
 
 export const PostButton = () => {
-  const { session } = usePeableSession();
+  const { session } = usePeableSession({
+    SERVICES_URL: PEABLE_SERVICES_URL,
+  });
 
   const isModalOpen = useCreatePostModal((state) => state.isModalOpen);
   const openModal = useCreatePostModal((state) => state.openModal);

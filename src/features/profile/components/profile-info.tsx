@@ -1,6 +1,7 @@
 "use client";
 import { AnimatePresence } from "framer-motion";
 import Image from "next/image";
+import { PEABLE_SERVICES_URL } from "@/config";
 import { usePeableSession } from "@peable/services";
 import { useState } from "react";
 
@@ -22,7 +23,9 @@ import styles from "./styles/user-info.module.scss";
 import { UserJoinDate } from "./user-join-date";
 
 export const ProfileInfo = ({ user }: { user: IUser; id: string }) => {
-  const { session } = usePeableSession();
+  const { session } = usePeableSession({
+    SERVICES_URL: PEABLE_SERVICES_URL,
+  });
 
   const [isEditProfileModalOpen, setIsEditProfileModalOpen] = useState(false);
 
