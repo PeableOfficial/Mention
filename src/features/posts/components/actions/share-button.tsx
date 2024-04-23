@@ -118,7 +118,7 @@ export const ShareButton = ({ post }: { post: IPost }) => {
                   onClick={() => {
                     mutation.mutate({
                       postId: post?.id,
-                      userId: session?.user?.id,
+                      userId: session?.user?.id as string,
                       action: "remove",
                       bookmarkId: post?.bookmarks?.find(
                         (bookmark) => bookmark?.user_id === session?.user?.id,
@@ -135,7 +135,7 @@ export const ShareButton = ({ post }: { post: IPost }) => {
                   onClick={() => {
                     mutation.mutate({
                       postId: post?.id,
-                      userId: session?.user?.id,
+                      userId: session?.user?.id as string,
                       action: "add",
                     });
                     setIsModalOpen(false);

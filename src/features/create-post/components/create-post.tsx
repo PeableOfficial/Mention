@@ -220,7 +220,7 @@ export const CreatePost = ({
               onClick={() =>
                 mutation.mutate({
                   text: text.trim(),
-                  userId: session?.user?.id,
+                  userId: session?.user?.id as string,
                   files: chosenImages.map((img) => img.file),
                   in_reply_to_username,
                   in_reply_to_status_id,

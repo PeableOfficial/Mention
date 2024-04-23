@@ -49,7 +49,7 @@ export const PostOwnerMenu = ({
           onClick={() => {
             pinMutation.mutate({
               postId: post.id,
-              userId: session?.user?.id,
+              userId: session?.user?.id as string,
               action: "unpin",
             });
             setIsMenuOpen(false);
@@ -62,7 +62,7 @@ export const PostOwnerMenu = ({
           onClick={() => {
             pinMutation.mutate({
               postId: post.id,
-              userId: session?.user?.id,
+              userId: session?.user?.id as string,
               action: "pin",
             });
             setIsMenuOpen(false);
