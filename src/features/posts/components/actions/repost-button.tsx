@@ -86,7 +86,7 @@ export const RepostButton = ({
                 onClick={() => {
                   repostMutation.mutate({
                     postId: post?.id,
-                    userId: session?.user?.id,
+                    userId: session?.user?.id as string,
                   });
                 }}
               >
