@@ -27,7 +27,7 @@ export const HamburgerButton = () => {
           onClick={() => openHamburger()}
           className={styles.container}
         >
-          <Avatar userImage={session?.user?.profile_image_url} />
+          <Avatar userImage={session?.user?.profile_image_url as string} />
         </button>
       ) : (
         <div className={styles.logo}>

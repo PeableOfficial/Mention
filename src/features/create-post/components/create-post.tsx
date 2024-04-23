@@ -76,7 +76,7 @@ export const CreatePost = ({
       <div className={styles.left}>
         <div className={styles.avatar}>
           <LinkToProfile username={user?.username}>
-            <Avatar userImage={session?.user?.profile_image_url} />
+            <Avatar userImage={session?.user?.profile_image_url as string} />
           </LinkToProfile>
         </div>
       </div>
