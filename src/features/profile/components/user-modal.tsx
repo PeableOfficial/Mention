@@ -25,7 +25,7 @@ export const UserModal = forwardRef<HTMLDivElement, { userId: string }>(
 
     const isFollowing = following({
       user,
-      session_owner_id: session?.user?.id,
+      session_owner_id: session?.user?.id as string,
     });
 
     const stats = [
@@ -83,7 +83,7 @@ export const UserModal = forwardRef<HTMLDivElement, { userId: string }>(
                       {session?.user?.id !== user?.id && (
                         <FollowButton
                           user_id={user?.id}
-                          session_owner_id={session?.user?.id}
+                          session_owner_id={session?.user?.id as string}
                           isFollowing={isFollowing}
                           username={user?.username}
                         />

@@ -15,10 +15,6 @@ export const Bookmarks = () => {
     SERVICES_URL: PEABLE_SERVICES_URL,
   });
 
-  if (!session?.user?.id) {
-    return null; // or return some placeholder component
-  }
-
   const {
     data: bookmarks,
     isLoading,
@@ -28,7 +24,7 @@ export const Bookmarks = () => {
     fetchNextPage,
     hasNextPage,
   } = usePosts({
-    queryKey: ["bookmarks", session?.user?.id],
+    queryKey: ["bookmarks", session?.user?.id as string],
     type: "bookmarks",
     id: session?.user?.id,
   });
