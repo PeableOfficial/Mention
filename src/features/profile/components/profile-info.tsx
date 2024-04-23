@@ -132,7 +132,7 @@ export const ProfileInfo = ({ user }: { user: IUser; id: string }) => {
 
               <FollowButton
                 user_id={user?.id}
-                session_owner_id={session?.user?.id}
+                session_owner_id={session?.user?.id as string}
                 isFollowing={isFollowing}
                 username={user?.username}
               />

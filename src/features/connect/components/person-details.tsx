@@ -71,7 +71,7 @@ export const PersonDetails = ({ author }: { author: IUser }) => {
 
           <FollowButton
             user_id={author?.id}
-            session_owner_id={session?.user?.id}
+            session_owner_id={session?.user?.id as string}
             isFollowing={isFollowing}
             username={author?.username}
           />

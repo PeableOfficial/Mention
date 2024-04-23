@@ -76,7 +76,7 @@ export const Conversation = () => {
 
       <MessageInput
         conversation_id={conversation?.id}
-        sender_id={session?.user?.id}
+        sender_id={session?.user?.id as string}
         receiver_id={conversationMember?.id}
       />
     </div>
