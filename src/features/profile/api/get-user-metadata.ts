@@ -2,6 +2,13 @@
 
 import { prisma } from "@/lib/prisma";
 
+interface UserResponse {
+  id: string;
+  name: string;
+  username: string;
+  email: string;
+}
+
 export const getUserMetadata = async ({
   user_id,
   type,
@@ -14,7 +21,7 @@ export const getUserMetadata = async ({
       credentials: "include",
     });
     const data = await response.text();
-    const parsedData = JSON.parse(data) || {};
+    const parsedData = JSON.parse(data) as UserResponse;
     const { id: fetchedId, name, username, email } = parsedData;
     const user = await prisma.user.findUnique({
       where: {
