@@ -15,6 +15,10 @@ export const Bookmarks = () => {
     SERVICES_URL: PEABLE_SERVICES_URL,
   });
 
+  if (!session?.user?.id) {
+    return null; // or return some placeholder component
+  }
+
   const {
     data: bookmarks,
     isLoading,
