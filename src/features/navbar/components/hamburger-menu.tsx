@@ -68,7 +68,7 @@ export const HamburgerMenu = () => {
           <UserName
             name={session?.user?.name}
             hover={true}
-            isVerified={session?.user?.isVerified}
+            isVerified={session?.user?.verified}
           />
         </LinkToProfile>
 
