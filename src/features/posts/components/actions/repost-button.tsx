@@ -1,6 +1,5 @@
 "use client";
 import { AnimatePresence } from "framer-motion";
-import { PEABLE_SERVICES_URL } from "@/config";
 import { usePeableSession } from "@peable/services";
 import { useRef, useState } from "react";
 
@@ -23,9 +22,7 @@ export const RepostButton = ({
   post: IPost;
   showStats: boolean;
 }) => {
-  const { session } = usePeableSession({
-    SERVICES_URL: PEABLE_SERVICES_URL,
-  });
+  const { session } = usePeableSession();
   const hasReposted = post?.reposts?.some(
     (repost) => repost?.user_id === session?.user?.id,
   );

@@ -1,6 +1,5 @@
 import { AnimatePresence } from "framer-motion";
 import { useRouter } from "next/navigation";
-import { PEABLE_SERVICES_URL } from "@/config";
 import { usePeableSession } from "@peable/services";
 import { useRef, useState } from "react";
 
@@ -30,9 +29,7 @@ export const ConversationCard = ({
 }: {
   conversation: IConversation;
 }) => {
-  const { session } = usePeableSession({
-    SERVICES_URL: PEABLE_SERVICES_URL,
-  });
+  const { session } = usePeableSession();
   const router = useRouter();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const buttonRef = useRef<HTMLButtonElement>(null);

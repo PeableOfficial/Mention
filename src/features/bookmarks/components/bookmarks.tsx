@@ -1,5 +1,4 @@
 "use client";
-import { PEABLE_SERVICES_URL } from "@/config";
 import { usePeableSession } from "@peable/services";
 
 import { LoadingSpinner } from "@/components/elements/loading-spinner";
@@ -11,9 +10,7 @@ import { NoBookmarks } from "./no-bookmarks";
 import styles from "./styles/bookmarks.module.scss";
 
 export const Bookmarks = () => {
-  const { session } = usePeableSession({
-    SERVICES_URL: PEABLE_SERVICES_URL,
-  });
+  const { session } = usePeableSession();
 
   const {
     data: bookmarks,

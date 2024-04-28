@@ -1,5 +1,4 @@
 import { useRouter } from "next/navigation";
-import { PEABLE_SERVICES_URL } from "@/config";
 import { usePeableSession } from "@peable/services";
 
 import { EllipsisWrapper } from "@/components/elements/ellipsis-wrapper";
@@ -17,9 +16,7 @@ import {
 import styles from "./styles/person-details.module.scss";
 
 export const PersonDetails = ({ author }: { author: IUser }) => {
-  const { session } = usePeableSession({
-    SERVICES_URL: PEABLE_SERVICES_URL,
-  });
+  const { session } = usePeableSession();
   const router = useRouter();
 
   const isFollowing = following({

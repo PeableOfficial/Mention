@@ -1,7 +1,6 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import { usePathname } from "next/navigation";
-import { PEABLE_SERVICES_URL } from "@/config";
 import { usePeableSession } from "@peable/services";
 
 import { LoadingSpinner } from "@/components/elements/loading-spinner";
@@ -18,9 +17,7 @@ import styles from "./styles/conversation-info.module.scss";
 export const ConversationInfo = () => {
   const pathname = usePathname();
   const id = pathname?.split("/")[2];
-  const { session } = usePeableSession({
-    SERVICES_URL: PEABLE_SERVICES_URL,
-  });
+  const { session } = usePeableSession();
 
   const { data: conversation, isLoading, isError } = useGetConversation(id);
 

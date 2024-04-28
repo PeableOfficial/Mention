@@ -1,4 +1,3 @@
-import { PEABLE_SERVICES_URL } from "@/config";
 import { usePeableSession } from "@peable/services";
 import { useRouter } from "next/navigation";
 
@@ -24,9 +23,7 @@ export const PostOwnerMenu = ({
   setIsMenuOpen: (value: boolean) => void;
   setIsDeleteModalOpen: (value: boolean) => void;
 }) => {
-  const { session } = usePeableSession({
-    SERVICES_URL: PEABLE_SERVICES_URL,
-  });
+  const { session } = usePeableSession();
   const { data: user } = useUser({ id: session?.user?.id });
   const pinMutation = usePinPost();
   const router = useRouter();

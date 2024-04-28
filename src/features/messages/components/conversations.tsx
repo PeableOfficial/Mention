@@ -1,6 +1,5 @@
 "use client";
 import { AnimatePresence } from "framer-motion";
-import { PEABLE_SERVICES_URL } from "@/config";
 import { usePeableSession } from "@peable/services";
 import { useState } from "react";
 import { useLocale } from "@/app/LocaleContext";
@@ -20,9 +19,7 @@ import { StartNewConversation } from "./start-new-conversation";
 import styles from "./styles/conversations.module.scss";
 
 export const Conversations = () => {
-  const { session } = usePeableSession({
-    SERVICES_URL: PEABLE_SERVICES_URL,
-  });
+  const { session } = usePeableSession();
   const { t } = useLocale();
   const [searchTerm, setSearchTerm] = useState("");
   const [isSearching, setIsSearching] = useState(false);

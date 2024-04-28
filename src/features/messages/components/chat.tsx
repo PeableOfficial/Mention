@@ -1,4 +1,3 @@
-import { PEABLE_SERVICES_URL } from "@/config";
 import { usePeableSession } from "@peable/services";
 import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { useInView } from "react-intersection-observer";
@@ -30,9 +29,7 @@ export const Chat = ({
   const [scrolledToBottom, setScrolledToBottom] = useState(true);
   const [displayNewMessageToast, setDisplayNewMessageToast] = useState(false);
 
-  const { session } = usePeableSession({
-    SERVICES_URL: PEABLE_SERVICES_URL,
-  });
+  const { session } = usePeableSession();
   const { data: chat, isLoading, isError } = useChat(conversation_id);
 
   useSocketEvents(conversation_id);

@@ -1,5 +1,4 @@
 "use client";
-import { PEABLE_SERVICES_URL } from "@/config";
 import { usePeableSession } from "@peable/services";
 import { useCallback, useLayoutEffect, useRef, useState } from "react";
 
@@ -43,9 +42,7 @@ export const CreatePost = ({
   container?: "post" | "modal" | "comment";
   inputId?: string;
 }) => {
-  const { session } = usePeableSession({
-    SERVICES_URL: PEABLE_SERVICES_URL,
-  });
+  const { session } = usePeableSession();
   const { data: user } = useUser({ id: session?.user?.id });
 
   const [text, setText] = useState("");

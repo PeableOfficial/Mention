@@ -30,14 +30,12 @@ const authOptions: AuthOptions = {
     },
 
     session: async ({ session, token }) => {
-      if (token) {
-        session.user.id = token?.id;
-        session.user.name = token?.name;
-        session.user.email = token?.email;
-        session.user.role = token?.role;
-        session.user.username = token?.username;
-        session.user.profile_image_url = token?.profile_image_url;
-      }
+      session.user.id = "fakeId";
+      session.user.name = "fakeName";
+      session.user.email = "fakeEmail";
+      session.user.role = "fakeRole";
+      session.user.username = "fakeUsername";
+      session.user.profile_image_url = "fakeProfileImageUrl";
       return session;
     },
 

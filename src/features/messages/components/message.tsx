@@ -1,7 +1,6 @@
 import { useQueryClient } from "@tanstack/react-query";
 import dayjs from "dayjs";
 import Image from "next/image";
-import { PEABLE_SERVICES_URL } from "@/config";
 import { usePeableSession } from "@peable/services";
 
 import { socket } from "@/lib/socket-io";
@@ -17,9 +16,7 @@ export const Message = ({
   message: IMessage;
   show_status: boolean;
 }) => {
-  const { session } = usePeableSession({
-    SERVICES_URL: PEABLE_SERVICES_URL,
-  });
+  const { session } = usePeableSession();
   const isSender = session?.user?.id === message.sender_id;
 
   const queryClient = useQueryClient();

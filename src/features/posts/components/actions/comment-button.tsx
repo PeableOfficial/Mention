@@ -1,5 +1,4 @@
 "use client";
-import { PEABLE_SERVICES_URL } from "@/config";
 import { usePeableSession } from "@peable/services";
 
 import { CommentIcon } from "@/assets/comment-icon";
@@ -17,9 +16,7 @@ export const CommentButton = ({
   post: IPost;
   showStats: boolean;
 }) => {
-  const { session } = usePeableSession({
-    SERVICES_URL: PEABLE_SERVICES_URL,
-  });
+  const { session } = usePeableSession();
 
   const setData = useCreatePostModal((state) => state.setData);
   const setJoinMentionData = useJoinMention((state) => state.setData);

@@ -1,7 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { PEABLE_SERVICES_URL } from "@/config";
 import { usePeableSession } from "@peable/services";
 import { forwardRef } from "react";
 
@@ -14,9 +13,7 @@ export const SessionOwnerModal = forwardRef<
   HTMLButtonElement,
   { onClose: () => void }
 >(({ onClose }, ref) => {
-  const { session } = usePeableSession({
-    SERVICES_URL: PEABLE_SERVICES_URL,
-  });
+  const { session } = usePeableSession();
   const { data: user } = useUser({ id: session?.user?.id });
 
   const buttonBoundaries = useTrackPosition({

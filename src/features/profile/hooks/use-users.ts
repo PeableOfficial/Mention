@@ -1,5 +1,4 @@
 import { useQuery } from "@tanstack/react-query";
-import { PEABLE_SERVICES_URL } from "@/config";
 import { usePeableSession } from "@peable/services";
 
 import { getUsers } from "../api/get-users";
@@ -12,9 +11,7 @@ export const useUsers = ({
   queryKey: string[];
   limit?: number;
 }) => {
-  const { session, status } = usePeableSession({
-    SERVICES_URL: PEABLE_SERVICES_URL,
-  });
+  const { session, status } = usePeableSession();
 
   return useQuery<IUser[]>({
     queryKey,

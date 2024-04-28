@@ -1,5 +1,4 @@
 "use client";
-import { PEABLE_SERVICES_URL } from "@/config";
 import { usePeableSession } from "@peable/services";
 
 import { LoadingSpinner } from "@/components/elements/loading-spinner";
@@ -12,9 +11,7 @@ import { usePosts } from "../hooks/use-posts";
 import { InfinitePosts } from "./infinite-posts";
 
 export const Posts = () => {
-  const { session } = usePeableSession({
-    SERVICES_URL: PEABLE_SERVICES_URL,
-  });
+  const { session } = usePeableSession();
   const {
     data: posts,
     isLoading,

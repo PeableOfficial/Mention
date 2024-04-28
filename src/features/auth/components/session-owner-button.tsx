@@ -1,6 +1,5 @@
 "use client";
 import { AnimatePresence } from "framer-motion";
-import { PEABLE_SERVICES_URL } from "@/config";
 import { usePeableSession } from "@peable/services";
 import { useRef, useState } from "react";
 
@@ -16,9 +15,7 @@ import { Avatar, UserName, UserUsername } from "@/features/profile";
 import { SessionOwnerModal } from "./session-owner-modal";
 
 export const SessionOwnerButton = () => {
-  const { session } = usePeableSession({
-    SERVICES_URL: PEABLE_SERVICES_URL,
-  });
+  const { session } = usePeableSession();
   const { data: user } = useUser({ id: session?.user?.id });
   const [isModalOpen, setIsModalOpen] = useState(false);
   const buttonRef = useRef<HTMLButtonElement>(null);

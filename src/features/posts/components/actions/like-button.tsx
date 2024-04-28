@@ -1,6 +1,5 @@
 "use client";
 import { useState, useEffect, useMemo } from "react";
-import { PEABLE_SERVICES_URL } from "@/config";
 import { usePeableSession } from "@peable/services";
 
 import { HeartIcon, HeartIconActive } from "@/assets/heart-icon";
@@ -23,9 +22,7 @@ export const LikeButton = ({
   smallIcons = true,
   showStats = false,
 }: LikeButtonProps) => {
-  const { session } = usePeableSession({
-    SERVICES_URL: PEABLE_SERVICES_URL,
-  });
+  const { session } = usePeableSession();
   const hasLiked = post?.likes?.some(
     (like) => like.user_id === session?.user?.id,
   );

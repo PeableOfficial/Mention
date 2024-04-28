@@ -1,4 +1,3 @@
-import { PEABLE_SERVICES_URL } from "@/config";
 import { usePeableSession } from "@peable/services";
 
 import { TickIcon } from "@/assets/tick-svg";
@@ -17,9 +16,7 @@ export const Contact = ({
   receiverId: string | null;
   setReceiverId: (id: string | null) => void;
 }) => {
-  const { session } = usePeableSession({
-    SERVICES_URL: PEABLE_SERVICES_URL,
-  });
+  const { session } = usePeableSession();
 
   return (
     <button
