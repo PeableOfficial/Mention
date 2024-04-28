@@ -1,6 +1,5 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
-
 import { prisma } from "@/lib/prisma";
 
 interface User {
@@ -24,47 +23,43 @@ export async function GET(request: Request) {
   }
 
   try {
-    const users = await prisma.user.findMany({
+    // Fetch additional data for each user
+    const response = await fetch(
+      process.env.NEXT_PUBLIC_PEABLE_SERVICES_URL +
+        `/api/users${id ? `?id=${id}` : ""}&${limit ? `&limit=${limit}` : ""}`,
+      {
+        credentials: "include",
+      },
+    );
+    const data = await response.text();
+    const parsedData: User[] = JSON.parse(data);
+
+    const usersWithAdditionalData = await prisma.user.findMany({
       where: {
-        NOT: {
-          id,
+        id: {
+          in: parsedData.map((user) => user.id),
         },
       },
-
-      orderBy: {
-        created_at: "desc",
-      },
-
       select: {
         id: true,
-        profile_image_url: true,
         following: true,
         followers: true,
         color: true,
       },
-
       take: limit ? parseInt(limit) : undefined,
     });
 
-    // Fetch additional data for each user
-    const usersWithAdditionalData = await Promise.all(
-      users.map(async (user) => {
-        const response = await fetch(
-          `http://localhost:3001/api/users/${user.id}`,
-          {
-            credentials: "include",
-          },
-        );
-        const data = await response.text();
-        const parsedData: User = JSON.parse(data) as User;
-        const { id: fetchedId, name, username, email } = parsedData;
+    const mergedData = parsedData.map((user) => {
+      const additionalData = usersWithAdditionalData.find(
+        (userData) => userData.id === user.id,
+      );
+      return {
+        ...user,
+        ...additionalData,
+      };
+    });
 
-        // Merge the fetched data with the existing user data
-        return { ...user, id: fetchedId, name, username, email };
-      }),
-    );
-
-    return NextResponse.json(usersWithAdditionalData, { status: 200 });
+    return NextResponse.json(mergedData, { status: 200 });
   } catch (error: any) {
     return NextResponse.json(error.message, { status: 500 });
   }

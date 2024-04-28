@@ -17,9 +17,12 @@ export const getUserMetadata = async ({
   type?: string;
 }) => {
   try {
-    const response = await fetch(`http://localhost:3001/api/users/${user_id}`, {
-      credentials: "include",
-    });
+    const response = await fetch(
+      process.env.NEXT_PUBLIC_PEABLE_SERVICES_URL + `/api/users/${user_id}`,
+      {
+        credentials: "include",
+      },
+    );
     const data = await response.text();
     const parsedData = JSON.parse(data) as UserResponse;
     const { id: fetchedId, name, username, email } = parsedData;

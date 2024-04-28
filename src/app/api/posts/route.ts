@@ -15,6 +15,14 @@ export async function GET(request: Request) {
   const skip = cursorQuery ? 1 : 0;
   const cursor = cursorQuery ? { id: cursorQuery } : undefined;
 
+  interface AuthorData {
+    id: string;
+    name: string;
+    username: string;
+    email: string;
+    role: string;
+  }
+
   try {
     let followingUserIds: string[] = [];
     if (id) {
@@ -137,10 +145,30 @@ export async function GET(request: Request) {
       },
     });
 
-    const nextId = posts.length < take ? undefined : posts[posts.length - 1].id;
+    const authorIds = posts.map((post) => post.author.id);
+    const authorData: AuthorData[] = await fetch(
+      process.env.NEXT_PUBLIC_PEABLE_SERVICES_URL +
+        `/api/users?ids=${authorIds.join(",")}`,
+    )
+      .then((response) => response.json() as Promise<AuthorData[]>)
+      .catch((error) => {
+        console.error("Error:", error);
+        return []; // return an empty array in case of error
+      });
 
+    const postsWithAuthorData = posts.map((post) => {
+      const author = authorData.find((author) => author.id === post.author.id);
+      return {
+        ...post,
+        author,
+      };
+    });
+
+    const postsWithAuthorDataResolved = await Promise.all(postsWithAuthorData);
+
+    const nextId = posts.length < take ? undefined : posts[posts.length - 1].id;
     return NextResponse.json({
-      posts,
+      posts: postsWithAuthorDataResolved,
       nextId,
     });
   } catch (error) {

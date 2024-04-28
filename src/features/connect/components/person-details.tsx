@@ -49,13 +49,7 @@ export const PersonDetails = ({ author }: { author: IUser }) => {
           <div className={styles.name}>
             <UserModalWrapper userId={author?.id} delay={500}>
               <LinkToProfile username={author?.username}>
-                <EllipsisWrapper>
-                  <UserName
-                    name={author?.name}
-                    isVerified={author?.verified}
-                    hover={true}
-                  />
-                </EllipsisWrapper>
+                <EllipsisWrapper>{author?.username}</EllipsisWrapper>
               </LinkToProfile>
             </UserModalWrapper>
 

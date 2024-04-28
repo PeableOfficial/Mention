@@ -24,8 +24,8 @@ dependencies:
     specifier: ^2.2.2
     version: 2.2.2
   '@peable/services':
-    specifier: ^0.0.59
-    version: 0.0.59
+    specifier: ^0.0.61
+    version: 0.0.61(@types/react@18.2.64)
   '@prisma/client':
     specifier: ^5.10.2
     version: 5.10.2(prisma@5.10.2)
@@ -4186,16 +4186,19 @@ packages:
       '@noble/hashes': 1.3.3
     dev: false
 
-  /@peable/services@0.0.59:
-    resolution: {integrity: sha512-Ty1sOD15ebsWoXRV8MARzaSmf/BLKqWkY/eNakw0vwQ/ZR2bpHqD10FOHmAbcAzHG2WGbnpGWzcBoJ76PvBK8g==}
+  /@peable/services@0.0.61(@types/react@18.2.64):
+    resolution: {integrity: sha512-kaG0J8vM2RGSNNom3R7GhxOZKZ7TDzvB+9G1ArDQfN6aObzkZLS/vc21s1WA+W/CP1PztN15LpWo3SuTofRGzg==}
     dependencies:
       axios: 1.6.8
       dotenv: 16.4.5
       js-cookie: 3.0.5
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
+      zustand: 4.5.2(@types/react@18.2.64)(react@18.2.0)
     transitivePeerDependencies:
+      - '@types/react'
       - debug
+      - immer
     dev: false
 
   /@pkgjs/parseargs@0.11.0:

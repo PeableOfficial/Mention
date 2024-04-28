@@ -5,7 +5,8 @@ interface UserData {
 export const getUsernameToId = async ({ username }: { username: string }) => {
   try {
     const response = await fetch(
-      `http://localhost:3001/api/users/username-to-id/${username}`,
+      process.env.NEXT_PUBLIC_PEABLE_SERVICES_URL +
+        `/api/users/username-to-id/${username}`,
       {
         credentials: "include",
       },

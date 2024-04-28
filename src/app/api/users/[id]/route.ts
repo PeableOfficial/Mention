@@ -29,9 +29,12 @@ export async function GET(
   }
 
   try {
-    const response = await fetch(`http://localhost:3001/api/users/${id}`, {
-      credentials: "include",
-    });
+    const response = await fetch(
+      process.env.NEXT_PUBLIC_PEABLE_SERVICES_URL + `/api/users/${id}`,
+      {
+        credentials: "include",
+      },
+    );
     const data = await response.text();
 
     const parsedData: User = JSON.parse(data) as User;
@@ -42,9 +45,7 @@ export async function GET(
       },
 
       select: {
-        profile_image_url: true,
         profile_banner_url: true,
-
         color: true,
         created_at: true,
         description: true,
