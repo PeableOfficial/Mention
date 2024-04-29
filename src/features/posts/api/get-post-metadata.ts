@@ -27,10 +27,7 @@ export const getPostMetadata = async ({ post_id }: { post_id: string }) => {
         author: {
           select: {
             id: true,
-            name: true,
             email: true,
-            profile_image_url: true,
-            username: true,
           },
         },
 
