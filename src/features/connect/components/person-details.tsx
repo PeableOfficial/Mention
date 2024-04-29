@@ -15,7 +15,7 @@ import {
 
 import styles from "./styles/person-details.module.scss";
 
-export const PersonDetails = ({ author }: { author: IUser }) => {
+export const PersonDetails = ({ IUser: author }: { IUser: IUser }) => {
   const { session } = usePeableSession();
   const router = useRouter();
 
@@ -49,7 +49,13 @@ export const PersonDetails = ({ author }: { author: IUser }) => {
           <div className={styles.name}>
             <UserModalWrapper userId={author?.id} delay={500}>
               <LinkToProfile username={author?.username}>
-                <EllipsisWrapper>{author?.username}</EllipsisWrapper>
+                <EllipsisWrapper>
+                  <UserName
+                    name={author?.name}
+                    isVerified={author?.verified}
+                    hover={true}
+                  />
+                </EllipsisWrapper>
               </LinkToProfile>
             </UserModalWrapper>
 

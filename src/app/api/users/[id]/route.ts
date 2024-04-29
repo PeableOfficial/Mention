@@ -134,13 +134,10 @@ export async function PUT(request: Request) {
         id: user_id,
       },
       data: {
-        name,
-        username,
         description,
         location,
         url,
         profile_banner_url,
-        profile_image_url,
       },
     });
 

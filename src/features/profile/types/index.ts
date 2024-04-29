@@ -10,6 +10,9 @@ export interface IUser extends User {
   likes: ILike[];
   bookmarks: IBookmark[];
   pinned_post: IPost;
+  profile_image_url: string | undefined;
+  name: string;
+  username: string;
   _count?: {
     followers?: number;
     following?: number;
