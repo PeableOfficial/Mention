@@ -35,13 +35,13 @@ const Settings = () => {
           <div className={styles.content}>
             <div className={styles.user_details}>
               <EllipsisWrapper>
-                <span className={styles.name}>Peable</span>
+                <span className={styles.name}>Oxy</span>
               </EllipsisWrapper>
 
               <VerifiedIcon />
 
               <EllipsisWrapper>
-                <span className={styles.username}>@Peable</span>
+                <span className={styles.username}>@Oxy</span>
               </EllipsisWrapper>
 
               <span className={styles.dot}>·</span>
@@ -50,7 +50,7 @@ const Settings = () => {
             <p className={styles.post_text}>
               At the heart of Mention are short messages called Posts — just
               like this one — which can include photos, videos, links, text,
-              hashtags, and mentions like <Link href="#">@Peable</Link>.
+              hashtags, and mentions like <Link href="#">@Oxy</Link>.
             </p>
           </div>
         </article>

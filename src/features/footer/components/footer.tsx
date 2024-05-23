@@ -14,7 +14,7 @@ export const Footer = () => {
         url="https://mention.earth/accessibility"
       />
       <FooterLink title="About FairCoin" url="https://fairco.in/" />
-      <FooterLink title="About Mention" url="https://about.peable.co/mention" />
+      <FooterLink title="About Mention" url="https://oxy.so/mention" />
 
       <button
         aria-expanded="false"

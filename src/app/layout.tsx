@@ -113,8 +113,8 @@ export const metadata: Metadata = {
   authors: [
     { name: "Albert Isern Alvarez" },
     {
-      name: "Peable",
-      url: "https://peable.co/",
+      name: "Oxy",
+      url: "https://oxy.so/",
     },
   ],
   creator: "Albert Isern Alvarez",
