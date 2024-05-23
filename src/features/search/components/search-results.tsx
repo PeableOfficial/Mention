@@ -39,7 +39,7 @@ export const SearchResults = () => {
             <div className={styles.people}>
               <h1>People</h1>
               {people?.data?.map((person) => {
-                return <PersonDetails key={person?.id} author={person} />;
+                return <PersonDetails key={person?.id} IUser={person} />;
               })}
               <button className={styles.viewAll}>View All</button>
             </div>
