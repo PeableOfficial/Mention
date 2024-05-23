@@ -1,12 +1,13 @@
-import { User, Like } from "@prisma/client";
+import { Profile, Like } from "@prisma/client";
 
 import { IPost } from "@/features/posts";
 import { IBookmark } from "@/features/posts";
 
-export interface IUser extends User {
+export interface IUser extends Profile {
+  id: string;
   posts: IPost[];
-  followers: User[];
-  following: User[];
+  followers: Profile[];
+  following: Profile[];
   likes: ILike[];
   bookmarks: IBookmark[];
   pinned_post: IPost;
