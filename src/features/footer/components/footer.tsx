@@ -26,7 +26,7 @@ export const Footer = () => {
         More <ThreeDotsIcon />
       </button>
 
-      <span>Mention. Made with ❤️ in the 🌎 by Peable</span>
+      <span>Mention. Made with ❤️ in the 🌎 by Oxy.</span>
     </nav>
   );
 };
