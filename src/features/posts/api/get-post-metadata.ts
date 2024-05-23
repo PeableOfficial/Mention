@@ -2,6 +2,15 @@
 
 import { prisma } from "@/lib/prisma";
 
+// Placeholder for your actual API call
+async function getAuthorFromAPI(author_id: string) {
+  const response = await fetch(
+    process.env.NEXT_PUBLIC_PEABLE_SERVICES_URL + `/api/users/${author_id}`,
+  );
+  const data = await response.json();
+  return data;
+}
+
 export const getPostMetadata = async ({ post_id }: { post_id: string }) => {
   try {
     const post = await prisma.post.findUnique({
@@ -24,13 +33,6 @@ export const getPostMetadata = async ({ post_id }: { post_id: string }) => {
           },
         },
 
-        author: {
-          select: {
-            id: true,
-            email: true,
-          },
-        },
-
         reposts: {
           select: {
             user_id: true,
@@ -42,28 +44,21 @@ export const getPostMetadata = async ({ post_id }: { post_id: string }) => {
             user_id: true,
           },
         },
-
-        bookmarks: {
-          select: {
-            id: true,
-            user_id: true,
-          },
-        },
-
-        _count: {
-          select: {
-            reposts: true,
-            quotes: true,
-            bookmarks: true,
-            likes: true,
-          },
-        },
       },
     });
 
-    return post;
+    if (!post) {
+      throw new Error("Post not found");
+    }
+
+    const author = await getAuthorFromAPI(post.author_id);
+
+    return {
+      ...post,
+      author,
+    };
   } catch (error) {
     console.error(error);
-    return null;
+    throw error;
   }
 };
