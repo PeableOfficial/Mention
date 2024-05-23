@@ -15,7 +15,7 @@ export async function GET(request: Request) {
   }
 
   try {
-    const user = await prisma.user
+    const user = await prisma.profile
       .findUnique({
         where: {
           id: user_id,
@@ -63,7 +63,7 @@ export async function POST(request: Request) {
   }
 
   try {
-    await prisma.user.update({
+    await prisma.profile.update({
       where: {
         id: user_id,
       },
@@ -91,7 +91,7 @@ export async function PUT(request: Request) {
   }
 
   try {
-    const user = await prisma.user.update({
+    const user = await prisma.profile.update({
       where: {
         id,
       },

@@ -34,7 +34,7 @@ export async function GET(request: Request) {
     const data = await response.text();
     const parsedData: User[] = JSON.parse(data) as User[];
 
-    const usersWithAdditionalData = await prisma.user.findMany({
+    const usersWithAdditionalData = await prisma.profile.findMany({
       where: {
         id: {
           in: parsedData.map((user) => user.id),

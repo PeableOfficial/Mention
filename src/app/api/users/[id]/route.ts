@@ -39,7 +39,7 @@ export async function GET(
 
     const parsedData: User = JSON.parse(data) as User;
     const { id: fetchedId, name, username, email } = parsedData;
-    const user = await prisma.user.findUnique({
+    const user = await prisma.profile.findUnique({
       where: {
         id: id,
       },
@@ -129,7 +129,7 @@ export async function PUT(request: Request) {
   }
 
   try {
-    const user = await prisma.user.update({
+    const user = await prisma.profile.update({
       where: {
         id: user_id,
       },

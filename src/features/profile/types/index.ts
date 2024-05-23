@@ -13,6 +13,7 @@ export interface IUser extends User {
   profile_image_url: string | undefined;
   name: string;
   username: string;
+  verified: boolean;
   _count?: {
     followers?: number;
     following?: number;

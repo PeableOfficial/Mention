@@ -26,7 +26,7 @@ export async function GET(request: Request) {
   try {
     let followingUserIds: string[] = [];
     if (id) {
-      followingUserIds = await prisma.user
+      followingUserIds = await prisma.profile
         .findUnique({
           where: { id: id },
           select: { following: { select: { id: true } } },

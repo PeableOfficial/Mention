@@ -6,7 +6,7 @@ export async function GET(request: Request) {
   const type = searchParams.get("type");
 
   try {
-    const authors = await prisma.user.findMany({
+    const authors = await prisma.profile.findMany({
       where: {
         ...(type === "reposts" && {
           reposts: {

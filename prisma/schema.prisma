@@ -7,43 +7,7 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model VerificationToken {
-  identifier String
-  token      String   @unique
-  expires    DateTime
-
-  @@unique([identifier, token])
-}
-
-model Account {
-  id                 String  @id @default(cuid())
-  userId             String
-  type               String
-  provider           String
-  providerAccountId  String
-  refresh_token      String?
-  access_token       String?
-  oath_token         String?
-  oauth_token_secret String?
-  expires_at         Int?
-  token_type         String?
-  scope              String?
-  id_token           String?
-  session_state      String?
-  user               User    @relation(fields: [userId], references: [id], onDelete: Cascade)
-
-  @@unique([provider, providerAccountId])
-}
-
-model Session {
-  id           String   @id @default(cuid())
-  sessionToken String   @unique
-  expires      DateTime
-  userId       String
-  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
-}
-
-model User {
+model Profile {
   id                 String         @id @default(cuid())
   location           String?
   url                String?
@@ -63,18 +27,16 @@ model User {
   profile_banner_url String?
   pinned_post_id     String?
   role               UserRole       @default(USER)
-  accounts           Account[]
   bookmarks          Bookmark[]
   likes              Like[]
   sent_messages      Message[]      @relation("receiver")
   received_messages  Message[]      @relation("sender")
   reposts            Repost[]
-  sessions           Session[]
   posts              Post[]
   pinned_post        Post?          @relation("pinned_post", fields: [pinned_post_id], references: [id])
   conversations      Conversation[] @relation("ConversationToUser")
-  followers          User[]         @relation("Followers")
-  following          User[]         @relation("Followers")
+  followers          Profile[]      @relation("Followers")
+  following          Profile[]      @relation("Followers")
   feedbacks          Feedback[]
 }
 
@@ -100,12 +62,12 @@ model Post {
   likes                 Like[]
   media                 Media[]
   reposts               Repost[]
-  author                User       @relation(fields: [author_id], references: [id], onDelete: Cascade)
+  author                Profile    @relation(fields: [author_id], references: [id], onDelete: Cascade)
   post_comment          Post?      @relation("post-comment", fields: [in_reply_to_status_id], references: [id])
   comments              Post[]     @relation("post-comment")
   quoted_post           Post?      @relation("quoted_post", fields: [quoted_post_id], references: [id])
   quotes                Post[]     @relation("quoted_post")
-  pinned_by_users       User[]     @relation("pinned_post")
+  pinned_by_users       Profile[]  @relation("pinned_post")
 }
 
 model Media {
@@ -123,7 +85,7 @@ model Like {
   user_id    String
   created_at DateTime @default(now())
   post       Post     @relation(fields: [post_id], references: [id], onDelete: Cascade)
-  user       User     @relation(fields: [user_id], references: [id])
+  user       Profile  @relation(fields: [user_id], references: [id])
 }
 
 model Repost {
@@ -132,7 +94,7 @@ model Repost {
   user_id    String
   created_at DateTime @default(now())
   post       Post     @relation(fields: [post_id], references: [id], onDelete: Cascade)
-  user       User     @relation(fields: [user_id], references: [id])
+  user       Profile  @relation(fields: [user_id], references: [id])
 }
 
 model Bookmark {
@@ -141,7 +103,7 @@ model Bookmark {
   user_id    String
   created_at DateTime @default(now())
   post       Post     @relation(fields: [post_id], references: [id], onDelete: Cascade)
-  user       User     @relation(fields: [user_id], references: [id])
+  user       Profile  @relation(fields: [user_id], references: [id])
 }
 
 model Hashtag {
@@ -164,22 +126,22 @@ model Message {
   conversation_id String
   status          String       @default("sent")
   conversation    Conversation @relation(fields: [conversation_id], references: [id], onDelete: Cascade)
-  receiver        User         @relation("receiver", fields: [receiver_id], references: [id], onDelete: Cascade)
-  sender          User         @relation("sender", fields: [sender_id], references: [id], onDelete: Cascade)
+  receiver        Profile      @relation("receiver", fields: [receiver_id], references: [id], onDelete: Cascade)
+  sender          Profile      @relation("sender", fields: [sender_id], references: [id], onDelete: Cascade)
 }
 
 model Conversation {
   id         String    @id @default(cuid())
   created_at DateTime  @default(now())
   messages   Message[]
-  users      User[]    @relation("ConversationToUser")
+  users      Profile[] @relation("ConversationToUser")
 }
 
 model Feedback {
   id        String   @id @default(cuid())
   message   String
   createdAt DateTime @default(now())
-  user      User     @relation(fields: [userId], references: [id])
+  user      Profile  @relation(fields: [userId], references: [id])
   userId    String
 }
 
