@@ -26,7 +26,7 @@ export async function GET(request: Request) {
     // Fetch additional data for each user
     const response = await fetch(
       process.env.NEXT_PUBLIC_PEABLE_SERVICES_URL +
-        `/api/users${id ? `?id=${id}` : ""}&${limit ? `&limit=${limit}` : ""}`,
+        `/api/users${id ? `?id=${id}` : ""}${limit ? `&limit=${limit}` : ""}`,
       {
         credentials: "include",
       },
