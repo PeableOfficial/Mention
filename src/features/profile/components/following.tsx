@@ -37,7 +37,7 @@ export const Following = ({ id }: { id: string }) => {
       ) : (
         <div>
           {follows?.map((user) => {
-            return <PersonDetails key={user?.id} author={user} />;
+            return <PersonDetails key={user?.id} IUser={user} />;
           })}
         </div>
       )}
