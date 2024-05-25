@@ -1,9 +1,6 @@
-import { signIn } from "next-auth/react";
+import { OxyLogo } from "../assets/oxy-logo";
 
-import { AppleLogo } from "../assets/apple-logo";
-import { GoogleLogo } from "../assets/google-logo";
-
-import { AuthButton } from "./AuthButton";
+import { SignInButton } from "@oxyhq/services";
 import styles from "./styles/register-form.module.scss";
 
 export const RegisterForm = () => {
@@ -15,24 +12,19 @@ export const RegisterForm = () => {
       </p>
 
       <div className={styles.buttons}>
-        <AuthButton
-          onClick={() =>
-            signIn("google", {
-              callbackUrl: "/home",
-            })
-          }
-          icon={<GoogleLogo />}
-          text="Sign up with Google"
-        />
-
-        <AuthButton icon={<AppleLogo />} text="Sign up with Apple" />
-
-        <AuthButton icon={<GoogleLogo />} text="Create account" />
+        <SignInButton icon={<OxyLogo />} text="Sign in with Oxy" />
       </div>
 
       <div className={styles.terms}>
-        By signing up, you agree to the <a href="/">Terms of Service</a> and{" "}
-        <a href="/">Privacy Policy</a>, including <a href="/">Cookie Use</a>.
+        By signing up, you agree to the{" "}
+        <a href="https://oxy.so/company/transparency/policies/terms">
+          Terms of Service
+        </a>{" "}
+        and{" "}
+        <a href="https://oxy.so/company/transparency/policies/privacy">
+          Privacy Policy
+        </a>
+        .
       </div>
     </div>
   );

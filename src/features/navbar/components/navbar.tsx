@@ -63,13 +63,13 @@ export const Navbar = () => {
       )}
 
       {session && (
-        <Tooltip text="Messages" maxWidth={1300}>
+        <Tooltip text={t("navbar.chat.text")} maxWidth={1300}>
           <NavItem
-            href={`/messages`}
-            icon={pathname === `/messages` ? <EnvelopeActive /> : <Envelope />}
-            text={t("navbar.messages.text")}
-            aria-label={t("navbar.messages.label")}
-            isActive={pathname === `/messages`}
+            href={`/chat`}
+            icon={pathname === `/chat` ? <EnvelopeActive /> : <Envelope />}
+            text={t("navbar.chat.text")}
+            aria-label={t("navbar.chat.label")}
+            isActive={pathname === `/chat`}
           />
         </Tooltip>
       )}

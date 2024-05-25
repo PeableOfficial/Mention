@@ -1,6 +1,6 @@
 # CONTRIBUTING
 
-Pull requests are welcome. For major changes, please [open an issue](https://github.com/OxyOfficial/Mention/issues) first to discuss what you would like to change.
+Pull requests are welcome. For major changes, please [open an issue](https://github.com/OxyHQ/Mention/issues) first to discuss what you would like to change.
 
 ## Setup
 
@@ -11,7 +11,7 @@ Pull requests are welcome. For major changes, please [open an issue](https://git
 To keep main branch pointing to remote repository and make pull requests from branches on your fork. To do this, run:
 
 ```bash
-git remote add upstream https://github.com/OxyOfficial/Mention.git
+git remote add upstream https://github.com/OxyHQ/Mention.git
 git fetch upstream
 git branch --set-upstream-to=upstream/main main
 ```

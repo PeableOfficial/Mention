@@ -1,19 +1,34 @@
 export const Envelope = () => {
   return (
-    <svg className="svgIcon" viewBox="0 0 24 24" aria-hidden="true">
-      <g>
-        <path d="M1.998 5.5c0-1.381 1.119-2.5 2.5-2.5h15c1.381 0 2.5 1.119 2.5 2.5v13c0 1.381-1.119 2.5-2.5 2.5h-15c-1.381 0-2.5-1.119-2.5-2.5v-13zm2.5-.5c-.276 0-.5.224-.5.5v2.764l8 3.638 8-3.636V5.5c0-.276-.224-.5-.5-.5h-15zm15.5 5.463l-8 3.636-8-3.638V18.5c0 .276.224.5.5.5h15c.276 0 .5-.224.5-.5v-8.037z"></path>
-      </g>
+    <svg className="svgIcon" viewBox="0 0 26 21" aria-hidden="true">
+      <line
+        fill="none"
+        stroke="currentColor"
+        strokeLinejoin="round"
+        strokeWidth="2"
+        x1="22"
+        x2="9.218"
+        y1="3"
+        y2="10.083"
+      ></line>
+      <polygon
+        fill="none"
+        points="11.698 20.334 22 3.001 2 3.001 9.218 10.084 11.698 20.334"
+        stroke="currentColor"
+        strokeLinejoin="round"
+        strokeWidth="2"
+      ></polygon>
     </svg>
   );
 };
 
 export const EnvelopeActive = () => {
   return (
-    <svg className="svgIcon" viewBox="0 0 24 24" aria-hidden="true">
-      <g>
-        <path d="M1.998 4.499c0-.828.671-1.499 1.5-1.499h17c.828 0 1.5.671 1.5 1.499v2.858l-10 4.545-10-4.547V4.499zm0 5.053V19.5c0 .828.671 1.5 1.5 1.5h17c.828 0 1.5-.672 1.5-1.5V9.554l-10 4.545-10-4.547z"></path>
-      </g>
+    <svg className="svgIcon" viewBox="0 0 26 21" aria-hidden="true">
+      <path
+        d="M22.91 2.388a.69.69 0 0 0-.597-.347l-20.625.002a.687.687 0 0 0-.482 1.178L7.26 9.16a.686.686 0 0 0 .778.128l7.612-3.657a.723.723 0 0 1 .937.248.688.688 0 0 1-.225.932l-7.144 4.52a.69.69 0 0 0-.3.743l2.102 8.692a.687.687 0 0 0 .566.518.655.655 0 0 0 .103.008.686.686 0 0 0 .59-.337L22.903 3.08a.688.688 0 0 0 .007-.692"
+        fillRule="evenodd"
+      ></path>
     </svg>
   );
 };

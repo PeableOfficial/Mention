@@ -6,5 +6,5 @@ const MessagesPage = () => {
 
 export default MessagesPage;
 export const metadata = {
-  title: "Messages",
+  title: "Chat",
 };

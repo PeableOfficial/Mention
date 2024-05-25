@@ -41,9 +41,9 @@
       "text": "Activity",
       "label": "Activity"
     },
-    "messages": {
-      "text": "Messages",
-      "label": "Messages"
+    "chat": {
+      "text": "Chat",
+      "label": "Oxy Chat"
     },
     "bookmarks": {
       "text": "Bookmarks",

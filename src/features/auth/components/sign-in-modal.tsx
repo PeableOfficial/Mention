@@ -1,6 +1,5 @@
 "use client";
 import { motion } from "framer-motion";
-import { signIn } from "next-auth/react";
 import { useState } from "react";
 
 import { CloseIcon } from "@/assets/close-icon";
@@ -9,10 +8,7 @@ import { Button } from "@/components/elements/button";
 import { TextInput } from "@/components/elements/text-input";
 import { Tooltip } from "@/components/elements/tooltip";
 
-import { AppleLogo } from "../assets/apple-logo";
-import { GoogleLogo } from "../assets/google-logo";
-
-import { AuthButton } from "./AuthButton";
+import { SignInButton } from "@oxyhq/services";
 import styles from "./styles/login-form.module.scss";
 
 export const SignInModal = ({ onClose }: { onClose: () => void }) => {
@@ -54,25 +50,7 @@ export const SignInModal = ({ onClose }: { onClose: () => void }) => {
           <h2 className={styles.title}>Sign in to Mention</h2>
 
           <div className={styles.authButtons}>
-            <AuthButton
-              onClick={() => {
-                signIn("google", {
-                  callbackUrl: "/home",
-                });
-              }}
-              icon={<GoogleLogo />}
-              text="Sign in with Google"
-            />
-
-            <AuthButton
-              onClick={() => {
-                signIn("instagram", {
-                  callbackUrl: "/home",
-                });
-              }}
-              icon={<AppleLogo />}
-              text="Sign in with Instagram"
-            />
+            <SignInButton />
           </div>
 
           <div className={styles.divider}>
