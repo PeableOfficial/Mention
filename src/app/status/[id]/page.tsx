@@ -20,9 +20,7 @@ export async function generateMetadata({
     };
 
   return {
-    title: `${post?.author?.name} on Mention: "${decodeURIComponent(
-      post?.text as string,
-    )}"`,
+    title: ` on Mention: "${decodeURIComponent(post?.text as string)}"`,
     description: decodeURIComponent(post?.text as string),
   };
 }

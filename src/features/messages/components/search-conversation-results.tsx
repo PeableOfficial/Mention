@@ -1,4 +1,4 @@
-import { useSession } from "next-auth/react";
+import { useOxySession } from "@oxyhq/services";
 
 import { useGetConversations } from "../hooks/use-get-conversations";
 
@@ -10,7 +10,7 @@ export const SearchConversationResults = ({
 }: {
   searchTerm: string;
 }) => {
-  const { data: session } = useSession();
+  const { session } = useOxySession();
 
   const {
     data: conversations,

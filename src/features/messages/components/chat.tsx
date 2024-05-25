@@ -1,4 +1,4 @@
-import { useSession } from "next-auth/react";
+import { useOxySession } from "@oxyhq/services";
 import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { useInView } from "react-intersection-observer";
 
@@ -29,7 +29,7 @@ export const Chat = ({
   const [scrolledToBottom, setScrolledToBottom] = useState(true);
   const [displayNewMessageToast, setDisplayNewMessageToast] = useState(false);
 
-  const { data: session } = useSession();
+  const { session } = useOxySession();
   const { data: chat, isLoading, isError } = useChat(conversation_id);
 
   useSocketEvents(conversation_id);

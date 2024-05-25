@@ -1,4 +1,4 @@
-import { useSession } from "next-auth/react";
+import { useOxySession } from "@oxyhq/services";
 import { useRouter } from "next/navigation";
 
 import { CommentIcon } from "@/assets/comment-icon";
@@ -23,7 +23,7 @@ export const PostOwnerMenu = ({
   setIsMenuOpen: (value: boolean) => void;
   setIsDeleteModalOpen: (value: boolean) => void;
 }) => {
-  const { data: session } = useSession();
+  const { session } = useOxySession();
   const { data: user } = useUser({ id: session?.user?.id });
   const pinMutation = usePinPost();
   const router = useRouter();
@@ -46,7 +46,7 @@ export const PostOwnerMenu = ({
           onClick={() => {
             pinMutation.mutate({
               postId: post.id,
-              userId: session?.user?.id,
+              userId: session?.user?.id as string,
               action: "unpin",
             });
             setIsMenuOpen(false);
@@ -59,7 +59,7 @@ export const PostOwnerMenu = ({
           onClick={() => {
             pinMutation.mutate({
               postId: post.id,
-              userId: session?.user?.id,
+              userId: session?.user?.id as string,
               action: "pin",
             });
             setIsMenuOpen(false);

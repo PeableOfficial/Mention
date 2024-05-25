@@ -40,10 +40,6 @@ export async function GET(request: Request) {
             author: {
               select: {
                 id: true,
-                name: true,
-                email: true,
-                profile_image_url: true,
-                username: true,
               },
             },
 

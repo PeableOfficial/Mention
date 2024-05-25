@@ -1,5 +1,5 @@
 "use client";
-import { useSession } from "next-auth/react";
+import { useOxySession } from "@oxyhq/services";
 import { useCallback, useLayoutEffect, useRef, useState } from "react";
 
 import { useUser } from "@/features/profile";
@@ -42,7 +42,7 @@ export const CreatePost = ({
   container?: "post" | "modal" | "comment";
   inputId?: string;
 }) => {
-  const { data: session } = useSession();
+  const { session } = useOxySession();
   const { data: user } = useUser({ id: session?.user?.id });
 
   const [text, setText] = useState("");
@@ -73,7 +73,7 @@ export const CreatePost = ({
       <div className={styles.left}>
         <div className={styles.avatar}>
           <LinkToProfile username={user?.username}>
-            <Avatar userImage={session?.user?.profile_image_url} />
+            <Avatar userImage={session?.user?.profile_image_url as string} />
           </LinkToProfile>
         </div>
       </div>
@@ -217,7 +217,7 @@ export const CreatePost = ({
               onClick={() =>
                 mutation.mutate({
                   text: text.trim(),
-                  userId: session?.user?.id,
+                  userId: session?.user?.id as string,
                   files: chosenImages.map((img) => img.file),
                   in_reply_to_username,
                   in_reply_to_status_id,

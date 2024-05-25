@@ -1,7 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { useSession } from "next-auth/react";
+import { useOxySession } from "@oxyhq/services";
 
 import {
   Avatar,
@@ -23,7 +23,7 @@ import styles from "./styles/hamburger-menu.module.scss";
 export const HamburgerMenu = () => {
   const closeHamburger = useHamburger((state) => state.closeHamburger);
 
-  const { data: session } = useSession();
+  const { session } = useOxySession();
   const { data: user } = useUser({ id: session?.user?.id });
 
   return (
@@ -43,7 +43,7 @@ export const HamburgerMenu = () => {
             username={user?.username}
             tabIndex={-1}
           >
-            <Avatar userImage={session?.user?.profile_image_url} />
+            <Avatar userImage={session?.user?.profile_image_url as string} />
           </LinkToProfile>
 
           <Link
@@ -65,7 +65,7 @@ export const HamburgerMenu = () => {
           <UserName
             name={session?.user?.name}
             hover={true}
-            isVerified={session?.user?.isVerified}
+            isVerified={session?.user?.verified}
           />
         </LinkToProfile>
 

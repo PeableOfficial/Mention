@@ -1,5 +1,5 @@
 "use client";
-import { useSession } from "next-auth/react";
+import { useOxySession } from "@oxyhq/services";
 
 import { LoadingSpinner } from "@/components/elements/loading-spinner";
 import { TryAgain } from "@/components/elements/try-again";
@@ -10,7 +10,7 @@ import { NoBookmarks } from "./no-bookmarks";
 import styles from "./styles/bookmarks.module.scss";
 
 export const Bookmarks = () => {
-  const { data: session } = useSession();
+  const { session } = useOxySession();
 
   const {
     data: bookmarks,
@@ -21,7 +21,7 @@ export const Bookmarks = () => {
     fetchNextPage,
     hasNextPage,
   } = usePosts({
-    queryKey: ["bookmarks", session?.user?.id],
+    queryKey: ["bookmarks", session?.user?.id as string],
     type: "bookmarks",
     id: session?.user?.id,
   });
@@ -32,7 +32,7 @@ export const Bookmarks = () => {
         <BookmarksHeader
           hasBookmarks={false}
           username={session?.user?.username}
-          userId={session?.user?.id}
+          userId={session?.user?.id as string}
         />
         <LoadingSpinner />
       </>
@@ -45,7 +45,7 @@ export const Bookmarks = () => {
         <BookmarksHeader
           hasBookmarks={false}
           username={session?.user?.username}
-          userId={session?.user?.id}
+          userId={session?.user?.id as string}
         />
         <TryAgain />
       </>
@@ -59,7 +59,7 @@ export const Bookmarks = () => {
           bookmarks ? bookmarks?.pages[0]?.posts?.length > 0 : false
         }
         username={session?.user?.username}
-        userId={session?.user?.id}
+        userId={session?.user?.id as string}
       />
 
       {isSuccess && bookmarks?.pages[0]?.posts?.length === 0 ? (

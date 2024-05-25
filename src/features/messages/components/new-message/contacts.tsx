@@ -1,4 +1,4 @@
-import { useSession } from "next-auth/react";
+import { useOxySession } from "@oxyhq/services";
 
 import { useGetConversations } from "../../hooks/use-get-conversations";
 
@@ -11,7 +11,7 @@ export const Contacts = ({
   receiverId: string | null;
   setReceiverId: (id: string | null) => void;
 }) => {
-  const { data: session } = useSession();
+  const { session } = useOxySession();
 
   const {
     data: conversations,

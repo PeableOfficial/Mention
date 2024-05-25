@@ -7,46 +7,8 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model VerificationToken {
-  identifier String
-  token      String   @unique
-  expires    DateTime
-
-  @@unique([identifier, token])
-}
-
-model Account {
-  id                 String  @id @default(cuid())
-  userId             String
-  type               String
-  provider           String
-  providerAccountId  String
-  refresh_token      String?
-  access_token       String?
-  oath_token         String?
-  oauth_token_secret String?
-  expires_at         Int?
-  token_type         String?
-  scope              String?
-  id_token           String?
-  session_state      String?
-  user               User    @relation(fields: [userId], references: [id], onDelete: Cascade)
-
-  @@unique([provider, providerAccountId])
-}
-
-model Session {
-  id           String   @id @default(cuid())
-  sessionToken String   @unique
-  expires      DateTime
-  userId       String
-  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
-}
-
-model User {
+model Profile {
   id                 String         @id @default(cuid())
-  name               String
-  username           String         @unique @default(cuid())
   location           String?
   url                String?
   description        String?
@@ -63,52 +25,49 @@ model User {
   favorites_count    Int            @default(0)
   statuses_count     Int            @default(0)
   profile_banner_url String?
-  profile_image_url  String?
-  pinned_post_id    String?
+  pinned_post_id     String?
   role               UserRole       @default(USER)
-  accounts           Account[]
   bookmarks          Bookmark[]
   likes              Like[]
   sent_messages      Message[]      @relation("receiver")
   received_messages  Message[]      @relation("sender")
   reposts            Repost[]
-  sessions           Session[]
   posts              Post[]
   pinned_post        Post?          @relation("pinned_post", fields: [pinned_post_id], references: [id])
   conversations      Conversation[] @relation("ConversationToUser")
-  followers          User[]         @relation("Followers")
-  following          User[]         @relation("Followers")
+  followers          Profile[]      @relation("Followers")
+  following          Profile[]      @relation("Followers")
   feedbacks          Feedback[]
 }
 
 model Post {
-  id                      String     @id @default(cuid())
-  text                    String?
-  source                  String     @default("web")
-  in_reply_to_user_id     String?
-  in_reply_to_username String?
-  is_quote_status         Boolean    @default(false)
-  quoted_status_id        String?
-  quote_count             Int        @default(0)
-  reply_count             Int        @default(0)
-  repost_count           Int        @default(0)
-  favorite_count          Int        @default(0)
-  possibly_sensitive      Boolean    @default(false)
-  lang                    String     @default("en")
-  created_at              DateTime   @default(now())
-  quoted_post_id         String?
-  in_reply_to_status_id   String?
-  author_id               String
-  bookmarks               Bookmark[]
-  likes                   Like[]
-  media                   Media[]
-  reposts                Repost[]
-  author                  User       @relation(fields: [author_id], references: [id], onDelete: Cascade)
-  post_comment           Post?     @relation("post-comment", fields: [in_reply_to_status_id], references: [id])
-  comments                Post[]    @relation("post-comment")
-  quoted_post            Post?     @relation("quoted_post", fields: [quoted_post_id], references: [id])
-  quotes                  Post[]    @relation("quoted_post")
-  pinned_by_users         User[]     @relation("pinned_post")
+  id                    String     @id @default(cuid())
+  text                  String?
+  source                String     @default("web")
+  in_reply_to_user_id   String?
+  in_reply_to_username  String?
+  is_quote_status       Boolean    @default(false)
+  quoted_status_id      String?
+  quote_count           Int        @default(0)
+  reply_count           Int        @default(0)
+  repost_count          Int        @default(0)
+  favorite_count        Int        @default(0)
+  possibly_sensitive    Boolean    @default(false)
+  lang                  String     @default("en")
+  created_at            DateTime   @default(now())
+  quoted_post_id        String?
+  in_reply_to_status_id String?
+  author_id             String
+  bookmarks             Bookmark[]
+  likes                 Like[]
+  media                 Media[]
+  reposts               Repost[]
+  author                Profile    @relation(fields: [author_id], references: [id], onDelete: Cascade)
+  post_comment          Post?      @relation("post-comment", fields: [in_reply_to_status_id], references: [id])
+  comments              Post[]     @relation("post-comment")
+  quoted_post           Post?      @relation("quoted_post", fields: [quoted_post_id], references: [id])
+  quotes                Post[]     @relation("quoted_post")
+  pinned_by_users       Profile[]  @relation("pinned_post")
 }
 
 model Media {
@@ -116,35 +75,35 @@ model Media {
   media_url  String
   media_type String
   media_path String
-  post_id   String?
-  post      Post?  @relation(fields: [post_id], references: [id], onDelete: Cascade)
+  post_id    String?
+  post       Post?   @relation(fields: [post_id], references: [id], onDelete: Cascade)
 }
 
 model Like {
   id         String   @id @default(cuid())
-  post_id   String
+  post_id    String
   user_id    String
   created_at DateTime @default(now())
-  post      Post    @relation(fields: [post_id], references: [id], onDelete: Cascade)
-  user       User     @relation(fields: [user_id], references: [id])
+  post       Post     @relation(fields: [post_id], references: [id], onDelete: Cascade)
+  user       Profile  @relation(fields: [user_id], references: [id])
 }
 
 model Repost {
   id         String   @id @default(cuid())
-  post_id   String
+  post_id    String
   user_id    String
   created_at DateTime @default(now())
-  post      Post    @relation(fields: [post_id], references: [id], onDelete: Cascade)
-  user       User     @relation(fields: [user_id], references: [id])
+  post       Post     @relation(fields: [post_id], references: [id], onDelete: Cascade)
+  user       Profile  @relation(fields: [user_id], references: [id])
 }
 
 model Bookmark {
   id         String   @id @default(cuid())
-  post_id   String
+  post_id    String
   user_id    String
   created_at DateTime @default(now())
-  post      Post    @relation(fields: [post_id], references: [id], onDelete: Cascade)
-  user       User     @relation(fields: [user_id], references: [id])
+  post       Post     @relation(fields: [post_id], references: [id], onDelete: Cascade)
+  user       Profile  @relation(fields: [user_id], references: [id])
 }
 
 model Hashtag {
@@ -167,23 +126,23 @@ model Message {
   conversation_id String
   status          String       @default("sent")
   conversation    Conversation @relation(fields: [conversation_id], references: [id], onDelete: Cascade)
-  receiver        User         @relation("receiver", fields: [receiver_id], references: [id], onDelete: Cascade)
-  sender          User         @relation("sender", fields: [sender_id], references: [id], onDelete: Cascade)
+  receiver        Profile      @relation("receiver", fields: [receiver_id], references: [id], onDelete: Cascade)
+  sender          Profile      @relation("sender", fields: [sender_id], references: [id], onDelete: Cascade)
 }
 
 model Conversation {
   id         String    @id @default(cuid())
   created_at DateTime  @default(now())
   messages   Message[]
-  users      User[]    @relation("ConversationToUser")
+  users      Profile[] @relation("ConversationToUser")
 }
 
 model Feedback {
-  id         String   @id @default(cuid())
-  message    String
-  createdAt  DateTime @default(now())
-  user       User     @relation(fields: [userId], references: [id])
-  userId     String
+  id        String   @id @default(cuid())
+  message   String
+  createdAt DateTime @default(now())
+  user      Profile  @relation(fields: [userId], references: [id])
+  userId    String
 }
 
 enum UserRole {

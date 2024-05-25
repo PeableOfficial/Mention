@@ -3,6 +3,14 @@ import { z } from "zod";
 
 import { prisma } from "@/lib/prisma";
 
+interface User {
+  id: string;
+  name: string;
+  username: string;
+  email: string;
+  [key: string]: any; // for any other properties that might be present
+}
+
 export async function GET(
   request: Request,
   context: {
@@ -21,19 +29,20 @@ export async function GET(
   }
 
   try {
-    const user = await prisma.user.findUnique({
+    const response = await fetch(
+      process.env.NEXT_PUBLIC_OXY_SERVICES_URL + `/api/users/${id}`,
+    );
+    const data = await response.text();
+
+    const parsedData: User = JSON.parse(data) as User;
+    const { id: fetchedId, name, username, email } = parsedData;
+    const user = await prisma.profile.findUnique({
       where: {
-        id,
+        id: id,
       },
 
       select: {
-        id: true,
-        name: true,
-        username: true,
-        email: true,
-        profile_image_url: true,
         profile_banner_url: true,
-
         color: true,
         created_at: true,
         description: true,
@@ -52,7 +61,16 @@ export async function GET(
       },
     });
 
-    return NextResponse.json(user, { status: 200 });
+    return NextResponse.json(
+      {
+        id,
+        name,
+        username,
+        email,
+        ...user,
+      },
+      { status: 200 },
+    );
   } catch (error: any) {
     return NextResponse.json(error.message, { status: 500 });
   }
@@ -108,18 +126,15 @@ export async function PUT(request: Request) {
   }
 
   try {
-    const user = await prisma.user.update({
+    const user = await prisma.profile.update({
       where: {
         id: user_id,
       },
       data: {
-        name,
-        username,
         description,
         location,
         url,
         profile_banner_url,
-        profile_image_url,
       },
     });
 

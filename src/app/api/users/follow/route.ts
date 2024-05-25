@@ -17,7 +17,7 @@ export async function GET(request: Request) {
 
   try {
     if (type === "followers") {
-      const followers = await prisma.user
+      const followers = await prisma.profile
         .findUnique({
           where: {
             id: user_id,
@@ -26,7 +26,7 @@ export async function GET(request: Request) {
         .followers();
       return NextResponse.json(followers, { status: 200 });
     } else if (type === "following") {
-      const following = await prisma.user
+      const following = await prisma.profile
         .findUnique({
           where: {
             id: user_id,
@@ -61,7 +61,7 @@ export async function PUT(request: Request) {
   }
 
   try {
-    await prisma.user.update({
+    await prisma.profile.update({
       where: {
         id: user_id,
       },
@@ -108,7 +108,7 @@ export async function DELETE(request: Request) {
   }
 
   try {
-    await prisma.user.update({
+    await prisma.profile.update({
       where: {
         id: user_id,
       },

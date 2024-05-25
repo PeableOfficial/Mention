@@ -1,6 +1,6 @@
 "use client";
 import { AnimatePresence } from "framer-motion";
-import { useSession } from "next-auth/react";
+import { useOxySession } from "@oxyhq/services";
 import { useState } from "react";
 import { useLocale } from "@/app/LocaleContext";
 
@@ -23,8 +23,8 @@ export const FollowButton = ({
   isFollowing?: boolean;
 }) => {
   const { t } = useLocale();
-  const { data: session } = useSession();
 
+  const { session } = useOxySession();
   const setJoinMentionData = useJoinMention((state) => state.setData);
 
   const [isModalOpen, setIsModalOpen] = useState(false);

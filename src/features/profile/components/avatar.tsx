@@ -4,7 +4,7 @@ import React from "react";
 import { cn } from "@/utils/cn";
 
 interface IAvatar extends React.ImgHTMLAttributes<HTMLImageElement> {
-  userImage: string | null;
+  userImage: string | null | undefined;
   className?: string;
   width?: number;
   height?: number;
@@ -20,7 +20,7 @@ export const Avatar = ({ userImage, className, ...props }: IAvatar) => {
     >
       <Image
         {...props}
-        src={userImage || `/avatar.svg`}
+        src={userImage || `/user_placeholder.png`}
         alt="profile picture"
         fill={true}
         className="block size-full object-cover"

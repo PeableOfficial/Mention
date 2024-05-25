@@ -15,26 +15,6 @@ export async function GET(request: Request) {
   }
 
   try {
-    const people = await prisma.user.findMany({
-      where: {
-        OR: [
-          {
-            username: {
-              contains: query,
-              mode: "insensitive",
-            },
-          },
-
-          {
-            name: {
-              contains: query,
-              mode: "insensitive",
-            },
-          },
-        ],
-      },
-    });
-
     const hashtags = await prisma.hashtag.findMany({
       where: {
         text: {
@@ -44,7 +24,7 @@ export async function GET(request: Request) {
       },
     });
 
-    return NextResponse.json({ people, hashtags }, { status: 200 });
+    return NextResponse.json({ hashtags }, { status: 200 });
   } catch (error: any) {
     return NextResponse.json({ error: error.message }, { status: 500 });
   }

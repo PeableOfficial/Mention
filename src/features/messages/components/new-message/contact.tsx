@@ -1,4 +1,4 @@
-import { useSession } from "next-auth/react";
+import { useOxySession } from "@oxyhq/services";
 
 import { TickIcon } from "@/assets/tick-svg";
 import { Avatar, IUser } from "@/features/profile";
@@ -16,7 +16,7 @@ export const Contact = ({
   receiverId: string | null;
   setReceiverId: (id: string | null) => void;
 }) => {
-  const { data: session } = useSession();
+  const { session } = useOxySession();
 
   return (
     <button

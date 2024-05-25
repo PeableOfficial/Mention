@@ -1,6 +1,6 @@
 "use client";
 import { AnimatePresence } from "framer-motion";
-import { useSession } from "next-auth/react";
+import { useOxySession } from "@oxyhq/services";
 import { useRef, useState } from "react";
 
 import { useUser } from "@/features/profile";
@@ -15,7 +15,7 @@ import { Avatar, UserName, UserUsername } from "@/features/profile";
 import { SessionOwnerModal } from "./session-owner-modal";
 
 export const SessionOwnerButton = () => {
-  const { data: session } = useSession();
+  const { session } = useOxySession();
   const { data: user } = useUser({ id: session?.user?.id });
   const [isModalOpen, setIsModalOpen] = useState(false);
   const buttonRef = useRef<HTMLButtonElement>(null);
@@ -35,8 +35,8 @@ export const SessionOwnerButton = () => {
           aria-expanded={isModalOpen}
           className="p-[0.75em] hover:bg-neutral-500 focus-visible:bg-neutral-500 focus-visible:outline-secondary-100 active:bg-neutral-600 xxl:flex xxl:w-full xxl:gap-3"
         >
-          <Avatar userImage={session?.user?.profile_image_url} />
-          <div className="hidden flex-col xxl:flex">
+          <Avatar userImage={session?.user?.profile_image_url as string} />
+          <div className="hidden flex-1 flex-col xxl:flex">
             <UserName
               name={session?.user?.name}
               isVerified={session?.user?.verified}

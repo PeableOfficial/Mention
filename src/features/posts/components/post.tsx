@@ -35,7 +35,9 @@ export const Post = ({ post, pinned }: { post: IPost; pinned?: boolean }) => {
             key={i}
             onClick={(e) => e.stopPropagation()}
           >
-            <span className="text-[var(--clr-primary)] hover:underline">{part}</span>
+            <span className="text-[var(--clr-primary)] hover:underline">
+              {part}
+            </span>
           </Link>
         );
       }
@@ -89,10 +91,7 @@ export const Post = ({ post, pinned }: { post: IPost; pinned?: boolean }) => {
 
             <div className={styles.username_time}>
               <UserModalWrapper userId={post?.author?.id} delay={500}>
-                <LinkToProfile
-                  username={post?.author?.username}
-                  tabIndex={-1}
-                >
+                <LinkToProfile username={post?.author?.username} tabIndex={-1}>
                   <EllipsisWrapper>
                     <UserUsername username={post?.author?.username} />
                   </EllipsisWrapper>

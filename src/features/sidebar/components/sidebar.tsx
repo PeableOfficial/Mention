@@ -1,5 +1,5 @@
 "use client";
-import { useSession } from "next-auth/react";
+import { useOxySession } from "@oxyhq/services";
 
 import { SessionOwnerButton } from "@/features/auth";
 import { PostButton } from "@/features/create-post";
@@ -9,7 +9,7 @@ import { Logo } from "./logo";
 import styles from "./styles/sidebar.module.scss";
 
 export const Sidebar = () => {
-  const { data: session } = useSession();
+  const { session } = useOxySession();
 
   return (
     <header className={styles.container}>

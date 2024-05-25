@@ -1,6 +1,6 @@
 "use client";
 import { AnimatePresence } from "framer-motion";
-import { useSession } from "next-auth/react";
+import { useOxySession } from "@oxyhq/services";
 import { useRef, useState } from "react";
 
 import { RepostIcon } from "@/assets/repost-icon";
@@ -22,7 +22,7 @@ export const RepostButton = ({
   post: IPost;
   showStats: boolean;
 }) => {
-  const { data: session } = useSession();
+  const { session } = useOxySession();
   const hasReposted = post?.reposts?.some(
     (repost) => repost?.user_id === session?.user?.id,
   );
@@ -83,7 +83,7 @@ export const RepostButton = ({
                 onClick={() => {
                   repostMutation.mutate({
                     postId: post?.id,
-                    userId: session?.user?.id,
+                    userId: session?.user?.id as string,
                   });
                 }}
               >

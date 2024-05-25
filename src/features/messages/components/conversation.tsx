@@ -1,6 +1,6 @@
 "use client";
 import { usePathname } from "next/navigation";
-import { useSession } from "next-auth/react";
+import { useOxySession } from "@oxyhq/services";
 import { useEffect } from "react";
 import { useInView } from "react-intersection-observer";
 
@@ -18,7 +18,7 @@ import { MessageInput } from "./message-input";
 import styles from "./styles/conversation.module.scss";
 
 export const Conversation = () => {
-  const { data: session } = useSession();
+  const { session } = useOxySession();
   const { ref, inView } = useInView();
 
   const pathname = usePathname();
@@ -73,7 +73,7 @@ export const Conversation = () => {
 
       <MessageInput
         conversation_id={conversation?.id}
-        sender_id={session?.user?.id}
+        sender_id={session?.user?.id as string}
         receiver_id={conversationMember?.id}
       />
     </div>

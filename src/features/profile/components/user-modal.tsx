@@ -3,7 +3,7 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 "use client";
 import Image from "next/image";
-import { useSession } from "next-auth/react";
+import { useOxySession } from "@oxyhq/services";
 import { forwardRef } from "react";
 import Link from "next/link";
 import { EllipsisWrapper } from "@/components/elements/ellipsis-wrapper";
@@ -17,12 +17,12 @@ import { following } from "../utils/following";
 
 export const UserModal = forwardRef<HTMLDivElement, { userId: string }>(
   ({ userId }, ref) => {
-    const { data: session } = useSession();
+    const { session } = useOxySession();
     const { data: user, isPending, isError } = useUser({ id: userId });
 
     const isFollowing = following({
       user,
-      session_owner_id: session?.user?.id,
+      session_owner_id: session?.user?.id as string,
     });
 
     const stats = [
@@ -71,7 +71,9 @@ export const UserModal = forwardRef<HTMLDivElement, { userId: string }>(
                       <div className="mb-10">
                         <Image
                           className="bg-main-background absolute size-[74px] -translate-y-1/2 rounded-full border-[0.25rem] border-[var(--clr-background)] object-cover hover:brightness-100  [&:hover>figure>span]:brightness-75 [&>figure>span]:[transition:200ms]"
-                          src={user?.profile_image_url || "/avatar.svg"}
+                          src={
+                            user?.profile_image_url || "/user_placeholder.png"
+                          }
                           alt={user?.name}
                           width={74}
                           height={74}
@@ -80,7 +82,7 @@ export const UserModal = forwardRef<HTMLDivElement, { userId: string }>(
                       {session?.user?.id !== user?.id && (
                         <FollowButton
                           user_id={user?.id}
-                          session_owner_id={session?.user?.id}
+                          session_owner_id={session?.user?.id as string}
                           isFollowing={isFollowing}
                           username={user?.username}
                         />

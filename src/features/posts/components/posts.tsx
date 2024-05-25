@@ -1,5 +1,5 @@
 "use client";
-import { useSession } from "next-auth/react";
+import { useOxySession } from "@oxyhq/services";
 
 import { LoadingSpinner } from "@/components/elements/loading-spinner";
 import { TryAgain } from "@/components/elements/try-again";
@@ -11,7 +11,7 @@ import { usePosts } from "../hooks/use-posts";
 import { InfinitePosts } from "./infinite-posts";
 
 export const Posts = () => {
-  const { data: session } = useSession();
+  const { session } = useOxySession();
   const {
     data: posts,
     isLoading,
@@ -21,7 +21,7 @@ export const Posts = () => {
     fetchNextPage,
     hasNextPage,
   } = usePosts({
-    queryKey: ["posts", session?.user?.id],
+    queryKey: ["posts", session?.user?.id as string],
     type: "default",
     id: session?.user?.id,
   });

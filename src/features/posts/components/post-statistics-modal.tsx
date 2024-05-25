@@ -67,9 +67,9 @@ export const PostStatisticsModal = ({
         <TryAgain />
       ) : (
         <div className={styles.people}>
-          {authors?.map((author: IUser) => {
-            return <PersonDetails key={author?.id} author={author} />;
-          })}
+          {authors?.map((author: IUser) => (
+            <PersonDetails key={author?.id} IUser={author} />
+          ))}
         </div>
       )}
     </motion.div>

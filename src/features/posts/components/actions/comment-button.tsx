@@ -1,5 +1,5 @@
 "use client";
-import { useSession } from "next-auth/react";
+import { useOxySession } from "@oxyhq/services";
 
 import { CommentIcon } from "@/assets/comment-icon";
 import { useJoinMention } from "@/features/auth";
@@ -16,7 +16,7 @@ export const CommentButton = ({
   post: IPost;
   showStats: boolean;
 }) => {
-  const { data: session } = useSession();
+  const { session } = useOxySession();
 
   const setData = useCreatePostModal((state) => state.setData);
   const setJoinMentionData = useJoinMention((state) => state.setData);

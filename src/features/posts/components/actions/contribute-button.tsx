@@ -15,8 +15,7 @@ export const ContributeButton = () => {
   const buttonRef = useRef<HTMLButtonElement>(null);
   const FairWalletToast = () =>
     toast("FairWallet, feature still under development");
-  const PeablePayToast = () =>
-    toast("Peable Pay, feature still under development");
+  const OxyPayToast = () => toast("Oxy Pay, feature still under development");
 
   return (
     <div className={styles.container}>
@@ -65,10 +64,10 @@ export const ContributeButton = () => {
               <MenuItem
                 onClick={() => {
                   setIsModalOpen(false);
-                  PeablePayToast();
+                  OxyPayToast();
                 }}
               >
-                <ContributeIcon /> Use Peable Pay
+                <ContributeIcon /> Use Oxy Pay
               </MenuItem>
             </Menu>
           </Modal>

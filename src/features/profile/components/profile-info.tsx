@@ -1,7 +1,7 @@
 "use client";
 import { AnimatePresence } from "framer-motion";
 import Image from "next/image";
-import { useSession } from "next-auth/react";
+import { useOxySession } from "@oxyhq/services";
 import { useState } from "react";
 
 import { DotIcon } from "@/assets/dot-icon";
@@ -22,7 +22,7 @@ import styles from "./styles/user-info.module.scss";
 import { UserJoinDate } from "./user-join-date";
 
 export const ProfileInfo = ({ user }: { user: IUser; id: string }) => {
-  const { data: session } = useSession();
+  const { session } = useOxySession();
 
   const [isEditProfileModalOpen, setIsEditProfileModalOpen] = useState(false);
 
@@ -34,7 +34,7 @@ export const ProfileInfo = ({ user }: { user: IUser; id: string }) => {
 
   const isFollowing = following({
     user: user,
-    session_owner_id: session?.user?.id,
+    session_owner_id: session?.user?.id as string,
   });
 
   return (
@@ -76,7 +76,7 @@ export const ProfileInfo = ({ user }: { user: IUser; id: string }) => {
             }}
           >
             <Image
-              src={user?.profile_image_url || "/avatar.svg"}
+              src={user?.profile_image_url || "/user_placeholder.png"}
               alt="avatar"
               draggable={true}
               fill={true}
@@ -129,7 +129,7 @@ export const ProfileInfo = ({ user }: { user: IUser; id: string }) => {
 
               <FollowButton
                 user_id={user?.id}
-                session_owner_id={session?.user?.id}
+                session_owner_id={session?.user?.id as string}
                 isFollowing={isFollowing}
                 username={user?.username}
               />

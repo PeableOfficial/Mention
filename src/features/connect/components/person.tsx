@@ -1,5 +1,5 @@
 import { useRouter } from "next/navigation";
-import { useSession } from "next-auth/react";
+import { useOxySession } from "@oxyhq/services";
 
 import { EllipsisWrapper } from "@/components/elements/ellipsis-wrapper";
 import { FollowButton } from "@/components/elements/follow-button";
@@ -16,12 +16,12 @@ import {
 import styles from "./styles/person.module.scss";
 
 export const Person = ({ person }: { person: IUser }) => {
-  const { data: session } = useSession();
+  const { session } = useOxySession();
   const router = useRouter();
 
   const isFollowing = following({
     user: person,
-    session_owner_id: session?.user?.id,
+    session_owner_id: session?.user?.id as string,
   });
 
   return (
@@ -65,7 +65,7 @@ export const Person = ({ person }: { person: IUser }) => {
       <div className={styles.follow}>
         <FollowButton
           user_id={person?.id}
-          session_owner_id={session?.user?.id}
+          session_owner_id={session?.user?.id as string}
           isFollowing={isFollowing}
           username={person?.username}
         />

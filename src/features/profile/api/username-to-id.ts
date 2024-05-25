@@ -1,15 +1,14 @@
-import { prisma } from "@/lib/prisma";
+interface UserData {
+  id: string;
+}
 
 export const getUsernameToId = async ({ username }: { username: string }) => {
   try {
-    const userData = await prisma.user.findUnique({
-      where: {
-        username: username,
-      },
-      select: {
-        id: true,
-      },
-    });
+    const response = await fetch(
+      process.env.NEXT_PUBLIC_OXY_SERVICES_URL +
+        `/api/users/username-to-id/${username}`,
+    );
+    const userData = (await response.json()) as UserData;
 
     return userData?.id || null;
   } catch (error) {
