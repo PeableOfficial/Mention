@@ -1,5 +1,5 @@
 "use client";
-import { usePeableSession } from "@peable/services";
+import { useOxySession } from "@oxyhq/services";
 
 import { LoadingSpinner } from "@/components/elements/loading-spinner";
 import { TryAgain } from "@/components/elements/try-again";
@@ -11,7 +11,7 @@ import { usePosts } from "../hooks/use-posts";
 import { InfinitePosts } from "./infinite-posts";
 
 export const Posts = () => {
-  const { session } = usePeableSession();
+  const { session } = useOxySession();
   const {
     data: posts,
     isLoading,

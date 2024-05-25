@@ -1,6 +1,6 @@
 "use client";
 import { usePathname } from "next/navigation";
-import { usePeableSession } from "@peable/services";
+import { useOxySession } from "@oxyhq/services";
 
 import { Button } from "@/components/elements/button";
 import { Tooltip } from "@/components/elements/tooltip";
@@ -9,7 +9,7 @@ import { useCreatePostModal } from "@/stores/use-create-post-modal";
 import { PenIcon } from "../assets/pen-icon";
 
 export const MobilePostButton = () => {
-  const { session } = usePeableSession();
+  const { session } = useOxySession();
   const openModal = useCreatePostModal((state) => state.openModal);
   const pathname = usePathname();
   const path = pathname.split("/")[1];

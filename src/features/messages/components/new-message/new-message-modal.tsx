@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { usePeableSession } from "@peable/services";
+import { useOxySession } from "@oxyhq/services";
 import { useState } from "react";
 
 import { useCreateConversation } from "../../hooks/use-create-conversation";
@@ -16,7 +16,7 @@ export const NewMessageModal = () => {
   const [receiverId, setReceiverId] = useState<string | null>(null);
 
   const closeModal = useNewMessageStore((state) => state.closeModal);
-  const { session } = usePeableSession();
+  const { session } = useOxySession();
   const mutation = useCreateConversation();
 
   return (

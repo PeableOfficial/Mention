@@ -1,7 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { usePeableSession } from "@peable/services";
+import { useOxySession } from "@oxyhq/services";
 
 import {
   Avatar,
@@ -23,7 +23,7 @@ import styles from "./styles/hamburger-menu.module.scss";
 export const HamburgerMenu = () => {
   const closeHamburger = useHamburger((state) => state.closeHamburger);
 
-  const { session } = usePeableSession();
+  const { session } = useOxySession();
   const { data: user } = useUser({ id: session?.user?.id });
 
   return (

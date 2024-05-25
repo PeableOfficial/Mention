@@ -147,7 +147,7 @@ export async function GET(request: Request) {
 
     const authorIds = posts.map((post) => post.author.id);
     const authorData: AuthorData[] = await fetch(
-      process.env.NEXT_PUBLIC_PEABLE_SERVICES_URL +
+      process.env.NEXT_PUBLIC_OXY_SERVICES_URL +
         `/api/users?ids=${authorIds.join(",")}`,
     )
       .then((response) => response.json() as Promise<AuthorData[]>)

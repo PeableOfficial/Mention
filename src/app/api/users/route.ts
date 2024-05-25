@@ -25,11 +25,8 @@ export async function GET(request: Request) {
   try {
     // Fetch additional data for each user
     const response = await fetch(
-      process.env.NEXT_PUBLIC_PEABLE_SERVICES_URL +
+      process.env.NEXT_PUBLIC_OXY_SERVICES_URL +
         `/api/users${id ? `?id=${id}` : ""}${limit ? `&limit=${limit}` : ""}`,
-      {
-        credentials: "include",
-      },
     );
     const data = await response.text();
     const parsedData: User[] = JSON.parse(data) as User[];

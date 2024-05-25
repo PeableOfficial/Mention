@@ -1,6 +1,6 @@
 "use client";
 import { AnimatePresence } from "framer-motion";
-import { usePeableSession } from "@peable/services";
+import { useOxySession } from "@oxyhq/services";
 import { useRef, useState } from "react";
 
 import { DotIcon } from "@/assets/dot-icon";
@@ -15,7 +15,7 @@ import { PostVisitorMenu } from "./post-visitor-menu";
 import styles from "./styles/post-options.module.scss";
 
 export const PostOptions = ({ post }: { post: IPost }) => {
-  const { session } = usePeableSession();
+  const { session } = useOxySession();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
   const buttonRef = useRef<HTMLButtonElement>(null);

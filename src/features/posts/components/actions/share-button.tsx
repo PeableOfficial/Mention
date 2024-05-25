@@ -1,6 +1,6 @@
 "use client";
 import { AnimatePresence } from "framer-motion";
-import { usePeableSession } from "@peable/services";
+import { useOxySession } from "@oxyhq/services";
 import { useRef, useState } from "react";
 import { toast } from "sonner";
 
@@ -23,7 +23,7 @@ import styles from "./styles/actions.module.scss";
 
 export const ShareButton = ({ post }: { post: IPost }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const { session } = usePeableSession();
+  const { session } = useOxySession();
   const buttonRef = useRef<HTMLButtonElement>(null);
 
   const url = `${BASE_URL}/status/${post?.id}`;

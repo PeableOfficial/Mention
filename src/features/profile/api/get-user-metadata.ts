@@ -20,8 +20,7 @@ export const getUserMetadata = async ({
 }) => {
   try {
     const response = await axios.get(
-      process.env.NEXT_PUBLIC_PEABLE_SERVICES_URL + `/api/users/${user_id}`,
-      { withCredentials: true },
+      process.env.NEXT_PUBLIC_OXY_SERVICES_URL + `/api/users/${user_id}`,
     );
     const {
       id: fetchedId,

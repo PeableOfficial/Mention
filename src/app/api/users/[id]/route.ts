@@ -30,10 +30,7 @@ export async function GET(
 
   try {
     const response = await fetch(
-      process.env.NEXT_PUBLIC_PEABLE_SERVICES_URL + `/api/users/${id}`,
-      {
-        credentials: "include",
-      },
+      process.env.NEXT_PUBLIC_OXY_SERVICES_URL + `/api/users/${id}`,
     );
     const data = await response.text();
 

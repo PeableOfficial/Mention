@@ -1,5 +1,5 @@
 import { usePathname } from "next/navigation";
-import { usePeableSession } from "@peable/services";
+import { useOxySession } from "@oxyhq/services";
 
 import { useUser } from "@/features/profile";
 
@@ -20,7 +20,7 @@ export const Navbar = () => {
   const { t } = useLocale();
   const pathname = usePathname();
   const path = pathname?.split("/")[1];
-  const { session } = usePeableSession();
+  const { session } = useOxySession();
   const { data: user } = useUser({ id: session?.user?.id });
 
   return (

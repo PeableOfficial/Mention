@@ -1,7 +1,7 @@
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
-import { usePeableSession } from "@peable/services";
+import { useOxySession } from "@oxyhq/services";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
@@ -17,7 +17,7 @@ const usernameSchema = z.object({
 });
 
 export const ChangeUsername = () => {
-  const { session } = usePeableSession();
+  const { session } = useOxySession();
 
   type UsernameSchema = z.infer<typeof usernameSchema>;
 

@@ -1,13 +1,13 @@
 "use client";
 import Link from "next/link";
-import { usePeableSession } from "@peable/services";
+import { useOxySession } from "@oxyhq/services";
 
 import { LoadingScreen } from "@/components/elements/loading-screen";
 
 import styles from "./styles/auth-modal-trigger.module.scss";
 
 export const AuthModalTrigger = () => {
-  const { session, status } = usePeableSession();
+  const { session, status } = useOxySession();
 
   if (status === "loading") return <LoadingScreen />;
 

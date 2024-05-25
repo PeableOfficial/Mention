@@ -1,4 +1,4 @@
-import { usePeableSession } from "@peable/services";
+import { useOxySession } from "@oxyhq/services";
 import { useRouter } from "next/navigation";
 
 import { CommentIcon } from "@/assets/comment-icon";
@@ -23,7 +23,7 @@ export const PostOwnerMenu = ({
   setIsMenuOpen: (value: boolean) => void;
   setIsDeleteModalOpen: (value: boolean) => void;
 }) => {
-  const { session } = usePeableSession();
+  const { session } = useOxySession();
   const { data: user } = useUser({ id: session?.user?.id });
   const pinMutation = usePinPost();
   const router = useRouter();

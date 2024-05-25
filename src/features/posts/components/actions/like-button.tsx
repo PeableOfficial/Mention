@@ -1,6 +1,6 @@
 "use client";
 import { useState, useEffect, useMemo } from "react";
-import { usePeableSession } from "@peable/services";
+import { useOxySession } from "@oxyhq/services";
 
 import { HeartIcon, HeartIconActive } from "@/assets/heart-icon";
 import { useJoinMention } from "@/features/auth";
@@ -22,7 +22,7 @@ export const LikeButton = ({
   smallIcons = true,
   showStats = false,
 }: LikeButtonProps) => {
-  const { session } = usePeableSession();
+  const { session } = useOxySession();
   const hasLiked = post?.likes?.some(
     (like) => like.user_id === session?.user?.id,
   );

@@ -1,4 +1,4 @@
-import { usePeableSession } from "@peable/services";
+import { useOxySession } from "@oxyhq/services";
 
 import { useGetConversations } from "../hooks/use-get-conversations";
 
@@ -10,7 +10,7 @@ export const SearchConversationResults = ({
 }: {
   searchTerm: string;
 }) => {
-  const { session } = usePeableSession();
+  const { session } = useOxySession();
 
   const {
     data: conversations,

@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { usePeableSession } from "@peable/services";
+import { useOxySession } from "@oxyhq/services";
 
 import { getUsers } from "../api/get-users";
 import { IUser } from "../types";
@@ -11,7 +11,7 @@ export const useUsers = ({
   queryKey: string[];
   limit?: number;
 }) => {
-  const { session, status } = usePeableSession();
+  const { session, status } = useOxySession();
 
   return useQuery<IUser[]>({
     queryKey,

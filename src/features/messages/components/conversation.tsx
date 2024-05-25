@@ -1,6 +1,6 @@
 "use client";
 import { usePathname } from "next/navigation";
-import { usePeableSession } from "@peable/services";
+import { useOxySession } from "@oxyhq/services";
 import { useEffect } from "react";
 import { useInView } from "react-intersection-observer";
 
@@ -18,7 +18,7 @@ import { MessageInput } from "./message-input";
 import styles from "./styles/conversation.module.scss";
 
 export const Conversation = () => {
-  const { session } = usePeableSession();
+  const { session } = useOxySession();
   const { ref, inView } = useInView();
 
   const pathname = usePathname();

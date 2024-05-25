@@ -5,7 +5,7 @@ import { prisma } from "@/lib/prisma";
 // Placeholder for your actual API call
 async function getAuthorFromAPI(author_id: string) {
   const response = await fetch(
-    process.env.NEXT_PUBLIC_PEABLE_SERVICES_URL + `/api/users/${author_id}`,
+    process.env.NEXT_PUBLIC_OXY_SERVICES_URL + `/api/users/${author_id}`,
   );
   const data = await response.json();
   return data;

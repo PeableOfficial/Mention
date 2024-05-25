@@ -1,6 +1,6 @@
 import { AnimatePresence } from "framer-motion";
 import { useRouter } from "next/navigation";
-import { usePeableSession } from "@peable/services";
+import { useOxySession } from "@oxyhq/services";
 import { useRef, useState } from "react";
 
 import { DotIcon } from "@/assets/dot-icon";
@@ -29,7 +29,7 @@ export const ConversationCard = ({
 }: {
   conversation: IConversation;
 }) => {
-  const { session } = usePeableSession();
+  const { session } = useOxySession();
   const router = useRouter();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const buttonRef = useRef<HTMLButtonElement>(null);

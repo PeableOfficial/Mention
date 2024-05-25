@@ -1,5 +1,5 @@
 "use client";
-import { usePeableSession } from "@peable/services";
+import { useOxySession } from "@oxyhq/services";
 
 import { LoadingSpinner } from "@/components/elements/loading-spinner";
 import { TryAgain } from "@/components/elements/try-again";
@@ -10,7 +10,7 @@ import { NoBookmarks } from "./no-bookmarks";
 import styles from "./styles/bookmarks.module.scss";
 
 export const Bookmarks = () => {
-  const { session } = usePeableSession();
+  const { session } = useOxySession();
 
   const {
     data: bookmarks,

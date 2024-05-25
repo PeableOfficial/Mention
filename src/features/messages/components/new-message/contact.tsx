@@ -1,4 +1,4 @@
-import { usePeableSession } from "@peable/services";
+import { useOxySession } from "@oxyhq/services";
 
 import { TickIcon } from "@/assets/tick-svg";
 import { Avatar, IUser } from "@/features/profile";
@@ -16,7 +16,7 @@ export const Contact = ({
   receiverId: string | null;
   setReceiverId: (id: string | null) => void;
 }) => {
-  const { session } = usePeableSession();
+  const { session } = useOxySession();
 
   return (
     <button

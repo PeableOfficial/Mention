@@ -1,7 +1,7 @@
 import { useQueryClient } from "@tanstack/react-query";
 import dayjs from "dayjs";
 import Image from "next/image";
-import { usePeableSession } from "@peable/services";
+import { useOxySession } from "@oxyhq/services";
 
 import { socket } from "@/lib/socket-io";
 
@@ -16,7 +16,7 @@ export const Message = ({
   message: IMessage;
   show_status: boolean;
 }) => {
-  const { session } = usePeableSession();
+  const { session } = useOxySession();
   const isSender = session?.user?.id === message.sender_id;
 
   const queryClient = useQueryClient();

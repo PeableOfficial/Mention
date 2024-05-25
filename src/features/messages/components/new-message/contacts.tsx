@@ -1,4 +1,4 @@
-import { usePeableSession } from "@peable/services";
+import { useOxySession } from "@oxyhq/services";
 
 import { useGetConversations } from "../../hooks/use-get-conversations";
 
@@ -11,7 +11,7 @@ export const Contacts = ({
   receiverId: string | null;
   setReceiverId: (id: string | null) => void;
 }) => {
-  const { session } = usePeableSession();
+  const { session } = useOxySession();
 
   const {
     data: conversations,

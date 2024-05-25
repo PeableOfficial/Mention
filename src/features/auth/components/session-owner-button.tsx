@@ -1,6 +1,6 @@
 "use client";
 import { AnimatePresence } from "framer-motion";
-import { usePeableSession } from "@peable/services";
+import { useOxySession } from "@oxyhq/services";
 import { useRef, useState } from "react";
 
 import { useUser } from "@/features/profile";
@@ -15,7 +15,7 @@ import { Avatar, UserName, UserUsername } from "@/features/profile";
 import { SessionOwnerModal } from "./session-owner-modal";
 
 export const SessionOwnerButton = () => {
-  const { session } = usePeableSession();
+  const { session } = useOxySession();
   const { data: user } = useUser({ id: session?.user?.id });
   const [isModalOpen, setIsModalOpen] = useState(false);
   const buttonRef = useRef<HTMLButtonElement>(null);

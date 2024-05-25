@@ -1,5 +1,5 @@
 import { useRouter } from "next/navigation";
-import { usePeableSession } from "@peable/services";
+import { useOxySession } from "@oxyhq/services";
 
 import { EllipsisWrapper } from "@/components/elements/ellipsis-wrapper";
 import { FollowButton } from "@/components/elements/follow-button";
@@ -16,7 +16,7 @@ import {
 import styles from "./styles/person.module.scss";
 
 export const Person = ({ person }: { person: IUser }) => {
-  const { session } = usePeableSession();
+  const { session } = useOxySession();
   const router = useRouter();
 
   const isFollowing = following({

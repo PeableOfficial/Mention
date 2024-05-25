@@ -1,7 +1,7 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import { usePeableSession } from "@peable/services";
+import { useOxySession } from "@oxyhq/services";
 
 import { RegisterForm } from "@/features/auth";
 import { Connect } from "@/features/connect";
@@ -12,7 +12,7 @@ import { Trends } from "@/features/trends";
 import styles from "./styles/aside.module.scss";
 
 export const Aside = () => {
-  const { session } = usePeableSession();
+  const { session } = useOxySession();
   const pathname = usePathname();
 
   return (
