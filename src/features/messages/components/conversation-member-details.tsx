@@ -25,7 +25,7 @@ export const ConversationMemberDetails = ({
       )}
     >
       <Avatar
-        userImage={user?.profile_image_url ?? ""}
+        userImage={user?.avatar ?? ""}
         className="w-[calc(var(--tw-fs-kilo)*2)]"
       />
       <UserName name={user?.name} isVerified={user?.verified} hover={true} />

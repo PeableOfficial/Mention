@@ -59,7 +59,7 @@ export const EditProfileModal = ({
       url: user?.profile_banner_url || "",
       file: undefined,
     },
-    avatar: { url: user?.profile_image_url || "", file: undefined },
+    avatar: { url: user?.avatar || "", file: undefined },
   });
 
   const bannerInputRef = useRef<HTMLInputElement>(null);
@@ -175,8 +175,8 @@ export const EditProfileModal = ({
           src={
             profile?.avatar?.file
               ? (profile?.avatar?.url as string)
-              : user?.profile_image_url
-                ? user?.profile_image_url
+              : user?.avatar
+                ? user?.avatar
                 : `/user_placeholder.png`
           }
           alt="avatar"

@@ -29,7 +29,7 @@ export const ConversationMember = ({
       className={styles.container}
     >
       <UserModalWrapper userId={member?.id} delay={500}>
-        <Avatar userImage={member?.profile_image_url} />
+        <Avatar userImage={member?.avatar} />
       </UserModalWrapper>
 
       <div className={styles.name}>

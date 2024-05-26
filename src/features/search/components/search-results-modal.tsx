@@ -192,7 +192,7 @@ export const SearchResultsModal = ({
                     handleSearch={handleSearch}
                   >
                     <span className={styles.person}>
-                      <Avatar userImage={person?.profile_image_url} />
+                      <Avatar userImage={person?.avatar} />
                       <span className={styles.info}>
                         <EllipsisWrapper>
                           <UserName

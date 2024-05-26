@@ -60,7 +60,7 @@ export const Conversation = () => {
         user_id={conversationMember?.id}
         user_name={conversationMember?.name}
         user_username={conversationMember?.username}
-        user_image={conversationMember?.profile_image_url}
+        user_image={conversationMember?.avatar}
         isVerified={conversationMember?.verified}
         inView={inView}
       />

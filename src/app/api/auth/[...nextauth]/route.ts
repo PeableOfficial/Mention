@@ -27,7 +27,7 @@ const authOptions: AuthOptions = {
       session.user.email = "fakeEmail";
       session.user.role = "fakeRole";
       session.user.username = "fakeUsername";
-      session.user.profile_image_url = "fakeProfileImageUrl";
+      session.user.avatar = "fakeProfileImageUrl";
       return session;
     },
   },

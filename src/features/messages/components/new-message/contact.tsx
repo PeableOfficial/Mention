@@ -35,7 +35,7 @@ export const Contact = ({
       )}
       <div className={styles.user}>
         <div className={styles.avatar}>
-          <Avatar userImage={user?.profile_image_url} />
+          <Avatar userImage={user?.avatar} />
         </div>
         <div className={styles.info}>
           <p className={styles.name}>{user?.name}</p>

@@ -56,7 +56,7 @@ CREATE TABLE "User" (
     "favorites_count" INTEGER NOT NULL DEFAULT 0,
     "statuses_count" INTEGER NOT NULL DEFAULT 0,
     "profile_banner_url" TEXT,
-    "profile_image_url" TEXT,
+    "avatar" TEXT,
     "pinned_post_id" TEXT,
 
     CONSTRAINT "User_pkey" PRIMARY KEY ("id")

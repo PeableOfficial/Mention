@@ -70,13 +70,13 @@ export const ProfileInfo = ({ user }: { user: IUser; id: string }) => {
             onClick={() => {
               setInspectModal({
                 isOpen: true,
-                source: user?.profile_image_url || "",
+                source: user?.avatar || "",
                 sourceType: "avatar",
               });
             }}
           >
             <Image
-              src={user?.profile_image_url || "/user_placeholder.png"}
+              src={user?.avatar || "/user_placeholder.png"}
               alt="avatar"
               draggable={true}
               fill={true}

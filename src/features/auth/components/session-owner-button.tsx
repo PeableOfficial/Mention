@@ -35,7 +35,7 @@ export const SessionOwnerButton = () => {
           aria-expanded={isModalOpen}
           className="p-[0.75em] hover:bg-neutral-500 focus-visible:bg-neutral-500 focus-visible:outline-secondary-100 active:bg-neutral-600 xxl:flex xxl:w-full xxl:gap-3"
         >
-          <Avatar userImage={session?.user?.profile_image_url as string} />
+          <Avatar userImage={session?.user?.avatar as string} />
           <div className="hidden flex-1 flex-col xxl:flex">
             <UserName
               name={session?.user?.name}

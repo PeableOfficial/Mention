@@ -85,7 +85,7 @@ export async function PUT(request: Request) {
     location,
     url,
     profile_banner_url,
-    profile_image_url,
+    avatar,
   } = (await request.json()) as {
     user_id: string;
     username: string;
@@ -94,7 +94,7 @@ export async function PUT(request: Request) {
     location: string;
     url: string;
     profile_banner_url: string;
-    profile_image_url: string;
+    avatar: string;
   };
 
   const userSchema = z
@@ -106,7 +106,7 @@ export async function PUT(request: Request) {
       location: z.string().max(30),
       url: z.string(),
       profile_banner_url: z.string(),
-      profile_image_url: z.string(),
+      avatar: z.string(),
     })
     .strict();
 
@@ -118,7 +118,7 @@ export async function PUT(request: Request) {
     location,
     url,
     profile_banner_url,
-    profile_image_url,
+    avatar,
   });
 
   if (!zod.success) {

@@ -11,7 +11,7 @@ export const CreatePostQuote = ({ post }: { post: IPost }) => {
     <div className={styles.container}>
       <div className={styles.userDetails}>
         <span className={styles.avatar}>
-          <Avatar userImage={post?.author?.profile_image_url} />
+          <Avatar userImage={post?.author?.avatar} />
         </span>
 
         <EllipsisWrapper>

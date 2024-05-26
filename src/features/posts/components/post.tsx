@@ -69,7 +69,7 @@ export const Post = ({ post, pinned }: { post: IPost; pinned?: boolean }) => {
           <div className={styles.avatar}>
             <UserModalWrapper userId={post?.author?.id} delay={500}>
               <LinkToProfile username={post?.author?.username}>
-                <Avatar userImage={post?.author?.profile_image_url} />
+                <Avatar userImage={post?.author?.avatar} />
               </LinkToProfile>
             </UserModalWrapper>
           </div>

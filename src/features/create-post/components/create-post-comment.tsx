@@ -11,7 +11,7 @@ export const CreatePostComment = ({ post }: { post: IPost | null }) => {
   return (
     <div className={styles.container}>
       <div className={styles.avatar}>
-        <Avatar userImage={post?.author?.profile_image_url as string} />
+        <Avatar userImage={post?.author?.avatar as string} />
         <div className={styles.divider}></div>
       </div>
 

@@ -40,7 +40,7 @@ export const PersonDetails = ({ IUser: author }: { IUser: IUser }) => {
     >
       <div className={styles.avatar}>
         <UserModalWrapper userId={author?.id} delay={500}>
-          <Avatar userImage={author?.profile_image_url} />
+          <Avatar userImage={author?.avatar} />
         </UserModalWrapper>
       </div>
 

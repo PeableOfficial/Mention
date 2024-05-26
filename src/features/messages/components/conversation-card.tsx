@@ -53,7 +53,7 @@ export const ConversationCard = ({
     >
       <div className="mt-2">
         <LinkToProfile username={user?.username} tabIndex={-1}>
-          <Avatar userImage={user?.profile_image_url} />
+          <Avatar userImage={user?.avatar} />
         </LinkToProfile>
       </div>
       <div className="flex-1">

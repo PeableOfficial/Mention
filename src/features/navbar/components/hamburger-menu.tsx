@@ -43,7 +43,7 @@ export const HamburgerMenu = () => {
             username={user?.username}
             tabIndex={-1}
           >
-            <Avatar userImage={session?.user?.profile_image_url as string} />
+            <Avatar userImage={session?.user?.avatar as string} />
           </LinkToProfile>
 
           <Link

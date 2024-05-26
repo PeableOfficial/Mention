@@ -27,7 +27,7 @@ export const CreatePostWrapper = ({
     <div className={styles.container}>
       {isPlaceholder ? (
         <CreatePostPlaceholder
-          image={session?.user?.profile_image_url as string}
+          image={session?.user?.avatar as string}
           setIsPlaceholder={setIsPlaceholder}
         />
       ) : (

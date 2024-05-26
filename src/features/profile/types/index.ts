@@ -11,7 +11,7 @@ export interface IUser extends Profile {
   likes: ILike[];
   bookmarks: IBookmark[];
   pinned_post: IPost;
-  profile_image_url: string | undefined;
+  avatar: string | undefined;
   name: string;
   username: string;
   verified: boolean;

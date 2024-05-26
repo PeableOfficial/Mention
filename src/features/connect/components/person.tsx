@@ -37,7 +37,7 @@ export const Person = ({ person }: { person: IUser }) => {
       >
         <div className={styles.avatar}>
           <UserModalWrapper userId={person?.id} delay={500}>
-            <Avatar userImage={person?.profile_image_url} />
+            <Avatar userImage={person?.avatar} />
           </UserModalWrapper>
         </div>
 

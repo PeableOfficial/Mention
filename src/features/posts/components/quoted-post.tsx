@@ -36,7 +36,7 @@ export const QuotedPost = ({ post }: { post: IPost }) => {
       <div className={styles.userDetails}>
         <UserModalWrapper userId={post?.author?.id} delay={500}>
           <div className={styles.avatar}>
-            <Avatar userImage={post?.author?.profile_image_url} />
+            <Avatar userImage={post?.author?.avatar} />
           </div>
         </UserModalWrapper>
 
