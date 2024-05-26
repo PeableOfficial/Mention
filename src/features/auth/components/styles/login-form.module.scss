@@ -54,6 +54,7 @@
     font-size: var(--fs-kilo);
     font-weight: var(--fw-500);
     margin-bottom: 1em;
+    text-align: center;
   }
 
   .authButtons {
@@ -74,69 +75,6 @@
     }
   }
 
-  form {
-    .inputContainer {
-      margin-bottom: 1.4em;
-    }
-
-    .submit {
-      width: 100%;
-      font-size: var(--fs-milli);
-      font-weight: var(--fw-700);
-      padding: 0.6em;
-      margin-bottom: 1.4em;
-      border-radius: 100vmax;
-      display: grid;
-      place-content: center;
-      cursor: pointer;
-      background-color: var(--clr-secondary);
-      color: var(--clr-background);
-      transition: background 0.2s ease-in-out;
-
-      &:hover {
-        background-color: var(--clr-secondary-hover);
-      }
-
-      &:active {
-        background-color: var(--clr-secondary-active);
-      }
-
-      &:focus-visible {
-        outline: 2px solid var(--clr-secondary);
-        background-color: var(--clr-secondary-hover);
-      }
-    }
-  }
-
-  .forgotPassword {
-    width: 100%;
-    font-size: var(--fs-milli);
-    font-weight: var(--fw-700);
-    padding: 0.6em;
-    margin-bottom: 1.4em;
-    border-radius: 100vmax;
-    display: grid;
-    place-content: center;
-    cursor: pointer;
-    background-color: var(--clr-background);
-    color: var(--clr-secondary);
-    border: 1px solid var(--clr-auth-border);
-    transition: background 0.2s ease-in-out;
-
-    &:hover {
-      background-color: var(--clr-nav-hover);
-    }
-
-    &:active {
-      background-color: var(--clr-nav-active);
-    }
-
-    &:focus-visible {
-      outline: 2px solid var(--clr-secondary);
-      background-color: var(--clr-nav-hover);
-    }
-  }
-
   @include mq("medium") {
     width: 600px;
     height: fit-content;
@@ -147,6 +85,5 @@
     right: 0;
     bottom: 0;
     margin: auto;
-    padding-bottom: 8rem;
   }
 }
