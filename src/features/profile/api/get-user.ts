@@ -3,8 +3,7 @@ import axios from "axios";
 export const getUser = async (id: string | undefined) => {
   try {
     const response = await axios.get(`/api/users/${id}`);
-    const user = response.data;
-    return user;
+    return response.data;
   } catch (error: any) {
     if (error.response) {
       // The request was made and the server responded with a status code

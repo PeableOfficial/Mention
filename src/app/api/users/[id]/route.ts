@@ -30,17 +30,15 @@ export async function GET(
 
   try {
     const response = await fetch(
-      process.env.NEXT_PUBLIC_OXY_SERVICES_URL + `/api/users/${id}`,
+      `${process.env.NEXT_PUBLIC_OXY_SERVICES_URL}/api/users/${id}`,
     );
-    const data = await response.text();
+    const parsedData = await response.json();
+    const { id: fetchedId, name, username, email } = parsedData as User;
 
-    const parsedData: User = JSON.parse(data) as User;
-    const { id: fetchedId, name, username, email } = parsedData;
     const user = await prisma.profile.findUnique({
       where: {
         id: id,
       },
-
       select: {
         profile_banner_url: true,
         color: true,
@@ -51,7 +49,6 @@ export async function GET(
         verified: true,
         followers: true,
         following: true,
-
         _count: {
           select: {
             followers: true,

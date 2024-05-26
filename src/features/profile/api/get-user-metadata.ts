@@ -4,13 +4,6 @@ import { prisma } from "@/lib/prisma";
 
 import axios from "axios";
 
-interface UserResponse {
-  id: string;
-  name: string;
-  username: string;
-  email: string;
-}
-
 export const getUserMetadata = async ({
   user_id,
   type,
@@ -22,12 +15,7 @@ export const getUserMetadata = async ({
     const response = await axios.get(
       process.env.NEXT_PUBLIC_OXY_SERVICES_URL + `/api/users/${user_id}`,
     );
-    const {
-      id: fetchedId,
-      name,
-      username,
-      email,
-    } = response.data as UserResponse;
+    const { id, name, username, email } = response.data;
     const user = await prisma.profile.findUnique({
       where: {
         id: user_id,
@@ -71,7 +59,7 @@ export const getUserMetadata = async ({
     });
 
     return {
-      id: fetchedId,
+      id,
       name,
       username,
       email,
