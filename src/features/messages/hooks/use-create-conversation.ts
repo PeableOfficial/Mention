@@ -21,7 +21,7 @@ export const useCreateConversation = () => {
     },
 
     onSuccess: (data) => {
-      router.push(`/messages/${data?.id}`);
+      router.push(`/chat/${data?.id}`);
     },
 
     onError: (error) => {

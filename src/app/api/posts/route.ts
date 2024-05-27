@@ -21,6 +21,7 @@ export async function GET(request: Request) {
     username: string;
     email: string;
     role: string;
+    avatar: string;
   }
 
   try {

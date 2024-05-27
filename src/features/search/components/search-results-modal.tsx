@@ -188,7 +188,7 @@ export const SearchResultsModal = ({
                     selected={
                       currentIndex === index + 1 + (data?.hashtags?.length ?? 0)
                     }
-                    href={`/${person?.username}`}
+                    href={`/@${person?.username}`}
                     handleSearch={handleSearch}
                   >
                     <span className={styles.person}>

@@ -60,7 +60,7 @@ export const ConversationHeader = ({
 
       <Tooltip text="Details">
         <Button
-          onClick={() => router.push(`/messages/${id}/info`)}
+          onClick={() => router.push(`/chat/${id}/info`)}
           className="hover:bg-neutral-500 focus-visible:bg-neutral-500 focus-visible:outline-secondary-100 active:bg-neutral-600"
           aria-label="Conversation info"
         >

@@ -16,19 +16,27 @@ export const updateProfile = async (profile: IProfile, userId: string) => {
       avatarUrl = await postImage(profile?.avatar?.file, "avatars");
     }
 
+    const { data: dataOxy } = await axios.put(
+      process.env.NEXT_PUBLIC_OXY_SERVICES_URL + `/api/users/${userId}`,
+      {
+        user_id: userId,
+        name: profile?.name,
+        username: profile?.username,
+        description: profile?.bio,
+        color: profile?.color,
+        avatar: avatarUrl ? avatarUrl : profile?.avatar?.url,
+      },
+    );
+
     const { data } = await axios.put(`/api/users/${userId}`, {
       user_id: userId,
-      name: profile?.name,
-      username: profile?.username,
       description: profile?.bio,
       location: profile?.location,
-      color: profile?.color,
       url: profile?.website,
       profile_banner_url: bannerUrl ? bannerUrl : profile?.banner?.url,
-      avatar: avatarUrl ? avatarUrl : profile?.avatar?.url,
     });
 
-    return data;
+    return { ...dataOxy, ...data };
   } catch (error: any) {
     return error.Message;
   }

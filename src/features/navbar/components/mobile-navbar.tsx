@@ -50,13 +50,13 @@ export const MobileNavbar = () => {
         />
       </Tooltip>
 
-      <Tooltip text="Messages" maxWidth={1300}>
+      <Tooltip text="Chat" maxWidth={1300}>
         <NavItem
-          href={`/messages`}
-          icon={pathname === `/messages` ? <EnvelopeActive /> : <Envelope />}
-          text="Messages"
-          aria-label="Direct Messages"
-          isActive={pathname === `/messages`}
+          href={`/chat`}
+          icon={pathname === `/chat` ? <EnvelopeActive /> : <Envelope />}
+          text="Chat"
+          aria-label="Direct Chat"
+          isActive={pathname === `/chat`}
         />
       </Tooltip>
     </nav>

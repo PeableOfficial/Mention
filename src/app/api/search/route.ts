@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
+import axios from "axios";
 
 import { prisma } from "@/lib/prisma";
 
@@ -15,6 +16,11 @@ export async function GET(request: Request) {
   }
 
   try {
+    const { data: people } = await axios.get(
+      process.env.NEXT_PUBLIC_OXY_SERVICES_URL +
+        `/api/search/people?query=${query}`,
+    );
+
     const hashtags = await prisma.hashtag.findMany({
       where: {
         text: {
@@ -24,7 +30,7 @@ export async function GET(request: Request) {
       },
     });
 
-    return NextResponse.json({ hashtags }, { status: 200 });
+    return NextResponse.json({ hashtags, people }, { status: 200 });
   } catch (error: any) {
     return NextResponse.json({ error: error.message }, { status: 500 });
   }

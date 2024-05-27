@@ -24,7 +24,7 @@ export const useDeleteConversation = () => {
     },
 
     onSettled: () => {
-      router.push("/messages");
+      router.push("/chat");
     },
   });
 };

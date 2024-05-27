@@ -17,6 +17,8 @@ import { MessageInput } from "./message-input";
 
 import styles from "./styles/conversation.module.scss";
 
+import { useUser } from "@/features/profile";
+
 export const Conversation = () => {
   const { session } = useOxySession();
   const { ref, inView } = useInView();
@@ -25,9 +27,13 @@ export const Conversation = () => {
   const id = pathname?.split("/")[2];
 
   const { data: conversation, isLoading, isError } = useGetConversation(id);
-  const conversationMember = conversation?.users.filter(
+  const conversationMemberID = conversation?.users.filter(
     (user) => user?.id !== session?.user?.id,
-  )[0];
+  )[0].id;
+
+  const { data: conversationMember } = useUser({
+    id: conversationMemberID as string,
+  });
 
   useEffect(() => {
     socket.auth = { conversation_id: id };

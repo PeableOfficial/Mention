@@ -44,7 +44,7 @@ export const ExploreHeader = () => {
           <Button
             role="link"
             onClick={() => {
-              router.push(`/settings/messages`);
+              router.push(`/settings`);
             }}
             aria-label="Settings"
             className="hover:bg-neutral-500/80 focus-visible:bg-neutral-500 focus-visible:outline-secondary-100  active:bg-neutral-600"

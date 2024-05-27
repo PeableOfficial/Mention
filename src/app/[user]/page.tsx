@@ -1,13 +1,13 @@
 import { Metadata } from "next";
-import { profileParamsProcess } from "@/features/profile/utils/profile-params-process";
+import { profileParamsProcess } from "../../features/profile/utils/profile-params-process";
 
-import { ProfileHeader } from "@/features/header";
+import { ProfileHeader } from "../../features/header";
 import {
   getUsernameToId,
   Profile,
   ProfilePosts,
   getUserMetadata,
-} from "@/features/profile";
+} from "../../features/profile";
 
 import NotFound from "../not-found";
 

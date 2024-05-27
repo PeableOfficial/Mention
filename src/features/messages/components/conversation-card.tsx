@@ -45,9 +45,9 @@ export const ConversationCard = ({
     <div
       role="button"
       tabIndex={0}
-      onClick={() => router?.push(`/messages/${conversation?.id}`)}
+      onClick={() => router?.push(`/chat/${conversation?.id}`)}
       onKeyDown={(e) => {
-        if (e.key === "Enter") router?.push(`/messages/${conversation?.id}`);
+        if (e.key === "Enter") router?.push(`/chat/${conversation?.id}`);
       }}
       className="group relative flex cursor-pointer gap-2 p-2 outline-offset-[-2px] transition-colors duration-200 ease-in-out hover:bg-neutral-300 focus-visible:bg-neutral-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary-100 active:bg-neutral-400 "
     >

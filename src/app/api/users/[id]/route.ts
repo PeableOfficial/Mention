@@ -33,7 +33,7 @@ export async function GET(
       `${process.env.NEXT_PUBLIC_OXY_SERVICES_URL}/api/users/${id}`,
     );
     const parsedData = await response.json();
-    const { id: fetchedId, name, username, email } = parsedData as User;
+    const { id: fetchedId, name, username, email, avatar } = parsedData as User;
 
     const user = await prisma.profile.findUnique({
       where: {
@@ -64,6 +64,7 @@ export async function GET(
         name,
         username,
         email,
+        avatar,
         ...user,
       },
       { status: 200 },
