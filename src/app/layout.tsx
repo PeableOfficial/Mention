@@ -14,7 +14,7 @@ import { AuthModalTrigger } from "@/features/auth";
 import { MobilePostButton } from "@/features/create-post";
 import { MobileNavbar } from "@/features/navbar";
 import { Sidebar } from "@/features/sidebar";
-import { NextAuthProvider } from "@/utils/next-auth-provider";
+import { AuthProvider } from "@/utils/auth-provider";
 import { ReactQueryProvider } from "@/utils/react-query-provider";
 import { Command } from "./command";
 
@@ -61,7 +61,7 @@ export default async function RootLayout({
             Skip to trending
           </a>
 
-          <NextAuthProvider>
+          <AuthProvider>
             <ReactQueryProvider>
               <div className="layout">
                 <MobileNavbar />
@@ -86,7 +86,7 @@ export default async function RootLayout({
                 <Hamburger />
               </div>
             </ReactQueryProvider>
-          </NextAuthProvider>
+          </AuthProvider>
           <Analytics />
           <SpeedInsights />
           <AxiomWebVitals />

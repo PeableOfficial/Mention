@@ -86,24 +86,6 @@
       }
     }
 
-    .signout {
-      background-color: var(--clr-secondary);
-      color: var(--clr-background);
-
-      &:hover {
-        background-color: var(--clr-signout-logout-hover);
-      }
-
-      &:active {
-        background-color: var(--clr-signout-logout-active);
-      }
-
-      &:focus-visible {
-        outline: 2px solid var(--clr-secondary);
-        background-color: var(--clr-signout-logout-hover);
-      }
-    }
-
     .cancel {
       color: var(--clr-secondary);
       border: 1px solid var(--clr-tertiary);
