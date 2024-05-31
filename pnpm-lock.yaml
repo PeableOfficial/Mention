@@ -21,8 +21,8 @@ dependencies:
     specifier: ^1.0.7
     version: 1.0.7(@prisma/client@5.10.2)(next-auth@4.24.7)
   '@oxyhq/services':
-    specifier: 0.0.46
-    version: 0.0.46(@types/react@18.2.64)
+    specifier: 0.0.48
+    version: 0.0.48(@types/react@18.2.64)
   '@paralleldrive/cuid2':
     specifier: ^2.2.2
     version: 2.2.2
@@ -4176,8 +4176,8 @@ packages:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.15.0
 
-  /@oxyhq/services@0.0.46(@types/react@18.2.64):
-    resolution: {integrity: sha512-2aKzt20/ByycUHDgqzWXIMDsVrbloNaBTk/1rqsfNNNWVGOcMIRC1PlzNdNKaD/CIXraM/B4HGcBszS0R9d/tg==}
+  /@oxyhq/services@0.0.48(@types/react@18.2.64):
+    resolution: {integrity: sha512-ymHEylJEhMU0vJy27g5Z3YqlPsgUxktq9gJD9R02kNCU2Za78zFneMmnbf5adzJmZZZ3HMUqMVwDrDQxzkLdnw==}
     dependencies:
       '@tanstack/react-query': 5.40.0(react@18.3.1)
       axios: 1.6.8
