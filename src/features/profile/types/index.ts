@@ -15,6 +15,7 @@ export interface IUser extends Profile {
   name: string;
   username: string;
   description: string | undefined;
+  color: string | undefined;
   email: string | undefined;
   verified: boolean;
   _count?: {
