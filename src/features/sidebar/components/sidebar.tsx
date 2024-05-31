@@ -1,7 +1,7 @@
 "use client";
 import { useOxySession } from "@oxyhq/services";
 
-import { SessionOwnerButton } from "@/features/auth";
+import { SessionOwnerButton } from "@oxyhq/services";
 import { PostButton } from "@/features/create-post";
 import { Navbar } from "@/features/navbar";
 

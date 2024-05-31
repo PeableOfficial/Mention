@@ -118,13 +118,13 @@ model Message {
   id              String       @id @default(cuid())
   text            String?
   image           String?
-  image_width     Int?
-  image_height    Int?
   created_at      DateTime     @default(now())
   sender_id       String
   receiver_id     String
   conversation_id String
   status          String       @default("sent")
+  image_height    Int?
+  image_width     Int?
   conversation    Conversation @relation(fields: [conversation_id], references: [id], onDelete: Cascade)
   receiver        Profile      @relation("receiver", fields: [receiver_id], references: [id], onDelete: Cascade)
   sender          Profile      @relation("sender", fields: [sender_id], references: [id], onDelete: Cascade)

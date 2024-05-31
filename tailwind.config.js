@@ -1,6 +1,9 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./src/**/*.{js,ts,jsx,tsx,mdx}"],
+  content: [
+    "./src/**/*.{js,ts,jsx,tsx,mdx}",
+    "./node_modules/@oxyhq/**/*.{html,js, jsx}",
+  ],
   theme: {
     screens: {
       sm: "500px",
@@ -13,6 +16,11 @@ module.exports = {
     extend: {
       colors: {
         transparent: "transparent",
+        textC: "#444746",
+        textC2: "#4285F4",
+        bgc: "#F7F9FC",
+        darkC2: "#EDF2FC",
+        darkC: "#E1E5EA",
 
         primary: {
           100: "rgb(var(--tw-clr-primary-100) / <alpha-value>)",
