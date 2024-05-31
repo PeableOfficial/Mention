@@ -41,7 +41,6 @@ export async function GET(request: Request) {
         id: true,
         following: true,
         followers: true,
-        color: true,
       },
       take: limit ? parseInt(limit) : undefined,
     });

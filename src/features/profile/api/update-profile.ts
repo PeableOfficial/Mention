@@ -22,15 +22,14 @@ export const updateProfile = async (profile: IProfile, userId: string) => {
         user_id: userId,
         name: profile?.name,
         username: profile?.username,
+        avatar: avatarUrl ? avatarUrl : profile?.avatar?.url,
         description: profile?.bio,
         color: profile?.color,
-        avatar: avatarUrl ? avatarUrl : profile?.avatar?.url,
       },
     );
 
     const { data } = await axios.put(`/api/users/${userId}`, {
       user_id: userId,
-      description: profile?.bio,
       location: profile?.location,
       url: profile?.website,
       profile_banner_url: bannerUrl ? bannerUrl : profile?.banner?.url,

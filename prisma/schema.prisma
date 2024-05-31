@@ -11,14 +11,8 @@ model Profile {
   id                 String         @id @default(cuid())
   location           String?
   url                String?
-  description        String?
-  color              String?        @default("blue")
   protected          Boolean        @default(false)
   verified           Boolean        @default(false)
-  email              String?        @unique
-  emailVerified      DateTime?
-  image              String?
-  password           String?
   created_at         DateTime       @default(now())
   followers_count    Int            @default(0)
   friends_count      Int            @default(0)

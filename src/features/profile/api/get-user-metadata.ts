@@ -15,7 +15,8 @@ export const getUserMetadata = async ({
     const response = await axios.get(
       process.env.NEXT_PUBLIC_OXY_SERVICES_URL + `/api/users/${user_id}`,
     );
-    const { id, name, username, email, avatar } = response.data;
+    const { id, name, username, email, avatar, description, color } =
+      response.data;
     const user = await prisma.profile.findUnique({
       where: {
         id: user_id,
@@ -64,6 +65,8 @@ export const getUserMetadata = async ({
       username,
       email,
       avatar,
+      description,
+      color,
       ...user,
     };
   } catch (error) {
