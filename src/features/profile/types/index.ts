@@ -12,6 +12,9 @@ export interface IUser extends Profile {
   bookmarks: IBookmark[];
   pinned_post: IPost;
   avatar: string | undefined;
+  name: string;
+  username: string;
+  description: string | undefined;
   verified: boolean;
   _count?: {
     followers?: number;
@@ -28,7 +31,6 @@ export interface IProfile {
   name: string;
   username: string;
   bio: string | undefined;
-  description: string | undefined;
   location: string | undefined;
   website: string | undefined;
   color: string | undefined;
